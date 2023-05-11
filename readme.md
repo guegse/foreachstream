@@ -70,7 +70,7 @@ return ForeachStreamCollectToList.stream_filter_collect_toList(persons, person -
 * When adding the dependency to your build the plugin will automatically run for the project depending on it. There is no way to disable it.
 * The plugin produces verbose output and there is no way to disable that.
 * There is little to no test coverage. Consider this an early alpha. Use at your own risk.
-* Only a limited number of stream opertion *depth* is supported. 
+* Only a limited stream opertion *depth* is supported. 
 * Only a limited number of stream operations are supported. See the section "Stream operations support matrix" for details.
 
 ## Stream operations support matrix
