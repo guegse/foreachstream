@@ -9,9 +9,9 @@ Add this dependency:
 ```XML
 <dependencies>
     <dependency>
-        <groupId>${project.groupId}</groupId>
+        <groupId>io.github.guegse.foreachstream</groupId>
         <artifactId>plugin</artifactId>
-        <version>${project.version}</version>
+        <version>0.1-SNAPSHOT</version>
     </dependency>
 </dependencies>
 ```
