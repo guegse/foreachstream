@@ -1,7 +1,7 @@
 # ForeachStream
 This is a Javac compiler plugin and a companion library which turns
 Java streams calls into calls to library functions which use foreach loops
-internally. This imposes a speedup of up to 500% compared to stream operations.
+internally. This yields a speedup of up to 500% compared to stream operations.
 
 ## Usage
 ### Maven
