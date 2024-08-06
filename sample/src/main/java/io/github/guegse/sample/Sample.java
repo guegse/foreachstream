@@ -2,6 +2,7 @@ package io.github.guegse.sample;
 
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Sample {
