@@ -2,17 +2,19 @@ package io.github.guegse.foreachstream.plugin;
 
 import com.sun.source.tree.*;
 import com.sun.source.util.Trees;
+import com.sun.tools.javac.code.TypeTag;
 import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.TreeMaker;
 import com.sun.tools.javac.util.Names;
 
 import javax.lang.model.element.Name;
 import javax.tools.Diagnostic;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
-
     private static final String[] TERMINAL_OPERATIONS = new String[] {
             "toSet",
             "toList",
@@ -58,19 +60,29 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
             "takeWhile",
             "dropWhile",
     };
+
+    private final Trees trees;
+    private final CompilationUnitTree compilationUnit;
     private final TreeMaker treeMaker;
     private final Names names;
-    private final Trees trees;
     private final Map<String, String> availableMethodsToTheirClasses;
+    private final Substitution subs;
 
-    private final CompilationUnitTree compilationUnit;
-
-    public TreeScanner(TreeMaker treeMaker, Names names, Trees trees, Map<String, String> availableMethodsToTheirClasses, CompilationUnitTree compilationUnit) {
+    public TreeScanner(TreeMaker treeMaker, Names names, Trees trees, Map<String, String> availableMethodsToTheirClasses, CompilationUnitTree compilationUnit, Substitution subs) {
+        this.trees = trees;
+        this.compilationUnit = compilationUnit;
         this.treeMaker = treeMaker;
         this.names = names;
-        this.trees = trees;
         this.availableMethodsToTheirClasses = availableMethodsToTheirClasses;
-        this.compilationUnit = compilationUnit;
+        this.subs = subs;
+    }
+
+    @Override
+    public Void visitClass(ClassTree node, Void o) {
+        // Add anonymous static block to class
+        JCTree.JCClassDecl classDecl = (JCTree.JCClassDecl) node;
+        classDecl.defs = classDecl.defs.prepend(subs.getStaticBlock());
+        return super.visitClass(node, o);
     }
 
     @Override
@@ -82,7 +94,7 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                 // Now take the expression of the MemberSelectTree and scan it until we find a stream() method invocation
                 ExpressionTree expression = memberSelectTree.getExpression();
                 boolean canReplace = true;
-                List<MethodInvocationTree> invocations = new ArrayList<>(5);
+                java.util.List<MethodInvocationTree> invocations = new ArrayList<>(5);
                 for (; ; ) {
                     if (expression.getKind() != Tree.Kind.METHOD_INVOCATION) {
                         canReplace = false;
@@ -95,7 +107,7 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                         Name name = memberSelectTree.getIdentifier();
                         if (isIntermediateMethod(name)) {
                             invocations.add(methodInvocationTree);
-                        } else if (name.contentEquals("stream")) { // TODO: Detect other stream sources
+                        } else if (name.contentEquals("stream")) {
                             invocations.add(methodInvocationTree);
                             break;
                         } else {
@@ -142,7 +154,8 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
 
                     JCTree.JCFieldAccess methodMemberSelect = createForeachStreamFieldAccess(methodToCall, containingClassName);
                     methodMemberSelect.pos = streamCall.pos;
-                    List<JCTree.JCExpression> arguments = new ArrayList<>(invocations.size() + 1);
+
+                    java.util.List<JCTree.JCExpression> arguments = new ArrayList<>(invocations.size() + 1);
                     if (terminalArgument != null) {
                         arguments.add((JCTree.JCExpression) terminalArgument);
                     }
@@ -159,11 +172,23 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     }
                     arguments.add((JCTree.JCExpression) ((MemberSelectTree) streamCall.getMethodSelect()).getExpression());
                     Collections.reverse(arguments);
-                    com.sun.tools.javac.util.List<JCTree.JCExpression> args = com.sun.tools.javac.util.List.from(arguments);
+
+                    // create a list with empty arguments
+                    com.sun.tools.javac.util.List<JCTree.JCExpression> args = com.sun.tools.javac.util.List.nil();
+                    for(int i = 0; i < arguments.size(); i++)  {
+                        args = args.append(treeMaker.Literal(TypeTag.BOT, null));
+                    }
+
                     JCTree.JCMethodInvocation original = (JCTree.JCMethodInvocation) node;
                     debugPrint(original, "replacing with a call to: " + methodToCall);
-                    original.args = args;
-                    original.meth = methodMemberSelect;
+                    // create the new method invocation
+                    JCTree.JCMethodInvocation sub = treeMaker.Apply(
+                            com.sun.tools.javac.util.List.nil(),
+                            methodMemberSelect,
+                            args
+                    );
+                    subs.add(original, sub, streamCall, arguments);
+                    debugPrint(node, "replacing with a call to: " + methodToCall);
                 }
             }
         }
@@ -242,7 +267,7 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
     }
 
     private void debugPrint(Tree tree, String messagePrefix) {
-        trees.printMessage(Diagnostic.Kind.NOTE, messagePrefix + "  " + tree.getKind() + " " + tree, tree, compilationUnit);
+        //trees.printMessage(Diagnostic.Kind.NOTE, messagePrefix + "  " + tree.getKind() + " " + tree, tree, compilationUnit);
     }
 
     private void debugPrintWithTree(Tree tree, String messagePrefix) {
