@@ -11,7 +11,7 @@ Add this dependency:
     <dependency>
         <groupId>io.github.guegse.foreachstream</groupId>
         <artifactId>plugin</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>1.0-SNAPSHOT</version>
     </dependency>
 </dependencies>
 ```
@@ -31,9 +31,11 @@ Add this configuration to your maven compile plugin:
                     <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
                     <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
                     <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
                     <arg>--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
                     <arg>--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
                     <arg>--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+                    <arg>--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
                 </compilerArgs>
                 <fork>true</fork>
             </configuration>
@@ -56,7 +58,7 @@ public static <T0> List<T0> stream_filter_collect_toList(Collection<T0> input, P
     return result;
 }
 ```
-The compiler plugin scans for patterns which *look* like streams invocations, for example:
+The compiler plugin scans for patterns of streams invocations from the type "java.util.stream.Stream" , for example:
 ```Java
 return persons.stream().filter(person -> person.name().equals("John")).collect(Collectors.toList());
 ```
@@ -66,7 +68,6 @@ return ForeachStreamCollectToList.stream_filter_collect_toList(persons, person -
 ```
 
 ## Limitations
-* The compiler plugin does no actual type checks. If something *looks* like a stream operation but in fact is none it will still be replaced with the corresponding ForeachStream library call. There is currently no way to circumvent this.
 * When adding the dependency to your build the plugin will automatically run for the project depending on it. There is no way to disable it.
 * The plugin produces verbose output and there is no way to disable that.
 * There is little to no test coverage. Consider this an early alpha. Use at your own risk.
