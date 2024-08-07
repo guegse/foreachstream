@@ -22,7 +22,7 @@ public class Generator {
             new MapToDoubleOp(),
             new MapToObjOp(),
             new Boxed(),
-            new FlatMapOp(),
+            //new FlatMapOp(),
     };
 
     private static final TerminalOperation[] TERMINAL_OPS = {
@@ -36,7 +36,8 @@ public class Generator {
             new FindFirst(),
             new FindAny(),
             new Min(),
-            new Max()
+            new Max(),
+            new Sum(),
     };
 
     public static void main(String[] args) throws FileNotFoundException {

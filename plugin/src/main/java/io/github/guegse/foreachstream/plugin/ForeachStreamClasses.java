@@ -15,5 +15,6 @@ public class ForeachStreamClasses {
 			ForeachStreamFindAny.class,
 			ForeachStreamMin.class,
 			ForeachStreamMax.class,
+			ForeachStreamSum.class,
 		};
 }
