@@ -180,7 +180,6 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     }
 
                     JCTree.JCMethodInvocation original = (JCTree.JCMethodInvocation) node;
-                    debugPrint(original, "replacing with a call to: " + methodToCall);
                     // create the new method invocation
                     JCTree.JCMethodInvocation sub = treeMaker.Apply(
                             com.sun.tools.javac.util.List.nil(),
@@ -188,7 +187,7 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                             args
                     );
                     subs.add(original, sub, streamCall, arguments);
-                    debugPrint(node, "replacing with a call to: " + methodToCall);
+                    debugPrint(node, "added call to static block: " + methodToCall);
                 }
             }
         }
@@ -267,7 +266,7 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
     }
 
     private void debugPrint(Tree tree, String messagePrefix) {
-        //trees.printMessage(Diagnostic.Kind.NOTE, messagePrefix + "  " + tree.getKind() + " " + tree, tree, compilationUnit);
+        trees.printMessage(Diagnostic.Kind.NOTE, messagePrefix + "  " + tree.getKind() + " " + tree, tree, compilationUnit);
     }
 
     private void debugPrintWithTree(Tree tree, String messagePrefix) {

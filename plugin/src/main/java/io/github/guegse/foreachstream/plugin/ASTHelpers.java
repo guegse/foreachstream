@@ -42,11 +42,6 @@ public class ASTHelpers {
         throw new IllegalArgumentException("Expected a JCFieldAccess or JCIdent");
     }
 
-    /**
-     * Gets the symbol for a tree. Returns null if this tree does not have a symbol because it is of
-     * the wrong type, if {@code tree} is null, or if the symbol cannot be found due to a compilation
-     * error.
-     */
     public static Symbol getSymbol(Tree tree) {
         if (tree instanceof AnnotationTree) {
             return getSymbol(((AnnotationTree) tree).getAnnotationType());

@@ -9,6 +9,8 @@ import javax.tools.Diagnostic;
 import java.util.ArrayList;
 import java.util.List;
 
+import static io.github.guegse.foreachstream.plugin.ASTHelpers.getReturnType;
+
 public class Substitution {
     private final JCTree.JCBlock staticBlock;
     private final List<Entry> entries;
@@ -49,12 +51,13 @@ public class Substitution {
 
     public void substitute() {
         for(var entry : entries) {
-            trees.printMessage(Diagnostic.Kind.NOTE, entry.streamCall.type.toString(), compilationUnit, compilationUnit);
-            if(!entry.streamCall.type.toString().startsWith("java.util.stream.Stream"))
+            if(!getReturnType(entry.streamCall).toString().startsWith("java.util.stream.Stream")) {
+                trees.printMessage(Diagnostic.Kind.NOTE, "not replaced: " + entry.original.toString(), compilationUnit, compilationUnit);
                 continue;
+            }
+            trees.printMessage(Diagnostic.Kind.NOTE, "replacing " + entry.original.getMethodSelect() + " with " + entry.sub.getMethodSelect(), compilationUnit, compilationUnit);
             entry.original.args = com.sun.tools.javac.util.List.from(entry.arguments);
             entry.original.meth = entry.sub.meth;
-            trees.printMessage(Diagnostic.Kind.NOTE, entry.original.toString(), compilationUnit, compilationUnit);
         }
         staticBlock.stats = com.sun.tools.javac.util.List.nil();
     }
