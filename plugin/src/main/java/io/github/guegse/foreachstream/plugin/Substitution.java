@@ -1,11 +1,8 @@
 package io.github.guegse.foreachstream.plugin;
 
-import com.sun.source.tree.*;
-import com.sun.source.util.Trees;
 import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.TreeMaker;
 
-import javax.tools.Diagnostic;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +12,7 @@ public class Substitution {
     private final JCTree.JCBlock staticBlock;
     private final List<Entry> entries;
     private final TreeMaker treeMaker;
-    private final Trees trees;
-    private final CompilationUnitTree compilationUnit;
+    private final PrintOutput printOutput;
 
     private static class Entry {
         public JCTree.JCMethodInvocation original;
@@ -32,12 +28,11 @@ public class Substitution {
         }
     }
 
-    public Substitution(TreeMaker treeMaker, Trees trees, CompilationUnitTree compilationUnit) {
+    public Substitution(TreeMaker treeMaker, PrintOutput printOutput) {
         entries = new ArrayList<>();
         this.treeMaker = treeMaker;
         staticBlock = treeMaker.Block(0, com.sun.tools.javac.util.List.nil());
-        this.trees = trees;
-        this.compilationUnit = compilationUnit;
+        this.printOutput = printOutput;
     }
 
     public JCTree.JCBlock getStaticBlock() {
@@ -52,10 +47,10 @@ public class Substitution {
     public void substitute() {
         for(var entry : entries) {
             if(!getReturnType(entry.streamCall).toString().startsWith("java.util.stream.Stream")) {
-                trees.printMessage(Diagnostic.Kind.NOTE, "not replaced: " + entry.original.toString(), compilationUnit, compilationUnit);
+                printOutput.debugPrint(entry.original, "not replaced: ");
                 continue;
             }
-            trees.printMessage(Diagnostic.Kind.NOTE, "replacing " + entry.original.getMethodSelect() + " with " + entry.sub.getMethodSelect(), compilationUnit, compilationUnit);
+            printOutput.debugPrint(entry.original, "replacing with: " + entry.sub.getMethodSelect());
             entry.original.args = com.sun.tools.javac.util.List.from(entry.arguments);
             entry.original.meth = entry.sub.meth;
         }

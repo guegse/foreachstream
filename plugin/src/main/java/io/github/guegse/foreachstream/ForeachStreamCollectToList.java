@@ -33,16 +33,6 @@ public class ForeachStreamCollectToList {
 		return result;
 	}
 
-	public static <T0, T1> List<T1> stream_flatMap_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
-		ArrayList<T1> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				result.add(t1);
-			}
-		}
-		return result;
-	}
-
 	public static <T0, T1, T2> List<T2> stream_map_map_collect_toList(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1) {
 		ArrayList<T2> result = new ArrayList<>(input.size());
 		for (T0 t0 : input) {
@@ -61,17 +51,6 @@ public class ForeachStreamCollectToList {
 				continue;
 			}
 			result.add(t1);
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2> List<T2> stream_map_flatMap_collect_toList(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1) {
-		ArrayList<T2> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			for (T2 t2 : arg1.apply(t1)) {
-				result.add(t2);
-			}
 		}
 		return result;
 	}
@@ -98,19 +77,6 @@ public class ForeachStreamCollectToList {
 				continue;
 			}
 			result.add(t0);
-		}
-		return result;
-	}
-
-	public static <T0, T1> List<T1> stream_filter_flatMap_collect_toList(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
-		ArrayList<T1> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg1.apply(t0)) {
-				result.add(t1);
-			}
 		}
 		return result;
 	}
@@ -175,42 +141,6 @@ public class ForeachStreamCollectToList {
 		return result;
 	}
 
-	public static <T0, T1, T2> List<T2> stream_flatMap_map_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1) {
-		ArrayList<T2> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				T2 t2 = arg1.apply(t1);
-				result.add(t2);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1> List<T1> stream_flatMap_filter_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
-		ArrayList<T1> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				if (!arg1.test(t1)) {
-					continue;
-				}
-				result.add(t1);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2> List<T2> stream_flatMap_flatMap_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1) {
-		ArrayList<T2> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				for (T2 t2 : arg1.apply(t1)) {
-					result.add(t2);
-				}
-			}
-		}
-		return result;
-	}
-
 	public static <T0, T1, T2, T3> List<T3> stream_map_map_map_collect_toList(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Function<T2, T3> arg2) {
 		ArrayList<T3> result = new ArrayList<>(input.size());
 		for (T0 t0 : input) {
@@ -231,18 +161,6 @@ public class ForeachStreamCollectToList {
 				continue;
 			}
 			result.add(t2);
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2, T3> List<T3> stream_map_map_flatMap_collect_toList(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Function<T2, Collection<T3>> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			T2 t2 = arg1.apply(t1);
-			for (T3 t3 : arg2.apply(t2)) {
-				result.add(t3);
-			}
 		}
 		return result;
 	}
@@ -271,20 +189,6 @@ public class ForeachStreamCollectToList {
 				continue;
 			}
 			result.add(t1);
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2> List<T2> stream_map_filter_flatMap_collect_toList(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
-		ArrayList<T2> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			if (!arg1.test(t1)) {
-				continue;
-			}
-			for (T2 t2 : arg2.apply(t1)) {
-				result.add(t2);
-			}
 		}
 		return result;
 	}
@@ -355,45 +259,6 @@ public class ForeachStreamCollectToList {
 		return result;
 	}
 
-	public static <T0, T1, T2, T3> List<T3> stream_map_flatMap_map_collect_toList(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Function<T2, T3> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			for (T2 t2 : arg1.apply(t1)) {
-				T3 t3 = arg2.apply(t2);
-				result.add(t3);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2> List<T2> stream_map_flatMap_filter_collect_toList(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
-		ArrayList<T2> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			for (T2 t2 : arg1.apply(t1)) {
-				if (!arg2.test(t2)) {
-					continue;
-				}
-				result.add(t2);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2, T3> List<T3> stream_map_flatMap_flatMap_collect_toList(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Function<T2, Collection<T3>> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			for (T2 t2 : arg1.apply(t1)) {
-				for (T3 t3 : arg2.apply(t2)) {
-					result.add(t3);
-				}
-			}
-		}
-		return result;
-	}
-
 	public static <T0, T1, T2> List<T2> stream_filter_map_map_collect_toList(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		ArrayList<T2> result = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -418,20 +283,6 @@ public class ForeachStreamCollectToList {
 				continue;
 			}
 			result.add(t1);
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2> List<T2> stream_filter_map_flatMap_collect_toList(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
-		ArrayList<T2> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			T1 t1 = arg1.apply(t0);
-			for (T2 t2 : arg2.apply(t1)) {
-				result.add(t2);
-			}
 		}
 		return result;
 	}
@@ -464,22 +315,6 @@ public class ForeachStreamCollectToList {
 				continue;
 			}
 			result.add(t0);
-		}
-		return result;
-	}
-
-	public static <T0, T1> List<T1> stream_filter_filter_flatMap_collect_toList(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
-		ArrayList<T1> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			if (!arg1.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg2.apply(t0)) {
-				result.add(t1);
-			}
 		}
 		return result;
 	}
@@ -558,51 +393,6 @@ public class ForeachStreamCollectToList {
 			double t1 = arg1.applyAsDouble(t0);
 			Double t2 = t1;
 			result.add(t2);
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2> List<T2> stream_filter_flatMap_map_collect_toList(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
-		ArrayList<T2> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg1.apply(t0)) {
-				T2 t2 = arg2.apply(t1);
-				result.add(t2);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1> List<T1> stream_filter_flatMap_filter_collect_toList(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
-		ArrayList<T1> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg1.apply(t0)) {
-				if (!arg2.test(t1)) {
-					continue;
-				}
-				result.add(t1);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2> List<T2> stream_filter_flatMap_flatMap_collect_toList(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
-		ArrayList<T2> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg1.apply(t0)) {
-				for (T2 t2 : arg2.apply(t1)) {
-					result.add(t2);
-				}
-			}
 		}
 		return result;
 	}
@@ -723,18 +513,6 @@ public class ForeachStreamCollectToList {
 		return result;
 	}
 
-	public static <T0, T2, T3> List<T3> stream_mapToInt_mapToObj_flatMap_collect_toList(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Function<T2, Collection<T3>> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			int t1 = arg0.applyAsInt(t0);
-			T2 t2 = arg1.apply(t1);
-			for (T3 t3 : arg2.apply(t2)) {
-				result.add(t3);
-			}
-		}
-		return result;
-	}
-
 	public static <T0, T3> List<T3> stream_mapToInt_boxed_map_collect_toList(Collection<T0> input, ToIntFunction<T0> arg0, Function<Integer, T3> arg2) {
 		ArrayList<T3> result = new ArrayList<>(input.size());
 		for (T0 t0 : input) {
@@ -755,18 +533,6 @@ public class ForeachStreamCollectToList {
 				continue;
 			}
 			result.add(t2);
-		}
-		return result;
-	}
-
-	public static <T0, T3> List<T3> stream_mapToInt_boxed_flatMap_collect_toList(Collection<T0> input, ToIntFunction<T0> arg0, Function<Integer, Collection<T3>> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			int t1 = arg0.applyAsInt(t0);
-			Integer t2 = t1;
-			for (T3 t3 : arg2.apply(t2)) {
-				result.add(t3);
-			}
 		}
 		return result;
 	}
@@ -887,18 +653,6 @@ public class ForeachStreamCollectToList {
 		return result;
 	}
 
-	public static <T0, T2, T3> List<T3> stream_mapToLong_mapToObj_flatMap_collect_toList(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Function<T2, Collection<T3>> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			long t1 = arg0.applyAsLong(t0);
-			T2 t2 = arg1.apply(t1);
-			for (T3 t3 : arg2.apply(t2)) {
-				result.add(t3);
-			}
-		}
-		return result;
-	}
-
 	public static <T0, T3> List<T3> stream_mapToLong_boxed_map_collect_toList(Collection<T0> input, ToLongFunction<T0> arg0, Function<Long, T3> arg2) {
 		ArrayList<T3> result = new ArrayList<>(input.size());
 		for (T0 t0 : input) {
@@ -919,18 +673,6 @@ public class ForeachStreamCollectToList {
 				continue;
 			}
 			result.add(t2);
-		}
-		return result;
-	}
-
-	public static <T0, T3> List<T3> stream_mapToLong_boxed_flatMap_collect_toList(Collection<T0> input, ToLongFunction<T0> arg0, Function<Long, Collection<T3>> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			long t1 = arg0.applyAsLong(t0);
-			Long t2 = t1;
-			for (T3 t3 : arg2.apply(t2)) {
-				result.add(t3);
-			}
 		}
 		return result;
 	}
@@ -1051,18 +793,6 @@ public class ForeachStreamCollectToList {
 		return result;
 	}
 
-	public static <T0, T2, T3> List<T3> stream_mapToDouble_mapToObj_flatMap_collect_toList(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Function<T2, Collection<T3>> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			double t1 = arg0.applyAsDouble(t0);
-			T2 t2 = arg1.apply(t1);
-			for (T3 t3 : arg2.apply(t2)) {
-				result.add(t3);
-			}
-		}
-		return result;
-	}
-
 	public static <T0, T3> List<T3> stream_mapToDouble_boxed_map_collect_toList(Collection<T0> input, ToDoubleFunction<T0> arg0, Function<Double, T3> arg2) {
 		ArrayList<T3> result = new ArrayList<>(input.size());
 		for (T0 t0 : input) {
@@ -1083,216 +813,6 @@ public class ForeachStreamCollectToList {
 				continue;
 			}
 			result.add(t2);
-		}
-		return result;
-	}
-
-	public static <T0, T3> List<T3> stream_mapToDouble_boxed_flatMap_collect_toList(Collection<T0> input, ToDoubleFunction<T0> arg0, Function<Double, Collection<T3>> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			double t1 = arg0.applyAsDouble(t0);
-			Double t2 = t1;
-			for (T3 t3 : arg2.apply(t2)) {
-				result.add(t3);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2, T3> List<T3> stream_flatMap_map_map_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Function<T2, T3> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				T2 t2 = arg1.apply(t1);
-				T3 t3 = arg2.apply(t2);
-				result.add(t3);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2> List<T2> stream_flatMap_map_filter_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
-		ArrayList<T2> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				T2 t2 = arg1.apply(t1);
-				if (!arg2.test(t2)) {
-					continue;
-				}
-				result.add(t2);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2, T3> List<T3> stream_flatMap_map_flatMap_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Function<T2, Collection<T3>> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				T2 t2 = arg1.apply(t1);
-				for (T3 t3 : arg2.apply(t2)) {
-					result.add(t3);
-				}
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2> List<T2> stream_flatMap_filter_map_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
-		ArrayList<T2> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				if (!arg1.test(t1)) {
-					continue;
-				}
-				T2 t2 = arg2.apply(t1);
-				result.add(t2);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1> List<T1> stream_flatMap_filter_filter_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
-		ArrayList<T1> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				if (!arg1.test(t1)) {
-					continue;
-				}
-				if (!arg2.test(t1)) {
-					continue;
-				}
-				result.add(t1);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2> List<T2> stream_flatMap_filter_flatMap_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
-		ArrayList<T2> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				if (!arg1.test(t1)) {
-					continue;
-				}
-				for (T2 t2 : arg2.apply(t1)) {
-					result.add(t2);
-				}
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T3> List<T3> stream_flatMap_mapToInt_mapToObj_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntFunction<T3> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				int t2 = arg1.applyAsInt(t1);
-				T3 t3 = arg2.apply(t2);
-				result.add(t3);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1> List<Integer> stream_flatMap_mapToInt_boxed_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
-		ArrayList<Integer> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				int t2 = arg1.applyAsInt(t1);
-				Integer t3 = t2;
-				result.add(t3);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T3> List<T3> stream_flatMap_mapToLong_mapToObj_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongFunction<T3> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				long t2 = arg1.applyAsLong(t1);
-				T3 t3 = arg2.apply(t2);
-				result.add(t3);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1> List<Long> stream_flatMap_mapToLong_boxed_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
-		ArrayList<Long> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				long t2 = arg1.applyAsLong(t1);
-				Long t3 = t2;
-				result.add(t3);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T3> List<T3> stream_flatMap_mapToDouble_mapToObj_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleFunction<T3> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				double t2 = arg1.applyAsDouble(t1);
-				T3 t3 = arg2.apply(t2);
-				result.add(t3);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1> List<Double> stream_flatMap_mapToDouble_boxed_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
-		ArrayList<Double> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				double t2 = arg1.applyAsDouble(t1);
-				Double t3 = t2;
-				result.add(t3);
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2, T3> List<T3> stream_flatMap_flatMap_map_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Function<T2, T3> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				for (T2 t2 : arg1.apply(t1)) {
-					T3 t3 = arg2.apply(t2);
-					result.add(t3);
-				}
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2> List<T2> stream_flatMap_flatMap_filter_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
-		ArrayList<T2> result = new ArrayList<>();
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				for (T2 t2 : arg1.apply(t1)) {
-					if (!arg2.test(t2)) {
-						continue;
-					}
-					result.add(t2);
-				}
-			}
-		}
-		return result;
-	}
-
-	public static <T0, T1, T2, T3> List<T3> stream_flatMap_flatMap_flatMap_collect_toList(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Function<T2, Collection<T3>> arg2) {
-		ArrayList<T3> result = new ArrayList<>(input.size());
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				for (T2 t2 : arg1.apply(t1)) {
-					for (T3 t3 : arg2.apply(t2)) {
-						result.add(t3);
-					}
-				}
-			}
 		}
 		return result;
 	}

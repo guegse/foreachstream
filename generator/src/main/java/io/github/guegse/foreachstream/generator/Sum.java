@@ -4,9 +4,9 @@ public class Sum extends TerminalOperation {
     @Override
     String getTargetType(String inputType, String nextOutputType) {
         return switch (inputType) {
-            case "int" -> "OptionalInt";
-            case "long" -> "OptionalLong";
-            case "double" -> "OptionalDouble";
+            case "int" -> "int";
+            case "long" -> "long";
+            case "double" -> "double";
             default -> throw new UnsupportedOperationException(inputType);
         };
     }

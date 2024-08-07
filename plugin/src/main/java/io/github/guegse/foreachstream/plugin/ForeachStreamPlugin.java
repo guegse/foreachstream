@@ -53,12 +53,13 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
 
     @Override
     public void finished(TaskEvent e) {
+        PrintOutput printOutput = new PrintOutput(e.getCompilationUnit(), trees, true, true);
         if (e.getKind() == TaskEvent.Kind.PARSE) {
             CompilationUnitTree compilationUnit = e.getCompilationUnit();
-            Substitution sub = new Substitution(treeMaker, trees, compilationUnit);
+            Substitution sub = new Substitution(treeMaker, printOutput);
             subs.put(compilationUnit, sub);
             e.getCompilationUnit().accept(
-                    new TreeScanner(treeMaker, names, trees, availableMethodsToTheirClasses, compilationUnit, sub), null);
+                    new TreeScanner(treeMaker, names, availableMethodsToTheirClasses, sub, printOutput), null);
         } else if(e.getKind() == TaskEvent.Kind.ANALYZE) {
             Substitution sub = subs.get(e.getCompilationUnit());
             if(sub != null) {

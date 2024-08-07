@@ -66,17 +66,6 @@ public class ForeachStreamAllMatch {
 		return true;
 	}
 
-	public static <T0, T1> boolean stream_flatMap_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				if (!arg1.test(t1)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
 	public static <T0, T1, T2> boolean stream_map_map_allMatch(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
 		for (T0 t0 : input) {
 			T1 t1 = arg0.apply(t0);
@@ -129,18 +118,6 @@ public class ForeachStreamAllMatch {
 			double t2 = arg1.applyAsDouble(t1);
 			if (!arg2.test(t2)) {
 				return false;
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_map_flatMap_allMatch(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			for (T2 t2 : arg1.apply(t1)) {
-				if (!arg2.test(t2)) {
-					return false;
-				}
 			}
 		}
 		return true;
@@ -208,20 +185,6 @@ public class ForeachStreamAllMatch {
 			double t1 = arg1.applyAsDouble(t0);
 			if (!arg2.test(t1)) {
 				return false;
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_filter_flatMap_allMatch(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg1.apply(t0)) {
-				if (!arg2.test(t1)) {
-					return false;
-				}
 			}
 		}
 		return true;
@@ -431,81 +394,6 @@ public class ForeachStreamAllMatch {
 		return true;
 	}
 
-	public static <T0, T1, T2> boolean stream_flatMap_map_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				T2 t2 = arg1.apply(t1);
-				if (!arg2.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_filter_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				if (!arg1.test(t1)) {
-					continue;
-				}
-				if (!arg2.test(t1)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToInt_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				int t2 = arg1.applyAsInt(t1);
-				if (!arg2.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToLong_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				long t2 = arg1.applyAsLong(t1);
-				if (!arg2.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToDouble_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				double t2 = arg1.applyAsDouble(t1);
-				if (!arg2.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_flatMap_flatMap_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				for (T2 t2 : arg1.apply(t1)) {
-					if (!arg2.test(t2)) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-
 	public static <T0, T1, T2, T3> boolean stream_map_map_map_allMatch(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Function<T2, T3> arg2, Predicate<T3> arg3) {
 		for (T0 t0 : input) {
 			T1 t1 = arg0.apply(t0);
@@ -563,19 +451,6 @@ public class ForeachStreamAllMatch {
 			double t3 = arg2.applyAsDouble(t2);
 			if (!arg3.test(t3)) {
 				return false;
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2, T3> boolean stream_map_map_flatMap_allMatch(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Function<T2, Collection<T3>> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			T2 t2 = arg1.apply(t1);
-			for (T3 t3 : arg2.apply(t2)) {
-				if (!arg3.test(t3)) {
-					return false;
-				}
 			}
 		}
 		return true;
@@ -648,21 +523,6 @@ public class ForeachStreamAllMatch {
 			double t2 = arg2.applyAsDouble(t1);
 			if (!arg3.test(t2)) {
 				return false;
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_map_filter_flatMap_allMatch(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2, Predicate<T2> arg3) {
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			if (!arg1.test(t1)) {
-				continue;
-			}
-			for (T2 t2 : arg2.apply(t1)) {
-				if (!arg3.test(t2)) {
-					return false;
-				}
 			}
 		}
 		return true;
@@ -890,87 +750,6 @@ public class ForeachStreamAllMatch {
 		return true;
 	}
 
-	public static <T0, T1, T2, T3> boolean stream_map_flatMap_map_allMatch(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Function<T2, T3> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			for (T2 t2 : arg1.apply(t1)) {
-				T3 t3 = arg2.apply(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_map_flatMap_filter_allMatch(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2, Predicate<T2> arg3) {
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			for (T2 t2 : arg1.apply(t1)) {
-				if (!arg2.test(t2)) {
-					continue;
-				}
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_map_flatMap_mapToInt_allMatch(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToIntFunction<T2> arg2, IntPredicate arg3) {
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			for (T2 t2 : arg1.apply(t1)) {
-				int t3 = arg2.applyAsInt(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_map_flatMap_mapToLong_allMatch(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToLongFunction<T2> arg2, LongPredicate arg3) {
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			for (T2 t2 : arg1.apply(t1)) {
-				long t3 = arg2.applyAsLong(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_map_flatMap_mapToDouble_allMatch(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToDoubleFunction<T2> arg2, DoublePredicate arg3) {
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			for (T2 t2 : arg1.apply(t1)) {
-				double t3 = arg2.applyAsDouble(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2, T3> boolean stream_map_flatMap_flatMap_allMatch(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Function<T2, Collection<T3>> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			T1 t1 = arg0.apply(t0);
-			for (T2 t2 : arg1.apply(t1)) {
-				for (T3 t3 : arg2.apply(t2)) {
-					if (!arg3.test(t3)) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-
 	public static <T0, T1, T2> boolean stream_filter_map_map_allMatch(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2, Predicate<T2> arg3) {
 		for (T0 t0 : input) {
 			if (!arg0.test(t0)) {
@@ -1038,21 +817,6 @@ public class ForeachStreamAllMatch {
 			double t2 = arg2.applyAsDouble(t1);
 			if (!arg3.test(t2)) {
 				return false;
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_filter_map_flatMap_allMatch(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2, Predicate<T2> arg3) {
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			T1 t1 = arg1.apply(t0);
-			for (T2 t2 : arg2.apply(t1)) {
-				if (!arg3.test(t2)) {
-					return false;
-				}
 			}
 		}
 		return true;
@@ -1135,23 +899,6 @@ public class ForeachStreamAllMatch {
 			double t1 = arg2.applyAsDouble(t0);
 			if (!arg3.test(t1)) {
 				return false;
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_filter_filter_flatMap_allMatch(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2, Predicate<T1> arg3) {
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			if (!arg1.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg2.apply(t0)) {
-				if (!arg3.test(t1)) {
-					return false;
-				}
 			}
 		}
 		return true;
@@ -1410,99 +1157,6 @@ public class ForeachStreamAllMatch {
 			Double t2 = t1;
 			if (!arg3.test(t2)) {
 				return false;
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_filter_flatMap_map_allMatch(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2, Predicate<T2> arg3) {
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg1.apply(t0)) {
-				T2 t2 = arg2.apply(t1);
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_filter_flatMap_filter_allMatch(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2, Predicate<T1> arg3) {
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg1.apply(t0)) {
-				if (!arg2.test(t1)) {
-					continue;
-				}
-				if (!arg3.test(t1)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_filter_flatMap_mapToInt_allMatch(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2, IntPredicate arg3) {
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg1.apply(t0)) {
-				int t2 = arg2.applyAsInt(t1);
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_filter_flatMap_mapToLong_allMatch(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2, LongPredicate arg3) {
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg1.apply(t0)) {
-				long t2 = arg2.applyAsLong(t1);
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_filter_flatMap_mapToDouble_allMatch(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2, DoublePredicate arg3) {
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg1.apply(t0)) {
-				double t2 = arg2.applyAsDouble(t1);
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_filter_flatMap_flatMap_allMatch(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2, Predicate<T2> arg3) {
-		for (T0 t0 : input) {
-			if (!arg0.test(t0)) {
-				continue;
-			}
-			for (T1 t1 : arg1.apply(t0)) {
-				for (T2 t2 : arg2.apply(t1)) {
-					if (!arg3.test(t2)) {
-						return false;
-					}
-				}
 			}
 		}
 		return true;
@@ -1878,19 +1532,6 @@ public class ForeachStreamAllMatch {
 		return true;
 	}
 
-	public static <T0, T2, T3> boolean stream_mapToInt_mapToObj_flatMap_allMatch(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Function<T2, Collection<T3>> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			int t1 = arg0.applyAsInt(t0);
-			T2 t2 = arg1.apply(t1);
-			for (T3 t3 : arg2.apply(t2)) {
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
 	public static <T0, T3> boolean stream_mapToInt_boxed_map_allMatch(Collection<T0> input, ToIntFunction<T0> arg0, Function<Integer, T3> arg2, Predicate<T3> arg3) {
 		for (T0 t0 : input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -1948,19 +1589,6 @@ public class ForeachStreamAllMatch {
 			double t3 = arg2.applyAsDouble(t2);
 			if (!arg3.test(t3)) {
 				return false;
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T3> boolean stream_mapToInt_boxed_flatMap_allMatch(Collection<T0> input, ToIntFunction<T0> arg0, Function<Integer, Collection<T3>> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			int t1 = arg0.applyAsInt(t0);
-			Integer t2 = t1;
-			for (T3 t3 : arg2.apply(t2)) {
-				if (!arg3.test(t3)) {
-					return false;
-				}
 			}
 		}
 		return true;
@@ -2336,19 +1964,6 @@ public class ForeachStreamAllMatch {
 		return true;
 	}
 
-	public static <T0, T2, T3> boolean stream_mapToLong_mapToObj_flatMap_allMatch(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Function<T2, Collection<T3>> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			long t1 = arg0.applyAsLong(t0);
-			T2 t2 = arg1.apply(t1);
-			for (T3 t3 : arg2.apply(t2)) {
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
 	public static <T0, T3> boolean stream_mapToLong_boxed_map_allMatch(Collection<T0> input, ToLongFunction<T0> arg0, Function<Long, T3> arg2, Predicate<T3> arg3) {
 		for (T0 t0 : input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -2406,19 +2021,6 @@ public class ForeachStreamAllMatch {
 			double t3 = arg2.applyAsDouble(t2);
 			if (!arg3.test(t3)) {
 				return false;
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T3> boolean stream_mapToLong_boxed_flatMap_allMatch(Collection<T0> input, ToLongFunction<T0> arg0, Function<Long, Collection<T3>> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			long t1 = arg0.applyAsLong(t0);
-			Long t2 = t1;
-			for (T3 t3 : arg2.apply(t2)) {
-				if (!arg3.test(t3)) {
-					return false;
-				}
 			}
 		}
 		return true;
@@ -2794,19 +2396,6 @@ public class ForeachStreamAllMatch {
 		return true;
 	}
 
-	public static <T0, T2, T3> boolean stream_mapToDouble_mapToObj_flatMap_allMatch(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Function<T2, Collection<T3>> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			double t1 = arg0.applyAsDouble(t0);
-			T2 t2 = arg1.apply(t1);
-			for (T3 t3 : arg2.apply(t2)) {
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
 	public static <T0, T3> boolean stream_mapToDouble_boxed_map_allMatch(Collection<T0> input, ToDoubleFunction<T0> arg0, Function<Double, T3> arg2, Predicate<T3> arg3) {
 		for (T0 t0 : input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -2864,520 +2453,6 @@ public class ForeachStreamAllMatch {
 			double t3 = arg2.applyAsDouble(t2);
 			if (!arg3.test(t3)) {
 				return false;
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T3> boolean stream_mapToDouble_boxed_flatMap_allMatch(Collection<T0> input, ToDoubleFunction<T0> arg0, Function<Double, Collection<T3>> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			double t1 = arg0.applyAsDouble(t0);
-			Double t2 = t1;
-			for (T3 t3 : arg2.apply(t2)) {
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2, T3> boolean stream_flatMap_map_map_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Function<T2, T3> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				T2 t2 = arg1.apply(t1);
-				T3 t3 = arg2.apply(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_flatMap_map_filter_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2, Predicate<T2> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				T2 t2 = arg1.apply(t1);
-				if (!arg2.test(t2)) {
-					continue;
-				}
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_flatMap_map_mapToInt_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToIntFunction<T2> arg2, IntPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				T2 t2 = arg1.apply(t1);
-				int t3 = arg2.applyAsInt(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_flatMap_map_mapToLong_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToLongFunction<T2> arg2, LongPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				T2 t2 = arg1.apply(t1);
-				long t3 = arg2.applyAsLong(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_flatMap_map_mapToDouble_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToDoubleFunction<T2> arg2, DoublePredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				T2 t2 = arg1.apply(t1);
-				double t3 = arg2.applyAsDouble(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2, T3> boolean stream_flatMap_map_flatMap_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Function<T2, Collection<T3>> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				T2 t2 = arg1.apply(t1);
-				for (T3 t3 : arg2.apply(t2)) {
-					if (!arg3.test(t3)) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_flatMap_filter_map_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, T2> arg2, Predicate<T2> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				if (!arg1.test(t1)) {
-					continue;
-				}
-				T2 t2 = arg2.apply(t1);
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_filter_filter_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2, Predicate<T1> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				if (!arg1.test(t1)) {
-					continue;
-				}
-				if (!arg2.test(t1)) {
-					continue;
-				}
-				if (!arg3.test(t1)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_filter_mapToInt_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2, IntPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				if (!arg1.test(t1)) {
-					continue;
-				}
-				int t2 = arg2.applyAsInt(t1);
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_filter_mapToLong_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2, LongPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				if (!arg1.test(t1)) {
-					continue;
-				}
-				long t2 = arg2.applyAsLong(t1);
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_filter_mapToDouble_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2, DoublePredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				if (!arg1.test(t1)) {
-					continue;
-				}
-				double t2 = arg2.applyAsDouble(t1);
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_flatMap_filter_flatMap_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2, Predicate<T2> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				if (!arg1.test(t1)) {
-					continue;
-				}
-				for (T2 t2 : arg2.apply(t1)) {
-					if (!arg3.test(t2)) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToInt_map_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntUnaryOperator arg2, IntPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				int t2 = arg1.applyAsInt(t1);
-				t2 = arg2.applyAsInt(t2);
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToInt_filter_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2, IntPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				int t2 = arg1.applyAsInt(t1);
-				if (!arg2.test(t2)) {
-					continue;
-				}
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToInt_mapToLong_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntToLongFunction arg2, LongPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				int t2 = arg1.applyAsInt(t1);
-				long t3 = arg2.applyAsLong(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToInt_mapToDouble_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntToDoubleFunction arg2, DoublePredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				int t2 = arg1.applyAsInt(t1);
-				double t3 = arg2.applyAsDouble(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T3> boolean stream_flatMap_mapToInt_mapToObj_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntFunction<T3> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				int t2 = arg1.applyAsInt(t1);
-				T3 t3 = arg2.apply(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToInt_boxed_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, Predicate<Integer> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				int t2 = arg1.applyAsInt(t1);
-				Integer t3 = t2;
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToLong_map_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongUnaryOperator arg2, LongPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				long t2 = arg1.applyAsLong(t1);
-				t2 = arg2.applyAsLong(t2);
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToLong_filter_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2, LongPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				long t2 = arg1.applyAsLong(t1);
-				if (!arg2.test(t2)) {
-					continue;
-				}
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToLong_mapToInt_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongToIntFunction arg2, IntPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				long t2 = arg1.applyAsLong(t1);
-				int t3 = arg2.applyAsInt(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToLong_mapToDouble_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongToDoubleFunction arg2, DoublePredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				long t2 = arg1.applyAsLong(t1);
-				double t3 = arg2.applyAsDouble(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T3> boolean stream_flatMap_mapToLong_mapToObj_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongFunction<T3> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				long t2 = arg1.applyAsLong(t1);
-				T3 t3 = arg2.apply(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToLong_boxed_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, Predicate<Long> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				long t2 = arg1.applyAsLong(t1);
-				Long t3 = t2;
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToDouble_map_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleUnaryOperator arg2, DoublePredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				double t2 = arg1.applyAsDouble(t1);
-				t2 = arg2.applyAsDouble(t2);
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToDouble_filter_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2, DoublePredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				double t2 = arg1.applyAsDouble(t1);
-				if (!arg2.test(t2)) {
-					continue;
-				}
-				if (!arg3.test(t2)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToDouble_mapToInt_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleToIntFunction arg2, IntPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				double t2 = arg1.applyAsDouble(t1);
-				int t3 = arg2.applyAsInt(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToDouble_mapToLong_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleToLongFunction arg2, LongPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				double t2 = arg1.applyAsDouble(t1);
-				long t3 = arg2.applyAsLong(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T3> boolean stream_flatMap_mapToDouble_mapToObj_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleFunction<T3> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				double t2 = arg1.applyAsDouble(t1);
-				T3 t3 = arg2.apply(t2);
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1> boolean stream_flatMap_mapToDouble_boxed_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, Predicate<Double> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				double t2 = arg1.applyAsDouble(t1);
-				Double t3 = t2;
-				if (!arg3.test(t3)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2, T3> boolean stream_flatMap_flatMap_map_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Function<T2, T3> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				for (T2 t2 : arg1.apply(t1)) {
-					T3 t3 = arg2.apply(t2);
-					if (!arg3.test(t3)) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_flatMap_flatMap_filter_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2, Predicate<T2> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				for (T2 t2 : arg1.apply(t1)) {
-					if (!arg2.test(t2)) {
-						continue;
-					}
-					if (!arg3.test(t2)) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_flatMap_flatMap_mapToInt_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToIntFunction<T2> arg2, IntPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				for (T2 t2 : arg1.apply(t1)) {
-					int t3 = arg2.applyAsInt(t2);
-					if (!arg3.test(t3)) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_flatMap_flatMap_mapToLong_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToLongFunction<T2> arg2, LongPredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				for (T2 t2 : arg1.apply(t1)) {
-					long t3 = arg2.applyAsLong(t2);
-					if (!arg3.test(t3)) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2> boolean stream_flatMap_flatMap_mapToDouble_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToDoubleFunction<T2> arg2, DoublePredicate arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				for (T2 t2 : arg1.apply(t1)) {
-					double t3 = arg2.applyAsDouble(t2);
-					if (!arg3.test(t3)) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-	}
-
-	public static <T0, T1, T2, T3> boolean stream_flatMap_flatMap_flatMap_allMatch(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Function<T2, Collection<T3>> arg2, Predicate<T3> arg3) {
-		for (T0 t0 : input) {
-			for (T1 t1 : arg0.apply(t0)) {
-				for (T2 t2 : arg1.apply(t1)) {
-					for (T3 t3 : arg2.apply(t2)) {
-						if (!arg3.test(t3)) {
-							return false;
-						}
-					}
-				}
 			}
 		}
 		return true;

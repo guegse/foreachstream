@@ -77,27 +77,28 @@ return ForeachStreamCollectToList.stream_filter_collect_toList(persons, person -
 ## Stream operations support matrix
 
 ### Terminal operations
-| Operation                     | Supported |
-|-------------------------------|-----------|
-| toSet (Java 16)               |           |
-| toList (Java 16)              |           |
-| collect(Collectors.toList()   | yes       |
-| collect(Collectors.toSet()    | yes       |
-| collect                       |           |
-| forEach                       | yes       |
-| forEachOrdered                |           |
-| toArray                       |           |
-| reduce                        |           |
-| anyMatch                      | yes       |
-| allMatch                      | yes       |
-| noneMatch                     | yes       |
-| findFirst                     | yes       |
-| findAny                       | yes       |
-| min                           | yes       |
-| max                           | yes       |
-| average                       |           |
-| sum                           | yes       |
-| summaryStatistics             |           |
+| Operation                   | Supported |
+|-----------------------------|-----------|
+| toSet (Java 16)             |           |
+| toList (Java 16)            |           |
+| collect(Collectors.toList() | yes       |
+| collect(Collectors.toSet()  | yes       |
+| collect                     |           |
+| forEach                     | yes       |
+| forEachOrdered              |           |
+| toArray                     |           |
+| reduce                      |           |
+| anyMatch                    | yes       |
+| allMatch                    | yes       |
+| noneMatch                   | yes       |
+| findFirst                   | yes       |
+| findAny                     | yes       |
+| min                         | yes       |
+| max                         | yes       |
+| average                     |           |
+| sum                         | yes       |
+| summaryStatistics           |           |
+| count                       | yes       |
 
 ### Intermediary operations
 | Operation        | Supported |
