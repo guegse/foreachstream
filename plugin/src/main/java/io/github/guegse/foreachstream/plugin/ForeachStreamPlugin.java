@@ -6,6 +6,7 @@ import com.sun.source.util.*;
 import com.sun.tools.javac.api.BasicJavacTask;
 import com.sun.tools.javac.tree.TreeMaker;
 import com.sun.tools.javac.util.Context;
+import com.sun.tools.javac.util.Log;
 import com.sun.tools.javac.util.Names;
 
 import java.lang.reflect.Method;
@@ -16,10 +17,10 @@ import java.util.Map;
 @AutoService(Plugin.class)
 public class ForeachStreamPlugin implements Plugin, TaskListener {
 
+    private Log log;
     private TreeMaker treeMaker;
     private Names names;
     private Trees trees;
-    private Context javacContext;
     private Map<String, String> availableMethodsToTheirClasses;
     private Map<CompilationUnitTree, Substitution> subs;
 
@@ -35,7 +36,7 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
 
     @Override
     public void init(JavacTask task, String... args) {
-        javacContext = ((BasicJavacTask) task).getContext();
+        Context javacContext = ((BasicJavacTask) task).getContext();
         treeMaker = TreeMaker.instance(javacContext);
         names = Names.instance(javacContext);
         trees = Trees.instance(task);
@@ -49,22 +50,25 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
                 }
             }
         }
+        this.log = Log.instance(javacContext);
     }
 
     @Override
     public void finished(TaskEvent e) {
-        PrintOutput printOutput = new PrintOutput(e.getCompilationUnit(), trees, true, true);
+        DebugOutput debugOutput = new DebugOutput(e.getCompilationUnit(), trees, true);
         if (e.getKind() == TaskEvent.Kind.PARSE) {
             CompilationUnitTree compilationUnit = e.getCompilationUnit();
-            Substitution sub = new Substitution(treeMaker, printOutput);
+            Substitution sub = new Substitution(treeMaker, debugOutput);
             subs.put(compilationUnit, sub);
             e.getCompilationUnit().accept(
-                    new TreeScanner(treeMaker, names, availableMethodsToTheirClasses, sub, printOutput), null);
+                    new TreeScanner(treeMaker, names, availableMethodsToTheirClasses, sub, debugOutput), null);
         } else if(e.getKind() == TaskEvent.Kind.ANALYZE) {
             Substitution sub = subs.get(e.getCompilationUnit());
             if(sub != null) {
                 sub.substitute();
             }
+        } else if(e.getKind() == TaskEvent.Kind.COMPILATION) {
+            log.printRawLines(Log.WriterKind.NOTICE, Statistics.getInstance().printStatistics());
         }
     }
 

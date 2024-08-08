@@ -4,7 +4,7 @@ class CollectToList extends TerminalOperation {
 
     @Override
     String getName() {
-        return "collect_toList";
+        return "collectToList";
     }
 
     @Override

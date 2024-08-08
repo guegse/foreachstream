@@ -32,6 +32,10 @@ public class Test {
         List<String> list2 = Arrays.asList("asdf", "sdfgh", "ksfg", "gfg");
         list2.stream()
                 .flatMap(str -> Stream.of(str.charAt(2)))
+                .filter(i -> i % 2 == 0)
+                .filter(i -> i % 2 == 0)
                 .forEach(System.out::println);
+        list2.stream().collect(Collectors.joining(",", "{", "}"));
+        sum = list.stream().filter(i -> i % 2 == 0).filter(i -> i % 2 == 0).filter(i -> i % 2 == 0).mapToInt(Integer::intValue).sum();
     }
 }
