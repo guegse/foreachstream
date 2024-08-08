@@ -1,14 +1,12 @@
 package io.github.guegse.foreachstream.plugin;
 
 import com.sun.source.tree.*;
-import com.sun.source.util.Trees;
 import com.sun.tools.javac.code.TypeTag;
 import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.TreeMaker;
 import com.sun.tools.javac.util.Names;
 
 import javax.lang.model.element.Name;
-import javax.tools.Diagnostic;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
@@ -44,16 +42,16 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
             "mapToDouble",
             "mapToObj",
             "boxed",
-            //"flatMap",
-            //"flatMapToInt",
-            //"flatMapToLong",
-            //"flatMapToDouble",
-            //"mapMulti",
-            //"mapMultiToInt",
-            //"mapMultiToLong",
-            //"mapMultiToDouble",
-            //"distinct",
-            //"sorted",
+            "flatMap",
+            "flatMapToInt",
+            "flatMapToLong",
+            "flatMapToDouble",
+            "mapMulti",
+            "mapMultiToInt",
+            "mapMultiToLong",
+            "mapMultiToDouble",
+            "distinct",
+            "sorted",
             "peek",
             "limit",
             "skip",
@@ -65,14 +63,16 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
     private final Names names;
     private final Map<String, String> availableMethodsToTheirClasses;
     private final Substitution subs;
-    private final PrintOutput printOutput;
+    private final DebugOutput debugOutput;
+    private final Statistics statistics;
 
-    public TreeScanner(TreeMaker treeMaker, Names names, Map<String, String> availableMethodsToTheirClasses, Substitution subs, PrintOutput printOutput) {
+    public TreeScanner(TreeMaker treeMaker, Names names, Map<String, String> availableMethodsToTheirClasses, Substitution subs, DebugOutput debugOutput) {
         this.treeMaker = treeMaker;
         this.names = names;
         this.availableMethodsToTheirClasses = availableMethodsToTheirClasses;
         this.subs = subs;
-        this.printOutput = printOutput;
+        this.debugOutput = debugOutput;
+        this.statistics = Statistics.getInstance();
     }
 
     @Override
@@ -127,7 +127,8 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     Name collectorMethodName = getCollectorMethod(methodName, node);
                     ExpressionTree terminalArgument = null;
                     if (collectorMethodName != null) {
-                        methodToCall = methodToCallWithoutTerminalOp + "_collect_" + collectorMethodName;
+                        String collectorMethodString = collectorMethodName.toString();
+                        methodToCall = methodToCallWithoutTerminalOp + "_collect" + collectorMethodString.substring(0, 1).toUpperCase() + collectorMethodString.substring(1);
                     } else {
                         methodToCall = methodToCallWithoutTerminalOp + "_" + methodName;
                         if (node.getArguments().size() == 1) {
@@ -138,7 +139,8 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
 
                     String containingClassName = availableMethodsToTheirClasses.get(methodToCall);
                     if (containingClassName == null) {
-                        printOutput.debugPrint(node, "method for this pattern not available: " + methodToCall);
+                        debugOutput.printDebug(node, "method for this pattern not available: " + methodToCall);
+                        statistics.substitutionFailed(methodToCall);
                         return super.visitMethodInvocation(node, o);
                     }
 
@@ -146,7 +148,8 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     JCTree.JCMethodInvocation streamCall = (JCTree.JCMethodInvocation) invocations.get(0);
                     if (streamCall.getArguments().size() != 0
                             || !(memberSelectTree.getExpression() instanceof JCTree.JCExpression)) {
-                        printOutput.debugPrint(node, "unexpected number of arguments to stream(): " + streamCall);
+                        debugOutput.printDebug(node, "unexpected number of arguments to stream(): " + streamCall);
+                        statistics.arrayStreamSource();
                         return super.visitMethodInvocation(node, o);
                     }
 
@@ -161,7 +164,7 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                         MethodInvocationTree methodInvocationTree = invocations.get(i);
                         if (methodInvocationTree.getArguments().size() != 1
                                 || !(methodInvocationTree.getArguments().get(0) instanceof JCTree.JCExpression)) {
-                            printOutput.debugPrint(node, "unexpected number of arguments to intermediate method: "
+                            debugOutput.printDebug(node, "unexpected number of arguments to intermediate method: "
                                     + methodInvocationTree);
                             return super.visitMethodInvocation(node, o);
                         }
@@ -185,7 +188,6 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                             args
                     );
                     subs.add(original, sub, streamCall, arguments);
-                    printOutput.debugPrint(node, "added call to static block: " + methodToCall);
                 }
             }
         }

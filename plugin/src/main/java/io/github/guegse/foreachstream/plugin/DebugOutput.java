@@ -6,27 +6,25 @@ import com.sun.source.util.Trees;
 
 import javax.tools.Diagnostic;
 
-public class PrintOutput {
+public class DebugOutput {
     private final CompilationUnitTree compilationUnit;
     private final Trees trees;
     private final boolean printDebug;
-    private final boolean printStatistics;
 
-    public PrintOutput(CompilationUnitTree compilationUnit, Trees trees, boolean printDebug, boolean printStatistics) {
+    public DebugOutput(CompilationUnitTree compilationUnit, Trees trees, boolean printDebug) {
         this.compilationUnit = compilationUnit;
         this.trees = trees;
         this.printDebug = printDebug;
-        this.printStatistics = printStatistics;
     }
 
-    public void debugPrint(Tree tree, String messagePrefix) {
+    public void printDebug(Tree tree, String messagePrefix) {
         if(!printDebug) return;
         trees.printMessage(Diagnostic.Kind.NOTE, messagePrefix + "  " + tree.getKind() + " " + tree, tree, compilationUnit);
     }
 
-    public void debugPrintWithTree(Tree tree, String messagePrefix) {
+    public void printDebugWithTree(Tree tree, String messagePrefix) {
         if(!printDebug) return;
-        debugPrint(tree, messagePrefix);
+        printDebug(tree, messagePrefix);
         tree.accept(new com.sun.source.util.TreeScanner<>() {
             private int depth = 2;
 
