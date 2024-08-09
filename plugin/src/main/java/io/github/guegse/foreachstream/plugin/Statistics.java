@@ -150,7 +150,7 @@ public class Statistics {
         sb.append("Terminal Operations substituted: ").append(sumMapValues(terminalSubMap)).append("\n");
         addOperationsToStringBuilder(sb, terminalSubMap);
         sb.append("============ FAILED SUBSTITUTIONS ===========\n");
-        sb.append("Stream Calls not substituted: ").append(subCounter).append("\n");
+        sb.append("Stream Calls not substituted: ").append(subFailedCounter).append("\n");
         addOperationsToStringBuilder(sb, methodMissMap);
         sb.append("Depth insufficient: ").append(sumMapValues(depthMap)).append("\n");
         addDepthsToStringBuilder(sb, depthMap);
