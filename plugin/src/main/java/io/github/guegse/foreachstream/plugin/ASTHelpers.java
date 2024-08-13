@@ -28,11 +28,11 @@ public class ASTHelpers {
     }
 
     public static Type getReturnType(ExpressionTree expressionTree) {
-        if (expressionTree instanceof JCFieldAccess) {
-            JCFieldAccess methodCall = (JCFieldAccess) expressionTree;
+        if (expressionTree instanceof JCFieldAccess methodCall) {
+            if(methodCall.type == null) return null;
             return methodCall.type.getReturnType();
-        } else if (expressionTree instanceof JCIdent) {
-            JCIdent methodCall = (JCIdent) expressionTree;
+        } else if (expressionTree instanceof JCIdent methodCall) {
+            if(methodCall.type == null) return null;
             return methodCall.type.getReturnType();
         } else if (expressionTree instanceof JCMethodInvocation) {
             return getReturnType(((JCMethodInvocation) expressionTree).getMethodSelect());
