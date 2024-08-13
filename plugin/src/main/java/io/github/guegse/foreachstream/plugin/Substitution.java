@@ -1,5 +1,6 @@
 package io.github.guegse.foreachstream.plugin;
 
+import com.sun.tools.javac.code.Type;
 import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.TreeMaker;
 
@@ -48,7 +49,8 @@ public class Substitution {
 
     public void substitute() {
         for(var entry : entries) {
-            if(!getReturnType(entry.streamCall).toString().startsWith("java.util.stream.Stream")) {
+            Type type = getReturnType(entry.streamCall);
+            if(type == null || !type.toString().startsWith("java.util.stream.Stream")) {
                 statistics.typeMismatch();
                 continue;
             }

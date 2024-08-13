@@ -8,7 +8,7 @@ public class FindAny extends TerminalOperation {
 
     @Override
     String getArgumentType(String inputType, String nextOutputType) {
-        return predicateType(inputType);
+        return null;
     }
 
     @Override
@@ -18,7 +18,7 @@ public class FindAny extends TerminalOperation {
 
     @Override
     boolean hasArgument() {
-        return true;
+        return false;
     }
 
     @Override
@@ -29,17 +29,7 @@ public class FindAny extends TerminalOperation {
     @Override
     void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
-        out.println("if (" + argument + ".test(" + currentStreamElement + ")) {");
-        out.increaseIndentation();
-        out.printIndentation();
-        out.println("// This might throw a NullPointerException if the current element is null.");
-        out.printIndentation();
-        out.println("// This behavior is consistent with the OpenJDK streams implementation.");
-        out.printIndentation();
         out.println("return " + optionalTypeUnqualified(inputType) + ".of(" + currentStreamElement + ");");
-        out.decreaseIndentation();
-        out.printIndentation();
-        out.println("}");
     }
 
     @Override
