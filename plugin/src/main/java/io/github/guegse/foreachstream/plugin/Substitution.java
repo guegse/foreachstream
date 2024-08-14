@@ -47,10 +47,27 @@ public class Substitution {
         staticBlock.stats = staticBlock.stats.append(treeMaker.Exec(sub));
     }
 
+    private boolean isCollection(Type type) {
+        if(type instanceof Type.ClassType classType) {
+            if(classType.tsym.getQualifiedName().toString().equals("java.util.Collection")) {
+                return true;
+            }
+            if(classType.interfaces_field != null) {
+                for(Type iface : classType.interfaces_field) {
+                    if(isCollection(iface))
+                        return true;
+                }
+            }
+            return isCollection(classType.supertype_field);
+        }
+        return false;
+    }
+
     public void substitute() {
         for(var entry : entries) {
             Type streamType = getReturnType(entry.streamCall);
-            if(streamType == null || !streamType.toString().startsWith("java.util.stream.Stream")) {
+            Type callerType = getReturnType(entry.arguments.get(0));
+            if(streamType == null || !streamType.toString().startsWith("java.util.stream.Stream") || !isCollection(callerType)) {
                 if(statistics != null) {
                     statistics.typeMismatch();
                 }

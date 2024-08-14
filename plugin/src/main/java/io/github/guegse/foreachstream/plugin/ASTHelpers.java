@@ -33,11 +33,13 @@ public class ASTHelpers {
             return methodCall.type.getReturnType();
         } else if (expressionTree instanceof JCIdent methodCall) {
             if(methodCall.type == null) return null;
-            return methodCall.type.getReturnType();
+            return methodCall.type;
         } else if (expressionTree instanceof JCMethodInvocation) {
             return getReturnType(((JCMethodInvocation) expressionTree).getMethodSelect());
         } else if (expressionTree instanceof JCMemberReference) {
             return ((JCMemberReference) expressionTree).sym.type.getReturnType();
+        } else if(expressionTree instanceof JCExpression expression) {
+            return expression.type;
         }
         throw new IllegalArgumentException("Expected a JCFieldAccess or JCIdent");
     }
