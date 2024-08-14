@@ -23,6 +23,7 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
     private Trees trees;
     private Map<String, String> availableMethodsToTheirClasses;
     private Map<CompilationUnitTree, Substitution> subs;
+    private Statistics statistics;
 
     @Override
     public String getName() {
@@ -51,6 +52,7 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
             }
         }
         this.log = Log.instance(javacContext);
+        statistics = new Statistics();
     }
 
     @Override
@@ -58,17 +60,17 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
         DebugOutput debugOutput = new DebugOutput(e.getCompilationUnit(), trees, true);
         if (e.getKind() == TaskEvent.Kind.PARSE) {
             CompilationUnitTree compilationUnit = e.getCompilationUnit();
-            Substitution sub = new Substitution(treeMaker, debugOutput);
+            Substitution sub = new Substitution(treeMaker, debugOutput, statistics);
             subs.put(compilationUnit, sub);
             e.getCompilationUnit().accept(
-                    new TreeScanner(treeMaker, names, availableMethodsToTheirClasses, sub, debugOutput), null);
+                    new TreeScanner(treeMaker, names, availableMethodsToTheirClasses, sub, debugOutput, statistics), null);
         } else if(e.getKind() == TaskEvent.Kind.ANALYZE) {
             Substitution sub = subs.get(e.getCompilationUnit());
             if(sub != null) {
                 sub.substitute();
             }
         } else if(e.getKind() == TaskEvent.Kind.COMPILATION) {
-            log.printRawLines(Log.WriterKind.NOTICE, Statistics.getInstance().printStatistics());
+            log.printRawLines(Log.WriterKind.NOTICE, statistics.printStatistics());
         }
     }
 

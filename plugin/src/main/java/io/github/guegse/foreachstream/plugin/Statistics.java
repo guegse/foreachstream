@@ -1,9 +1,12 @@
 package io.github.guegse.foreachstream.plugin;
 
+import java.io.*;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Statistics {
+public class Statistics implements Serializable {
+    private static final long serialVersionUID = 1L;
     private static final String[] INTERMEDIATE_OPERATIONS_IMPLEMENTED = new String[] {
             "filter",
             "map",
@@ -31,23 +34,15 @@ public class Statistics {
     private int subFailedCounter;
     private int typeCounter;
     private int arrayStreamCounter;
-    private final Map<Integer, Integer> depthMap = new HashMap<>();
-    private final Map<String, Integer> terminalMissMap = new HashMap<>();
-    private final Map<String, Integer> intermediateMissMap = new HashMap<>();
-    private final Map<String, Integer> terminalSubMap = new HashMap<>();
-    private final Map<String, Integer> intermediateSubMap = new HashMap<>();
-    private final Map<String, Integer> methodSubMap = new HashMap<>();
-    private final Map<String, Integer> methodMissMap = new HashMap<>();
+    private Map<Integer, Integer> depthMap = new HashMap<>();
+    private Map<String, Integer> terminalMissMap = new HashMap<>();
+    private Map<String, Integer> intermediateMissMap = new HashMap<>();
+    private Map<String, Integer> terminalSubMap = new HashMap<>();
+    private Map<String, Integer> intermediateSubMap = new HashMap<>();
+    private Map<String, Integer> methodSubMap = new HashMap<>();
+    private Map<String, Integer> methodMissMap = new HashMap<>();
 
-    private static final Statistics statistics = new Statistics();
-
-    private Statistics() {
-
-    }
-
-    public static Statistics getInstance() {
-        return statistics;
-    }
+    private static final String folderName = Paths.get(System.getProperty("user.home"), "Statistics").toString();
 
     public void arrayStreamSource() {
         arrayStreamCounter++;
@@ -76,11 +71,11 @@ public class Statistics {
             String operation = operations[i];
             if(i == operations.length - 1) {
                 if(!containsOperation(TERMINAL_OPERATIONS_IMPLEMENTED, operation)) {
-                    statistics.terminalOperationMissing(operation);
+                    terminalOperationMissing(operation);
                 }
             } else {
                 if(!containsOperation(INTERMEDIATE_OPERATIONS_IMPLEMENTED, operation)) {
-                    statistics.intermediateOperationMissing(operation);
+                    intermediateOperationMissing(operation);
                 }
             }
         }
@@ -92,6 +87,67 @@ public class Statistics {
     public void typeMismatch() {
         typeCounter++;
         subFailedCounter++;
+    }
+
+    public static <K> Map<K, Integer> mergeMaps(Map<K, Integer> map1, Map<K, Integer> map2) {
+        Map<K, Integer> combinedMap = new HashMap<>(map1);
+        map2.forEach((key, value) -> combinedMap.merge(key, value, Integer::sum));
+        return combinedMap;
+    }
+
+    private void add(Statistics statistics) {
+        if(statistics == null) return;
+        this.subCounter += statistics.subCounter;
+        this.subFailedCounter += statistics.subFailedCounter;
+        this.typeCounter += statistics.typeCounter;
+        this.arrayStreamCounter += statistics.arrayStreamCounter;
+
+        depthMap = mergeMaps(depthMap, statistics.depthMap);
+        terminalMissMap = mergeMaps(terminalMissMap, statistics.terminalMissMap);
+        intermediateMissMap = mergeMaps(intermediateMissMap, statistics.intermediateMissMap);
+        terminalSubMap = mergeMaps(terminalSubMap, statistics.terminalSubMap);
+        intermediateSubMap = mergeMaps(intermediateSubMap, statistics.intermediateSubMap);
+        methodSubMap = mergeMaps(methodSubMap, statistics.methodSubMap);
+        methodMissMap = mergeMaps(methodMissMap, statistics.methodMissMap);
+    }
+
+    public static String evaluateStatistics() {
+        File folder = new File(folderName);
+        if(!folder.isDirectory() || folder.listFiles() == null) return null;
+        Statistics result = new Statistics();
+        for (File file : folder.listFiles()) {
+            if (file.isFile()) {
+                try (FileInputStream fis = new FileInputStream(file);
+                     ObjectInputStream ois = new ObjectInputStream(fis)) {
+                    result.add((Statistics) ois.readObject());
+                } catch (IOException | ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        }
+        return result.printStatistics();
+    }
+
+    public static void compilationStarted() {
+        File folder = new File(folderName);
+        if(!folder.isDirectory()) {
+            folder.mkdirs();
+        }
+        if(folder.listFiles() == null) return;
+        for (File file : folder.listFiles()) {
+            file.delete();
+        }
+    }
+
+    public void writeToFile(String fileName) {
+        File file = new File(folderName, fileName);
+        try (FileOutputStream fileOut = new FileOutputStream(file, true);
+             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+            out.writeObject(this);
+            out.flush();
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
     }
 
     private static <K> void incrementValue(Map<K, Integer> map, K key) {

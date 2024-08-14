@@ -30,12 +30,12 @@ public class Substitution {
         }
     }
 
-    public Substitution(TreeMaker treeMaker, DebugOutput debugOutput) {
+    public Substitution(TreeMaker treeMaker, DebugOutput debugOutput, Statistics statistics) {
         entries = new ArrayList<>();
         this.treeMaker = treeMaker;
         staticBlock = treeMaker.Block(0, com.sun.tools.javac.util.List.nil());
         this.debugOutput = debugOutput;
-        this.statistics = Statistics.getInstance();
+        this.statistics = statistics;
     }
 
     public JCTree.JCBlock getStaticBlock() {
@@ -49,18 +49,22 @@ public class Substitution {
 
     public void substitute() {
         for(var entry : entries) {
-            Type type = getReturnType(entry.streamCall);
-            if(type == null || !type.toString().startsWith("java.util.stream.Stream")) {
-                statistics.typeMismatch();
+            Type streamType = getReturnType(entry.streamCall);
+            if(streamType == null || !streamType.toString().startsWith("java.util.stream.Stream")) {
+                if(statistics != null) {
+                    statistics.typeMismatch();
+                }
                 continue;
             }
             debugOutput.printDebug(entry.original, "replacing with: " + entry.sub.getMethodSelect());
             entry.original.args = com.sun.tools.javac.util.List.from(entry.arguments);
             entry.original.meth = entry.sub.meth;
 
-            String subMethod = entry.original.getMethodSelect().toString();
-            int streamIndex = subMethod.indexOf("stream_");
-            statistics.substituted(subMethod.substring(streamIndex));
+            if(statistics != null) {
+                String subMethod = entry.original.getMethodSelect().toString();
+                int streamIndex = subMethod.indexOf("stream_");
+                statistics.substituted(subMethod.substring(streamIndex));
+            }
         }
         staticBlock.stats = com.sun.tools.javac.util.List.nil();
     }
