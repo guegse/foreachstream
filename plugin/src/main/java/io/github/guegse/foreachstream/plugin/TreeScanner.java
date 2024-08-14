@@ -66,13 +66,13 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
     private final DebugOutput debugOutput;
     private final Statistics statistics;
 
-    public TreeScanner(TreeMaker treeMaker, Names names, Map<String, String> availableMethodsToTheirClasses, Substitution subs, DebugOutput debugOutput) {
+    public TreeScanner(TreeMaker treeMaker, Names names, Map<String, String> availableMethodsToTheirClasses, Substitution subs, DebugOutput debugOutput, Statistics statistics) {
         this.treeMaker = treeMaker;
         this.names = names;
         this.availableMethodsToTheirClasses = availableMethodsToTheirClasses;
         this.subs = subs;
         this.debugOutput = debugOutput;
-        this.statistics = Statistics.getInstance();
+        this.statistics = statistics;
     }
 
     @Override
@@ -140,7 +140,9 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     String containingClassName = availableMethodsToTheirClasses.get(methodToCall);
                     if (containingClassName == null) {
                         debugOutput.printDebug(node, "method for this pattern not available: " + methodToCall);
-                        statistics.substitutionFailed(methodToCall);
+                        if(statistics != null) {
+                            statistics.substitutionFailed(methodToCall);
+                        }
                         return super.visitMethodInvocation(node, o);
                     }
 
@@ -149,7 +151,10 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     if (streamCall.getArguments().size() != 0
                             || !(memberSelectTree.getExpression() instanceof JCTree.JCExpression)) {
                         debugOutput.printDebug(node, "unexpected number of arguments to stream(): " + streamCall);
-                        statistics.arrayStreamSource();
+                        if(statistics != null) {
+                            statistics.arrayStreamSource();
+
+                        }
                         return super.visitMethodInvocation(node, o);
                     }
 
