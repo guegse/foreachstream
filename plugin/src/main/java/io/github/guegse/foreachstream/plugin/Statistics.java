@@ -42,7 +42,7 @@ public class Statistics implements Serializable {
     private Map<String, Integer> methodSubMap = new HashMap<>();
     private Map<String, Integer> methodMissMap = new HashMap<>();
 
-    private static final String folderName = Paths.get(System.getProperty("user.home"), "Statistics").toString();
+    private static final String appDataPath = Paths.get(System.getenv("LOCALAPPDATA"), "ForeachStream").toString();
 
     public void arrayStreamSource() {
         arrayStreamCounter++;
@@ -111,8 +111,9 @@ public class Statistics implements Serializable {
         methodMissMap = mergeMaps(methodMissMap, statistics.methodMissMap);
     }
 
-    public static String evaluateStatistics() {
-        File folder = new File(folderName);
+    public static String evaluateStatistics(String rootProjectPath) {
+        String folderPath = Paths.get(appDataPath, rootProjectPath.hashCode()+"").toString();
+        File folder = new File(folderPath);
         if(!folder.isDirectory() || folder.listFiles() == null) return null;
         Statistics result = new Statistics();
         for (File file : folder.listFiles()) {
@@ -128,20 +129,16 @@ public class Statistics implements Serializable {
         return result.printStatistics();
     }
 
-    public static void compilationStarted() {
-        File folder = new File(folderName);
-        if(!folder.isDirectory()) {
-            folder.mkdirs();
-        }
-        if(folder.listFiles() == null) return;
-        for (File file : folder.listFiles()) {
-            file.delete();
-        }
-    }
+    public void writeToFile(String rootProjectPath, String projectPath, String taskName) {
+        String folderHash = rootProjectPath.hashCode() + "";
+        String fileHash = (projectPath + taskName).hashCode() + "";
+        String folderPath = Paths.get(appDataPath, folderHash).toString();
 
-    public void writeToFile(String fileName) {
-        File file = new File(folderName, fileName);
-        try (FileOutputStream fileOut = new FileOutputStream(file, true);
+        File folder = new File(folderPath);
+        folder.mkdirs();
+
+        File file = new File(folder, fileHash);
+        try (FileOutputStream fileOut = new FileOutputStream(file);
              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(this);
             out.flush();
@@ -165,8 +162,8 @@ public class Statistics implements Serializable {
 
     private static <K, V extends Comparable<? super V>> Set<Map.Entry<K, V>> sortMapByValue(Map<K, V> map) {
         return map.entrySet().stream()
-                .limit(20)
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .limit(20)
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 

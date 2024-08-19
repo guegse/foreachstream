@@ -153,7 +153,6 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                         debugOutput.printDebug(node, "unexpected number of arguments to stream(): " + streamCall);
                         if(statistics != null) {
                             statistics.arrayStreamSource();
-
                         }
                         return super.visitMethodInvocation(node, o);
                     }

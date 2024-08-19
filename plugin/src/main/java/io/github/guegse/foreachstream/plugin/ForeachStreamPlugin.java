@@ -8,6 +8,7 @@ import com.sun.tools.javac.tree.TreeMaker;
 import com.sun.tools.javac.util.Context;
 import com.sun.tools.javac.util.Log;
 import com.sun.tools.javac.util.Names;
+import com.sun.tools.javac.util.Options;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -24,6 +25,10 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
     private Map<String, String> availableMethodsToTheirClasses;
     private Map<CompilationUnitTree, Substitution> subs;
     private Statistics statistics;
+    private Options options;
+    private String rootProjectPath;
+    private String projectPath;
+    private String taskName;
 
     @Override
     public String getName() {
@@ -52,7 +57,17 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
             }
         }
         this.log = Log.instance(javacContext);
-        statistics = new Statistics();
+        options = Options.instance(javacContext);
+        this.statistics = new Statistics();
+        for(var option : options.keySet()) {
+            if(option.startsWith("-ArootProjectPath=")) {
+                this.rootProjectPath = option.substring(option.indexOf("=") + 1);
+            } else if(option.startsWith("-AprojectPath")) {
+                this.projectPath = option.substring(option.indexOf("=") + 1);
+            } else if(option.startsWith("-AtaskName")) {
+                this.taskName = option.substring(option.indexOf("=") + 1);
+            }
+        }
     }
 
     @Override
@@ -70,7 +85,12 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
                 sub.substitute();
             }
         } else if(e.getKind() == TaskEvent.Kind.COMPILATION) {
-            log.printRawLines(Log.WriterKind.NOTICE, statistics.printStatistics());
+            if(statistics != null) {
+                log.printRawLines(Log.WriterKind.NOTICE, statistics.printStatistics());
+            }
+            if(rootProjectPath != null && projectPath != null && taskName != null) {
+                statistics.writeToFile(rootProjectPath, projectPath, taskName);
+            }
         }
     }
 
