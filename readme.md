@@ -44,6 +44,70 @@ Add this configuration to your maven compile plugin:
 </build>
 ```
 
+### Gradle
+
+For a simple project just add the dependency and pass the arguments to the compiler:
+```groovy
+plugins.withType(JavaPlugin).configureEach {
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        implementation 'io.github.guegse.foreachstream:plugin:1.0-SNAPSHOT'
+    }
+    tasks.withType(JavaCompile).configureEach { task ->
+        options.fork = true
+        options.forkOptions.jvmArgs += [
+                '--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED',
+                '--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED',
+                '--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED',
+                '--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
+        ]
+
+    }
+}
+```
+
+For a Multi-Project configuration add the dependency to all project and an additional task to obtain a cross-project summary of the statistics:
+```groovy
+import io.github.guegse.foreachstream.plugin.*
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'io.github.guegse.foreachstream:plugin:1.0-SNAPSHOT'
+    }
+}
+
+tasks.register('evaluateStatistics') {
+    doLast {
+        println Statistics.evaluateStatistics(project.rootDir.toString())
+    }
+}
+
+allprojects {
+    plugins.withType(JavaPlugin).configureEach {
+        repositories {
+            mavenLocal()
+        }
+        dependencies {
+            implementation 'io.github.guegse.foreachstream:plugin:1.0-SNAPSHOT'
+        }
+        tasks.withType(JavaCompile).configureEach { task ->
+            options.fork = true
+            options.forkOptions.jvmArgs += [
+                    '--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED',
+                    '--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED',
+                    '--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED',
+                    '--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
+            ]
+            options.compilerArgs += ["-ArootProjectPath=${project.rootDir}", "-AprojectPath=${project.projectDir}", "-AtaskName=${task.name}"]
+        }
+    }
+}
+```
+
 ## How does it work
 The companion library contains static methods like these:
 ```Java
@@ -77,28 +141,28 @@ return ForeachStreamCollectToList.stream_filter_collect_toList(persons, person -
 ## Stream operations support matrix
 
 ### Terminal operations
-| Operation                   | Supported |
-|-----------------------------|-----------|
-| toSet (Java 16)             |           |
-| toList (Java 16)            |           |
-| collect(Collectors.toList() | yes       |
-| collect(Collectors.toSet()  | yes       |
-| collect                     |           |
-| forEach                     | yes       |
-| forEachOrdered              |           |
-| toArray                     |           |
-| reduce                      |           |
-| anyMatch                    | yes       |
-| allMatch                    | yes       |
-| noneMatch                   | yes       |
-| findFirst                   | yes       |
-| findAny                     | yes       |
-| min                         | yes       |
-| max                         | yes       |
-| average                     |           |
-| sum                         | yes       |
-| summaryStatistics           |           |
-| count                       | yes       |
+| Operation                                       | Supported |
+|-------------------------------------------------|-----------|
+| toSet (Java 16)                                 |           |
+| toList (Java 16)                                |           |
+| collect(Collectors.toList()                     | yes       |
+| collect(Collectors.toSet()                      | yes       |
+| collect                                         |           |
+| forEach                                         | yes       |
+| forEachOrdered                                  |           |
+| toArray                                         |           |
+| reduce                                          |           |
+| anyMatch                                        | yes       |
+| allMatch                                        | yes       |
+| noneMatch                                       | yes       |
+| findFirst                                       | yes       |
+| findAny                                         | yes       |
+| min (only IntStream, DoubleStream, LongStream)  | yes       |
+| max (only IntStream, DoubleStream, LongStream)  | yes       |
+| average                                         |           |
+| sum                                             | yes       |
+| summaryStatistics                               |           |
+| count                                           | yes       |
 
 ### Intermediary operations
 | Operation        | Supported |
