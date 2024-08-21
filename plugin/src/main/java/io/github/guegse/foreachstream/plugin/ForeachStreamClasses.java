@@ -4,8 +4,6 @@ import io.github.guegse.foreachstream.*;
 
 public class ForeachStreamClasses {
 		public static final Class<?>[] CLASSES = new Class<?>[] {
-			ForeachStreamCollectToList.class,
-			ForeachStreamCollectToSet.class,
 			ForeachStreamForeach.class,
 			ForeachStreamCount.class,
 			ForeachStreamAnyMatch.class,
@@ -16,5 +14,6 @@ public class ForeachStreamClasses {
 			ForeachStreamMin.class,
 			ForeachStreamMax.class,
 			ForeachStreamSum.class,
+			ForeachStreamCollectCollector.class,
 		};
 }

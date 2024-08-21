@@ -22,7 +22,7 @@ public class AnyMatch extends TerminalOperation {
     }
 
     @Override
-    void emitPreamble(Emitter out, String inputType, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
 
     }
 
@@ -39,7 +39,7 @@ public class AnyMatch extends TerminalOperation {
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType) {
+    void emitPostamble(Emitter out, String inputType, String argument) {
         out.printIndentation();
         out.println("return false;");
     }

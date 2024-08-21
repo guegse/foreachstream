@@ -27,7 +27,7 @@ public class Max extends TerminalOperation {
     }
 
     @Override
-    void emitPreamble(Emitter out, String inputType, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
         out.printIndentation();
         switch (inputType) {
             case "int" -> out.println("int max = 0;");
@@ -60,7 +60,7 @@ public class Max extends TerminalOperation {
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType) {
+    void emitPostamble(Emitter out, String inputType, String argument) {
         out.printIndentation();
         out.println("if (hasMax) {");
         out.increaseIndentation();
