@@ -32,7 +32,7 @@ public class FlatMapOp extends IntermediateOperation {
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType) {
+    void emitPostamble(Emitter out, String inputType, String argument) {
         out.decreaseIndentation();
         out.printIndentation();
         out.println("}");

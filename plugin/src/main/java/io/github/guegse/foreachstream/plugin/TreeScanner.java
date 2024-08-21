@@ -123,27 +123,26 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     String methodToCallWithoutTerminalOp = invocations.stream()
                             .map(invocation -> ((MemberSelectTree) invocation.getMethodSelect()).getIdentifier().toString())
                             .collect(Collectors.joining("_"));
-                    String methodToCall;
-                    Name collectorMethodName = getCollectorMethod(methodName, node);
-                    ExpressionTree terminalArgument = null;
-                    if (collectorMethodName != null) {
-                        String collectorMethodString = collectorMethodName.toString();
-                        methodToCall = methodToCallWithoutTerminalOp + "_collect" + collectorMethodString.substring(0, 1).toUpperCase() + collectorMethodString.substring(1);
-                    } else {
-                        methodToCall = methodToCallWithoutTerminalOp + "_" + methodName;
-                        if (node.getArguments().size() == 1) {
-                            // There is an argument to the terminal method (e.g. a Consumer for forEach)
-                            terminalArgument = node.getArguments().get(0);
-                        }
+
+                    String terminalOperation = methodName.toString();
+                    if(terminalOperation.equals("collect") && node.getArguments().size() == 1) {
+                        terminalOperation = "collectCollector";
                     }
 
+                    String methodToCall = methodToCallWithoutTerminalOp + "_" + terminalOperation;;
                     String containingClassName = availableMethodsToTheirClasses.get(methodToCall);
-                    if (containingClassName == null) {
+                    if (containingClassName == null || node.getArguments().size() > 1) {
                         debugOutput.printDebug(node, "method for this pattern not available: " + methodToCall);
                         if(statistics != null) {
                             statistics.substitutionFailed(methodToCall);
                         }
                         return super.visitMethodInvocation(node, o);
+                    }
+
+                    ExpressionTree terminalArgument = null;
+                    if (!node.getArguments().isEmpty()) {
+                        // There is an argument to the terminal method (e.g. a Consumer for forEach)
+                        terminalArgument = node.getArguments().get(0);
                     }
 
                     // invocations[0] contains the stream() call
@@ -228,44 +227,5 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
         }
         field = treeMaker.Select(field, names.fromString(methodName));
         return field;
-    }
-
-    private Name getCollectorMethod(Name methodName, MethodInvocationTree node) {
-        if (!methodName.contentEquals("collect")) {
-            return null;
-        }
-
-        if (node.getArguments().size() != 1) {
-            return null;
-        }
-
-        ExpressionTree argument = node.getArguments().get(0);
-        if (argument.getKind() == Tree.Kind.METHOD_INVOCATION) {
-            MethodInvocationTree argumentMethodInvocation = (MethodInvocationTree) argument;
-            if (argumentMethodInvocation.getMethodSelect().getKind() == Tree.Kind.MEMBER_SELECT) {
-                MemberSelectTree memberSelectTree = (MemberSelectTree) argumentMethodInvocation.getMethodSelect();
-                if (!memberSelectTree.getIdentifier().contentEquals("toList") &&
-                        !memberSelectTree.getIdentifier().contentEquals("toSet")) {
-                    return null;
-                }
-                if (memberSelectTree.getExpression().getKind() == Tree.Kind.IDENTIFIER) {
-                    IdentifierTree identifierTree = (IdentifierTree) memberSelectTree.getExpression();
-                    if (!identifierTree.getName().contentEquals("Collectors") &&
-                            !identifierTree.getName().contentEquals("java.util.stream.Collectors")) {
-                        return null;
-                    }
-                }
-                return memberSelectTree.getIdentifier();
-            } else if (argumentMethodInvocation.getMethodSelect().getKind() == Tree.Kind.IDENTIFIER) {
-                // Maybe a static import of toList/toSet()? TODO: Check when scanning imports
-                Name selectedMethodName = ((IdentifierTree) argumentMethodInvocation.getMethodSelect()).getName();
-                if (!selectedMethodName.contentEquals("toList") && !selectedMethodName.contentEquals("toSet")) {
-                    return null;
-                }
-                return selectedMethodName;
-            }
-        }
-
-        return null;
     }
 }

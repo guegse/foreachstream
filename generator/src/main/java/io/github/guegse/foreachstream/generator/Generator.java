@@ -26,8 +26,6 @@ public class Generator {
     };
 
     private static final TerminalOperation[] TERMINAL_OPS = {
-            new CollectToList(),
-            new CollectToSet(),
             new Foreach(),
             new Count(),
             new AnyMatch(),
@@ -38,6 +36,7 @@ public class Generator {
             new Min(),
             new Max(),
             new Sum(),
+            new CollectCollector()
     };
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -52,6 +51,7 @@ public class Generator {
             out.println("");
             out.println("import java.util.*;");
             out.println("import java.util.function.*;");
+            out.println("import java.util.stream.*;");
             out.println();
             out.println("public class " + className + " {");
             out.println("");
@@ -117,6 +117,7 @@ public class Generator {
         out.print("public static ");
         List<OperationInstance> operationInstances = getOperationInstances(intermediateOperations, terminalOperation);
         String returnType = operationInstances.get(operationInstances.size() - 1).targetType;
+        OperationInstance terminalInstance = operationInstances.get(operationInstances.size() - 1);
         emitTypeParameterList(out, operationInstances);
         out.print(" ");
         out.print(returnType);
@@ -136,7 +137,7 @@ public class Generator {
             sizeEstimate = "";
         }
 
-        terminalOperation.emitPreamble(out, operationInstances.get(operationInstances.size() - 1).sourceType, sizeEstimate);
+        terminalOperation.emitPreamble(out, terminalInstance.sourceType, terminalInstance.argumentName, sizeEstimate);
 
         out.printIndentation();
         out.println("for (T0 t0 : input) {");
@@ -156,10 +157,10 @@ public class Generator {
         for (OperationInstance operationInstance : operationInstances) {
             Operation operation = operationInstance.operation;
             if (operation != terminalOperation) {
-                operation.emitPostamble(out, operationInstance.sourceType);
+                operation.emitPostamble(out, operationInstance.sourceType, operationInstance.argumentName);
             }
         }
-        terminalOperation.emitPostamble(out, operationInstances.get(operationInstances.size() - 1).sourceType);
+        terminalOperation.emitPostamble(out, terminalInstance.sourceType, terminalInstance.argumentName);
 
         out.decreaseIndentation();
         out.printIndentation();
@@ -176,7 +177,14 @@ public class Generator {
                         .map(OperationInstance::targetType))
                 .filter(s -> !"int".equals(s) && !"long".equals(s) && !"double".equals(s) && !"Integer".equals(s) && !"Long".equals(s) && !"Double".equals(s))
                 .distinct()
-                .toList();
+                .collect(Collectors.toList());
+
+        OperationInstance terminalInstance = operationInstances.get(operationInstances.size() - 1);
+        if(terminalInstance.operation instanceof CollectCollector collector) {
+            String[] argumentTypes = collector.getArgumentType(terminalInstance.sourceType, terminalInstance.targetType).split("[,<>]");
+            types.add(argumentTypes[argumentTypes.length - 2].trim()); // add type of accumulator
+            types.add(argumentTypes[argumentTypes.length - 1].trim()); // add type of combiner
+        }
 
         out.print(types.stream().collect(Collectors.joining(", ", "<", ">")));
     }

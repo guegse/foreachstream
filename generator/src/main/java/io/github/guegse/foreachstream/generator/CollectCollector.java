@@ -1,45 +1,44 @@
 package io.github.guegse.foreachstream.generator;
 
-class CollectToSet extends TerminalOperation {
-
+public class CollectCollector extends TerminalOperation{
     @Override
     String getName() {
-        return "collectToSet";
+        return "collectCollector";
     }
 
     @Override
     String getTargetType(String inputType, String nextOutputType) {
         assertNonPrimitiveStream(inputType);
-        return "Set<" + inputType + ">";
+        return "R";
     }
 
     @Override
     String getArgumentType(String inputType, String nextOutputType) {
-        return null;
+        return "Collector<? super " + inputType + ", A, R>";
     }
 
     @Override
     boolean hasArgument() {
-        return false;
+        return true;
     }
 
-    @Override
-    void emitPreamble(Emitter out, String inputType, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
         out.printIndentation();
-        out.println("HashSet<" + inputType + "> result = new HashSet<>(" + estimatedSize + ");");
+        out.println("A result = " + argument + ".supplier().get();");
     }
 
     @Override
     void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
-        out.print("result.add(");
+        out.print(argument);
+        out.print(".accumulator().accept(result, ");
         out.print(currentStreamElement);
         out.println(");");
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType) {
+    void emitPostamble(Emitter out, String inputType, String argument) {
         out.printIndentation();
-        out.println("return result;");
+        out.println("return " + argument + ".finisher().apply(result);");
     }
 }

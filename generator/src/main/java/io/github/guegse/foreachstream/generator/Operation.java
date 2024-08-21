@@ -51,9 +51,9 @@ abstract class Operation {
 
     abstract boolean hasArgument();
 
-    abstract void emitPreamble(Emitter out, String inputType, String estimatedSize);
+    abstract void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize);
 
     abstract void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement);
 
-    abstract void emitPostamble(Emitter out, String inputType);
+    abstract void emitPostamble(Emitter out, String inputType, String argument);
 }

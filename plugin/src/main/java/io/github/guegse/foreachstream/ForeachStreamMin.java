@@ -2,6 +2,7 @@ package io.github.guegse.foreachstream;
 
 import java.util.*;
 import java.util.function.*;
+import java.util.stream.*;
 
 public class ForeachStreamMin {
 

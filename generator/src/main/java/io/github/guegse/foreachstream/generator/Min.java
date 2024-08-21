@@ -27,7 +27,7 @@ public class Min extends TerminalOperation {
     }
 
     @Override
-    void emitPreamble(Emitter out, String inputType, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
         out.printIndentation();
         switch (inputType) {
             case "int" -> out.println("int min = Integer.MAX_VALUE;");
@@ -60,7 +60,7 @@ public class Min extends TerminalOperation {
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType) {
+    void emitPostamble(Emitter out, String inputType, String argument) {
         out.printIndentation();
         out.println("if (hasMin) {");
         out.increaseIndentation();

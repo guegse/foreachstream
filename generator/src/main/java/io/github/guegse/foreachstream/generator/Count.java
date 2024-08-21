@@ -22,7 +22,7 @@ public class Count extends TerminalOperation {
     }
 
     @Override
-    void emitPreamble(Emitter out, String inputType, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
         out.printIndentation();
         out.println("long count = 0;");
     }
@@ -34,7 +34,7 @@ public class Count extends TerminalOperation {
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType) {
+    void emitPostamble(Emitter out, String inputType, String argument) {
         out.printIndentation();
         out.println("return count;");
     }
