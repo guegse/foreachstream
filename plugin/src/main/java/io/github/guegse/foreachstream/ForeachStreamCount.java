@@ -61,6 +61,32 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0> long stream_sorted_count(Collection<T0> input) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg0) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_map_map_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1) {
 		long count = 0;
 		for (T0 t0 : input) {
@@ -108,6 +134,34 @@ public class ForeachStreamCount {
 		for (T0 t0 : input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sorted_count(Collection<T0> input, Function<T0, T1> arg0) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sortedComp_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
 			count++;
 		}
 		return count;
@@ -170,6 +224,38 @@ public class ForeachStreamCount {
 				continue;
 			}
 			double t1 = arg1.applyAsDouble(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sorted_count(Collection<T0> input, Predicate<T0> arg0) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
 			count++;
 		}
 		return count;
@@ -361,6 +447,222 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1> long stream_sorted_map_count(Collection<T0> input, Function<T0, T1> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_filter_count(Collection<T0> input, Predicate<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToInt_count(Collection<T0> input, ToIntFunction<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToLong_count(Collection<T0> input, ToLongFunction<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sorted_count(Collection<T0> input) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sortedComp_map_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_filter_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sorted_count(Collection<T0> input, Comparator<? super T0> arg0) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			count++;
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2, T3> long stream_map_map_map_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Function<T2, T3> arg2) {
 		long count = 0;
 		for (T0 t0 : input) {
@@ -413,6 +715,36 @@ public class ForeachStreamCount {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			double t3 = arg2.applyAsDouble(t2);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_map_map_sorted_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1) {
+		List<T2> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			T2 t2 = arg1.apply(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_map_map_sortedComp_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Comparator<? super T2> arg2) {
+		List<T2> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			T2 t2 = arg1.apply(t1);
+			sortedComp0.add(t2);
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
 			count++;
 		}
 		return count;
@@ -480,6 +812,40 @@ public class ForeachStreamCount {
 				continue;
 			}
 			double t2 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_filter_sorted_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_filter_sortedComp_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
 			count++;
 		}
 		return count;
@@ -689,6 +1055,236 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1, T2> long stream_map_sorted_map_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			T2 t2 = arg2.apply(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sorted_filter_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sorted_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			int t2 = arg2.applyAsInt(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sorted_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			long t2 = arg2.applyAsLong(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sorted_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			double t2 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sorted_sorted_count(Collection<T0> input, Function<T0, T1> arg0) {
+		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (T1 t1: sorted1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sorted_sortedComp_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_map_sortedComp_map_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Function<T1, T2> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			T2 t2 = arg2.apply(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sortedComp_filter_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sortedComp_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToIntFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			int t2 = arg2.applyAsInt(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sortedComp_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToLongFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			long t2 = arg2.applyAsLong(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sortedComp_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToDoubleFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			double t2 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sortedComp_sorted_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_map_sortedComp_sortedComp_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			sortedComp1.add(t1);
+		}
+		sortedComp1.sort(arg2);
+		for (T1 t1: sortedComp1) {
+			count++;
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_filter_map_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		long count = 0;
 		for (T0 t0 : input) {
@@ -751,6 +1347,40 @@ public class ForeachStreamCount {
 			}
 			T1 t1 = arg1.apply(t0);
 			double t2 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_filter_map_sorted_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_filter_map_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
 			count++;
 		}
 		return count;
@@ -828,6 +1458,44 @@ public class ForeachStreamCount {
 				continue;
 			}
 			double t1 = arg2.applyAsDouble(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_filter_sorted_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_filter_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
 			count++;
 		}
 		return count;
@@ -1068,6 +1736,264 @@ public class ForeachStreamCount {
 			}
 			double t1 = arg1.applyAsDouble(t0);
 			Double t2 = t1;
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_filter_sorted_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg2.apply(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sorted_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sorted_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg2.applyAsInt(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sorted_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg2.applyAsLong(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sorted_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg2.applyAsDouble(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sorted_sorted_count(Collection<T0> input, Predicate<T0> arg0) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sorted_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_filter_sortedComp_map_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg2.apply(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sortedComp_filter_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sortedComp_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg2.applyAsInt(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sortedComp_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg2.applyAsLong(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sortedComp_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg2.applyAsDouble(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sortedComp_sorted_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_filter_sortedComp_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Comparator<? super T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg2);
+		for (T0 t0: sortedComp1) {
 			count++;
 		}
 		return count;
@@ -1414,6 +2340,36 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T2> long stream_mapToInt_mapToObj_sorted_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1) {
+		List<T2> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			T2 t2 = arg1.apply(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T2> long stream_mapToInt_mapToObj_sortedComp_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Comparator<? super T2> arg2) {
+		List<T2> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			T2 t2 = arg1.apply(t1);
+			sortedComp0.add(t2);
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
 	public static <T0, T3> long stream_mapToInt_boxed_map_count(Collection<T0> input, ToIntFunction<T0> arg0, Function<Integer, T3> arg2) {
 		long count = 0;
 		for (T0 t0 : input) {
@@ -1466,6 +2422,36 @@ public class ForeachStreamCount {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			double t3 = arg2.applyAsDouble(t2);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_mapToInt_boxed_sorted_count(Collection<T0> input, ToIntFunction<T0> arg0) {
+		List<Integer> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			Integer t2 = t1;
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (Integer t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_mapToInt_boxed_sortedComp_count(Collection<T0> input, ToIntFunction<T0> arg0, Comparator<? super Integer> arg2) {
+		List<Integer> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			Integer t2 = t1;
+			sortedComp0.add(t2);
+		}
+		sortedComp0.sort(arg2);
+		for (Integer t2: sortedComp0) {
 			count++;
 		}
 		return count;
@@ -1812,6 +2798,36 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T2> long stream_mapToLong_mapToObj_sorted_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1) {
+		List<T2> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			T2 t2 = arg1.apply(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T2> long stream_mapToLong_mapToObj_sortedComp_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Comparator<? super T2> arg2) {
+		List<T2> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			T2 t2 = arg1.apply(t1);
+			sortedComp0.add(t2);
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
 	public static <T0, T3> long stream_mapToLong_boxed_map_count(Collection<T0> input, ToLongFunction<T0> arg0, Function<Long, T3> arg2) {
 		long count = 0;
 		for (T0 t0 : input) {
@@ -1864,6 +2880,36 @@ public class ForeachStreamCount {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			double t3 = arg2.applyAsDouble(t2);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_mapToLong_boxed_sorted_count(Collection<T0> input, ToLongFunction<T0> arg0) {
+		List<Long> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			Long t2 = t1;
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (Long t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_mapToLong_boxed_sortedComp_count(Collection<T0> input, ToLongFunction<T0> arg0, Comparator<? super Long> arg2) {
+		List<Long> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			Long t2 = t1;
+			sortedComp0.add(t2);
+		}
+		sortedComp0.sort(arg2);
+		for (Long t2: sortedComp0) {
 			count++;
 		}
 		return count;
@@ -2210,6 +3256,36 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T2> long stream_mapToDouble_mapToObj_sorted_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1) {
+		List<T2> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			T2 t2 = arg1.apply(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T2> long stream_mapToDouble_mapToObj_sortedComp_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Comparator<? super T2> arg2) {
+		List<T2> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			T2 t2 = arg1.apply(t1);
+			sortedComp0.add(t2);
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
 	public static <T0, T3> long stream_mapToDouble_boxed_map_count(Collection<T0> input, ToDoubleFunction<T0> arg0, Function<Double, T3> arg2) {
 		long count = 0;
 		for (T0 t0 : input) {
@@ -2262,6 +3338,1648 @@ public class ForeachStreamCount {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			double t3 = arg2.applyAsDouble(t2);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_mapToDouble_boxed_sorted_count(Collection<T0> input, ToDoubleFunction<T0> arg0) {
+		List<Double> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			Double t2 = t1;
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (Double t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_mapToDouble_boxed_sortedComp_count(Collection<T0> input, ToDoubleFunction<T0> arg0, Comparator<? super Double> arg2) {
+		List<Double> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			Double t2 = t1;
+			sortedComp0.add(t2);
+		}
+		sortedComp0.sort(arg2);
+		for (Double t2: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_sorted_map_map_count(Collection<T0> input, Function<T0, T1> arg1, Function<T1, T2> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			T2 t2 = arg2.apply(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sorted_map_filter_count(Collection<T0> input, Function<T0, T1> arg1, Predicate<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sorted_map_mapToInt_count(Collection<T0> input, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			int t2 = arg2.applyAsInt(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sorted_map_mapToLong_count(Collection<T0> input, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			long t2 = arg2.applyAsLong(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sorted_map_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sorted_map_sorted_count(Collection<T0> input, Function<T0, T1> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T1> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (T1 t1: sorted1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sorted_map_sortedComp_count(Collection<T0> input, Function<T0, T1> arg1, Comparator<? super T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sorted_filter_map_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_filter_filter_count(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_filter_mapToInt_count(Collection<T0> input, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_filter_mapToLong_count(Collection<T0> input, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_filter_mapToDouble_count(Collection<T0> input, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_filter_sorted_count(Collection<T0> input, Predicate<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_filter_sortedComp_count(Collection<T0> input, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToInt_map_count(Collection<T0> input, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			t1 = arg2.applyAsInt(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToInt_filter_count(Collection<T0> input, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToInt_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			long t2 = arg2.applyAsLong(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToInt_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T2> long stream_sorted_mapToInt_mapToObj_count(Collection<T0> input, ToIntFunction<T0> arg1, IntFunction<T2> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			T2 t2 = arg2.apply(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToInt_boxed_count(Collection<T0> input, ToIntFunction<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			Integer t2 = t1;
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToLong_map_count(Collection<T0> input, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			t1 = arg2.applyAsLong(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToLong_filter_count(Collection<T0> input, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToLong_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			int t2 = arg2.applyAsInt(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToLong_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T2> long stream_sorted_mapToLong_mapToObj_count(Collection<T0> input, ToLongFunction<T0> arg1, LongFunction<T2> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			T2 t2 = arg2.apply(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToLong_boxed_count(Collection<T0> input, ToLongFunction<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			Long t2 = t1;
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToDouble_map_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			t1 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToDouble_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToDouble_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			int t2 = arg2.applyAsInt(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToDouble_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			long t2 = arg2.applyAsLong(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T2> long stream_sorted_mapToDouble_mapToObj_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleFunction<T2> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			T2 t2 = arg2.apply(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_mapToDouble_boxed_count(Collection<T0> input, ToDoubleFunction<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			Double t2 = t1;
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sorted_sorted_map_count(Collection<T0> input, Function<T0, T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			T1 t1 = arg2.apply(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sorted_filter_count(Collection<T0> input, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sorted_mapToInt_count(Collection<T0> input, ToIntFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			int t1 = arg2.applyAsInt(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sorted_mapToLong_count(Collection<T0> input, ToLongFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			long t1 = arg2.applyAsLong(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sorted_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			double t1 = arg2.applyAsDouble(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sorted_sorted_count(Collection<T0> input) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted2 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			sorted2.add(t0);
+		}
+		Collections.sort((List) sorted2);
+		for (T0 t0: sorted2) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sorted_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sorted_sortedComp_map_count(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg2.apply(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sortedComp_filter_count(Collection<T0> input, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sortedComp_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg2.applyAsInt(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sortedComp_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg2.applyAsLong(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sortedComp_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg2.applyAsDouble(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sortedComp_sorted_count(Collection<T0> input, Comparator<? super T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sorted_sortedComp_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg1, Comparator<? super T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg2);
+		for (T0 t0: sortedComp1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_sortedComp_map_map_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			T2 t2 = arg2.apply(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sortedComp_map_filter_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sortedComp_map_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			int t2 = arg2.applyAsInt(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sortedComp_map_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			long t2 = arg2.applyAsLong(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sortedComp_map_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sortedComp_map_sorted_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sortedComp_map_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Comparator<? super T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			sortedComp1.add(t1);
+		}
+		sortedComp1.sort(arg2);
+		for (T1 t1: sortedComp1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sortedComp_filter_map_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_filter_filter_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_filter_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_filter_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_filter_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_filter_sorted_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_filter_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg2);
+		for (T0 t0: sortedComp1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToInt_map_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			t1 = arg2.applyAsInt(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToInt_filter_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToInt_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			long t2 = arg2.applyAsLong(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToInt_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T2> long stream_sortedComp_mapToInt_mapToObj_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntFunction<T2> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			T2 t2 = arg2.apply(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToInt_boxed_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			Integer t2 = t1;
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToLong_map_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			t1 = arg2.applyAsLong(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToLong_filter_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToLong_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			int t2 = arg2.applyAsInt(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToLong_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T2> long stream_sortedComp_mapToLong_mapToObj_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongFunction<T2> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			T2 t2 = arg2.apply(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToLong_boxed_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			Long t2 = t1;
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToDouble_map_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			t1 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToDouble_filter_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToDouble_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			int t2 = arg2.applyAsInt(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToDouble_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			long t2 = arg2.applyAsLong(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T2> long stream_sortedComp_mapToDouble_mapToObj_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleFunction<T2> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			T2 t2 = arg2.apply(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_mapToDouble_boxed_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			Double t2 = t1;
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sortedComp_sorted_map_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg2.apply(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sorted_filter_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sorted_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg2.applyAsInt(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sorted_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg2.applyAsLong(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sorted_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg2.applyAsDouble(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sorted_sorted_count(Collection<T0> input, Comparator<? super T0> arg0) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sorted_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg2);
+		for (T0 t0: sortedComp1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_sortedComp_sortedComp_map_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			T1 t1 = arg2.apply(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sortedComp_filter_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sortedComp_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			int t1 = arg2.applyAsInt(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sortedComp_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			long t1 = arg2.applyAsLong(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sortedComp_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			double t1 = arg2.applyAsDouble(t0);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sortedComp_sorted_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0> long stream_sortedComp_sortedComp_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Comparator<? super T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp2 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			sortedComp2.add(t0);
+		}
+		sortedComp2.sort(arg2);
+		for (T0 t0: sortedComp2) {
 			count++;
 		}
 		return count;

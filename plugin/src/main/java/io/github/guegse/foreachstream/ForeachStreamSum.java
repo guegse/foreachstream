@@ -225,6 +225,90 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_sorted_mapToInt_sum(Collection<T0> input, ToIntFunction<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sorted_mapToLong_sum(Collection<T0> input, ToLongFunction<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sorted_mapToDouble_sum(Collection<T0> input, ToDoubleFunction<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sortedComp_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sortedComp_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sortedComp_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0, T1, T2> int stream_map_map_mapToInt_sum(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, ToIntFunction<T2> arg2) {
 		int sum = 0;
 		for (T0 t0 : input) {
@@ -431,6 +515,96 @@ public class ForeachStreamSum {
 			double t2 = arg1.applyAsDouble(t1);
 			long t3 = arg2.applyAsLong(t2);
 			sum += t3;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> int stream_map_sorted_mapToInt_sum(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> long stream_map_sorted_mapToLong_sum(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> double stream_map_sorted_mapToDouble_sum(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> int stream_map_sortedComp_mapToInt_sum(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToIntFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> long stream_map_sortedComp_mapToLong_sum(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToLongFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> double stream_map_sortedComp_mapToDouble_sum(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToDoubleFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
 		}
 		return sum;
 	}
@@ -677,6 +851,108 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			long t2 = arg2.applyAsLong(t1);
 			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_filter_sorted_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_filter_sorted_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_filter_sorted_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_filter_sortedComp_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_filter_sortedComp_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_filter_sortedComp_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
 		}
 		return sum;
 	}
@@ -1451,6 +1727,798 @@ public class ForeachStreamSum {
 			Double t2 = t1;
 			double t3 = arg2.applyAsDouble(t2);
 			sum += t3;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> int stream_sorted_map_mapToInt_sum(Collection<T0> input, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> long stream_sorted_map_mapToLong_sum(Collection<T0> input, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> double stream_sorted_map_mapToDouble_sum(Collection<T0> input, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sorted_filter_mapToInt_sum(Collection<T0> input, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sorted_filter_mapToLong_sum(Collection<T0> input, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sorted_filter_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sorted_mapToInt_map_sum(Collection<T0> input, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			t1 = arg2.applyAsInt(t1);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sorted_mapToInt_filter_sum(Collection<T0> input, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sorted_mapToInt_mapToLong_sum(Collection<T0> input, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sorted_mapToInt_mapToDouble_sum(Collection<T0> input, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sorted_mapToLong_map_sum(Collection<T0> input, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			t1 = arg2.applyAsLong(t1);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sorted_mapToLong_filter_sum(Collection<T0> input, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sorted_mapToLong_mapToInt_sum(Collection<T0> input, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sorted_mapToLong_mapToDouble_sum(Collection<T0> input, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sorted_mapToDouble_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			t1 = arg2.applyAsDouble(t1);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sorted_mapToDouble_filter_sum(Collection<T0> input, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sorted_mapToDouble_mapToInt_sum(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sorted_mapToDouble_mapToLong_sum(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sorted_sorted_mapToInt_sum(Collection<T0> input, ToIntFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sorted_sorted_mapToLong_sum(Collection<T0> input, ToLongFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sorted_sorted_mapToDouble_sum(Collection<T0> input, ToDoubleFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sorted_sortedComp_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sorted_sortedComp_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sorted_sortedComp_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> int stream_sortedComp_map_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> long stream_sortedComp_map_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> double stream_sortedComp_map_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sortedComp_filter_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sortedComp_filter_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sortedComp_filter_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sortedComp_mapToInt_map_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			t1 = arg2.applyAsInt(t1);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sortedComp_mapToInt_filter_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sortedComp_mapToInt_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sortedComp_mapToInt_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sortedComp_mapToLong_map_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			t1 = arg2.applyAsLong(t1);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sortedComp_mapToLong_filter_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sortedComp_mapToLong_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sortedComp_mapToLong_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sortedComp_mapToDouble_map_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			t1 = arg2.applyAsDouble(t1);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sortedComp_mapToDouble_filter_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sortedComp_mapToDouble_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sortedComp_mapToDouble_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sortedComp_sorted_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sortedComp_sorted_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sortedComp_sorted_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_sortedComp_sortedComp_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sortedComp_sortedComp_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sortedComp_sortedComp_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
 		}
 		return sum;
 	}
