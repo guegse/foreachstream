@@ -121,14 +121,10 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                 if (canReplace) {
                     Collections.reverse(invocations);
                     String methodToCallWithoutTerminalOp = invocations.stream()
-                            .map(invocation -> ((MemberSelectTree) invocation.getMethodSelect()).getIdentifier().toString())
+                            .map(invocation -> mapMethodName(((MemberSelectTree) invocation.getMethodSelect()).getIdentifier().toString(), invocation))
                             .collect(Collectors.joining("_"));
 
-                    String terminalOperation = methodName.toString();
-                    if(terminalOperation.equals("collect") && node.getArguments().size() == 1) {
-                        terminalOperation = "collectCollector";
-                    }
-
+                    String terminalOperation = mapMethodName(methodName.toString(), node);
                     String methodToCall = methodToCallWithoutTerminalOp + "_" + terminalOperation;;
                     String containingClassName = availableMethodsToTheirClasses.get(methodToCall);
                     if (containingClassName == null || node.getArguments().size() > 1) {
@@ -165,14 +161,15 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     }
                     for (int i = invocations.size() - 1; i > 0; i--) {
                         MethodInvocationTree methodInvocationTree = invocations.get(i);
-                        if (methodInvocationTree.getArguments().size() != 1
-                                || !(methodInvocationTree.getArguments().get(0) instanceof JCTree.JCExpression)) {
+                        if (methodInvocationTree.getArguments().size() > 1){
                             debugOutput.printDebug(node, "unexpected number of arguments to intermediate method: "
                                     + methodInvocationTree);
                             return super.visitMethodInvocation(node, o);
+                        } else if(methodInvocationTree.getArguments().size() == 1
+                                && methodInvocationTree.getArguments().get(0) instanceof JCTree.JCExpression) {
+                            ExpressionTree argument = methodInvocationTree.getArguments().get(0);
+                            arguments.add((JCTree.JCExpression) argument);
                         }
-                        ExpressionTree argument = methodInvocationTree.getArguments().get(0);
-                        arguments.add((JCTree.JCExpression) argument);
                     }
                     arguments.add((JCTree.JCExpression) ((MemberSelectTree) streamCall.getMethodSelect()).getExpression());
                     Collections.reverse(arguments);
@@ -195,6 +192,16 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
             }
         }
         return super.visitMethodInvocation(node, o);
+    }
+
+    private String mapMethodName(String method, MethodInvocationTree node) {
+        if(method.equals("collect") && node.getArguments().size() == 1) {
+            return "collectCollector";
+        } else if(method.equals("sorted") && node.getArguments().size() == 1) {
+            return "sortedComp";
+        } else {
+            return method;
+        }
     }
 
     private boolean isIntermediateMethod(Name methodName) {

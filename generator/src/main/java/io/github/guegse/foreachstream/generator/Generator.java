@@ -22,6 +22,8 @@ public class Generator {
             new MapToDoubleOp(),
             new MapToObjOp(),
             new Boxed(),
+            new Sorted(),
+            new SortedComparator()
             //new FlatMapOp(),
     };
 
@@ -124,7 +126,7 @@ public class Generator {
         emitMethodName(out, terminalOperation, intermediateOperations);
         out.print("(");
         out.print("Collection<T0> input");
-        if (!intermediateOperations.isEmpty() || terminalOperation.hasArgument()) {
+        if (intermediateOperations.stream().anyMatch(Operation::hasArgument) || terminalOperation.hasArgument()) {
             out.print(", ");
         }
         emitArgumentDeclarations(out, operationInstances);
@@ -137,7 +139,12 @@ public class Generator {
             sizeEstimate = "";
         }
 
-        terminalOperation.emitPreamble(out, terminalInstance.sourceType, terminalInstance.argumentName, sizeEstimate);
+        for (OperationInstance operationInstance : operationInstances) {
+            Operation operation = operationInstance.operation;
+            operation.emitPreamble(out, operationInstance.sourceType, operationInstance.argumentName, sizeEstimate);
+        }
+
+        //terminalOperation.emitPreamble(out, terminalInstance.sourceType, terminalInstance.argumentName, sizeEstimate);
 
         out.printIndentation();
         out.println("for (T0 t0 : input) {");
