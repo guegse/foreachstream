@@ -8,7 +8,6 @@ public class Sorted extends StatefulIntermediateOperation{
 
     @Override
     String getTargetType(String inputType, String nextTargetType) {
-        assertNonPrimitiveStream(inputType);
         return inputType;
     }
 
@@ -25,7 +24,7 @@ public class Sorted extends StatefulIntermediateOperation{
     @Override
     void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
         out.printIndentation();
-        out.println("List<" + inputType + "> " + addVariable() + " = new ArrayList<>();");
+        out.println("List<" + referenceType(inputType) + "> " + addVariable() + " = new ArrayList<>();");
     }
 
     @Override

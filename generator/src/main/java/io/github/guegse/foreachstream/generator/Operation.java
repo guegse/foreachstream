@@ -7,6 +7,15 @@ abstract class Operation {
         }
     }
 
+    protected String referenceType(String inputType) {
+        return switch (inputType) {
+            case "int" -> "Integer";
+            case "long" -> "Long";
+            case "double" -> "Double";
+            default -> inputType;
+        };
+    }
+
     protected String predicateType(String inputType) {
         return switch (inputType) {
             case "int" -> "IntPredicate";

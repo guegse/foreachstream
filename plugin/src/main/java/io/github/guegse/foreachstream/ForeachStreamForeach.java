@@ -359,6 +359,18 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToInt_sorted_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntConsumer arg2) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			arg2.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_mapToInt_limit_forEach(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntConsumer arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -439,6 +451,18 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToLong_sorted_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongConsumer arg2) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			arg2.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_mapToLong_limit_forEach(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongConsumer arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -516,6 +540,18 @@ public class ForeachStreamForeach {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			arg2.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToDouble_sorted_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleConsumer arg2) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			arg2.accept(t1);
 		}
 	}
 
@@ -1415,6 +1451,19 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0, T1> void stream_map_mapToInt_sorted_forEach(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			int t2 = arg1.applyAsInt(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (int t2: sorted0) {
+			arg3.accept(t2);
+		}
+	}
+
 	public static <T0, T1> void stream_map_mapToInt_limit_forEach(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, long arg2, IntConsumer arg3) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -1503,6 +1552,19 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0, T1> void stream_map_mapToLong_sorted_forEach(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			long t2 = arg1.applyAsLong(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (long t2: sorted0) {
+			arg3.accept(t2);
+		}
+	}
+
 	public static <T0, T1> void stream_map_mapToLong_limit_forEach(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, long arg2, LongConsumer arg3) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -1588,6 +1650,19 @@ public class ForeachStreamForeach {
 			double t2 = arg1.applyAsDouble(t1);
 			Double t3 = t2;
 			arg3.accept(t3);
+		}
+	}
+
+	public static <T0, T1> void stream_map_mapToDouble_sorted_forEach(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			double t2 = arg1.applyAsDouble(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (double t2: sorted0) {
+			arg3.accept(t2);
 		}
 	}
 
@@ -2573,6 +2648,21 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_filter_mapToInt_sorted_forEach(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_filter_mapToInt_limit_forEach(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, long arg2, IntConsumer arg3) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -2677,6 +2767,21 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_filter_mapToLong_sorted_forEach(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_filter_mapToLong_limit_forEach(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, long arg2, LongConsumer arg3) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -2778,6 +2883,21 @@ public class ForeachStreamForeach {
 			double t1 = arg1.applyAsDouble(t0);
 			Double t2 = t1;
 			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_filter_mapToDouble_sorted_forEach(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			arg3.accept(t1);
 		}
 	}
 
@@ -3563,6 +3683,19 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToInt_map_sorted_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			t1 = arg1.applyAsInt(t1);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_mapToInt_map_limit_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, long arg2, IntConsumer arg3) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -3663,6 +3796,21 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToInt_filter_sorted_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_mapToInt_filter_limit_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, long arg2, IntConsumer arg3) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -3755,6 +3903,19 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToInt_mapToLong_sorted_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			long t2 = arg1.applyAsLong(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (long t2: sorted0) {
+			arg3.accept(t2);
+		}
+	}
+
 	public static <T0> void stream_mapToInt_mapToLong_limit_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, long arg2, LongConsumer arg3) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -3840,6 +4001,19 @@ public class ForeachStreamForeach {
 			double t2 = arg1.applyAsDouble(t1);
 			Double t3 = t2;
 			arg3.accept(t3);
+		}
+	}
+
+	public static <T0> void stream_mapToInt_mapToDouble_sorted_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			double t2 = arg1.applyAsDouble(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (double t2: sorted0) {
+			arg3.accept(t2);
 		}
 	}
 
@@ -4085,6 +4259,143 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToInt_sorted_map_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg2, IntConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			t1 = arg2.applyAsInt(t1);
+			arg3.accept(t1);
+		}
+	}
+
+	public static <T0> void stream_mapToInt_sorted_filter_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg2, IntConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			arg3.accept(t1);
+		}
+	}
+
+	public static <T0> void stream_mapToInt_sorted_mapToLong_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg2, LongConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			long t2 = arg2.applyAsLong(t1);
+			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToInt_sorted_mapToDouble_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg2, DoubleConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			double t2 = arg2.applyAsDouble(t1);
+			arg3.accept(t2);
+		}
+	}
+
+	public static <T0, T2> void stream_mapToInt_sorted_mapToObj_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg2, Consumer<T2> arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			T2 t2 = arg2.apply(t1);
+			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToInt_sorted_boxed_forEach(Collection<T0> input, ToIntFunction<T0> arg0, Consumer<Integer> arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			Integer t2 = t1;
+			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToInt_sorted_sorted_forEach(Collection<T0> input, ToIntFunction<T0> arg0, IntConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (int t1: sorted1) {
+			arg3.accept(t1);
+		}
+	}
+
+	public static <T0> void stream_mapToInt_sorted_limit_forEach(Collection<T0> input, ToIntFunction<T0> arg0, long arg2, IntConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accept(t1);
+		}
+	}
+
+	public static <T0> void stream_mapToInt_sorted_skip_forEach(Collection<T0> input, ToIntFunction<T0> arg0, long arg2, IntConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_mapToInt_limit_map_forEach(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntUnaryOperator arg2, IntConsumer arg3) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -4180,6 +4491,26 @@ public class ForeachStreamForeach {
 			}
 			Integer t2 = t1;
 			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToInt_limit_sorted_forEach(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntConsumer arg3) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			arg3.accept(t1);
 		}
 	}
 
@@ -4327,6 +4658,26 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToInt_skip_sorted_forEach(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntConsumer arg3) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_mapToInt_skip_limit_forEach(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, long arg2, IntConsumer arg3) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -4426,6 +4777,19 @@ public class ForeachStreamForeach {
 			t1 = arg1.applyAsLong(t1);
 			Long t2 = t1;
 			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToLong_map_sorted_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			t1 = arg1.applyAsLong(t1);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			arg3.accept(t1);
 		}
 	}
 
@@ -4529,6 +4893,21 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToLong_filter_sorted_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_mapToLong_filter_limit_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, long arg2, LongConsumer arg3) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -4621,6 +5000,19 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToLong_mapToInt_sorted_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			int t2 = arg1.applyAsInt(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (int t2: sorted0) {
+			arg3.accept(t2);
+		}
+	}
+
 	public static <T0> void stream_mapToLong_mapToInt_limit_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, long arg2, IntConsumer arg3) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -4706,6 +5098,19 @@ public class ForeachStreamForeach {
 			double t2 = arg1.applyAsDouble(t1);
 			Double t3 = t2;
 			arg3.accept(t3);
+		}
+	}
+
+	public static <T0> void stream_mapToLong_mapToDouble_sorted_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			double t2 = arg1.applyAsDouble(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (double t2: sorted0) {
+			arg3.accept(t2);
 		}
 	}
 
@@ -4951,6 +5356,143 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToLong_sorted_map_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg2, LongConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			t1 = arg2.applyAsLong(t1);
+			arg3.accept(t1);
+		}
+	}
+
+	public static <T0> void stream_mapToLong_sorted_filter_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg2, LongConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			arg3.accept(t1);
+		}
+	}
+
+	public static <T0> void stream_mapToLong_sorted_mapToInt_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg2, IntConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			int t2 = arg2.applyAsInt(t1);
+			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToLong_sorted_mapToDouble_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg2, DoubleConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			double t2 = arg2.applyAsDouble(t1);
+			arg3.accept(t2);
+		}
+	}
+
+	public static <T0, T2> void stream_mapToLong_sorted_mapToObj_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg2, Consumer<T2> arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			T2 t2 = arg2.apply(t1);
+			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToLong_sorted_boxed_forEach(Collection<T0> input, ToLongFunction<T0> arg0, Consumer<Long> arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			Long t2 = t1;
+			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToLong_sorted_sorted_forEach(Collection<T0> input, ToLongFunction<T0> arg0, LongConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (long t1: sorted1) {
+			arg3.accept(t1);
+		}
+	}
+
+	public static <T0> void stream_mapToLong_sorted_limit_forEach(Collection<T0> input, ToLongFunction<T0> arg0, long arg2, LongConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accept(t1);
+		}
+	}
+
+	public static <T0> void stream_mapToLong_sorted_skip_forEach(Collection<T0> input, ToLongFunction<T0> arg0, long arg2, LongConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_mapToLong_limit_map_forEach(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongUnaryOperator arg2, LongConsumer arg3) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -5046,6 +5588,26 @@ public class ForeachStreamForeach {
 			}
 			Long t2 = t1;
 			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToLong_limit_sorted_forEach(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongConsumer arg3) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			arg3.accept(t1);
 		}
 	}
 
@@ -5193,6 +5755,26 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToLong_skip_sorted_forEach(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongConsumer arg3) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_mapToLong_skip_limit_forEach(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, long arg2, LongConsumer arg3) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -5292,6 +5874,19 @@ public class ForeachStreamForeach {
 			t1 = arg1.applyAsDouble(t1);
 			Double t2 = t1;
 			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToDouble_map_sorted_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			t1 = arg1.applyAsDouble(t1);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			arg3.accept(t1);
 		}
 	}
 
@@ -5395,6 +5990,21 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToDouble_filter_sorted_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_mapToDouble_filter_limit_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, long arg2, DoubleConsumer arg3) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -5487,6 +6097,19 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToDouble_mapToInt_sorted_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntConsumer arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			int t2 = arg1.applyAsInt(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (int t2: sorted0) {
+			arg3.accept(t2);
+		}
+	}
+
 	public static <T0> void stream_mapToDouble_mapToInt_limit_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, long arg2, IntConsumer arg3) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -5572,6 +6195,19 @@ public class ForeachStreamForeach {
 			long t2 = arg1.applyAsLong(t1);
 			Long t3 = t2;
 			arg3.accept(t3);
+		}
+	}
+
+	public static <T0> void stream_mapToDouble_mapToLong_sorted_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongConsumer arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			long t2 = arg1.applyAsLong(t1);
+			sorted0.add(t2);
+		}
+		Collections.sort((List) sorted0);
+		for (long t2: sorted0) {
+			arg3.accept(t2);
 		}
 	}
 
@@ -5817,6 +6453,143 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_mapToDouble_sorted_map_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg2, DoubleConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			t1 = arg2.applyAsDouble(t1);
+			arg3.accept(t1);
+		}
+	}
+
+	public static <T0> void stream_mapToDouble_sorted_filter_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg2, DoubleConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			arg3.accept(t1);
+		}
+	}
+
+	public static <T0> void stream_mapToDouble_sorted_mapToInt_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg2, IntConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			int t2 = arg2.applyAsInt(t1);
+			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToDouble_sorted_mapToLong_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg2, LongConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			long t2 = arg2.applyAsLong(t1);
+			arg3.accept(t2);
+		}
+	}
+
+	public static <T0, T2> void stream_mapToDouble_sorted_mapToObj_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg2, Consumer<T2> arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			T2 t2 = arg2.apply(t1);
+			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToDouble_sorted_boxed_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, Consumer<Double> arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			Double t2 = t1;
+			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToDouble_sorted_sorted_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (double t1: sorted1) {
+			arg3.accept(t1);
+		}
+	}
+
+	public static <T0> void stream_mapToDouble_sorted_limit_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg2, DoubleConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accept(t1);
+		}
+	}
+
+	public static <T0> void stream_mapToDouble_sorted_skip_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg2, DoubleConsumer arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_mapToDouble_limit_map_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleUnaryOperator arg2, DoubleConsumer arg3) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -5912,6 +6685,26 @@ public class ForeachStreamForeach {
 			}
 			Double t2 = t1;
 			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToDouble_limit_sorted_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleConsumer arg3) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			arg3.accept(t1);
 		}
 	}
 
@@ -6056,6 +6849,26 @@ public class ForeachStreamForeach {
 			}
 			Double t2 = t1;
 			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_mapToDouble_skip_sorted_forEach(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleConsumer arg3) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			arg3.accept(t1);
 		}
 	}
 
@@ -6485,6 +7298,23 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_sorted_mapToInt_sorted_forEach(Collection<T0> input, ToIntFunction<T0> arg1, IntConsumer arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<Integer> sorted1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (int t1: sorted1) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_sorted_mapToInt_limit_forEach(Collection<T0> input, ToIntFunction<T0> arg1, long arg2, IntConsumer arg3) {
 		List<T0> sorted0 = new ArrayList<>();
 		if(arg2 < 0) {
@@ -6605,6 +7435,23 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_sorted_mapToLong_sorted_forEach(Collection<T0> input, ToLongFunction<T0> arg1, LongConsumer arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<Long> sorted1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (long t1: sorted1) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_sorted_mapToLong_limit_forEach(Collection<T0> input, ToLongFunction<T0> arg1, long arg2, LongConsumer arg3) {
 		List<T0> sorted0 = new ArrayList<>();
 		if(arg2 < 0) {
@@ -6722,6 +7569,23 @@ public class ForeachStreamForeach {
 			double t1 = arg1.applyAsDouble(t0);
 			Double t2 = t1;
 			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_sorted_mapToDouble_sorted_forEach(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleConsumer arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<Double> sorted1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (double t1: sorted1) {
+			arg3.accept(t1);
 		}
 	}
 
@@ -7907,6 +8771,23 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_sortedComp_mapToInt_sorted_forEach(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntConsumer arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_sortedComp_mapToInt_limit_forEach(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, long arg2, IntConsumer arg3) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		if(arg2 < 0) {
@@ -8027,6 +8908,23 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_sortedComp_mapToLong_sorted_forEach(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongConsumer arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_sortedComp_mapToLong_limit_forEach(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, long arg2, LongConsumer arg3) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		if(arg2 < 0) {
@@ -8144,6 +9042,23 @@ public class ForeachStreamForeach {
 			double t1 = arg1.applyAsDouble(t0);
 			Double t2 = t1;
 			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_sortedComp_mapToDouble_sorted_forEach(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleConsumer arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			arg3.accept(t1);
 		}
 	}
 
@@ -9401,6 +10316,26 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_limit_mapToInt_sorted_forEach(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntConsumer arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_limit_mapToInt_limit_forEach(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, long arg2, IntConsumer arg3) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -9545,6 +10480,26 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_limit_mapToLong_sorted_forEach(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongConsumer arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_limit_mapToLong_limit_forEach(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, long arg2, LongConsumer arg3) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -9686,6 +10641,26 @@ public class ForeachStreamForeach {
 			double t1 = arg1.applyAsDouble(t0);
 			Double t2 = t1;
 			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_limit_mapToDouble_sorted_forEach(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleConsumer arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			arg3.accept(t1);
 		}
 	}
 
@@ -11057,6 +12032,26 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_skip_mapToInt_sorted_forEach(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntConsumer arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_skip_mapToInt_limit_forEach(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, long arg2, IntConsumer arg3) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -11201,6 +12196,26 @@ public class ForeachStreamForeach {
 		}
 	}
 
+	public static <T0> void stream_skip_mapToLong_sorted_forEach(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongConsumer arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			arg3.accept(t1);
+		}
+	}
+
 	public static <T0> void stream_skip_mapToLong_limit_forEach(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, long arg2, LongConsumer arg3) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -11342,6 +12357,26 @@ public class ForeachStreamForeach {
 			double t1 = arg1.applyAsDouble(t0);
 			Double t2 = t1;
 			arg3.accept(t2);
+		}
+	}
+
+	public static <T0> void stream_skip_mapToDouble_sorted_forEach(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleConsumer arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			arg3.accept(t1);
 		}
 	}
 
