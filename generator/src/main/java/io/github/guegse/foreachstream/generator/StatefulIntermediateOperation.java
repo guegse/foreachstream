@@ -6,13 +6,13 @@ import java.util.Deque;
 public abstract class StatefulIntermediateOperation extends IntermediateOperation{
     private Deque<String> deque = new ArrayDeque<>();
 
-    public String addCollection() {
+    public String addVariable() {
         String ident = getName() + deque.size();
         deque.addLast(ident);
         return ident;
     }
 
-    public String getCollection() {
+    public String getVariable() {
         return deque.removeFirst();
     }
 }

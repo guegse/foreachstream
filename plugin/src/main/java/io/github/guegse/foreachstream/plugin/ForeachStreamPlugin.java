@@ -5,10 +5,7 @@ import com.sun.source.tree.CompilationUnitTree;
 import com.sun.source.util.*;
 import com.sun.tools.javac.api.BasicJavacTask;
 import com.sun.tools.javac.tree.TreeMaker;
-import com.sun.tools.javac.util.Context;
-import com.sun.tools.javac.util.Log;
-import com.sun.tools.javac.util.Names;
-import com.sun.tools.javac.util.Options;
+import com.sun.tools.javac.util.*;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -22,7 +19,7 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
     private TreeMaker treeMaker;
     private Names names;
     private Trees trees;
-    private Map<String, String> availableMethodsToTheirClasses;
+    private Map<String, Pair<String, Class<?>[]>> availableMethodsToTheirClasses;
     private Map<CompilationUnitTree, Substitution> subs;
     private Statistics statistics;
     private Options options;
@@ -48,15 +45,16 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
         trees = Trees.instance(task);
         task.addTaskListener(this);
         subs = new HashMap<>();
+        this.log = Log.instance(javacContext);
         availableMethodsToTheirClasses = new HashMap<>();
         for (Class<?> clazz : ForeachStreamClasses.CLASSES) {
             for (Method method : clazz.getMethods()) {
                 if (Modifier.isPublic(method.getModifiers()) && Modifier.isStatic(method.getModifiers())) {
-                    availableMethodsToTheirClasses.put(method.getName(), clazz.getName());
+                    availableMethodsToTheirClasses.put(method.getName(), new Pair<>(clazz.getName(), method.getParameterTypes()));
+                    log.printRawLines(Log.WriterKind.NOTICE, method.toString());
                 }
             }
         }
-        this.log = Log.instance(javacContext);
         options = Options.instance(javacContext);
         this.statistics = new Statistics();
         for(var option : options.keySet()) {

@@ -23,7 +23,8 @@ public class Generator {
             new MapToObjOp(),
             new Boxed(),
             new Sorted(),
-            new SortedComparator()
+            new SortedComparator(),
+            new Limit()
             //new FlatMapOp(),
     };
 
