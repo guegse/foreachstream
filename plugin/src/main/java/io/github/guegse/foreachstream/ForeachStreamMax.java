@@ -284,6 +284,32 @@ public class ForeachStreamMax {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_mapToInt_skip_max(Collection<T0> input, ToIntFunction<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalLong stream_mapToLong_map_max(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1) {
 		long max = 0;
 		boolean hasMax = false;
@@ -388,6 +414,32 @@ public class ForeachStreamMax {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_mapToLong_skip_max(Collection<T0> input, ToLongFunction<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_mapToDouble_map_max(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
 		double max = 0;
 		boolean hasMax = false;
@@ -478,6 +530,32 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg1) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_skip_max(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t1);
@@ -693,6 +771,84 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_mapToInt_max(Collection<T0> input, long arg0, ToIntFunction<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_mapToLong_max(Collection<T0> input, long arg0, ToLongFunction<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_mapToDouble_max(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
 			}
 			double t1 = arg1.applyAsDouble(t0);
 			if (hasMax) {
@@ -943,6 +1099,33 @@ public class ForeachStreamMax {
 		return OptionalInt.empty();
 	}
 
+	public static <T0, T1> OptionalInt stream_map_mapToInt_skip_max(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			int t2 = arg1.applyAsInt(t1);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0, T1> OptionalLong stream_map_mapToLong_map_max(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongUnaryOperator arg2) {
 		long max = 0;
 		boolean hasMax = false;
@@ -1052,6 +1235,33 @@ public class ForeachStreamMax {
 		return OptionalLong.empty();
 	}
 
+	public static <T0, T1> OptionalLong stream_map_mapToLong_skip_max(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			long t2 = arg1.applyAsLong(t1);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0, T1> OptionalDouble stream_map_mapToDouble_map_max(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleUnaryOperator arg2) {
 		double max = 0;
 		boolean hasMax = false;
@@ -1147,6 +1357,33 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg2) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_map_mapToDouble_skip_max(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			double t2 = arg1.applyAsDouble(t1);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t2);
@@ -1371,6 +1608,87 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg1) {
 				break;
+			}
+			double t2 = arg2.applyAsDouble(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_map_skip_mapToInt_max(Collection<T0> input, Function<T0, T1> arg0, long arg1, ToIntFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			int t2 = arg2.applyAsInt(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_map_skip_mapToLong_max(Collection<T0> input, Function<T0, T1> arg0, long arg1, ToLongFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			long t2 = arg2.applyAsLong(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_map_skip_mapToDouble_max(Collection<T0> input, Function<T0, T1> arg0, long arg1, ToDoubleFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
 			}
 			double t2 = arg2.applyAsDouble(t1);
 			if (hasMax) {
@@ -1643,6 +1961,35 @@ public class ForeachStreamMax {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_filter_mapToInt_skip_max(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalLong stream_filter_mapToLong_map_max(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		long max = 0;
 		boolean hasMax = false;
@@ -1762,6 +2109,35 @@ public class ForeachStreamMax {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_filter_mapToLong_skip_max(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_filter_mapToDouble_map_max(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		double max = 0;
 		boolean hasMax = false;
@@ -1867,6 +2243,35 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg2) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_filter_mapToDouble_skip_max(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t1);
@@ -2124,6 +2529,93 @@ public class ForeachStreamMax {
 		return OptionalDouble.empty();
 	}
 
+	public static <T0> OptionalInt stream_filter_skip_mapToInt_max(Collection<T0> input, Predicate<T0> arg0, long arg1, ToIntFunction<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_filter_skip_mapToLong_max(Collection<T0> input, Predicate<T0> arg0, long arg1, ToLongFunction<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_filter_skip_mapToDouble_max(Collection<T0> input, Predicate<T0> arg0, long arg1, ToDoubleFunction<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
 	public static <T0> OptionalInt stream_mapToInt_map_map_max(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntUnaryOperator arg2) {
 		int max = 0;
 		boolean hasMax = false;
@@ -2219,6 +2711,33 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg2) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_map_skip_max(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			t1 = arg1.applyAsInt(t1);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t1);
@@ -2352,6 +2871,35 @@ public class ForeachStreamMax {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_mapToInt_filter_skip_max(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalLong stream_mapToInt_mapToLong_map_max(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongUnaryOperator arg2) {
 		long max = 0;
 		boolean hasMax = false;
@@ -2461,6 +3009,33 @@ public class ForeachStreamMax {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_mapToInt_mapToLong_skip_max(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			long t2 = arg1.applyAsLong(t1);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_mapToInt_mapToDouble_map_max(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleUnaryOperator arg2) {
 		double max = 0;
 		boolean hasMax = false;
@@ -2556,6 +3131,33 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg2) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToInt_mapToDouble_skip_max(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			double t2 = arg1.applyAsDouble(t1);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t2);
@@ -2834,6 +3436,218 @@ public class ForeachStreamMax {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_mapToInt_limit_skip_max(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_skip_map_max(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntUnaryOperator arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			t1 = arg2.applyAsInt(t1);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_skip_filter_max(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntPredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToInt_skip_mapToLong_max(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntToLongFunction arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			long t2 = arg2.applyAsLong(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToInt_skip_mapToDouble_max(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntToDoubleFunction arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			double t2 = arg2.applyAsDouble(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_skip_limit_max(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_skip_skip_max(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalLong stream_mapToLong_map_map_max(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongUnaryOperator arg2) {
 		long max = 0;
 		boolean hasMax = false;
@@ -2929,6 +3743,33 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg2) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_map_skip_max(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			t1 = arg1.applyAsLong(t1);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t1);
@@ -3062,6 +3903,35 @@ public class ForeachStreamMax {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_mapToLong_filter_skip_max(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalInt stream_mapToLong_mapToInt_map_max(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntUnaryOperator arg2) {
 		int max = 0;
 		boolean hasMax = false;
@@ -3171,6 +4041,33 @@ public class ForeachStreamMax {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_mapToLong_mapToInt_skip_max(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			int t2 = arg1.applyAsInt(t1);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalDouble stream_mapToLong_mapToDouble_map_max(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleUnaryOperator arg2) {
 		double max = 0;
 		boolean hasMax = false;
@@ -3266,6 +4163,33 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg2) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToLong_mapToDouble_skip_max(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			double t2 = arg1.applyAsDouble(t1);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t2);
@@ -3544,6 +4468,218 @@ public class ForeachStreamMax {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_mapToLong_limit_skip_max(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_skip_map_max(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongUnaryOperator arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			t1 = arg2.applyAsLong(t1);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_skip_filter_max(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongPredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToLong_skip_mapToInt_max(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongToIntFunction arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			int t2 = arg2.applyAsInt(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToLong_skip_mapToDouble_max(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongToDoubleFunction arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			double t2 = arg2.applyAsDouble(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_skip_limit_max(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_skip_skip_max(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_mapToDouble_map_map_max(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleUnaryOperator arg2) {
 		double max = 0;
 		boolean hasMax = false;
@@ -3639,6 +4775,33 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg2) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_map_skip_max(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			t1 = arg1.applyAsDouble(t1);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t1);
@@ -3772,6 +4935,35 @@ public class ForeachStreamMax {
 		return OptionalDouble.empty();
 	}
 
+	public static <T0> OptionalDouble stream_mapToDouble_filter_skip_max(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
 	public static <T0> OptionalInt stream_mapToDouble_mapToInt_map_max(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntUnaryOperator arg2) {
 		int max = 0;
 		boolean hasMax = false;
@@ -3881,6 +5073,33 @@ public class ForeachStreamMax {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_mapToDouble_mapToInt_skip_max(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			int t2 = arg1.applyAsInt(t1);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalLong stream_mapToDouble_mapToLong_map_max(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongUnaryOperator arg2) {
 		long max = 0;
 		boolean hasMax = false;
@@ -3976,6 +5195,33 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg2) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToDouble_mapToLong_skip_max(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			long t2 = arg1.applyAsLong(t1);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t2);
@@ -4240,6 +5486,218 @@ public class ForeachStreamMax {
 			limit1++;
 			if(limit1 > arg2) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_limit_skip_max(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_skip_map_max(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleUnaryOperator arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			t1 = arg2.applyAsDouble(t1);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_skip_filter_max(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoublePredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToDouble_skip_mapToInt_max(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleToIntFunction arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			int t2 = arg2.applyAsInt(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToDouble_skip_mapToLong_max(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleToLongFunction arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			long t2 = arg2.applyAsLong(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_skip_limit_max(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_skip_skip_max(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg2) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t1);
@@ -4533,6 +5991,37 @@ public class ForeachStreamMax {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_sorted_mapToInt_skip_max(Collection<T0> input, ToIntFunction<T0> arg1, long arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalLong stream_sorted_mapToLong_map_max(Collection<T0> input, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long max = 0;
@@ -4662,6 +6151,37 @@ public class ForeachStreamMax {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_sorted_mapToLong_skip_max(Collection<T0> input, ToLongFunction<T0> arg1, long arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_sorted_mapToDouble_map_max(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		double max = 0;
@@ -4777,6 +6297,37 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg2) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_sorted_mapToDouble_skip_max(Collection<T0> input, ToDoubleFunction<T0> arg1, long arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t1);
@@ -5037,6 +6588,99 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg1) {
 				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_sorted_skip_mapToInt_max(Collection<T0> input, long arg1, ToIntFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_sorted_skip_mapToLong_max(Collection<T0> input, long arg1, ToLongFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_sorted_skip_mapToDouble_max(Collection<T0> input, long arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
 			}
 			double t1 = arg2.applyAsDouble(t0);
 			if (hasMax) {
@@ -5331,6 +6975,37 @@ public class ForeachStreamMax {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_sortedComp_mapToInt_skip_max(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, long arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalLong stream_sortedComp_mapToLong_map_max(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long max = 0;
@@ -5460,6 +7135,37 @@ public class ForeachStreamMax {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_sortedComp_mapToLong_skip_max(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, long arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_sortedComp_mapToDouble_map_max(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		double max = 0;
@@ -5575,6 +7281,37 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg2) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_sortedComp_mapToDouble_skip_max(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, long arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t1);
@@ -5835,6 +7572,99 @@ public class ForeachStreamMax {
 			limit0++;
 			if(limit0 > arg1) {
 				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_sortedComp_skip_mapToInt_max(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToIntFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_sortedComp_skip_mapToLong_max(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToLongFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_sortedComp_skip_mapToDouble_max(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
 			}
 			double t1 = arg2.applyAsDouble(t0);
 			if (hasMax) {
@@ -6162,6 +7992,40 @@ public class ForeachStreamMax {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_limit_mapToInt_skip_max(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalLong stream_limit_mapToLong_map_max(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -6306,6 +8170,40 @@ public class ForeachStreamMax {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_limit_mapToLong_skip_max(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_limit_mapToDouble_map_max(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -6436,6 +8334,40 @@ public class ForeachStreamMax {
 			limit1++;
 			if(limit1 > arg2) {
 				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_limit_mapToDouble_skip_max(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
 			if (hasMax) {
 				max = Math.max(max, t1);
@@ -6723,6 +8655,1200 @@ public class ForeachStreamMax {
 			limit1++;
 			if(limit1 > arg1) {
 				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_limit_skip_mapToInt_max(Collection<T0> input, long arg0, long arg1, ToIntFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_limit_skip_mapToLong_max(Collection<T0> input, long arg0, long arg1, ToLongFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_limit_skip_mapToDouble_max(Collection<T0> input, long arg0, long arg1, ToDoubleFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_skip_map_mapToInt_max(Collection<T0> input, long arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			int t2 = arg2.applyAsInt(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_skip_map_mapToLong_max(Collection<T0> input, long arg0, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			long t2 = arg2.applyAsLong(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_skip_map_mapToDouble_max(Collection<T0> input, long arg0, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_filter_mapToInt_max(Collection<T0> input, long arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_filter_mapToLong_max(Collection<T0> input, long arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_filter_mapToDouble_max(Collection<T0> input, long arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_mapToInt_map_max(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			t1 = arg2.applyAsInt(t1);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_mapToInt_filter_max(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_mapToInt_mapToLong_max(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			long t2 = arg2.applyAsLong(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_mapToInt_mapToDouble_max(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_mapToInt_limit_max(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_mapToInt_skip_max(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			skip1++;
+			if(skip1 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_mapToLong_map_max(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			t1 = arg2.applyAsLong(t1);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_mapToLong_filter_max(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_mapToLong_mapToInt_max(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			int t2 = arg2.applyAsInt(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_mapToLong_mapToDouble_max(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_mapToLong_limit_max(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_mapToLong_skip_max(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			skip1++;
+			if(skip1 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_mapToDouble_map_max(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			t1 = arg2.applyAsDouble(t1);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_mapToDouble_filter_max(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_mapToDouble_mapToInt_max(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			int t2 = arg2.applyAsInt(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_mapToDouble_mapToLong_max(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			long t2 = arg2.applyAsLong(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_mapToDouble_limit_max(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_mapToDouble_skip_max(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			skip1++;
+			if(skip1 <= arg2) {
+				continue;
+			}
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_sorted_mapToInt_max(Collection<T0> input, long arg0, ToIntFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg2.applyAsInt(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_sorted_mapToLong_max(Collection<T0> input, long arg0, ToLongFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg2.applyAsLong(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_sorted_mapToDouble_max(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg2.applyAsDouble(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_sortedComp_mapToInt_max(Collection<T0> input, long arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg2.applyAsInt(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_sortedComp_mapToLong_max(Collection<T0> input, long arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg2.applyAsLong(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_sortedComp_mapToDouble_max(Collection<T0> input, long arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg2.applyAsDouble(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_limit_mapToInt_max(Collection<T0> input, long arg0, long arg1, ToIntFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_limit_mapToLong_max(Collection<T0> input, long arg0, long arg1, ToLongFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_limit_mapToDouble_max(Collection<T0> input, long arg0, long arg1, ToDoubleFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_skip_mapToInt_max(Collection<T0> input, long arg0, long arg1, ToIntFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg1) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_skip_mapToLong_max(Collection<T0> input, long arg0, long arg1, ToLongFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg1) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			if (hasMax) {
+				max = Math.max(max, t1);
+			} else {
+				hasMax = true;
+				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_skip_mapToDouble_max(Collection<T0> input, long arg0, long arg1, ToDoubleFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg1) {
+				continue;
 			}
 			double t1 = arg2.applyAsDouble(t0);
 			if (hasMax) {

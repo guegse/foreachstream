@@ -24,7 +24,8 @@ public class Generator {
             new Boxed(),
             new Sorted(),
             new SortedComparator(),
-            new Limit()
+            new Limit(),
+            new Skip()
             //new FlatMapOp(),
     };
 
