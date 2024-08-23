@@ -176,6 +176,19 @@ public class ForeachStreamCollectCollector {
 		return arg2.finisher().apply(result);
 	}
 
+	public static <T0, T1, A, R> R stream_map_distinct_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Collector<? super T1, A, R> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			arg2.accumulator().accept(result, t1);
+		}
+		return arg2.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_filter_map_collectCollector(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Collector<? super T1, A, R> arg2) {
 		A result = arg2.supplier().get();
 		for (T0 t0 : input) {
@@ -265,6 +278,21 @@ public class ForeachStreamCollectCollector {
 			}
 			skip0++;
 			if(skip0 <= arg1) {
+				continue;
+			}
+			arg2.accumulator().accept(result, t0);
+		}
+		return arg2.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_filter_distinct_collectCollector(Collection<T0> input, Predicate<T0> arg0, Collector<? super T0, A, R> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
 				continue;
 			}
 			arg2.accumulator().accept(result, t0);
@@ -440,6 +468,23 @@ public class ForeachStreamCollectCollector {
 		return arg2.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_sorted_distinct_collectCollector(Collection<T0> input, Collector<? super T0, A, R> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg2.accumulator().accept(result, t0);
+		}
+		return arg2.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_sortedComp_map_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Collector<? super T1, A, R> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		A result = arg2.supplier().get();
@@ -541,6 +586,23 @@ public class ForeachStreamCollectCollector {
 		for (T0 t0: sortedComp0) {
 			skip0++;
 			if(skip0 <= arg1) {
+				continue;
+			}
+			arg2.accumulator().accept(result, t0);
+		}
+		return arg2.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sortedComp_distinct_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Collector<? super T0, A, R> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
 				continue;
 			}
 			arg2.accumulator().accept(result, t0);
@@ -674,6 +736,26 @@ public class ForeachStreamCollectCollector {
 		return arg2.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_limit_distinct_collectCollector(Collection<T0> input, long arg0, Collector<? super T0, A, R> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg2.accumulator().accept(result, t0);
+		}
+		return arg2.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_skip_map_collectCollector(Collection<T0> input, long arg0, Function<T0, T1> arg1, Collector<? super T1, A, R> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -800,6 +882,144 @@ public class ForeachStreamCollectCollector {
 		return arg2.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_skip_distinct_collectCollector(Collection<T0> input, long arg0, Collector<? super T0, A, R> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg2.accumulator().accept(result, t0);
+		}
+		return arg2.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_map_collectCollector(Collection<T0> input, Function<T0, T1> arg1, Collector<? super T1, A, R> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			arg2.accumulator().accept(result, t1);
+		}
+		return arg2.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_filter_collectCollector(Collection<T0> input, Predicate<T0> arg1, Collector<? super T0, A, R> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			arg2.accumulator().accept(result, t0);
+		}
+		return arg2.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sorted_collectCollector(Collection<T0> input, Collector<? super T0, A, R> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			arg2.accumulator().accept(result, t0);
+		}
+		return arg2.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sortedComp_collectCollector(Collection<T0> input, Comparator<? super T0> arg1, Collector<? super T0, A, R> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			arg2.accumulator().accept(result, t0);
+		}
+		return arg2.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_limit_collectCollector(Collection<T0> input, long arg1, Collector<? super T0, A, R> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			arg2.accumulator().accept(result, t0);
+		}
+		return arg2.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_skip_collectCollector(Collection<T0> input, long arg1, Collector<? super T0, A, R> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			arg2.accumulator().accept(result, t0);
+		}
+		return arg2.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_distinct_collectCollector(Collection<T0> input, Collector<? super T0, A, R> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg2.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			arg2.accumulator().accept(result, t0);
+		}
+		return arg2.finisher().apply(result);
+	}
+
 	public static <T0, T1, T2, T3, A, R> R stream_map_map_map_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Function<T2, T3> arg2, Collector<? super T3, A, R> arg3) {
 		A result = arg3.supplier().get();
 		for (T0 t0 : input) {
@@ -883,6 +1103,20 @@ public class ForeachStreamCollectCollector {
 			T2 t2 = arg1.apply(t1);
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, T2, A, R> R stream_map_map_distinct_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Collector<? super T2, A, R> arg3) {
+		Set<T2> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			T2 t2 = arg1.apply(t1);
+			if(!distinct0.add(t2)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t2);
@@ -985,6 +1219,22 @@ public class ForeachStreamCollectCollector {
 			}
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_map_filter_distinct_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Collector<? super T1, A, R> arg3) {
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			if(!distinct0.add(t1)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t1);
@@ -1172,6 +1422,24 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, T1, A, R> R stream_map_sorted_distinct_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Collector<? super T1, A, R> arg3) {
+		List<T1> sorted0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, T2, A, R> R stream_map_sortedComp_map_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Function<T1, T2> arg2, Collector<? super T2, A, R> arg3) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		A result = arg3.supplier().get();
@@ -1279,6 +1547,24 @@ public class ForeachStreamCollectCollector {
 		for (T1 t1: sortedComp0) {
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_map_sortedComp_distinct_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Collector<? super T1, A, R> arg3) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(!distinct0.add(t1)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t1);
@@ -1418,6 +1704,27 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, T1, A, R> R stream_map_limit_distinct_collectCollector(Collection<T0> input, Function<T0, T1> arg0, long arg1, Collector<? super T1, A, R> arg3) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, T2, A, R> R stream_map_skip_map_collectCollector(Collection<T0> input, Function<T0, T1> arg0, long arg1, Function<T1, T2> arg2, Collector<? super T2, A, R> arg3) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -1550,6 +1857,152 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, T1, A, R> R stream_map_skip_distinct_collectCollector(Collection<T0> input, Function<T0, T1> arg0, long arg1, Collector<? super T1, A, R> arg3) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, T2, A, R> R stream_map_distinct_map_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg2, Collector<? super T2, A, R> arg3) {
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_map_distinct_filter_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg2, Collector<? super T1, A, R> arg3) {
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_map_distinct_sorted_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Collector<? super T1, A, R> arg3) {
+		Set<T1> distinct0 = new HashSet<>();
+		List<T1> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_map_distinct_sortedComp_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg2, Collector<? super T1, A, R> arg3) {
+		Set<T1> distinct0 = new HashSet<>();
+		List<T1> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_map_distinct_limit_collectCollector(Collection<T0> input, Function<T0, T1> arg0, long arg2, Collector<? super T1, A, R> arg3) {
+		Set<T1> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_map_distinct_skip_collectCollector(Collection<T0> input, Function<T0, T1> arg0, long arg2, Collector<? super T1, A, R> arg3) {
+		Set<T1> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_map_distinct_distinct_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Collector<? super T1, A, R> arg3) {
+		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			if(!distinct1.add(t1)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, T2, A, R> R stream_filter_map_map_collectCollector(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2, Collector<? super T2, A, R> arg3) {
 		A result = arg3.supplier().get();
 		for (T0 t0 : input) {
@@ -1645,6 +2098,22 @@ public class ForeachStreamCollectCollector {
 			T1 t1 = arg1.apply(t0);
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_filter_map_distinct_collectCollector(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Collector<? super T1, A, R> arg3) {
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			if(!distinct0.add(t1)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t1);
@@ -1759,6 +2228,24 @@ public class ForeachStreamCollectCollector {
 			}
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_filter_filter_distinct_collectCollector(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t0);
@@ -1970,6 +2457,26 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_filter_sorted_distinct_collectCollector(Collection<T0> input, Predicate<T0> arg0, Collector<? super T0, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_filter_sortedComp_map_collectCollector(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		A result = arg3.supplier().get();
@@ -2089,6 +2596,26 @@ public class ForeachStreamCollectCollector {
 		for (T0 t0: sortedComp0) {
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_filter_sortedComp_distinct_collectCollector(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Collector<? super T0, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t0);
@@ -2240,6 +2767,29 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_filter_limit_distinct_collectCollector(Collection<T0> input, Predicate<T0> arg0, long arg1, Collector<? super T0, A, R> arg3) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_filter_skip_map_collectCollector(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -2377,6 +2927,168 @@ public class ForeachStreamCollectCollector {
 			}
 			skip1++;
 			if(skip1 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_filter_skip_distinct_collectCollector(Collection<T0> input, Predicate<T0> arg0, long arg1, Collector<? super T0, A, R> arg3) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_filter_distinct_map_collectCollector(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_filter_distinct_filter_collectCollector(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_filter_distinct_sorted_collectCollector(Collection<T0> input, Predicate<T0> arg0, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_filter_distinct_sortedComp_collectCollector(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_filter_distinct_limit_collectCollector(Collection<T0> input, Predicate<T0> arg0, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_filter_distinct_skip_collectCollector(Collection<T0> input, Predicate<T0> arg0, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_filter_distinct_distinct_collectCollector(Collection<T0> input, Predicate<T0> arg0, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t0);
@@ -2566,6 +3278,20 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, T2, A, R> R stream_mapToInt_mapToObj_distinct_collectCollector(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Collector<? super T2, A, R> arg3) {
+		Set<T2> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			T2 t2 = arg1.apply(t1);
+			if(!distinct0.add(t2)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T3, A, R> R stream_mapToInt_boxed_map_collectCollector(Collection<T0> input, ToIntFunction<T0> arg0, Function<Integer, T3> arg2, Collector<? super T3, A, R> arg3) {
 		A result = arg3.supplier().get();
 		for (T0 t0 : input) {
@@ -2649,6 +3375,20 @@ public class ForeachStreamCollectCollector {
 			Integer t2 = t1;
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_mapToInt_boxed_distinct_collectCollector(Collection<T0> input, ToIntFunction<T0> arg0, Collector<? super Integer, A, R> arg3) {
+		Set<Integer> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			Integer t2 = t1;
+			if(!distinct0.add(t2)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t2);
@@ -2750,6 +3490,34 @@ public class ForeachStreamCollectCollector {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
+				continue;
+			}
+			Integer t2 = t1;
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T2, A, R> R stream_mapToInt_distinct_mapToObj_collectCollector(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg2, Collector<? super T2, A, R> arg3) {
+		Set<Integer> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_mapToInt_distinct_boxed_collectCollector(Collection<T0> input, ToIntFunction<T0> arg0, Collector<? super Integer, A, R> arg3) {
+		Set<Integer> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!distinct0.add(t1)) {
 				continue;
 			}
 			Integer t2 = t1;
@@ -2940,6 +3708,20 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, T2, A, R> R stream_mapToLong_mapToObj_distinct_collectCollector(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Collector<? super T2, A, R> arg3) {
+		Set<T2> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			T2 t2 = arg1.apply(t1);
+			if(!distinct0.add(t2)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T3, A, R> R stream_mapToLong_boxed_map_collectCollector(Collection<T0> input, ToLongFunction<T0> arg0, Function<Long, T3> arg2, Collector<? super T3, A, R> arg3) {
 		A result = arg3.supplier().get();
 		for (T0 t0 : input) {
@@ -3023,6 +3805,20 @@ public class ForeachStreamCollectCollector {
 			Long t2 = t1;
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_mapToLong_boxed_distinct_collectCollector(Collection<T0> input, ToLongFunction<T0> arg0, Collector<? super Long, A, R> arg3) {
+		Set<Long> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			Long t2 = t1;
+			if(!distinct0.add(t2)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t2);
@@ -3124,6 +3920,34 @@ public class ForeachStreamCollectCollector {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
+				continue;
+			}
+			Long t2 = t1;
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T2, A, R> R stream_mapToLong_distinct_mapToObj_collectCollector(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg2, Collector<? super T2, A, R> arg3) {
+		Set<Long> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_mapToLong_distinct_boxed_collectCollector(Collection<T0> input, ToLongFunction<T0> arg0, Collector<? super Long, A, R> arg3) {
+		Set<Long> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!distinct0.add(t1)) {
 				continue;
 			}
 			Long t2 = t1;
@@ -3314,6 +4138,20 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, T2, A, R> R stream_mapToDouble_mapToObj_distinct_collectCollector(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Collector<? super T2, A, R> arg3) {
+		Set<T2> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			T2 t2 = arg1.apply(t1);
+			if(!distinct0.add(t2)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T3, A, R> R stream_mapToDouble_boxed_map_collectCollector(Collection<T0> input, ToDoubleFunction<T0> arg0, Function<Double, T3> arg2, Collector<? super T3, A, R> arg3) {
 		A result = arg3.supplier().get();
 		for (T0 t0 : input) {
@@ -3397,6 +4235,20 @@ public class ForeachStreamCollectCollector {
 			Double t2 = t1;
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_mapToDouble_boxed_distinct_collectCollector(Collection<T0> input, ToDoubleFunction<T0> arg0, Collector<? super Double, A, R> arg3) {
+		Set<Double> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			Double t2 = t1;
+			if(!distinct0.add(t2)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t2);
@@ -3498,6 +4350,34 @@ public class ForeachStreamCollectCollector {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
+				continue;
+			}
+			Double t2 = t1;
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T2, A, R> R stream_mapToDouble_distinct_mapToObj_collectCollector(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg2, Collector<? super T2, A, R> arg3) {
+		Set<Double> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_mapToDouble_distinct_boxed_collectCollector(Collection<T0> input, ToDoubleFunction<T0> arg0, Collector<? super Double, A, R> arg3) {
+		Set<Double> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!distinct0.add(t1)) {
 				continue;
 			}
 			Double t2 = t1;
@@ -3613,6 +4493,24 @@ public class ForeachStreamCollectCollector {
 			T1 t1 = arg1.apply(t0);
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_sorted_map_distinct_collectCollector(Collection<T0> input, Function<T0, T1> arg1, Collector<? super T1, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			if(!distinct0.add(t1)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t1);
@@ -3739,6 +4637,26 @@ public class ForeachStreamCollectCollector {
 			}
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sorted_filter_distinct_collectCollector(Collection<T0> input, Predicate<T0> arg1, Collector<? super T0, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t0);
@@ -3974,6 +4892,28 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_sorted_sorted_distinct_collectCollector(Collection<T0> input, Collector<? super T0, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_sorted_sortedComp_map_collectCollector(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
@@ -4105,6 +5045,28 @@ public class ForeachStreamCollectCollector {
 		for (T0 t0: sortedComp0) {
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sorted_sortedComp_distinct_collectCollector(Collection<T0> input, Comparator<? super T0> arg1, Collector<? super T0, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t0);
@@ -4268,6 +5230,31 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_sorted_limit_distinct_collectCollector(Collection<T0> input, long arg1, Collector<? super T0, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_sorted_skip_map_collectCollector(Collection<T0> input, long arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
 		List<T0> sorted0 = new ArrayList<>();
 		if(arg1 < 0) {
@@ -4424,6 +5411,184 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_sorted_skip_distinct_collectCollector(Collection<T0> input, long arg1, Collector<? super T0, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_sorted_distinct_map_collectCollector(Collection<T0> input, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sorted_distinct_filter_collectCollector(Collection<T0> input, Predicate<T0> arg2, Collector<? super T0, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sorted_distinct_sorted_collectCollector(Collection<T0> input, Collector<? super T0, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted1 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sorted_distinct_sortedComp_collectCollector(Collection<T0> input, Comparator<? super T0> arg2, Collector<? super T0, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sorted_distinct_limit_collectCollector(Collection<T0> input, long arg2, Collector<? super T0, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sorted_distinct_skip_collectCollector(Collection<T0> input, long arg2, Collector<? super T0, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sorted_distinct_distinct_collectCollector(Collection<T0> input, Collector<? super T0, A, R> arg3) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, T2, A, R> R stream_sortedComp_map_map_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2, Collector<? super T2, A, R> arg3) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		A result = arg3.supplier().get();
@@ -4531,6 +5696,24 @@ public class ForeachStreamCollectCollector {
 			T1 t1 = arg1.apply(t0);
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_sortedComp_map_distinct_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Collector<? super T1, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			if(!distinct0.add(t1)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t1);
@@ -4657,6 +5840,26 @@ public class ForeachStreamCollectCollector {
 			}
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sortedComp_filter_distinct_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Collector<? super T0, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t0);
@@ -4892,6 +6095,28 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_sortedComp_sorted_distinct_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Collector<? super T0, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_sortedComp_sortedComp_map_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
@@ -5023,6 +6248,28 @@ public class ForeachStreamCollectCollector {
 		for (T0 t0: sortedComp1) {
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sortedComp_sortedComp_distinct_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Collector<? super T0, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			if(!distinct0.add(t0)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t0);
@@ -5186,6 +6433,31 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_sortedComp_limit_distinct_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Collector<? super T0, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_sortedComp_skip_map_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		if(arg1 < 0) {
@@ -5342,6 +6614,184 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_sortedComp_skip_distinct_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Collector<? super T0, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_sortedComp_distinct_map_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sortedComp_distinct_filter_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg2, Collector<? super T0, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sortedComp_distinct_sorted_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Collector<? super T0, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sortedComp_distinct_sortedComp_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg2, Collector<? super T0, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg2);
+		for (T0 t0: sortedComp1) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sortedComp_distinct_limit_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, long arg2, Collector<? super T0, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sortedComp_distinct_skip_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, long arg2, Collector<? super T0, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_sortedComp_distinct_distinct_collectCollector(Collection<T0> input, Comparator<? super T0> arg0, Collector<? super T0, A, R> arg3) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, T2, A, R> R stream_limit_map_map_collectCollector(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, T2> arg2, Collector<? super T2, A, R> arg3) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -5467,6 +6917,27 @@ public class ForeachStreamCollectCollector {
 			T1 t1 = arg1.apply(t0);
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_limit_map_distinct_collectCollector(Collection<T0> input, long arg0, Function<T0, T1> arg1, Collector<? super T1, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			if(!distinct0.add(t1)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t1);
@@ -5611,6 +7082,29 @@ public class ForeachStreamCollectCollector {
 			}
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_limit_filter_distinct_collectCollector(Collection<T0> input, long arg0, Predicate<T0> arg1, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t0);
@@ -5882,6 +7376,31 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_limit_sorted_distinct_collectCollector(Collection<T0> input, long arg0, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_limit_sortedComp_map_collectCollector(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -6031,6 +7550,31 @@ public class ForeachStreamCollectCollector {
 		for (T0 t0: sortedComp0) {
 			skip0++;
 			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_limit_sortedComp_distinct_collectCollector(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t0);
@@ -6212,6 +7756,34 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_limit_limit_distinct_collectCollector(Collection<T0> input, long arg0, long arg1, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit1 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			limit1++;
+			if(limit1 > arg1) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_limit_skip_map_collectCollector(Collection<T0> input, long arg0, long arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -6386,6 +7958,208 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_limit_skip_distinct_collectCollector(Collection<T0> input, long arg0, long arg1, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_limit_distinct_map_collectCollector(Collection<T0> input, long arg0, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_limit_distinct_filter_collectCollector(Collection<T0> input, long arg0, Predicate<T0> arg2, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_limit_distinct_sorted_collectCollector(Collection<T0> input, long arg0, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_limit_distinct_sortedComp_collectCollector(Collection<T0> input, long arg0, Comparator<? super T0> arg2, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_limit_distinct_limit_collectCollector(Collection<T0> input, long arg0, long arg2, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit1 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit1++;
+			if(limit1 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_limit_distinct_skip_collectCollector(Collection<T0> input, long arg0, long arg2, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_limit_distinct_distinct_collectCollector(Collection<T0> input, long arg0, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, T2, A, R> R stream_skip_map_map_collectCollector(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, T2> arg2, Collector<? super T2, A, R> arg3) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -6511,6 +8285,27 @@ public class ForeachStreamCollectCollector {
 			T1 t1 = arg1.apply(t0);
 			skip1++;
 			if(skip1 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_skip_map_distinct_collectCollector(Collection<T0> input, long arg0, Function<T0, T1> arg1, Collector<? super T1, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T1> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			if(!distinct0.add(t1)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t1);
@@ -6655,6 +8450,29 @@ public class ForeachStreamCollectCollector {
 			}
 			skip1++;
 			if(skip1 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_skip_filter_distinct_collectCollector(Collection<T0> input, long arg0, Predicate<T0> arg1, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t0);
@@ -6926,6 +8744,31 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_skip_sorted_distinct_collectCollector(Collection<T0> input, long arg0, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_skip_sortedComp_map_collectCollector(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -7075,6 +8918,31 @@ public class ForeachStreamCollectCollector {
 		for (T0 t0: sortedComp0) {
 			skip1++;
 			if(skip1 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_skip_sortedComp_distinct_collectCollector(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t0);
@@ -7256,6 +9124,34 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_skip_limit_distinct_collectCollector(Collection<T0> input, long arg0, long arg1, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T1, A, R> R stream_skip_skip_map_collectCollector(Collection<T0> input, long arg0, long arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -7423,6 +9319,1356 @@ public class ForeachStreamCollectCollector {
 			}
 			skip2++;
 			if(skip2 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_skip_skip_distinct_collectCollector(Collection<T0> input, long arg0, long arg1, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg1) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_skip_distinct_map_collectCollector(Collection<T0> input, long arg0, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_skip_distinct_filter_collectCollector(Collection<T0> input, long arg0, Predicate<T0> arg2, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_skip_distinct_sorted_collectCollector(Collection<T0> input, long arg0, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_skip_distinct_sortedComp_collectCollector(Collection<T0> input, long arg0, Comparator<? super T0> arg2, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_skip_distinct_limit_collectCollector(Collection<T0> input, long arg0, long arg2, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_skip_distinct_skip_collectCollector(Collection<T0> input, long arg0, long arg2, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_skip_distinct_distinct_collectCollector(Collection<T0> input, long arg0, Collector<? super T0, A, R> arg3) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, T2, A, R> R stream_distinct_map_map_collectCollector(Collection<T0> input, Function<T0, T1> arg1, Function<T1, T2> arg2, Collector<? super T2, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_map_filter_collectCollector(Collection<T0> input, Function<T0, T1> arg1, Predicate<T1> arg2, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_map_sorted_collectCollector(Collection<T0> input, Function<T0, T1> arg1, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T1> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_map_sortedComp_collectCollector(Collection<T0> input, Function<T0, T1> arg1, Comparator<? super T1> arg2, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T1> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_map_limit_collectCollector(Collection<T0> input, Function<T0, T1> arg1, long arg2, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_map_skip_collectCollector(Collection<T0> input, Function<T0, T1> arg1, long arg2, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_map_distinct_collectCollector(Collection<T0> input, Function<T0, T1> arg1, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T1> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			if(!distinct1.add(t1)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_filter_map_collectCollector(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_filter_filter_collectCollector(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_filter_sorted_collectCollector(Collection<T0> input, Predicate<T0> arg1, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_filter_sortedComp_collectCollector(Collection<T0> input, Predicate<T0> arg1, Comparator<? super T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_filter_limit_collectCollector(Collection<T0> input, Predicate<T0> arg1, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_filter_skip_collectCollector(Collection<T0> input, Predicate<T0> arg1, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_filter_distinct_collectCollector(Collection<T0> input, Predicate<T0> arg1, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T2, A, R> R stream_distinct_mapToInt_mapToObj_collectCollector(Collection<T0> input, ToIntFunction<T0> arg1, IntFunction<T2> arg2, Collector<? super T2, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_mapToInt_boxed_collectCollector(Collection<T0> input, ToIntFunction<T0> arg1, Collector<? super Integer, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			Integer t2 = t1;
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T2, A, R> R stream_distinct_mapToLong_mapToObj_collectCollector(Collection<T0> input, ToLongFunction<T0> arg1, LongFunction<T2> arg2, Collector<? super T2, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_mapToLong_boxed_collectCollector(Collection<T0> input, ToLongFunction<T0> arg1, Collector<? super Long, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			Long t2 = t1;
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T2, A, R> R stream_distinct_mapToDouble_mapToObj_collectCollector(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleFunction<T2> arg2, Collector<? super T2, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_mapToDouble_boxed_collectCollector(Collection<T0> input, ToDoubleFunction<T0> arg1, Collector<? super Double, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			Double t2 = t1;
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_sorted_map_collectCollector(Collection<T0> input, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg2.apply(t0);
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sorted_filter_collectCollector(Collection<T0> input, Predicate<T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sorted_sorted_collectCollector(Collection<T0> input, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sorted_sortedComp_collectCollector(Collection<T0> input, Comparator<? super T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sorted_limit_collectCollector(Collection<T0> input, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sorted_skip_collectCollector(Collection<T0> input, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sorted_distinct_collectCollector(Collection<T0> input, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_sortedComp_map_collectCollector(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg2.apply(t0);
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sortedComp_filter_collectCollector(Collection<T0> input, Comparator<? super T0> arg1, Predicate<T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sortedComp_sorted_collectCollector(Collection<T0> input, Comparator<? super T0> arg1, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sortedComp_sortedComp_collectCollector(Collection<T0> input, Comparator<? super T0> arg1, Comparator<? super T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg2);
+		for (T0 t0: sortedComp1) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sortedComp_limit_collectCollector(Collection<T0> input, Comparator<? super T0> arg1, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sortedComp_skip_collectCollector(Collection<T0> input, Comparator<? super T0> arg1, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_sortedComp_distinct_collectCollector(Collection<T0> input, Comparator<? super T0> arg1, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_limit_map_collectCollector(Collection<T0> input, long arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			T1 t1 = arg2.apply(t0);
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_limit_filter_collectCollector(Collection<T0> input, long arg1, Predicate<T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_limit_sorted_collectCollector(Collection<T0> input, long arg1, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_limit_sortedComp_collectCollector(Collection<T0> input, long arg1, Comparator<? super T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_limit_limit_collectCollector(Collection<T0> input, long arg1, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit1 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			limit1++;
+			if(limit1 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_limit_skip_collectCollector(Collection<T0> input, long arg1, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_limit_distinct_collectCollector(Collection<T0> input, long arg1, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_skip_map_collectCollector(Collection<T0> input, long arg1, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_skip_filter_collectCollector(Collection<T0> input, long arg1, Predicate<T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_skip_sorted_collectCollector(Collection<T0> input, long arg1, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_skip_sortedComp_collectCollector(Collection<T0> input, long arg1, Comparator<? super T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_skip_limit_collectCollector(Collection<T0> input, long arg1, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_skip_skip_collectCollector(Collection<T0> input, long arg1, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_skip_distinct_collectCollector(Collection<T0> input, long arg1, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T1, A, R> R stream_distinct_distinct_map_collectCollector(Collection<T0> input, Function<T0, T1> arg2, Collector<? super T1, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			arg3.accumulator().accept(result, t1);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_distinct_filter_collectCollector(Collection<T0> input, Predicate<T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_distinct_sorted_collectCollector(Collection<T0> input, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_distinct_sortedComp_collectCollector(Collection<T0> input, Comparator<? super T0> arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_distinct_limit_collectCollector(Collection<T0> input, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_distinct_skip_collectCollector(Collection<T0> input, long arg2, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			arg3.accumulator().accept(result, t0);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_distinct_distinct_distinct_collectCollector(Collection<T0> input, Collector<? super T0, A, R> arg3) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct2 = new HashSet<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			if(!distinct2.add(t0)) {
 				continue;
 			}
 			arg3.accumulator().accept(result, t0);

@@ -182,11 +182,11 @@ return ForeachStreamCollectToList.stream_filter_collect_toList(persons, person -
 | mapMultiToInt    |           |
 | mapMultiToLong   |           |
 | mapMultiToDouble |           |
-| distinct         |           |
+| distinct         | yes       |
 | sorted           | yes       |
 | peek             |           |
-| limit            |           |
-| skip             |           |
+| limit            | yes       |
+| skip             | yes       |
 | takeWhile        |           |
 | dropWhile        |           |
 |                  |           |
