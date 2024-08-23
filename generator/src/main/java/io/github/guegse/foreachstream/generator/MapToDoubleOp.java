@@ -11,7 +11,7 @@ public class MapToDoubleOp extends IntermediateOperation {
         return switch (inputType) {
             case "int" -> "IntToDoubleFunction";
             case "long" -> "LongToDoubleFunction";
-            case "double" -> throw new UnsupportedOperationException("cannot map long to long");
+            case "double" -> throw new UnsupportedOperationException("cannot map double to double");
             default -> "ToDoubleFunction<" + inputType + ">";
         };
     }

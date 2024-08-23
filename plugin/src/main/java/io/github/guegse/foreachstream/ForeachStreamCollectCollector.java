@@ -2656,6 +2656,36 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, T2, A, R> R stream_mapToInt_sorted_mapToObj_collectCollector(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg2, Collector<? super T2, A, R> arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_mapToInt_sorted_boxed_collectCollector(Collection<T0> input, ToIntFunction<T0> arg0, Collector<? super Integer, A, R> arg3) {
+		List<Integer> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			Integer t2 = t1;
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T2, A, R> R stream_mapToInt_limit_mapToObj_collectCollector(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntFunction<T2> arg2, Collector<? super T2, A, R> arg3) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -3000,6 +3030,36 @@ public class ForeachStreamCollectCollector {
 		return arg3.finisher().apply(result);
 	}
 
+	public static <T0, T2, A, R> R stream_mapToLong_sorted_mapToObj_collectCollector(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg2, Collector<? super T2, A, R> arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_mapToLong_sorted_boxed_collectCollector(Collection<T0> input, ToLongFunction<T0> arg0, Collector<? super Long, A, R> arg3) {
+		List<Long> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			Long t2 = t1;
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
 	public static <T0, T2, A, R> R stream_mapToLong_limit_mapToObj_collectCollector(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongFunction<T2> arg2, Collector<? super T2, A, R> arg3) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -3339,6 +3399,36 @@ public class ForeachStreamCollectCollector {
 			if(skip0 <= arg2) {
 				continue;
 			}
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, T2, A, R> R stream_mapToDouble_sorted_mapToObj_collectCollector(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg2, Collector<? super T2, A, R> arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
+		}
+		return arg3.finisher().apply(result);
+	}
+
+	public static <T0, A, R> R stream_mapToDouble_sorted_boxed_collectCollector(Collection<T0> input, ToDoubleFunction<T0> arg0, Collector<? super Double, A, R> arg3) {
+		List<Double> sorted0 = new ArrayList<>();
+		A result = arg3.supplier().get();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			Double t2 = t1;
 			arg3.accumulator().accept(result, t2);
 		}
 		return arg3.finisher().apply(result);
