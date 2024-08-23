@@ -92,6 +92,18 @@ public class ForeachStreamCollectCollector {
 		return arg1.finisher().apply(result);
 	}
 
+	public static <T0, A, R> R stream_distinct_collectCollector(Collection<T0> input, Collector<? super T0, A, R> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		A result = arg1.supplier().get();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			arg1.accumulator().accept(result, t0);
+		}
+		return arg1.finisher().apply(result);
+	}
+
 	public static <T0, T1, T2, A, R> R stream_map_map_collectCollector(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Collector<? super T2, A, R> arg2) {
 		A result = arg2.supplier().get();
 		for (T0 t0 : input) {
