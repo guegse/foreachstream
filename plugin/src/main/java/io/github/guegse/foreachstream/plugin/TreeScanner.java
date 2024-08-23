@@ -5,6 +5,7 @@ import com.sun.tools.javac.code.TypeTag;
 import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.TreeMaker;
 import com.sun.tools.javac.util.Names;
+import com.sun.tools.javac.util.Pair;
 
 import javax.lang.model.element.Name;
 import java.util.ArrayList;
@@ -61,12 +62,12 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
 
     private final TreeMaker treeMaker;
     private final Names names;
-    private final Map<String, String> availableMethodsToTheirClasses;
+    private final Map<String, Pair<String, Class<?>[]>>  availableMethodsToTheirClasses;
     private final Substitution subs;
     private final DebugOutput debugOutput;
     private final Statistics statistics;
 
-    public TreeScanner(TreeMaker treeMaker, Names names, Map<String, String> availableMethodsToTheirClasses, Substitution subs, DebugOutput debugOutput, Statistics statistics) {
+    public TreeScanner(TreeMaker treeMaker, Names names, Map<String, Pair<String, Class<?>[]>>  availableMethodsToTheirClasses, Substitution subs, DebugOutput debugOutput, Statistics statistics) {
         this.treeMaker = treeMaker;
         this.names = names;
         this.availableMethodsToTheirClasses = availableMethodsToTheirClasses;
@@ -126,8 +127,8 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
 
                     String terminalOperation = mapMethodName(methodName.toString(), node);
                     String methodToCall = methodToCallWithoutTerminalOp + "_" + terminalOperation;;
-                    String containingClassName = availableMethodsToTheirClasses.get(methodToCall);
-                    if (containingClassName == null || node.getArguments().size() > 1) {
+                    var containingClass = availableMethodsToTheirClasses.get(methodToCall);
+                    if (containingClass == null || node.getArguments().size() > 1) {
                         debugOutput.printDebug(node, "method for this pattern not available: " + methodToCall);
                         if(statistics != null) {
                             statistics.substitutionFailed(methodToCall);
@@ -152,7 +153,7 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                         return super.visitMethodInvocation(node, o);
                     }
 
-                    JCTree.JCFieldAccess methodMemberSelect = createForeachStreamFieldAccess(methodToCall, containingClassName);
+                    JCTree.JCFieldAccess methodMemberSelect = createForeachStreamFieldAccess(methodToCall, containingClass.fst);
                     methodMemberSelect.pos = streamCall.pos;
 
                     java.util.List<JCTree.JCExpression> arguments = new ArrayList<>(invocations.size() + 1);
@@ -174,10 +175,20 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     arguments.add((JCTree.JCExpression) ((MemberSelectTree) streamCall.getMethodSelect()).getExpression());
                     Collections.reverse(arguments);
 
+                    if(arguments.size() != containingClass.snd.length) {
+                        debugOutput.printDebug(node, "unexpected number of arguments to method: "
+                                + containingClass.fst);
+                        return super.visitMethodInvocation(node, o);
+                    }
+
                     // create a list with empty arguments
                     com.sun.tools.javac.util.List<JCTree.JCExpression> args = com.sun.tools.javac.util.List.nil();
                     for(int i = 0; i < arguments.size(); i++)  {
-                        args = args.append(treeMaker.Literal(TypeTag.BOT, null));
+                        if(containingClass.snd[i].isPrimitive()) {
+                            args = args.append(treeMaker.Literal(TypeTag.LONG, 0));
+                        } else {
+                            args = args.append(treeMaker.Literal(TypeTag.BOT, null));
+                        }
                     }
 
                     JCTree.JCMethodInvocation original = (JCTree.JCMethodInvocation) node;

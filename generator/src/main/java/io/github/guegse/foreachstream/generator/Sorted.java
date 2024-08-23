@@ -25,12 +25,12 @@ public class Sorted extends StatefulIntermediateOperation{
     @Override
     void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
         out.printIndentation();
-        out.println("List<" + inputType + "> " + addCollection() + " = new ArrayList<>();");
+        out.println("List<" + inputType + "> " + addVariable() + " = new ArrayList<>();");
     }
 
     @Override
     void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
-        String collection = getCollection();
+        String collection = getVariable();
         out.printIndentation();
         out.println(collection + ".add(" + currentStreamElement + ");");
         out.decreaseIndentation();
