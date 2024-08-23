@@ -15,9 +15,14 @@ public class Statistics implements Serializable {
             "mapToDouble",
             "mapToObj",
             "boxed",
+            "sorted",
+            "sortedComp",
+            "distinct",
+            "skip",
+            "limit"
     };
     private static final String[] TERMINAL_OPERATIONS_IMPLEMENTED = new String[] {
-            "collect",
+            "collectCollector",
             "forEach",
             "anyMatch",
             "allMatch",
