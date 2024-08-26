@@ -27,7 +27,8 @@ public class Generator {
             new Limit(),
             new Skip(),
             new Distinct(),
-            new DropWhile()
+            new DropWhile(),
+            new TakeWhile()
             //new FlatMapOp(),
     };
 

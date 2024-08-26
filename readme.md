@@ -188,7 +188,7 @@ return ForeachStreamCollectToList.stream_filter_collect_toList(persons, person -
 | peek             |           |
 | limit            | yes       |
 | skip             | yes       |
-| takeWhile        |           |
+| takeWhile        | yes       |
 | dropWhile        | yes       |
 |                  |           |
 
