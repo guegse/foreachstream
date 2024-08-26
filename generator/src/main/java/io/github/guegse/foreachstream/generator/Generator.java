@@ -26,7 +26,8 @@ public class Generator {
             new SortedComparator(),
             new Limit(),
             new Skip(),
-            new Distinct()
+            new Distinct(),
+            new DropWhile()
             //new FlatMapOp(),
     };
 

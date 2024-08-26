@@ -202,6 +202,21 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_mapToInt_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> long stream_mapToLong_map_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1) {
 		long sum = 0;
 		for (T0 t0 : input) {
@@ -305,6 +320,21 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> long stream_mapToLong_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> double stream_mapToDouble_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
 		double sum = 0;
 		for (T0 t0 : input) {
@@ -402,6 +432,21 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToDouble_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -633,6 +678,51 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_dropWhile_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0, T1, T2> int stream_map_map_mapToInt_sum(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, ToIntFunction<T2> arg2) {
 		int sum = 0;
 		for (T0 t0 : input) {
@@ -816,6 +906,22 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0, T1> int stream_map_mapToInt_dropWhile_sum(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			int t2 = arg1.applyAsInt(t1);
+			if(dropWhile0 && arg2.test(t2)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t2;
+		}
+		return sum;
+	}
+
 	public static <T0, T1> long stream_map_mapToLong_map_sum(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongUnaryOperator arg2) {
 		long sum = 0;
 		for (T0 t0 : input) {
@@ -927,6 +1033,22 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0, T1> long stream_map_mapToLong_dropWhile_sum(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			long t2 = arg1.applyAsLong(t1);
+			if(dropWhile0 && arg2.test(t2)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t2;
+		}
+		return sum;
+	}
+
 	public static <T0, T1> double stream_map_mapToDouble_map_sum(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleUnaryOperator arg2) {
 		double sum = 0;
 		for (T0 t0 : input) {
@@ -1032,6 +1154,22 @@ public class ForeachStreamSum {
 			double t2 = arg1.applyAsDouble(t1);
 			if(!distinct0.add(t2)) {
 				continue;
+			}
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> double stream_map_mapToDouble_dropWhile_sum(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			double t2 = arg1.applyAsDouble(t1);
+			if(dropWhile0 && arg2.test(t2)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t2;
 		}
@@ -1278,6 +1416,54 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0, T1> int stream_map_dropWhile_mapToInt_sum(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> long stream_map_dropWhile_mapToLong_sum(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> double stream_map_dropWhile_mapToDouble_sum(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
 	public static <T0, T1> int stream_filter_map_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		int sum = 0;
 		for (T0 t0 : input) {
@@ -1489,6 +1675,24 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_filter_mapToInt_dropWhile_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> long stream_filter_mapToLong_map_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		long sum = 0;
 		for (T0 t0 : input) {
@@ -1616,6 +1820,24 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> long stream_filter_mapToLong_dropWhile_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> double stream_filter_mapToDouble_map_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		double sum = 0;
 		for (T0 t0 : input) {
@@ -1737,6 +1959,24 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_filter_mapToDouble_dropWhile_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -2013,6 +2253,60 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_filter_dropWhile_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_filter_dropWhile_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_filter_dropWhile_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> int stream_mapToInt_map_map_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntUnaryOperator arg2) {
 		int sum = 0;
 		for (T0 t0 : input) {
@@ -2118,6 +2412,22 @@ public class ForeachStreamSum {
 			t1 = arg1.applyAsInt(t1);
 			if(!distinct0.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_mapToInt_map_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			t1 = arg1.applyAsInt(t1);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -2251,6 +2561,24 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_mapToInt_filter_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> long stream_mapToInt_mapToLong_map_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongUnaryOperator arg2) {
 		long sum = 0;
 		for (T0 t0 : input) {
@@ -2362,6 +2690,22 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> long stream_mapToInt_mapToLong_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			long t2 = arg1.applyAsLong(t1);
+			if(dropWhile0 && arg2.test(t2)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t2;
+		}
+		return sum;
+	}
+
 	public static <T0> double stream_mapToInt_mapToDouble_map_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleUnaryOperator arg2) {
 		double sum = 0;
 		for (T0 t0 : input) {
@@ -2467,6 +2811,22 @@ public class ForeachStreamSum {
 			double t2 = arg1.applyAsDouble(t1);
 			if(!distinct0.add(t2)) {
 				continue;
+			}
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToInt_mapToDouble_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			double t2 = arg1.applyAsDouble(t1);
+			if(dropWhile0 && arg2.test(t2)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t2;
 		}
@@ -2682,6 +3042,26 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_mapToInt_sorted_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg2) {
+		List<Integer> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> int stream_mapToInt_limit_map_sum(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntUnaryOperator arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -2843,6 +3223,29 @@ public class ForeachStreamSum {
 			}
 			if(!distinct0.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_mapToInt_limit_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntPredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -3016,6 +3419,29 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_mapToInt_skip_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntPredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> int stream_mapToInt_distinct_map_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg2) {
 		Set<Integer> distinct0 = new HashSet<>();
 		int sum = 0;
@@ -3151,6 +3577,197 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_mapToInt_distinct_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg2) {
+		Set<Integer> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_mapToInt_dropWhile_map_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntUnaryOperator arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			t1 = arg2.applyAsInt(t1);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_mapToInt_dropWhile_filter_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_mapToInt_dropWhile_mapToLong_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntToLongFunction arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToInt_dropWhile_mapToDouble_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntToDoubleFunction arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_mapToInt_dropWhile_sorted_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
+		boolean dropWhile0 = true;
+		List<Integer> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_mapToInt_dropWhile_limit_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_mapToInt_dropWhile_skip_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_mapToInt_dropWhile_distinct_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
+		boolean dropWhile0 = true;
+		Set<Integer> distinct0 = new HashSet<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_mapToInt_dropWhile_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(dropWhile1 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile1 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> long stream_mapToLong_map_map_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongUnaryOperator arg2) {
 		long sum = 0;
 		for (T0 t0 : input) {
@@ -3256,6 +3873,22 @@ public class ForeachStreamSum {
 			t1 = arg1.applyAsLong(t1);
 			if(!distinct0.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_mapToLong_map_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			t1 = arg1.applyAsLong(t1);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -3389,6 +4022,24 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> long stream_mapToLong_filter_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> int stream_mapToLong_mapToInt_map_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntUnaryOperator arg2) {
 		int sum = 0;
 		for (T0 t0 : input) {
@@ -3500,6 +4151,22 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_mapToLong_mapToInt_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			int t2 = arg1.applyAsInt(t1);
+			if(dropWhile0 && arg2.test(t2)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t2;
+		}
+		return sum;
+	}
+
 	public static <T0> double stream_mapToLong_mapToDouble_map_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleUnaryOperator arg2) {
 		double sum = 0;
 		for (T0 t0 : input) {
@@ -3605,6 +4272,22 @@ public class ForeachStreamSum {
 			double t2 = arg1.applyAsDouble(t1);
 			if(!distinct0.add(t2)) {
 				continue;
+			}
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToLong_mapToDouble_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			double t2 = arg1.applyAsDouble(t1);
+			if(dropWhile0 && arg2.test(t2)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t2;
 		}
@@ -3820,6 +4503,26 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> long stream_mapToLong_sorted_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg2) {
+		List<Long> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> long stream_mapToLong_limit_map_sum(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongUnaryOperator arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -3981,6 +4684,29 @@ public class ForeachStreamSum {
 			}
 			if(!distinct0.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_mapToLong_limit_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongPredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -4154,6 +4880,29 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> long stream_mapToLong_skip_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongPredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> long stream_mapToLong_distinct_map_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg2) {
 		Set<Long> distinct0 = new HashSet<>();
 		long sum = 0;
@@ -4289,6 +5038,197 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> long stream_mapToLong_distinct_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg2) {
+		Set<Long> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_mapToLong_dropWhile_map_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongUnaryOperator arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			t1 = arg2.applyAsLong(t1);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_mapToLong_dropWhile_filter_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_mapToLong_dropWhile_mapToInt_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongToIntFunction arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToLong_dropWhile_mapToDouble_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongToDoubleFunction arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_mapToLong_dropWhile_sorted_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
+		boolean dropWhile0 = true;
+		List<Long> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_mapToLong_dropWhile_limit_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_mapToLong_dropWhile_skip_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_mapToLong_dropWhile_distinct_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
+		boolean dropWhile0 = true;
+		Set<Long> distinct0 = new HashSet<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_mapToLong_dropWhile_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(dropWhile1 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile1 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> double stream_mapToDouble_map_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleUnaryOperator arg2) {
 		double sum = 0;
 		for (T0 t0 : input) {
@@ -4394,6 +5334,22 @@ public class ForeachStreamSum {
 			t1 = arg1.applyAsDouble(t1);
 			if(!distinct0.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToDouble_map_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			t1 = arg1.applyAsDouble(t1);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -4527,6 +5483,24 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> double stream_mapToDouble_filter_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> int stream_mapToDouble_mapToInt_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntUnaryOperator arg2) {
 		int sum = 0;
 		for (T0 t0 : input) {
@@ -4638,6 +5612,22 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_mapToDouble_mapToInt_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			int t2 = arg1.applyAsInt(t1);
+			if(dropWhile0 && arg2.test(t2)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t2;
+		}
+		return sum;
+	}
+
 	public static <T0> long stream_mapToDouble_mapToLong_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongUnaryOperator arg2) {
 		long sum = 0;
 		for (T0 t0 : input) {
@@ -4743,6 +5733,22 @@ public class ForeachStreamSum {
 			long t2 = arg1.applyAsLong(t1);
 			if(!distinct0.add(t2)) {
 				continue;
+			}
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_mapToDouble_mapToLong_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			long t2 = arg1.applyAsLong(t1);
+			if(dropWhile0 && arg2.test(t2)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t2;
 		}
@@ -4958,6 +5964,26 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> double stream_mapToDouble_sorted_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg2) {
+		List<Double> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> double stream_mapToDouble_limit_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleUnaryOperator arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -5119,6 +6145,29 @@ public class ForeachStreamSum {
 			}
 			if(!distinct0.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToDouble_limit_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoublePredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -5292,6 +6341,29 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> double stream_mapToDouble_skip_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoublePredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> double stream_mapToDouble_distinct_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg2) {
 		Set<Double> distinct0 = new HashSet<>();
 		double sum = 0;
@@ -5421,6 +6493,197 @@ public class ForeachStreamSum {
 			}
 			if(!distinct1.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToDouble_distinct_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg2) {
+		Set<Double> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToDouble_dropWhile_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleUnaryOperator arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			t1 = arg2.applyAsDouble(t1);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToDouble_dropWhile_filter_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_mapToDouble_dropWhile_mapToInt_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleToIntFunction arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_mapToDouble_dropWhile_mapToLong_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleToLongFunction arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToDouble_dropWhile_sorted_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
+		boolean dropWhile0 = true;
+		List<Double> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToDouble_dropWhile_limit_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToDouble_dropWhile_skip_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToDouble_dropWhile_distinct_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
+		boolean dropWhile0 = true;
+		Set<Double> distinct0 = new HashSet<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_mapToDouble_dropWhile_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(dropWhile1 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile1 = false;
 			}
 			sum += t1;
 		}
@@ -5666,6 +6929,26 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_sorted_mapToInt_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> long stream_sorted_mapToLong_map_sum(Collection<T0> input, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long sum = 0;
@@ -5809,6 +7092,26 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> long stream_sorted_mapToLong_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> double stream_sorted_mapToDouble_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		double sum = 0;
@@ -5946,6 +7249,26 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sorted_mapToDouble_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -6252,6 +7575,66 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_sorted_dropWhile_mapToInt_sum(Collection<T0> input, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sorted_dropWhile_mapToLong_sum(Collection<T0> input, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sorted_dropWhile_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0, T1> int stream_sortedComp_map_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		int sum = 0;
@@ -6491,6 +7874,26 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_sortedComp_mapToInt_dropWhile_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> long stream_sortedComp_mapToLong_map_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long sum = 0;
@@ -6634,6 +8037,26 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> long stream_sortedComp_mapToLong_dropWhile_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> double stream_sortedComp_mapToDouble_map_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		double sum = 0;
@@ -6771,6 +8194,26 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sortedComp_mapToDouble_dropWhile_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -7077,6 +8520,66 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_sortedComp_dropWhile_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_sortedComp_dropWhile_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_sortedComp_dropWhile_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0, T1> int stream_limit_map_mapToInt_sum(Collection<T0> input, long arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -7358,6 +8861,29 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_limit_mapToInt_dropWhile_sum(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> long stream_limit_mapToLong_map_sum(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -7525,6 +9051,29 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> long stream_limit_mapToLong_dropWhile_sum(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> double stream_limit_mapToDouble_map_sum(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -7686,6 +9235,29 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_limit_mapToDouble_dropWhile_sum(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -8037,6 +9609,75 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_limit_dropWhile_mapToInt_sum(Collection<T0> input, long arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_limit_dropWhile_mapToLong_sum(Collection<T0> input, long arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_limit_dropWhile_mapToDouble_sum(Collection<T0> input, long arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0, T1> int stream_skip_map_mapToInt_sum(Collection<T0> input, long arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -8318,6 +9959,29 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_skip_mapToInt_dropWhile_sum(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> long stream_skip_mapToLong_map_sum(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -8485,6 +10149,29 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> long stream_skip_mapToLong_dropWhile_sum(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> double stream_skip_mapToDouble_map_sum(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -8646,6 +10333,29 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_skip_mapToDouble_dropWhile_sum(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -8997,6 +10707,75 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_skip_dropWhile_mapToInt_sum(Collection<T0> input, long arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_skip_dropWhile_mapToLong_sum(Collection<T0> input, long arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_skip_dropWhile_mapToDouble_sum(Collection<T0> input, long arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0, T1> int stream_distinct_map_mapToInt_sum(Collection<T0> input, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		int sum = 0;
@@ -9222,6 +11001,25 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> int stream_distinct_mapToInt_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> long stream_distinct_mapToLong_map_sum(Collection<T0> input, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long sum = 0;
@@ -9357,6 +11155,25 @@ public class ForeachStreamSum {
 		return sum;
 	}
 
+	public static <T0> long stream_distinct_mapToLong_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
 	public static <T0> double stream_distinct_mapToDouble_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		double sum = 0;
@@ -9486,6 +11303,25 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			if(!distinct1.add(t1)) {
 				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_distinct_mapToDouble_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
 			sum += t1;
 		}
@@ -9770,6 +11606,1059 @@ public class ForeachStreamSum {
 			}
 			if(!distinct1.add(t0)) {
 				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_distinct_dropWhile_mapToInt_sum(Collection<T0> input, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_distinct_dropWhile_mapToLong_sum(Collection<T0> input, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_distinct_dropWhile_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> int stream_dropWhile_map_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			T1 t1 = arg1.apply(t0);
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> long stream_dropWhile_map_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			T1 t1 = arg1.apply(t0);
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0, T1> double stream_dropWhile_map_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			T1 t1 = arg1.apply(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_filter_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_filter_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_filter_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_mapToInt_map_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			t1 = arg2.applyAsInt(t1);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_mapToInt_filter_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_mapToInt_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_mapToInt_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_mapToInt_sorted_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
+		boolean dropWhile0 = true;
+		List<Integer> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_mapToInt_limit_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_mapToInt_skip_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_mapToInt_distinct_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
+		boolean dropWhile0 = true;
+		Set<Integer> distinct0 = new HashSet<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_mapToInt_dropWhile_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(dropWhile1 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile1 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_mapToLong_map_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			t1 = arg2.applyAsLong(t1);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_mapToLong_filter_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_mapToLong_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_mapToLong_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_mapToLong_sorted_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
+		boolean dropWhile0 = true;
+		List<Long> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_mapToLong_limit_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_mapToLong_skip_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_mapToLong_distinct_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
+		boolean dropWhile0 = true;
+		Set<Long> distinct0 = new HashSet<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_mapToLong_dropWhile_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(dropWhile1 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile1 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_mapToDouble_map_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			t1 = arg2.applyAsDouble(t1);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_mapToDouble_filter_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_mapToDouble_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
+		boolean dropWhile0 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			int t2 = arg2.applyAsInt(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_mapToDouble_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
+		boolean dropWhile0 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			long t2 = arg2.applyAsLong(t1);
+			sum += t2;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_mapToDouble_sorted_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
+		boolean dropWhile0 = true;
+		List<Double> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_mapToDouble_limit_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_mapToDouble_skip_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_mapToDouble_distinct_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
+		boolean dropWhile0 = true;
+		Set<Double> distinct0 = new HashSet<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_mapToDouble_dropWhile_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(dropWhile1 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile1 = false;
+			}
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_sorted_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		List<T0> sorted0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_sorted_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		List<T0> sorted0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_sorted_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		List<T0> sorted0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_sortedComp_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		List<T0> sortedComp0 = new ArrayList<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_sortedComp_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		List<T0> sortedComp0 = new ArrayList<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_sortedComp_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		List<T0> sortedComp0 = new ArrayList<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_limit_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, long arg1, ToIntFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_limit_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, long arg1, ToLongFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_limit_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, long arg1, ToDoubleFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_skip_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, long arg1, ToIntFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_skip_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, long arg1, ToLongFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_skip_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, long arg1, ToDoubleFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_distinct_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		Set<T0> distinct0 = new HashSet<>();
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_distinct_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		Set<T0> distinct0 = new HashSet<>();
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_distinct_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		Set<T0> distinct0 = new HashSet<>();
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> int stream_dropWhile_dropWhile_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		int sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(dropWhile1 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile1 = false;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> long stream_dropWhile_dropWhile_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		long sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(dropWhile1 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile1 = false;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			sum += t1;
+		}
+		return sum;
+	}
+
+	public static <T0> double stream_dropWhile_dropWhile_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		double sum = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(dropWhile1 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile1 = false;
 			}
 			double t1 = arg2.applyAsDouble(t0);
 			sum += t1;
