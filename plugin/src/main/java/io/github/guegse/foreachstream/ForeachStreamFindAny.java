@@ -133,6 +133,16 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_map_map_findAny(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1) {
 		for (T0 t0 : input) {
 			T1 t1 = arg0.apply(t0);
@@ -258,6 +268,17 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_map_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
 			}
 			return Optional.of(t1);
 		}
@@ -417,6 +438,19 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_filter_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0> OptionalInt stream_mapToInt_map_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1) {
 		for (T0 t0 : input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -538,6 +572,17 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
 			}
 			return OptionalInt.of(t1);
 		}
@@ -671,6 +716,17 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_mapToLong_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_mapToDouble_map_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
 		for (T0 t0 : input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -792,6 +848,17 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
 			}
 			return OptionalDouble.of(t1);
 		}
@@ -973,6 +1040,21 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_sorted_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sortedComp_map_findAny(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -1142,6 +1224,21 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sortedComp_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -1356,6 +1453,24 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_limit_takeWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_skip_map_findAny(Collection<T0> input, long arg0, Function<T0, T1> arg1) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -1564,6 +1679,24 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_skip_takeWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_distinct_map_findAny(Collection<T0> input, Function<T0, T1> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -1722,6 +1855,20 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_distinct_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -1914,6 +2061,188 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_dropWhile_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_map_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_filter_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sorted_findAny(Collection<T0> input, Predicate<T0> arg0) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_limit_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_skip_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_distinct_findAny(Collection<T0> input, Predicate<T0> arg0) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2, T3> Optional<T3> stream_map_map_map_findAny(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Function<T2, T3> arg2) {
 		for (T0 t0 : input) {
 			T1 t1 = arg0.apply(t0);
@@ -2050,6 +2379,18 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_map_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			T2 t2 = arg1.apply(t1);
+			if(!arg2.test(t2)) {
+				break;
 			}
 			return Optional.of(t2);
 		}
@@ -2220,6 +2561,20 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_map_filter_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> OptionalInt stream_map_mapToInt_map_findAny(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			T1 t1 = arg0.apply(t0);
@@ -2352,6 +2707,18 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalInt.of(t2);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_map_mapToInt_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			int t2 = arg1.applyAsInt(t1);
+			if(!arg2.test(t2)) {
+				break;
 			}
 			return OptionalInt.of(t2);
 		}
@@ -2496,6 +2863,18 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0, T1> OptionalLong stream_map_mapToLong_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			long t2 = arg1.applyAsLong(t1);
+			if(!arg2.test(t2)) {
+				break;
+			}
+			return OptionalLong.of(t2);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0, T1> OptionalDouble stream_map_mapToDouble_map_findAny(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			T1 t1 = arg0.apply(t0);
@@ -2628,6 +3007,18 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t2);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_map_mapToDouble_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			double t2 = arg1.applyAsDouble(t1);
+			if(!arg2.test(t2)) {
+				break;
 			}
 			return OptionalDouble.of(t2);
 		}
@@ -2820,6 +3211,22 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_map_sorted_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_map_sortedComp_map_findAny(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Function<T1, T2> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -3000,6 +3407,22 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_map_sortedComp_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return Optional.of(t1);
 		}
@@ -3225,6 +3648,25 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_map_limit_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_map_skip_map_findAny(Collection<T0> input, Function<T0, T1> arg0, long arg1, Function<T1, T2> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -3444,6 +3886,25 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_map_skip_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_map_distinct_map_findAny(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -3613,6 +4074,21 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_map_distinct_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return Optional.of(t1);
 		}
@@ -3816,6 +4292,201 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_map_dropWhile_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_takeWhile_map_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			T2 t2 = arg2.apply(t1);
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_map_takeWhile_filter_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_map_takeWhile_mapToInt_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			int t2 = arg2.applyAsInt(t1);
+			return OptionalInt.of(t2);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_map_takeWhile_mapToLong_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			long t2 = arg2.applyAsLong(t1);
+			return OptionalLong.of(t2);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_map_takeWhile_mapToDouble_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			double t2 = arg2.applyAsDouble(t1);
+			return OptionalDouble.of(t2);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_map_takeWhile_sorted_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_map_takeWhile_sortedComp_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_map_takeWhile_limit_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_map_takeWhile_skip_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_map_takeWhile_distinct_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_map_takeWhile_dropWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_map_takeWhile_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_filter_map_map_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		for (T0 t0 : input) {
 			if (!arg0.test(t0)) {
@@ -3974,6 +4645,20 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_map_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return Optional.of(t1);
 		}
@@ -4166,6 +4851,22 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_filter_filter_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0> OptionalInt stream_filter_mapToInt_map_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			if (!arg0.test(t0)) {
@@ -4320,6 +5021,20 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_filter_mapToInt_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalInt.of(t1);
 		}
@@ -4486,6 +5201,20 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_filter_mapToLong_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_filter_mapToDouble_map_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			if (!arg0.test(t0)) {
@@ -4640,6 +5369,20 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_filter_mapToDouble_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalDouble.of(t1);
 		}
@@ -4854,6 +5597,24 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_filter_sorted_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_filter_sortedComp_map_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -5056,6 +5817,24 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_filter_sortedComp_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -5303,6 +6082,27 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_filter_limit_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Predicate<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_filter_skip_map_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -5544,6 +6344,27 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_filter_skip_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Predicate<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_filter_distinct_map_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -5735,6 +6556,23 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_filter_distinct_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -5960,6 +6798,227 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_filter_dropWhile_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_takeWhile_map_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_filter_takeWhile_filter_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_filter_takeWhile_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_filter_takeWhile_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_filter_takeWhile_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_filter_takeWhile_sorted_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_filter_takeWhile_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_filter_takeWhile_limit_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_filter_takeWhile_skip_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_filter_takeWhile_distinct_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_filter_takeWhile_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_filter_takeWhile_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0> OptionalInt stream_mapToInt_map_map_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -6092,6 +7151,18 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_map_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntPredicate arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			t1 = arg1.applyAsInt(t1);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalInt.of(t1);
 		}
@@ -6258,6 +7329,20 @@ public class ForeachStreamFindAny {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_mapToInt_filter_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalLong stream_mapToInt_mapToLong_map_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -6396,6 +7481,18 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_mapToInt_mapToLong_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongPredicate arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			long t2 = arg1.applyAsLong(t1);
+			if(!arg2.test(t2)) {
+				break;
+			}
+			return OptionalLong.of(t2);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_mapToInt_mapToDouble_map_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -6528,6 +7625,18 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t2);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToInt_mapToDouble_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoublePredicate arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			double t2 = arg1.applyAsDouble(t1);
+			if(!arg2.test(t2)) {
+				break;
 			}
 			return OptionalDouble.of(t2);
 		}
@@ -6676,6 +7785,18 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0, T2> Optional<T2> stream_mapToInt_mapToObj_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Predicate<T2> arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			T2 t2 = arg1.apply(t1);
+			if(!arg2.test(t2)) {
+				break;
+			}
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T3> Optional<T3> stream_mapToInt_boxed_map_findAny(Collection<T0> input, ToIntFunction<T0> arg0, Function<Integer, T3> arg2) {
 		for (T0 t0 : input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -6812,6 +7933,18 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<Integer> stream_mapToInt_boxed_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, Predicate<Integer> arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			Integer t2 = t1;
+			if(!arg2.test(t2)) {
+				break;
 			}
 			return Optional.of(t2);
 		}
@@ -6994,6 +8127,22 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_sorted_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg2) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalInt.of(t1);
 		}
@@ -7215,6 +8364,25 @@ public class ForeachStreamFindAny {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_mapToInt_limit_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntPredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalInt stream_mapToInt_skip_map_findAny(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntUnaryOperator arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -7430,6 +8598,25 @@ public class ForeachStreamFindAny {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_mapToInt_skip_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntPredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalInt stream_mapToInt_distinct_map_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg2) {
 		Set<Integer> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -7595,6 +8782,21 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_distinct_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg2) {
+		Set<Integer> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalInt.of(t1);
 		}
@@ -7794,6 +8996,197 @@ public class ForeachStreamFindAny {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_mapToInt_dropWhile_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_takeWhile_map_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntUnaryOperator arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			t1 = arg2.applyAsInt(t1);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_takeWhile_filter_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToInt_takeWhile_mapToLong_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntToLongFunction arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			long t2 = arg2.applyAsLong(t1);
+			return OptionalLong.of(t2);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToInt_takeWhile_mapToDouble_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntToDoubleFunction arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			double t2 = arg2.applyAsDouble(t1);
+			return OptionalDouble.of(t2);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T2> Optional<T2> stream_mapToInt_takeWhile_mapToObj_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			T2 t2 = arg2.apply(t1);
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<Integer> stream_mapToInt_takeWhile_boxed_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			Integer t2 = t1;
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_takeWhile_sorted_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_takeWhile_limit_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_takeWhile_skip_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_takeWhile_distinct_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
+		Set<Integer> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_takeWhile_dropWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToInt_takeWhile_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalLong stream_mapToLong_map_map_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -7926,6 +9319,18 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_map_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongPredicate arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			t1 = arg1.applyAsLong(t1);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalLong.of(t1);
 		}
@@ -8092,6 +9497,20 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_mapToLong_filter_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalInt stream_mapToLong_mapToInt_map_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -8230,6 +9649,18 @@ public class ForeachStreamFindAny {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_mapToLong_mapToInt_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntPredicate arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			int t2 = arg1.applyAsInt(t1);
+			if(!arg2.test(t2)) {
+				break;
+			}
+			return OptionalInt.of(t2);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalDouble stream_mapToLong_mapToDouble_map_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -8362,6 +9793,18 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t2);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToLong_mapToDouble_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoublePredicate arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			double t2 = arg1.applyAsDouble(t1);
+			if(!arg2.test(t2)) {
+				break;
 			}
 			return OptionalDouble.of(t2);
 		}
@@ -8510,6 +9953,18 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0, T2> Optional<T2> stream_mapToLong_mapToObj_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Predicate<T2> arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			T2 t2 = arg1.apply(t1);
+			if(!arg2.test(t2)) {
+				break;
+			}
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T3> Optional<T3> stream_mapToLong_boxed_map_findAny(Collection<T0> input, ToLongFunction<T0> arg0, Function<Long, T3> arg2) {
 		for (T0 t0 : input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -8646,6 +10101,18 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<Long> stream_mapToLong_boxed_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, Predicate<Long> arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			Long t2 = t1;
+			if(!arg2.test(t2)) {
+				break;
 			}
 			return Optional.of(t2);
 		}
@@ -8828,6 +10295,22 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_sorted_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg2) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalLong.of(t1);
 		}
@@ -9049,6 +10532,25 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_mapToLong_limit_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongPredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalLong stream_mapToLong_skip_map_findAny(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongUnaryOperator arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -9264,6 +10766,25 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_mapToLong_skip_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongPredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalLong stream_mapToLong_distinct_map_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg2) {
 		Set<Long> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -9429,6 +10950,21 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_distinct_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg2) {
+		Set<Long> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalLong.of(t1);
 		}
@@ -9628,6 +11164,197 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_mapToLong_dropWhile_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_takeWhile_map_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongUnaryOperator arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			t1 = arg2.applyAsLong(t1);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_takeWhile_filter_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToLong_takeWhile_mapToInt_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongToIntFunction arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			int t2 = arg2.applyAsInt(t1);
+			return OptionalInt.of(t2);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToLong_takeWhile_mapToDouble_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongToDoubleFunction arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			double t2 = arg2.applyAsDouble(t1);
+			return OptionalDouble.of(t2);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T2> Optional<T2> stream_mapToLong_takeWhile_mapToObj_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			T2 t2 = arg2.apply(t1);
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<Long> stream_mapToLong_takeWhile_boxed_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			Long t2 = t1;
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_takeWhile_sorted_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_takeWhile_limit_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_takeWhile_skip_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_takeWhile_distinct_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
+		Set<Long> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_takeWhile_dropWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToLong_takeWhile_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_mapToDouble_map_map_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -9760,6 +11487,18 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_map_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoublePredicate arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			t1 = arg1.applyAsDouble(t1);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalDouble.of(t1);
 		}
@@ -9926,6 +11665,20 @@ public class ForeachStreamFindAny {
 		return OptionalDouble.empty();
 	}
 
+	public static <T0> OptionalDouble stream_mapToDouble_filter_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
 	public static <T0> OptionalInt stream_mapToDouble_mapToInt_map_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -10064,6 +11817,18 @@ public class ForeachStreamFindAny {
 		return OptionalInt.empty();
 	}
 
+	public static <T0> OptionalInt stream_mapToDouble_mapToInt_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntPredicate arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			int t2 = arg1.applyAsInt(t1);
+			if(!arg2.test(t2)) {
+				break;
+			}
+			return OptionalInt.of(t2);
+		}
+		return OptionalInt.empty();
+	}
+
 	public static <T0> OptionalLong stream_mapToDouble_mapToLong_map_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongUnaryOperator arg2) {
 		for (T0 t0 : input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -10196,6 +11961,18 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalLong.of(t2);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToDouble_mapToLong_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongPredicate arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			long t2 = arg1.applyAsLong(t1);
+			if(!arg2.test(t2)) {
+				break;
 			}
 			return OptionalLong.of(t2);
 		}
@@ -10344,6 +12121,18 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0, T2> Optional<T2> stream_mapToDouble_mapToObj_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Predicate<T2> arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			T2 t2 = arg1.apply(t1);
+			if(!arg2.test(t2)) {
+				break;
+			}
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T3> Optional<T3> stream_mapToDouble_boxed_map_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, Function<Double, T3> arg2) {
 		for (T0 t0 : input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -10480,6 +12269,18 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<Double> stream_mapToDouble_boxed_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, Predicate<Double> arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			Double t2 = t1;
+			if(!arg2.test(t2)) {
+				break;
 			}
 			return Optional.of(t2);
 		}
@@ -10662,6 +12463,22 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_sorted_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg2) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalDouble.of(t1);
 		}
@@ -10883,6 +12700,25 @@ public class ForeachStreamFindAny {
 		return OptionalDouble.empty();
 	}
 
+	public static <T0> OptionalDouble stream_mapToDouble_limit_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoublePredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
 	public static <T0> OptionalDouble stream_mapToDouble_skip_map_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleUnaryOperator arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -11098,6 +12934,25 @@ public class ForeachStreamFindAny {
 		return OptionalDouble.empty();
 	}
 
+	public static <T0> OptionalDouble stream_mapToDouble_skip_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoublePredicate arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
 	public static <T0> OptionalDouble stream_mapToDouble_distinct_map_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg2) {
 		Set<Double> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -11263,6 +13118,21 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_distinct_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg2) {
+		Set<Double> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalDouble.of(t1);
 		}
@@ -11462,6 +13332,197 @@ public class ForeachStreamFindAny {
 		return OptionalDouble.empty();
 	}
 
+	public static <T0> OptionalDouble stream_mapToDouble_dropWhile_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_takeWhile_map_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleUnaryOperator arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			t1 = arg2.applyAsDouble(t1);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_takeWhile_filter_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_mapToDouble_takeWhile_mapToInt_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleToIntFunction arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			int t2 = arg2.applyAsInt(t1);
+			return OptionalInt.of(t2);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_mapToDouble_takeWhile_mapToLong_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleToLongFunction arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			long t2 = arg2.applyAsLong(t1);
+			return OptionalLong.of(t2);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T2> Optional<T2> stream_mapToDouble_takeWhile_mapToObj_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			T2 t2 = arg2.apply(t1);
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<Double> stream_mapToDouble_takeWhile_boxed_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			Double t2 = t1;
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_takeWhile_sorted_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_takeWhile_limit_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_takeWhile_skip_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_takeWhile_distinct_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
+		Set<Double> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_takeWhile_dropWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_mapToDouble_takeWhile_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_sorted_map_map_findAny(Collection<T0> input, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -11642,6 +13703,22 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_map_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg1, Predicate<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return Optional.of(t1);
 		}
@@ -11856,6 +13933,24 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_sorted_filter_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0> OptionalInt stream_sorted_mapToInt_map_findAny(Collection<T0> input, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -12032,6 +14127,22 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_sorted_mapToInt_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg1.applyAsInt(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalInt.of(t1);
 		}
@@ -12220,6 +14331,22 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_sorted_mapToLong_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg1.applyAsLong(t0);
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_sorted_mapToDouble_map_findAny(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -12396,6 +14523,22 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_sorted_mapToDouble_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg1.applyAsDouble(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalDouble.of(t1);
 		}
@@ -12632,6 +14775,26 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_sorted_sorted_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sorted_sortedComp_map_findAny(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
@@ -12856,6 +15019,26 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sorted_sortedComp_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -13125,6 +15308,29 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_sorted_limit_takeWhile_findAny(Collection<T0> input, long arg1, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sorted_skip_map_findAny(Collection<T0> input, long arg1, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		if(arg1 < 0) {
@@ -13388,6 +15594,29 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_sorted_skip_takeWhile_findAny(Collection<T0> input, long arg1, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sorted_distinct_map_findAny(Collection<T0> input, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
@@ -13601,6 +15830,25 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sorted_distinct_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -13848,6 +16096,253 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_sorted_dropWhile_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_takeWhile_map_findAny(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sorted_takeWhile_filter_findAny(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_sorted_takeWhile_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_sorted_takeWhile_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_sorted_takeWhile_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sorted_takeWhile_sorted_findAny(Collection<T0> input, Predicate<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sorted_takeWhile_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sorted_takeWhile_limit_findAny(Collection<T0> input, Predicate<T0> arg1, long arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sorted_takeWhile_skip_findAny(Collection<T0> input, Predicate<T0> arg1, long arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sorted_takeWhile_distinct_findAny(Collection<T0> input, Predicate<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sorted_takeWhile_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sorted_takeWhile_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_sortedComp_map_map_findAny(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -14028,6 +16523,22 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_map_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return Optional.of(t1);
 		}
@@ -14242,6 +16753,24 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_sortedComp_filter_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0> OptionalInt stream_sortedComp_mapToInt_map_findAny(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -14418,6 +16947,22 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_sortedComp_mapToInt_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg1.applyAsInt(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalInt.of(t1);
 		}
@@ -14606,6 +17151,22 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_sortedComp_mapToLong_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg1.applyAsLong(t0);
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_sortedComp_mapToDouble_map_findAny(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -14782,6 +17343,22 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_sortedComp_mapToDouble_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg1.applyAsDouble(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalDouble.of(t1);
 		}
@@ -15018,6 +17595,26 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_sortedComp_sorted_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sortedComp_sortedComp_map_findAny(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
@@ -15242,6 +17839,26 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sortedComp_sortedComp_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -15511,6 +18128,29 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_sortedComp_limit_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sortedComp_skip_map_findAny(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		if(arg1 < 0) {
@@ -15774,6 +18414,29 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_sortedComp_skip_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sortedComp_distinct_map_findAny(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
@@ -15987,6 +18650,25 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sortedComp_distinct_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -16234,6 +18916,253 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_sortedComp_dropWhile_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_takeWhile_map_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sortedComp_takeWhile_filter_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_sortedComp_takeWhile_mapToInt_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_sortedComp_takeWhile_mapToLong_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_sortedComp_takeWhile_mapToDouble_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sortedComp_takeWhile_sorted_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sortedComp_takeWhile_sortedComp_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg2);
+		for (T0 t0: sortedComp1) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sortedComp_takeWhile_limit_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, long arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sortedComp_takeWhile_skip_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, long arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sortedComp_takeWhile_distinct_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sortedComp_takeWhile_dropWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_sortedComp_takeWhile_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_limit_map_map_findAny(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -16447,6 +19376,25 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_map_takeWhile_findAny(Collection<T0> input, long arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return Optional.of(t1);
 		}
@@ -16694,6 +19642,27 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_limit_filter_takeWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0> OptionalInt stream_limit_mapToInt_map_findAny(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -16903,6 +19872,25 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_limit_mapToInt_takeWhile_findAny(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalInt.of(t1);
 		}
@@ -17124,6 +20112,25 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_limit_mapToLong_takeWhile_findAny(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_limit_mapToDouble_map_findAny(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -17333,6 +20340,25 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_limit_mapToDouble_takeWhile_findAny(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalDouble.of(t1);
 		}
@@ -17602,6 +20628,29 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_limit_sorted_takeWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_limit_sortedComp_map_findAny(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -17859,6 +20908,29 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_limit_sortedComp_takeWhile_findAny(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -18161,6 +21233,32 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_limit_limit_takeWhile_findAny(Collection<T0> input, long arg0, long arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit1 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			limit1++;
+			if(limit1 > arg1) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_limit_skip_map_findAny(Collection<T0> input, long arg0, long arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -18457,6 +21555,32 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_limit_skip_takeWhile_findAny(Collection<T0> input, long arg0, long arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_limit_distinct_map_findAny(Collection<T0> input, long arg0, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -18703,6 +21827,28 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_limit_distinct_takeWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -18983,6 +22129,292 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_limit_dropWhile_takeWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_takeWhile_map_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_limit_takeWhile_filter_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_limit_takeWhile_mapToInt_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_limit_takeWhile_mapToLong_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_limit_takeWhile_mapToDouble_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_limit_takeWhile_sorted_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_limit_takeWhile_sortedComp_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_limit_takeWhile_limit_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit1 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			limit1++;
+			if(limit1 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_limit_takeWhile_skip_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_limit_takeWhile_distinct_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_limit_takeWhile_dropWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_limit_takeWhile_takeWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_skip_map_map_findAny(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -19196,6 +22628,25 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_map_takeWhile_findAny(Collection<T0> input, long arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return Optional.of(t1);
 		}
@@ -19443,6 +22894,27 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_skip_filter_takeWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0> OptionalInt stream_skip_mapToInt_map_findAny(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -19652,6 +23124,25 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_mapToInt_takeWhile_findAny(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalInt.of(t1);
 		}
@@ -19873,6 +23364,25 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_skip_mapToLong_takeWhile_findAny(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_skip_mapToDouble_map_findAny(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -20082,6 +23592,25 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_mapToDouble_takeWhile_findAny(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalDouble.of(t1);
 		}
@@ -20351,6 +23880,29 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_skip_sorted_takeWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_skip_sortedComp_map_findAny(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -20608,6 +24160,29 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_skip_sortedComp_takeWhile_findAny(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -20910,6 +24485,32 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_skip_limit_takeWhile_findAny(Collection<T0> input, long arg0, long arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_skip_skip_map_findAny(Collection<T0> input, long arg0, long arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -21206,6 +24807,32 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_skip_skip_takeWhile_findAny(Collection<T0> input, long arg0, long arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg1) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_skip_distinct_map_findAny(Collection<T0> input, long arg0, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -21452,6 +25079,28 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_skip_distinct_takeWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -21732,6 +25381,292 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_skip_dropWhile_takeWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_takeWhile_map_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_skip_takeWhile_filter_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_skip_takeWhile_mapToInt_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_skip_takeWhile_mapToLong_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_skip_takeWhile_mapToDouble_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_skip_takeWhile_sorted_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_skip_takeWhile_sortedComp_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_skip_takeWhile_limit_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_skip_takeWhile_skip_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			skip1++;
+			if(skip1 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_skip_takeWhile_distinct_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_skip_takeWhile_dropWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_skip_takeWhile_takeWhile_findAny(Collection<T0> input, long arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_distinct_map_map_findAny(Collection<T0> input, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -21901,6 +25836,21 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_map_takeWhile_findAny(Collection<T0> input, Function<T0, T1> arg1, Predicate<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return Optional.of(t1);
 		}
@@ -22104,6 +26054,23 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_distinct_filter_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0> OptionalInt stream_distinct_mapToInt_map_findAny(Collection<T0> input, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -22269,6 +26236,21 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_distinct_mapToInt_takeWhile_findAny(Collection<T0> input, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalInt.of(t1);
 		}
@@ -22446,6 +26428,21 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_distinct_mapToLong_takeWhile_findAny(Collection<T0> input, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_distinct_mapToDouble_map_findAny(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -22611,6 +26608,21 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_distinct_mapToDouble_takeWhile_findAny(Collection<T0> input, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalDouble.of(t1);
 		}
@@ -22836,6 +26848,25 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_distinct_sorted_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_distinct_sortedComp_map_findAny(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
@@ -23049,6 +27080,25 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_distinct_sortedComp_takeWhile_findAny(Collection<T0> input, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -23307,6 +27357,28 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_distinct_limit_takeWhile_findAny(Collection<T0> input, long arg1, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_distinct_skip_map_findAny(Collection<T0> input, long arg1, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		if(arg1 < 0) {
@@ -23559,6 +27631,28 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_distinct_skip_takeWhile_findAny(Collection<T0> input, long arg1, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_distinct_distinct_map_findAny(Collection<T0> input, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
@@ -23761,6 +27855,24 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_distinct_distinct_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -23997,6 +28109,240 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_distinct_dropWhile_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_takeWhile_map_findAny(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_distinct_takeWhile_filter_findAny(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_distinct_takeWhile_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_distinct_takeWhile_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_distinct_takeWhile_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_distinct_takeWhile_sorted_findAny(Collection<T0> input, Predicate<T0> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_distinct_takeWhile_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_distinct_takeWhile_limit_findAny(Collection<T0> input, Predicate<T0> arg1, long arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_distinct_takeWhile_skip_findAny(Collection<T0> input, Predicate<T0> arg1, long arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_distinct_takeWhile_distinct_findAny(Collection<T0> input, Predicate<T0> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_distinct_takeWhile_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_distinct_takeWhile_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_dropWhile_map_map_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		boolean dropWhile0 = true;
 		for (T0 t0 : input) {
@@ -24188,6 +28534,23 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile1 = false;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_map_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			T1 t1 = arg1.apply(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return Optional.of(t1);
 		}
@@ -24413,6 +28776,25 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_dropWhile_filter_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0> OptionalInt stream_dropWhile_mapToInt_map_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		boolean dropWhile0 = true;
 		for (T0 t0 : input) {
@@ -24600,6 +28982,23 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile1 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_dropWhile_mapToInt_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalInt.of(t1);
 		}
@@ -24799,6 +29198,23 @@ public class ForeachStreamFindAny {
 		return OptionalLong.empty();
 	}
 
+	public static <T0> OptionalLong stream_dropWhile_mapToLong_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
 	public static <T0> OptionalDouble stream_dropWhile_mapToDouble_map_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		boolean dropWhile0 = true;
 		for (T0 t0 : input) {
@@ -24986,6 +29402,23 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile1 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_dropWhile_mapToDouble_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(!arg2.test(t1)) {
+				break;
 			}
 			return OptionalDouble.of(t1);
 		}
@@ -25233,6 +29666,27 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_dropWhile_sorted_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_dropWhile_sortedComp_map_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
@@ -25468,6 +29922,27 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile1 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_dropWhile_sortedComp_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -25748,6 +30223,30 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_dropWhile_limit_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_dropWhile_skip_map_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		if(arg1 < 0) {
@@ -26022,6 +30521,30 @@ public class ForeachStreamFindAny {
 		return Optional.empty();
 	}
 
+	public static <T0> Optional<T0> stream_dropWhile_skip_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_dropWhile_distinct_map_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
@@ -26246,6 +30769,26 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile1 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_dropWhile_distinct_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
@@ -26498,6 +31041,2798 @@ public class ForeachStreamFindAny {
 				continue;
 			} else {
 				dropWhile2 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_dropWhile_dropWhile_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(dropWhile1 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile1 = false;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_takeWhile_map_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_dropWhile_takeWhile_filter_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_dropWhile_takeWhile_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_dropWhile_takeWhile_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_dropWhile_takeWhile_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_dropWhile_takeWhile_sorted_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		boolean dropWhile0 = true;
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_dropWhile_takeWhile_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		boolean dropWhile0 = true;
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_dropWhile_takeWhile_limit_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_dropWhile_takeWhile_skip_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_dropWhile_takeWhile_distinct_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		boolean dropWhile0 = true;
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_dropWhile_takeWhile_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(dropWhile1 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile1 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_dropWhile_takeWhile_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_takeWhile_map_map_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			T2 t2 = arg2.apply(t1);
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_map_filter_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_takeWhile_map_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			int t2 = arg2.applyAsInt(t1);
+			return OptionalInt.of(t2);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_takeWhile_map_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			long t2 = arg2.applyAsLong(t1);
+			return OptionalLong.of(t2);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_takeWhile_map_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			return OptionalDouble.of(t2);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_map_sorted_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_map_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_map_limit_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_map_skip_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_map_distinct_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_map_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_map_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_filter_map_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_filter_filter_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_filter_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_filter_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_filter_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_filter_sorted_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_filter_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_filter_limit_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_filter_skip_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_filter_distinct_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_filter_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_filter_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_mapToInt_map_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			t1 = arg2.applyAsInt(t1);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_mapToInt_filter_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_mapToInt_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			long t2 = arg2.applyAsLong(t1);
+			return OptionalLong.of(t2);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_mapToInt_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			return OptionalDouble.of(t2);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T2> Optional<T2> stream_takeWhile_mapToInt_mapToObj_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			T2 t2 = arg2.apply(t1);
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<Integer> stream_takeWhile_mapToInt_boxed_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			Integer t2 = t1;
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_mapToInt_sorted_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (int t1: sorted0) {
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_mapToInt_limit_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_mapToInt_skip_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_mapToInt_distinct_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
+		Set<Integer> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_mapToInt_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_mapToInt_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			int t1 = arg1.applyAsInt(t0);
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_mapToLong_map_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			t1 = arg2.applyAsLong(t1);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_mapToLong_filter_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_mapToLong_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			int t2 = arg2.applyAsInt(t1);
+			return OptionalInt.of(t2);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_mapToLong_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			double t2 = arg2.applyAsDouble(t1);
+			return OptionalDouble.of(t2);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T2> Optional<T2> stream_takeWhile_mapToLong_mapToObj_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			T2 t2 = arg2.apply(t1);
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<Long> stream_takeWhile_mapToLong_boxed_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			Long t2 = t1;
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_mapToLong_sorted_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (long t1: sorted0) {
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_mapToLong_limit_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_mapToLong_skip_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_mapToLong_distinct_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
+		Set<Long> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_mapToLong_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_mapToLong_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			long t1 = arg1.applyAsLong(t0);
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_mapToDouble_map_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			t1 = arg2.applyAsDouble(t1);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_mapToDouble_filter_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_mapToDouble_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			int t2 = arg2.applyAsInt(t1);
+			return OptionalInt.of(t2);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_mapToDouble_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			long t2 = arg2.applyAsLong(t1);
+			return OptionalLong.of(t2);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T2> Optional<T2> stream_takeWhile_mapToDouble_mapToObj_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			T2 t2 = arg2.apply(t1);
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<Double> stream_takeWhile_mapToDouble_boxed_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			Double t2 = t1;
+			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_mapToDouble_sorted_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (double t1: sorted0) {
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_mapToDouble_limit_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_mapToDouble_skip_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_mapToDouble_distinct_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
+		Set<Double> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_mapToDouble_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_mapToDouble_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			double t1 = arg1.applyAsDouble(t0);
+			if(!arg2.test(t1)) {
+				break;
+			}
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_sorted_map_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sorted_filter_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_sorted_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_sorted_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_sorted_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sorted_sorted_findAny(Collection<T0> input, Predicate<T0> arg0) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sorted_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sorted_limit_findAny(Collection<T0> input, Predicate<T0> arg0, long arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sorted_skip_findAny(Collection<T0> input, Predicate<T0> arg0, long arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sorted_distinct_findAny(Collection<T0> input, Predicate<T0> arg0) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sorted_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sorted_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_sortedComp_map_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sortedComp_filter_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_sortedComp_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_sortedComp_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_sortedComp_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sortedComp_sorted_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sortedComp_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Comparator<? super T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg2);
+		for (T0 t0: sortedComp1) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sortedComp_limit_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, long arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sortedComp_skip_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, long arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sortedComp_distinct_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sortedComp_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_sortedComp_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_limit_map_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_limit_filter_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Predicate<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_limit_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, ToIntFunction<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_limit_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, ToLongFunction<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_limit_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, ToDoubleFunction<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_limit_sorted_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_limit_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Comparator<? super T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_limit_limit_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit1 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			limit1++;
+			if(limit1 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_limit_skip_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_limit_distinct_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_limit_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Predicate<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_limit_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Predicate<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_skip_map_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_skip_filter_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Predicate<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_skip_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, ToIntFunction<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_skip_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, ToLongFunction<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_skip_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, ToDoubleFunction<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_skip_sorted_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_skip_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Comparator<? super T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_skip_limit_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_skip_skip_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_skip_distinct_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_skip_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Predicate<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_skip_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, long arg1, Predicate<T0> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_distinct_map_findAny(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_distinct_filter_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_distinct_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_distinct_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_distinct_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_distinct_sorted_findAny(Collection<T0> input, Predicate<T0> arg0) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_distinct_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_distinct_limit_findAny(Collection<T0> input, Predicate<T0> arg0, long arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_distinct_skip_findAny(Collection<T0> input, Predicate<T0> arg0, long arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_distinct_distinct_findAny(Collection<T0> input, Predicate<T0> arg0) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_distinct_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_distinct_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_dropWhile_map_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_dropWhile_filter_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_dropWhile_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_dropWhile_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_dropWhile_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_dropWhile_sorted_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		boolean dropWhile0 = true;
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_dropWhile_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		boolean dropWhile0 = true;
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_dropWhile_limit_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_dropWhile_skip_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_dropWhile_distinct_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		boolean dropWhile0 = true;
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_dropWhile_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(dropWhile1 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile1 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_dropWhile_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg2.test(t0)) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_takeWhile_map_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			T1 t1 = arg2.apply(t0);
+			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_takeWhile_filter_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if (!arg2.test(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> OptionalInt stream_takeWhile_takeWhile_mapToInt_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			int t1 = arg2.applyAsInt(t0);
+			return OptionalInt.of(t1);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0> OptionalLong stream_takeWhile_takeWhile_mapToLong_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			long t1 = arg2.applyAsLong(t0);
+			return OptionalLong.of(t1);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0> OptionalDouble stream_takeWhile_takeWhile_mapToDouble_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			double t1 = arg2.applyAsDouble(t0);
+			return OptionalDouble.of(t1);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_takeWhile_sorted_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_takeWhile_sortedComp_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg2);
+		for (T0 t0: sortedComp0) {
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_takeWhile_limit_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_takeWhile_skip_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_takeWhile_distinct_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_takeWhile_dropWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg2.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0> Optional<T0> stream_takeWhile_takeWhile_takeWhile_findAny(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			if(!arg2.test(t0)) {
+				break;
 			}
 			return Optional.of(t0);
 		}
