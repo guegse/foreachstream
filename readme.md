@@ -137,6 +137,7 @@ return ForeachStreamCollectToList.stream_filter_collect_toList(persons, person -
 * There is little to no test coverage. Consider this an early alpha. Use at your own risk.
 * Only a limited stream opertion *depth* is supported. 
 * Only a limited number of stream operations are supported. See the section "Stream operations support matrix" for details.
+* The plugin doesn't support parallel or unordered streams.
 
 ## Stream operations support matrix
 
@@ -188,7 +189,7 @@ return ForeachStreamCollectToList.stream_filter_collect_toList(persons, person -
 | limit            | yes       |
 | skip             | yes       |
 | takeWhile        |           |
-| dropWhile        |           |
+| dropWhile        | yes       |
 |                  |           |
 
 ## Benchmarks
