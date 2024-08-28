@@ -1335,6 +1335,66 @@ public class ForeachStreamMax {
 		return OptionalDouble.empty();
 	}
 
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
 	public static <T0, T1, T2> OptionalInt stream_map_map_mapToInt_max(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, ToIntFunction<T2> arg2) {
 		int max = 0;
 		boolean hasMax = false;
@@ -2659,6 +2719,69 @@ public class ForeachStreamMax {
 			} else {
 				hasMax = true;
 				max = t2;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1, T2> OptionalInt stream_map_flatMap_mapToInt_max(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToIntFunction<T2> arg2) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				int t3 = arg2.applyAsInt(t2);
+				if (hasMax) {
+					max = Math.max(max, t3);
+				} else {
+					hasMax = true;
+					max = t3;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1, T2> OptionalLong stream_map_flatMap_mapToLong_max(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToLongFunction<T2> arg2) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				long t3 = arg2.applyAsLong(t2);
+				if (hasMax) {
+					max = Math.max(max, t3);
+				} else {
+					hasMax = true;
+					max = t3;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1, T2> OptionalDouble stream_map_flatMap_mapToDouble_max(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToDoubleFunction<T2> arg2) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				double t3 = arg2.applyAsDouble(t2);
+				if (hasMax) {
+					max = Math.max(max, t3);
+				} else {
+					hasMax = true;
+					max = t3;
+				}
 			}
 		}
 		if (hasMax) {
@@ -4105,6 +4228,75 @@ public class ForeachStreamMax {
 			} else {
 				hasMax = true;
 				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_filter_flatMap_mapToInt_max(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_filter_flatMap_mapToLong_max(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_filter_flatMap_mapToDouble_max(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
 			}
 		}
 		if (hasMax) {
@@ -13833,6 +14025,81 @@ public class ForeachStreamMax {
 		return OptionalDouble.empty();
 	}
 
+	public static <T0, T1> OptionalInt stream_sorted_flatMap_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_sorted_flatMap_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_sorted_flatMap_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
 	public static <T0, T1> OptionalInt stream_sortedComp_map_mapToInt_max(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		int max = 0;
@@ -15385,6 +15652,81 @@ public class ForeachStreamMax {
 			} else {
 				hasMax = true;
 				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_sortedComp_flatMap_mapToInt_max(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_sortedComp_flatMap_mapToLong_max(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_sortedComp_flatMap_mapToDouble_max(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
 			}
 		}
 		if (hasMax) {
@@ -17124,6 +17466,90 @@ public class ForeachStreamMax {
 		return OptionalDouble.empty();
 	}
 
+	public static <T0, T1> OptionalInt stream_limit_flatMap_mapToInt_max(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_limit_flatMap_mapToLong_max(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_limit_flatMap_mapToDouble_max(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
 	public static <T0, T1> OptionalInt stream_skip_map_mapToInt_max(Collection<T0> input, long arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -18855,6 +19281,90 @@ public class ForeachStreamMax {
 		return OptionalDouble.empty();
 	}
 
+	public static <T0, T1> OptionalInt stream_skip_flatMap_mapToInt_max(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_skip_flatMap_mapToLong_max(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_skip_flatMap_mapToDouble_max(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
 	public static <T0, T1> OptionalInt stream_distinct_map_mapToInt_max(Collection<T0> input, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		int max = 0;
@@ -20350,6 +20860,78 @@ public class ForeachStreamMax {
 			} else {
 				hasMax = true;
 				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_distinct_flatMap_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_distinct_flatMap_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_distinct_flatMap_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
 			}
 		}
 		if (hasMax) {
@@ -21975,6 +22557,84 @@ public class ForeachStreamMax {
 		return OptionalDouble.empty();
 	}
 
+	public static <T0, T1> OptionalInt stream_dropWhile_flatMap_mapToInt_max(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_dropWhile_flatMap_mapToLong_max(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_dropWhile_flatMap_mapToDouble_max(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
 	public static <T0, T1> OptionalInt stream_takeWhile_map_mapToInt_max(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		int max = 0;
 		boolean hasMax = false;
@@ -23413,6 +24073,1530 @@ public class ForeachStreamMax {
 			} else {
 				hasMax = true;
 				max = t1;
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_takeWhile_flatMap_mapToInt_max(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_takeWhile_flatMap_mapToLong_max(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_takeWhile_flatMap_mapToDouble_max(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1, T2> OptionalInt stream_flatMap_map_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToIntFunction<T2> arg2) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				int t3 = arg2.applyAsInt(t2);
+				if (hasMax) {
+					max = Math.max(max, t3);
+				} else {
+					hasMax = true;
+					max = t3;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1, T2> OptionalLong stream_flatMap_map_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToLongFunction<T2> arg2) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				long t3 = arg2.applyAsLong(t2);
+				if (hasMax) {
+					max = Math.max(max, t3);
+				} else {
+					hasMax = true;
+					max = t3;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1, T2> OptionalDouble stream_flatMap_map_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToDoubleFunction<T2> arg2) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				double t3 = arg2.applyAsDouble(t2);
+				if (hasMax) {
+					max = Math.max(max, t3);
+				} else {
+					hasMax = true;
+					max = t3;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_filter_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_filter_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_filter_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_map_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntUnaryOperator arg2) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				t2 = arg2.applyAsInt(t2);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_filter_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToInt_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntToLongFunction arg2) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				long t3 = arg2.applyAsLong(t2);
+				if (hasMax) {
+					max = Math.max(max, t3);
+				} else {
+					hasMax = true;
+					max = t3;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToInt_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntToDoubleFunction arg2) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				double t3 = arg2.applyAsDouble(t2);
+				if (hasMax) {
+					max = Math.max(max, t3);
+				} else {
+					hasMax = true;
+					max = t3;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_sorted_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
+		List<Integer> sorted0 = new ArrayList<>();
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				sorted0.add(t2);
+			}
+			Collections.sort((List) sorted0);
+			for (int t2: sorted0) {
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_limit_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_skip_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_distinct_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
+		Set<Integer> distinct0 = new HashSet<>();
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_dropWhile_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_takeWhile_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				if(!arg2.test(t2)) {
+					break;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_map_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongUnaryOperator arg2) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				t2 = arg2.applyAsLong(t2);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_filter_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToLong_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongToIntFunction arg2) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				int t3 = arg2.applyAsInt(t2);
+				if (hasMax) {
+					max = Math.max(max, t3);
+				} else {
+					hasMax = true;
+					max = t3;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToLong_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongToDoubleFunction arg2) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				double t3 = arg2.applyAsDouble(t2);
+				if (hasMax) {
+					max = Math.max(max, t3);
+				} else {
+					hasMax = true;
+					max = t3;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_sorted_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
+		List<Long> sorted0 = new ArrayList<>();
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				sorted0.add(t2);
+			}
+			Collections.sort((List) sorted0);
+			for (long t2: sorted0) {
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_limit_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_skip_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_distinct_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
+		Set<Long> distinct0 = new HashSet<>();
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_dropWhile_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_takeWhile_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				if(!arg2.test(t2)) {
+					break;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_map_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleUnaryOperator arg2) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				t2 = arg2.applyAsDouble(t2);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_filter_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToDouble_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleToIntFunction arg2) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				int t3 = arg2.applyAsInt(t2);
+				if (hasMax) {
+					max = Math.max(max, t3);
+				} else {
+					hasMax = true;
+					max = t3;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToDouble_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleToLongFunction arg2) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				long t3 = arg2.applyAsLong(t2);
+				if (hasMax) {
+					max = Math.max(max, t3);
+				} else {
+					hasMax = true;
+					max = t3;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_sorted_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
+		List<Double> sorted0 = new ArrayList<>();
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				sorted0.add(t2);
+			}
+			Collections.sort((List) sorted0);
+			for (double t2: sorted0) {
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_limit_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_skip_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_distinct_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
+		Set<Double> distinct0 = new HashSet<>();
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_dropWhile_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_takeWhile_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				if(!arg2.test(t2)) {
+					break;
+				}
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_sorted_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_sorted_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_sorted_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_sortedComp_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToIntFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_sortedComp_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToLongFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_sortedComp_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToDoubleFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_limit_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToIntFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_limit_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToLongFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_limit_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToDoubleFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_skip_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToIntFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_skip_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToLongFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_skip_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToDoubleFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_distinct_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_distinct_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_distinct_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_dropWhile_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_dropWhile_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_dropWhile_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_takeWhile_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_takeWhile_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_takeWhile_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				if (hasMax) {
+					max = Math.max(max, t2);
+				} else {
+					hasMax = true;
+					max = t2;
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalDouble.of(max);
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1, T2> OptionalInt stream_flatMap_flatMap_mapToInt_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToIntFunction<T2> arg2) {
+		int max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					int t3 = arg2.applyAsInt(t2);
+					if (hasMax) {
+						max = Math.max(max, t3);
+					} else {
+						hasMax = true;
+						max = t3;
+					}
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalInt.of(max);
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1, T2> OptionalLong stream_flatMap_flatMap_mapToLong_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToLongFunction<T2> arg2) {
+		long max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					long t3 = arg2.applyAsLong(t2);
+					if (hasMax) {
+						max = Math.max(max, t3);
+					} else {
+						hasMax = true;
+						max = t3;
+					}
+				}
+			}
+		}
+		if (hasMax) {
+			return OptionalLong.of(max);
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1, T2> OptionalDouble stream_flatMap_flatMap_mapToDouble_max(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToDoubleFunction<T2> arg2) {
+		double max = 0;
+		boolean hasMax = false;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					double t3 = arg2.applyAsDouble(t2);
+					if (hasMax) {
+						max = Math.max(max, t3);
+					} else {
+						hasMax = true;
+						max = t3;
+					}
+				}
 			}
 		}
 		if (hasMax) {

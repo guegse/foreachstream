@@ -51,7 +51,6 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
             for (Method method : clazz.getMethods()) {
                 if (Modifier.isPublic(method.getModifiers()) && Modifier.isStatic(method.getModifiers())) {
                     availableMethodsToTheirClasses.put(method.getName(), new Pair<>(clazz.getName(), method.getParameterTypes()));
-                    log.printRawLines(Log.WriterKind.NOTICE, method.toString());
                 }
             }
         }
