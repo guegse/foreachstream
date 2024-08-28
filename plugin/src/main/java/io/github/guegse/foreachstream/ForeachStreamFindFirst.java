@@ -143,6 +143,15 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_map_map_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1) {
 		for (T0 t0 : input) {
 			T1 t1 = arg0.apply(t0);
@@ -281,6 +290,16 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				return Optional.of(t2);
+			}
 		}
 		return Optional.empty();
 	}
@@ -447,6 +466,18 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -1055,6 +1086,20 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_sorted_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sortedComp_map_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -1241,6 +1286,20 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -1471,6 +1530,23 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_limit_flatMap_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_skip_map_findFirst(Collection<T0> input, long arg0, Function<T0, T1> arg1) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -1697,6 +1773,23 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_skip_flatMap_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_distinct_map_findFirst(Collection<T0> input, Function<T0, T1> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -1871,6 +1964,19 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -2077,6 +2183,21 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_dropWhile_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_takeWhile_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
 		for (T0 t0 : input) {
 			if(!arg0.test(t0)) {
@@ -2243,6 +2364,183 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_takeWhile_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2, T3> Optional<T3> stream_map_map_map_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Function<T2, T3> arg2) {
 		for (T0 t0 : input) {
 			T1 t1 = arg0.apply(t0);
@@ -2393,6 +2691,17 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2, T3> Optional<T3> stream_map_map_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Function<T2, Collection<T3>> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			T2 t2 = arg1.apply(t1);
+			for (T3 t3 : arg2.apply(t2)) {
+				return Optional.of(t3);
+			}
 		}
 		return Optional.empty();
 	}
@@ -2571,6 +2880,19 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_filter_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
 		}
 		return Optional.empty();
 	}
@@ -3227,6 +3549,21 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1, T2> Optional<T2> stream_map_sorted_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_map_sortedComp_map_findFirst(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Function<T1, T2> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -3425,6 +3762,21 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_sortedComp_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Function<T1, Collection<T2>> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
 		}
 		return Optional.empty();
 	}
@@ -3667,6 +4019,24 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1, T2> Optional<T2> stream_map_limit_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg0, long arg1, Function<T1, Collection<T2>> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_map_skip_map_findFirst(Collection<T0> input, Function<T0, T1> arg0, long arg1, Function<T1, T2> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -3905,6 +4275,24 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1, T2> Optional<T2> stream_map_skip_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg0, long arg1, Function<T1, Collection<T2>> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_map_distinct_map_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -4091,6 +4479,20 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_distinct_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
 		}
 		return Optional.empty();
 	}
@@ -4309,6 +4711,22 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1, T2> Optional<T2> stream_map_dropWhile_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_map_takeWhile_map_findFirst(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
 		for (T0 t0 : input) {
 			T1 t1 = arg0.apply(t0);
@@ -4487,6 +4905,197 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1, T2> Optional<T2> stream_map_takeWhile_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2, T3> Optional<T3> stream_map_flatMap_map_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Function<T2, T3> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				T3 t3 = arg2.apply(t2);
+				return Optional.of(t3);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_flatMap_filter_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> OptionalInt stream_map_flatMap_mapToInt_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToIntFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				int t3 = arg2.applyAsInt(t2);
+				return OptionalInt.of(t3);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1, T2> OptionalLong stream_map_flatMap_mapToLong_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToLongFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				long t3 = arg2.applyAsLong(t2);
+				return OptionalLong.of(t3);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1, T2> OptionalDouble stream_map_flatMap_mapToDouble_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToDoubleFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				double t3 = arg2.applyAsDouble(t2);
+				return OptionalDouble.of(t3);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_flatMap_sorted_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1) {
+		List<T2> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				sorted0.add(t2);
+			}
+			Collections.sort((List) sorted0);
+			for (T2 t2: sorted0) {
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_flatMap_sortedComp_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Comparator<? super T2> arg2) {
+		List<T2> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				sortedComp0.add(t2);
+			}
+			sortedComp0.sort(arg2);
+			for (T2 t2: sortedComp0) {
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_flatMap_limit_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_flatMap_skip_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_flatMap_distinct_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1) {
+		Set<T2> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_flatMap_dropWhile_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_map_flatMap_takeWhile_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				if(!arg2.test(t2)) {
+					break;
+				}
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2, T3> Optional<T3> stream_map_flatMap_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Function<T2, Collection<T3>> arg2) {
+		for (T0 t0 : input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				for (T3 t3 : arg2.apply(t2)) {
+					return Optional.of(t3);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_filter_map_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		for (T0 t0 : input) {
 			if (!arg0.test(t0)) {
@@ -4661,6 +5270,19 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_filter_map_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
 		}
 		return Optional.empty();
 	}
@@ -4863,6 +5485,21 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_filter_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -5615,6 +6252,23 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_filter_sorted_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_filter_sortedComp_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -5837,6 +6491,23 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_sortedComp_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -6103,6 +6774,26 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_filter_limit_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_filter_skip_map_findFirst(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -6365,6 +7056,26 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_filter_skip_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_filter_distinct_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -6575,6 +7286,22 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_distinct_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -6817,6 +7544,24 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_filter_dropWhile_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_filter_takeWhile_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		for (T0 t0 : input) {
 			if (!arg0.test(t0)) {
@@ -7015,6 +7760,225 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_takeWhile_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_filter_flatMap_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_flatMap_filter_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_filter_flatMap_mapToInt_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_filter_flatMap_mapToLong_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_filter_flatMap_mapToDouble_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_flatMap_sorted_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_flatMap_sortedComp_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_flatMap_limit_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_flatMap_skip_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_flatMap_distinct_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_flatMap_dropWhile_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_filter_flatMap_takeWhile_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_filter_flatMap_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+		for (T0 t0 : input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
 		}
 		return Optional.empty();
 	}
@@ -7797,6 +8761,17 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T2, T3> Optional<T3> stream_mapToInt_mapToObj_flatMap_findFirst(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Function<T2, Collection<T3>> arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			T2 t2 = arg1.apply(t1);
+			for (T3 t3 : arg2.apply(t2)) {
+				return Optional.of(t3);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T3> Optional<T3> stream_mapToInt_boxed_map_findFirst(Collection<T0> input, ToIntFunction<T0> arg0, Function<Integer, T3> arg2) {
 		for (T0 t0 : input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -7947,6 +8922,17 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T3> Optional<T3> stream_mapToInt_boxed_flatMap_findFirst(Collection<T0> input, ToIntFunction<T0> arg0, Function<Integer, Collection<T3>> arg2) {
+		for (T0 t0 : input) {
+			int t1 = arg0.applyAsInt(t0);
+			Integer t2 = t1;
+			for (T3 t3 : arg2.apply(t2)) {
+				return Optional.of(t3);
+			}
 		}
 		return Optional.empty();
 	}
@@ -9965,6 +10951,17 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T2, T3> Optional<T3> stream_mapToLong_mapToObj_flatMap_findFirst(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Function<T2, Collection<T3>> arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			T2 t2 = arg1.apply(t1);
+			for (T3 t3 : arg2.apply(t2)) {
+				return Optional.of(t3);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T3> Optional<T3> stream_mapToLong_boxed_map_findFirst(Collection<T0> input, ToLongFunction<T0> arg0, Function<Long, T3> arg2) {
 		for (T0 t0 : input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -10115,6 +11112,17 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T3> Optional<T3> stream_mapToLong_boxed_flatMap_findFirst(Collection<T0> input, ToLongFunction<T0> arg0, Function<Long, Collection<T3>> arg2) {
+		for (T0 t0 : input) {
+			long t1 = arg0.applyAsLong(t0);
+			Long t2 = t1;
+			for (T3 t3 : arg2.apply(t2)) {
+				return Optional.of(t3);
+			}
 		}
 		return Optional.empty();
 	}
@@ -12133,6 +13141,17 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T2, T3> Optional<T3> stream_mapToDouble_mapToObj_flatMap_findFirst(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Function<T2, Collection<T3>> arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			T2 t2 = arg1.apply(t1);
+			for (T3 t3 : arg2.apply(t2)) {
+				return Optional.of(t3);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T3> Optional<T3> stream_mapToDouble_boxed_map_findFirst(Collection<T0> input, ToDoubleFunction<T0> arg0, Function<Double, T3> arg2) {
 		for (T0 t0 : input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -12283,6 +13302,17 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t2);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T3> Optional<T3> stream_mapToDouble_boxed_flatMap_findFirst(Collection<T0> input, ToDoubleFunction<T0> arg0, Function<Double, Collection<T3>> arg2) {
+		for (T0 t0 : input) {
+			double t1 = arg0.applyAsDouble(t0);
+			Double t2 = t1;
+			for (T3 t3 : arg2.apply(t2)) {
+				return Optional.of(t3);
+			}
 		}
 		return Optional.empty();
 	}
@@ -13725,6 +14755,21 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1, T2> Optional<T2> stream_sorted_map_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sorted_filter_map_findFirst(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -13947,6 +14992,23 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_filter_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -14795,6 +15857,25 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_sorted_sorted_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sorted_sortedComp_map_findFirst(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
@@ -15041,6 +16122,25 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_sortedComp_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -15331,6 +16431,28 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_sorted_limit_flatMap_findFirst(Collection<T0> input, long arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sorted_skip_map_findFirst(Collection<T0> input, long arg1, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		if(arg1 < 0) {
@@ -15617,6 +16739,28 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_sorted_skip_flatMap_findFirst(Collection<T0> input, long arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sorted_distinct_map_findFirst(Collection<T0> input, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
@@ -15851,6 +16995,24 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_distinct_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -16117,6 +17279,26 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_sorted_dropWhile_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sorted_takeWhile_map_findFirst(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -16343,6 +17525,253 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_sorted_takeWhile_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_sorted_flatMap_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_flatMap_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_sorted_flatMap_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_sorted_flatMap_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_sorted_flatMap_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_flatMap_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T1> sorted1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				sorted1.add(t1);
+			}
+			Collections.sort((List) sorted1);
+			for (T1 t1: sorted1) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_flatMap_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_flatMap_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, long arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_flatMap_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, long arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_flatMap_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_flatMap_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sorted_flatMap_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_sorted_flatMap_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_sortedComp_map_map_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -16541,6 +17970,21 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_sortedComp_map_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
 		}
 		return Optional.empty();
 	}
@@ -16767,6 +18211,23 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_filter_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -17615,6 +19076,25 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_sortedComp_sorted_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sortedComp_sortedComp_map_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
@@ -17861,6 +19341,25 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_sortedComp_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -18151,6 +19650,28 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_sortedComp_limit_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sortedComp_skip_map_findFirst(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		if(arg1 < 0) {
@@ -18437,6 +19958,28 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_sortedComp_skip_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sortedComp_distinct_map_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
@@ -18671,6 +20214,24 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_distinct_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -18937,6 +20498,26 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_sortedComp_dropWhile_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_sortedComp_takeWhile_map_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -19159,6 +20740,253 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_takeWhile_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_sortedComp_flatMap_map_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_flatMap_filter_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_sortedComp_flatMap_mapToInt_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_sortedComp_flatMap_mapToLong_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_sortedComp_flatMap_mapToDouble_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_flatMap_sorted_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_flatMap_sortedComp_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				sortedComp1.add(t1);
+			}
+			sortedComp1.sort(arg2);
+			for (T1 t1: sortedComp1) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_flatMap_limit_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_flatMap_skip_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_flatMap_distinct_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_flatMap_dropWhile_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_sortedComp_flatMap_takeWhile_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_sortedComp_flatMap_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
 		}
 		return Optional.empty();
 	}
@@ -19397,6 +21225,24 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_limit_map_flatMap_findFirst(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
 		}
 		return Optional.empty();
 	}
@@ -19659,6 +21505,26 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_filter_flatMap_findFirst(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -20651,6 +22517,28 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_limit_sorted_flatMap_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_limit_sortedComp_map_findFirst(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -20933,6 +22821,28 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_sortedComp_flatMap_findFirst(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -21259,6 +23169,31 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_limit_limit_flatMap_findFirst(Collection<T0> input, long arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit1 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			limit1++;
+			if(limit1 > arg1) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_limit_skip_map_findFirst(Collection<T0> input, long arg0, long arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -21581,6 +23516,31 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_limit_skip_flatMap_findFirst(Collection<T0> input, long arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_limit_distinct_map_findFirst(Collection<T0> input, long arg0, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -21851,6 +23811,27 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_distinct_flatMap_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -22153,6 +24134,29 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_limit_dropWhile_flatMap_findFirst(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_limit_takeWhile_map_findFirst(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -22415,6 +24419,295 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_limit_takeWhile_flatMap_findFirst(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_limit_flatMap_map_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_flatMap_filter_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_limit_flatMap_mapToInt_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_limit_flatMap_mapToLong_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_limit_flatMap_mapToDouble_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_flatMap_sorted_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_flatMap_sortedComp_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_flatMap_limit_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit1 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				limit1++;
+				if(limit1 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_flatMap_skip_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_flatMap_distinct_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_flatMap_dropWhile_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_limit_flatMap_takeWhile_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_limit_flatMap_flatMap_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_skip_map_map_findFirst(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -22649,6 +24942,24 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_skip_map_flatMap_findFirst(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
 		}
 		return Optional.empty();
 	}
@@ -22911,6 +25222,26 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_filter_flatMap_findFirst(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -23903,6 +26234,28 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_skip_sorted_flatMap_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_skip_sortedComp_map_findFirst(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -24185,6 +26538,28 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_sortedComp_flatMap_findFirst(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -24511,6 +26886,31 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_skip_limit_flatMap_findFirst(Collection<T0> input, long arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_skip_skip_map_findFirst(Collection<T0> input, long arg0, long arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -24833,6 +27233,31 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_skip_skip_flatMap_findFirst(Collection<T0> input, long arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_skip_distinct_map_findFirst(Collection<T0> input, long arg0, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -25103,6 +27528,27 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_distinct_flatMap_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -25405,6 +27851,29 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_skip_dropWhile_flatMap_findFirst(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_skip_takeWhile_map_findFirst(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -25667,6 +28136,295 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_skip_takeWhile_flatMap_findFirst(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_skip_flatMap_map_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_flatMap_filter_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_skip_flatMap_mapToInt_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_skip_flatMap_mapToLong_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_skip_flatMap_mapToDouble_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_flatMap_sorted_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_flatMap_sortedComp_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_flatMap_limit_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_flatMap_skip_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				skip1++;
+				if(skip1 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_flatMap_distinct_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_flatMap_dropWhile_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_skip_flatMap_takeWhile_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_skip_flatMap_flatMap_findFirst(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_distinct_map_map_findFirst(Collection<T0> input, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -25853,6 +28611,20 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_distinct_map_flatMap_findFirst(Collection<T0> input, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
 		}
 		return Optional.empty();
 	}
@@ -26067,6 +28839,22 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_filter_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -26867,6 +29655,24 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_distinct_sorted_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_distinct_sortedComp_map_findFirst(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
@@ -27101,6 +29907,24 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_sortedComp_flatMap_findFirst(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -27379,6 +30203,27 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_distinct_limit_flatMap_findFirst(Collection<T0> input, long arg1, Function<T0, Collection<T1>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_distinct_skip_map_findFirst(Collection<T0> input, long arg1, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		if(arg1 < 0) {
@@ -27653,6 +30498,27 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_distinct_skip_flatMap_findFirst(Collection<T0> input, long arg1, Function<T0, Collection<T1>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_distinct_distinct_map_findFirst(Collection<T0> input, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
@@ -27875,6 +30741,23 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_distinct_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -28129,6 +31012,25 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_distinct_dropWhile_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_distinct_takeWhile_map_findFirst(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -28343,6 +31245,239 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_distinct_takeWhile_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_distinct_flatMap_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_flatMap_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_distinct_flatMap_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_distinct_flatMap_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_distinct_flatMap_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_flatMap_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_flatMap_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_flatMap_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, long arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_flatMap_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, long arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_flatMap_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T1> distinct1 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!distinct1.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_flatMap_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_distinct_flatMap_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_distinct_flatMap_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_dropWhile_map_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		boolean dropWhile0 = true;
 		for (T0 t0 : input) {
@@ -28553,6 +31688,22 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_dropWhile_map_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
 		}
 		return Optional.empty();
 	}
@@ -28791,6 +31942,24 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_filter_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -29687,6 +32856,26 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_dropWhile_sorted_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
+		boolean dropWhile0 = true;
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_dropWhile_sortedComp_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
@@ -29945,6 +33134,26 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_sortedComp_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+		boolean dropWhile0 = true;
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -30247,6 +33456,29 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_dropWhile_limit_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+		boolean dropWhile0 = true;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_dropWhile_skip_map_findFirst(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		if(arg1 < 0) {
@@ -30545,6 +33777,29 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_dropWhile_skip_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+		boolean dropWhile0 = true;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_dropWhile_distinct_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
@@ -30791,6 +34046,25 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_distinct_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
+		boolean dropWhile0 = true;
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -31069,6 +34343,27 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_dropWhile_dropWhile_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(dropWhile1 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile1 = false;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_dropWhile_takeWhile_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		for (T0 t0 : input) {
@@ -31307,6 +34602,267 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_dropWhile_takeWhile_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_dropWhile_flatMap_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_flatMap_filter_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_dropWhile_flatMap_mapToInt_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_dropWhile_flatMap_mapToLong_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_dropWhile_flatMap_mapToDouble_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_flatMap_sorted_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+		boolean dropWhile0 = true;
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_flatMap_sortedComp_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+		boolean dropWhile0 = true;
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_flatMap_limit_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_flatMap_skip_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_flatMap_distinct_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+		boolean dropWhile0 = true;
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_flatMap_dropWhile_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(dropWhile1 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile1 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_dropWhile_flatMap_takeWhile_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_dropWhile_flatMap_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1, T2> Optional<T2> stream_takeWhile_map_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		for (T0 t0 : input) {
 			if(!arg0.test(t0)) {
@@ -31481,6 +35037,19 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t1);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_takeWhile_map_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
+			}
 		}
 		return Optional.empty();
 	}
@@ -31683,6 +35252,21 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_filter_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -32435,6 +36019,23 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_takeWhile_sorted_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_takeWhile_sortedComp_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		for (T0 t0 : input) {
@@ -32657,6 +36258,23 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_sortedComp_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -32923,6 +36541,26 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_takeWhile_limit_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_takeWhile_skip_map_findFirst(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -33185,6 +36823,26 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_takeWhile_skip_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_takeWhile_distinct_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		for (T0 t0 : input) {
@@ -33395,6 +37053,22 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_distinct_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
 		}
 		return Optional.empty();
 	}
@@ -33637,6 +37311,24 @@ public class ForeachStreamFindFirst {
 		return Optional.empty();
 	}
 
+	public static <T0, T1> Optional<T1> stream_takeWhile_dropWhile_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
 	public static <T0, T1> Optional<T1> stream_takeWhile_takeWhile_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		for (T0 t0 : input) {
 			if(!arg0.test(t0)) {
@@ -33835,6 +37527,2946 @@ public class ForeachStreamFindFirst {
 				break;
 			}
 			return Optional.of(t0);
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_takeWhile_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg2.apply(t0)) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_takeWhile_flatMap_map_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_flatMap_filter_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_takeWhile_flatMap_mapToInt_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_takeWhile_flatMap_mapToLong_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_takeWhile_flatMap_mapToDouble_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_flatMap_sorted_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_flatMap_sortedComp_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_flatMap_limit_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_flatMap_skip_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_flatMap_distinct_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_flatMap_dropWhile_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_takeWhile_flatMap_takeWhile_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_takeWhile_flatMap_flatMap_findFirst(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+		for (T0 t0 : input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2, T3> Optional<T3> stream_flatMap_map_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Function<T2, T3> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				T3 t3 = arg2.apply(t2);
+				return Optional.of(t3);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_map_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> OptionalInt stream_flatMap_map_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToIntFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				int t3 = arg2.applyAsInt(t2);
+				return OptionalInt.of(t3);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1, T2> OptionalLong stream_flatMap_map_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToLongFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				long t3 = arg2.applyAsLong(t2);
+				return OptionalLong.of(t3);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1, T2> OptionalDouble stream_flatMap_map_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToDoubleFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				double t3 = arg2.applyAsDouble(t2);
+				return OptionalDouble.of(t3);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_map_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1) {
+		List<T2> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				sorted0.add(t2);
+			}
+			Collections.sort((List) sorted0);
+			for (T2 t2: sorted0) {
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_map_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Comparator<? super T2> arg2) {
+		List<T2> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				sortedComp0.add(t2);
+			}
+			sortedComp0.sort(arg2);
+			for (T2 t2: sortedComp0) {
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_map_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_map_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_map_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1) {
+		Set<T2> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_map_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_map_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				if(!arg2.test(t2)) {
+					break;
+				}
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2, T3> Optional<T3> stream_flatMap_map_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Function<T2, Collection<T3>> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				for (T3 t3 : arg2.apply(t2)) {
+					return Optional.of(t3);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_filter_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_filter_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_filter_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_filter_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_filter_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_filter_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_filter_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_filter_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_filter_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_filter_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_filter_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_filter_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_filter_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntUnaryOperator arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				t2 = arg2.applyAsInt(t2);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToInt_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntToLongFunction arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				long t3 = arg2.applyAsLong(t2);
+				return OptionalLong.of(t3);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToInt_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntToDoubleFunction arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				double t3 = arg2.applyAsDouble(t2);
+				return OptionalDouble.of(t3);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1, T3> Optional<T3> stream_flatMap_mapToInt_mapToObj_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntFunction<T3> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				T3 t3 = arg2.apply(t2);
+				return Optional.of(t3);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<Integer> stream_flatMap_mapToInt_boxed_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				Integer t3 = t2;
+				return Optional.of(t3);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
+		List<Integer> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				sorted0.add(t2);
+			}
+			Collections.sort((List) sorted0);
+			for (int t2: sorted0) {
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
+		Set<Integer> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToInt_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				int t2 = arg1.applyAsInt(t1);
+				if(!arg2.test(t2)) {
+					break;
+				}
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongUnaryOperator arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				t2 = arg2.applyAsLong(t2);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToLong_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongToIntFunction arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				int t3 = arg2.applyAsInt(t2);
+				return OptionalInt.of(t3);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToLong_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongToDoubleFunction arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				double t3 = arg2.applyAsDouble(t2);
+				return OptionalDouble.of(t3);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1, T3> Optional<T3> stream_flatMap_mapToLong_mapToObj_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongFunction<T3> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				T3 t3 = arg2.apply(t2);
+				return Optional.of(t3);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<Long> stream_flatMap_mapToLong_boxed_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				Long t3 = t2;
+				return Optional.of(t3);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
+		List<Long> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				sorted0.add(t2);
+			}
+			Collections.sort((List) sorted0);
+			for (long t2: sorted0) {
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
+		Set<Long> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToLong_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				long t2 = arg1.applyAsLong(t1);
+				if(!arg2.test(t2)) {
+					break;
+				}
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleUnaryOperator arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				t2 = arg2.applyAsDouble(t2);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_mapToDouble_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleToIntFunction arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				int t3 = arg2.applyAsInt(t2);
+				return OptionalInt.of(t3);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_mapToDouble_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleToLongFunction arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				long t3 = arg2.applyAsLong(t2);
+				return OptionalLong.of(t3);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1, T3> Optional<T3> stream_flatMap_mapToDouble_mapToObj_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleFunction<T3> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				T3 t3 = arg2.apply(t2);
+				return Optional.of(t3);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<Double> stream_flatMap_mapToDouble_boxed_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				Double t3 = t2;
+				return Optional.of(t3);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
+		List<Double> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				sorted0.add(t2);
+			}
+			Collections.sort((List) sorted0);
+			for (double t2: sorted0) {
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
+		Set<Double> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_mapToDouble_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				double t2 = arg1.applyAsDouble(t1);
+				if(!arg2.test(t2)) {
+					break;
+				}
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_sorted_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sorted_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_sorted_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_sorted_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_sorted_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sorted_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				sorted1.add(t1);
+			}
+			Collections.sort((List) sorted1);
+			for (T1 t1: sorted1) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sorted_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sorted_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sorted_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sorted_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		List<T1> sorted0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sorted_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sorted_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_sorted_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_sortedComp_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Function<T1, T2> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sortedComp_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_sortedComp_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToIntFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_sortedComp_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToLongFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_sortedComp_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToDoubleFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sortedComp_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sortedComp_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp1 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				sortedComp1.add(t1);
+			}
+			sortedComp1.sort(arg2);
+			for (T1 t1: sortedComp1) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sortedComp_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, long arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sortedComp_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, long arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sortedComp_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sortedComp_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_sortedComp_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_sortedComp_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Function<T1, Collection<T2>> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg1);
+			for (T1 t1: sortedComp0) {
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_limit_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Function<T1, T2> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_limit_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_limit_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToIntFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_limit_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToLongFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_limit_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToDoubleFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_limit_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_limit_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Comparator<? super T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_limit_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit1 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				limit1++;
+				if(limit1 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_limit_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_limit_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_limit_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_limit_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_limit_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Function<T1, Collection<T2>> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_skip_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Function<T1, T2> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_skip_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_skip_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToIntFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_skip_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToLongFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_skip_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToDoubleFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_skip_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_skip_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Comparator<? super T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_skip_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_skip_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				skip1++;
+				if(skip1 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_skip_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_skip_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_skip_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_skip_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Function<T1, Collection<T2>> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_distinct_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_distinct_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_distinct_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_distinct_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_distinct_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_distinct_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		Set<T1> distinct0 = new HashSet<>();
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_distinct_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_distinct_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_distinct_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_distinct_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct1 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				if(!distinct1.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_distinct_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_distinct_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_distinct_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_dropWhile_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_dropWhile_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_dropWhile_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_dropWhile_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_dropWhile_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_dropWhile_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+		boolean dropWhile0 = true;
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_dropWhile_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
+		boolean dropWhile0 = true;
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_dropWhile_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_dropWhile_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_dropWhile_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+		boolean dropWhile0 = true;
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_dropWhile_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				if(dropWhile1 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile1 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_dropWhile_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_dropWhile_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_takeWhile_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				T2 t2 = arg2.apply(t1);
+				return Optional.of(t2);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_takeWhile_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> OptionalInt stream_flatMap_takeWhile_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				return OptionalInt.of(t2);
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1> OptionalLong stream_flatMap_takeWhile_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				return OptionalLong.of(t2);
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1> OptionalDouble stream_flatMap_takeWhile_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				return OptionalDouble.of(t2);
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_takeWhile_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+		List<T1> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				sorted0.add(t1);
+			}
+			Collections.sort((List) sorted0);
+			for (T1 t1: sorted0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_takeWhile_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				sortedComp0.add(t1);
+			}
+			sortedComp0.sort(arg2);
+			for (T1 t1: sortedComp0) {
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_takeWhile_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_takeWhile_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_takeWhile_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+		Set<T1> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_takeWhile_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1> Optional<T1> stream_flatMap_takeWhile_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				if(!arg2.test(t1)) {
+					break;
+				}
+				return Optional.of(t1);
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_takeWhile_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				for (T2 t2 : arg2.apply(t1)) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2, T3> Optional<T3> stream_flatMap_flatMap_map_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Function<T2, T3> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					T3 t3 = arg2.apply(t2);
+					return Optional.of(t3);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_flatMap_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					if (!arg2.test(t2)) {
+						continue;
+					}
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> OptionalInt stream_flatMap_flatMap_mapToInt_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToIntFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					int t3 = arg2.applyAsInt(t2);
+					return OptionalInt.of(t3);
+				}
+			}
+		}
+		return OptionalInt.empty();
+	}
+
+	public static <T0, T1, T2> OptionalLong stream_flatMap_flatMap_mapToLong_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToLongFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					long t3 = arg2.applyAsLong(t2);
+					return OptionalLong.of(t3);
+				}
+			}
+		}
+		return OptionalLong.empty();
+	}
+
+	public static <T0, T1, T2> OptionalDouble stream_flatMap_flatMap_mapToDouble_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToDoubleFunction<T2> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					double t3 = arg2.applyAsDouble(t2);
+					return OptionalDouble.of(t3);
+				}
+			}
+		}
+		return OptionalDouble.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_flatMap_sorted_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1) {
+		List<T2> sorted0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					sorted0.add(t2);
+				}
+				Collections.sort((List) sorted0);
+				for (T2 t2: sorted0) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_flatMap_sortedComp_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Comparator<? super T2> arg2) {
+		List<T2> sortedComp0 = new ArrayList<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					sortedComp0.add(t2);
+				}
+				sortedComp0.sort(arg2);
+				for (T2 t2: sortedComp0) {
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_flatMap_limit_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					limit0++;
+					if(limit0 > arg2) {
+						break;
+					}
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_flatMap_skip_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					skip0++;
+					if(skip0 <= arg2) {
+						continue;
+					}
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_flatMap_distinct_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1) {
+		Set<T2> distinct0 = new HashSet<>();
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					if(!distinct0.add(t2)) {
+						continue;
+					}
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_flatMap_dropWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+		boolean dropWhile0 = true;
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					if(dropWhile0 && arg2.test(t2)) {
+						continue;
+					} else {
+						dropWhile0 = false;
+					}
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2> Optional<T2> stream_flatMap_flatMap_takeWhile_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					if(!arg2.test(t2)) {
+						break;
+					}
+					return Optional.of(t2);
+				}
+			}
+		}
+		return Optional.empty();
+	}
+
+	public static <T0, T1, T2, T3> Optional<T3> stream_flatMap_flatMap_flatMap_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Function<T2, Collection<T3>> arg2) {
+		for (T0 t0 : input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					for (T3 t3 : arg2.apply(t2)) {
+						return Optional.of(t3);
+					}
+				}
+			}
 		}
 		return Optional.empty();
 	}

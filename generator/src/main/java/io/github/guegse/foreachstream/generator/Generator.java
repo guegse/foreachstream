@@ -28,8 +28,8 @@ public class Generator {
             new Skip(),
             new Distinct(),
             new DropWhile(),
-            new TakeWhile()
-            //new FlatMapOp(),
+            new TakeWhile(),
+            new FlatMapOp(),
     };
 
     private static final TerminalOperation[] TERMINAL_OPS = {

@@ -156,9 +156,9 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     JCTree.JCFieldAccess methodMemberSelect = createForeachStreamFieldAccess(methodToCall, containingClass.fst);
                     methodMemberSelect.pos = streamCall.pos;
 
-                    java.util.List<JCTree.JCExpression> arguments = new ArrayList<>(invocations.size() + 1);
+                    java.util.List<Pair<JCTree.JCExpression, String>> arguments = new ArrayList<>(invocations.size() + 1);
                     if (terminalArgument != null) {
-                        arguments.add((JCTree.JCExpression) terminalArgument);
+                        arguments.add(new Pair<>((JCTree.JCExpression) terminalArgument, terminalOperation));
                     }
                     for (int i = invocations.size() - 1; i > 0; i--) {
                         MethodInvocationTree methodInvocationTree = invocations.get(i);
@@ -169,10 +169,10 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                         } else if(methodInvocationTree.getArguments().size() == 1
                                 && methodInvocationTree.getArguments().get(0) instanceof JCTree.JCExpression) {
                             ExpressionTree argument = methodInvocationTree.getArguments().get(0);
-                            arguments.add((JCTree.JCExpression) argument);
+                            arguments.add(new Pair<>((JCTree.JCExpression) argument, ((MemberSelectTree) methodInvocationTree.getMethodSelect()).getIdentifier().toString()));
                         }
                     }
-                    arguments.add((JCTree.JCExpression) ((MemberSelectTree) streamCall.getMethodSelect()).getExpression());
+                    arguments.add(new Pair<>((JCTree.JCExpression) ((MemberSelectTree) streamCall.getMethodSelect()).getExpression(), "stream"));
                     Collections.reverse(arguments);
 
                     if(arguments.size() != containingClass.snd.length) {
