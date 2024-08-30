@@ -1,6 +1,15 @@
 package io.github.guegse.foreachstream.generator;
 
 abstract class Operation {
+    protected static int depth = 1;
+
+    protected void decreaseDepth(Emitter out) {
+        out.decreaseIndentation();
+        out.printIndentation();
+        out.println("}");
+        depth--;
+    }
+
     protected void assertNonPrimitiveStream(String inputType) {
         if (inputType.equals("int") || inputType.equals("long") || inputType.equals("double")) {
             throw new UnsupportedOperationException();

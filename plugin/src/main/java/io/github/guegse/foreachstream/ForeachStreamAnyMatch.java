@@ -2778,11 +2778,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg2.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg2.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -2794,11 +2794,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if (arg2.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if (arg2.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -5658,11 +5658,11 @@ public class ForeachStreamAnyMatch {
 			for (T2 t2 : arg1.apply(t1)) {
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (T2 t2: sorted0) {
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -5675,11 +5675,11 @@ public class ForeachStreamAnyMatch {
 			for (T2 t2 : arg1.apply(t1)) {
 				sortedComp0.add(t2);
 			}
-			sortedComp0.sort(arg2);
-			for (T2 t2: sortedComp0) {
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -8863,11 +8863,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -8882,11 +8882,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -19846,11 +19846,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted1.add(t1);
 			}
-			Collections.sort((List) sorted1);
-			for (T1 t1: sorted1) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted1);
+		for (T1 t1: sorted1) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -19867,11 +19867,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -23397,11 +23397,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -23418,11 +23418,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp1.add(t1);
 			}
-			sortedComp1.sort(arg2);
-			for (T1 t1: sortedComp1) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp1.sort(arg2);
+		for (T1 t1: sortedComp1) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -27425,11 +27425,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -27449,11 +27449,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -31474,11 +31474,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -31498,11 +31498,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -34887,11 +34887,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -34907,11 +34907,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -38590,11 +38590,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -38612,11 +38612,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -41830,11 +41830,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -41849,11 +41849,11 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -42048,11 +42048,11 @@ public class ForeachStreamAnyMatch {
 				T2 t2 = arg1.apply(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (T2 t2: sorted0) {
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -42065,11 +42065,11 @@ public class ForeachStreamAnyMatch {
 				T2 t2 = arg1.apply(t1);
 				sortedComp0.add(t2);
 			}
-			sortedComp0.sort(arg2);
-			for (T2 t2: sortedComp0) {
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -42264,11 +42264,11 @@ public class ForeachStreamAnyMatch {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -42283,11 +42283,11 @@ public class ForeachStreamAnyMatch {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -42495,11 +42495,11 @@ public class ForeachStreamAnyMatch {
 				int t2 = arg1.applyAsInt(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (int t2: sorted0) {
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (int t2: sorted0) {
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -42681,11 +42681,11 @@ public class ForeachStreamAnyMatch {
 				long t2 = arg1.applyAsLong(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (long t2: sorted0) {
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (long t2: sorted0) {
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -42867,11 +42867,11 @@ public class ForeachStreamAnyMatch {
 				double t2 = arg1.applyAsDouble(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (double t2: sorted0) {
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (double t2: sorted0) {
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -42972,12 +42972,12 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				T2 t2 = arg2.apply(t1);
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			T2 t2 = arg2.apply(t1);
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -42989,14 +42989,14 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (!arg2.test(t1)) {
-					continue;
-				}
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43008,12 +43008,12 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				int t2 = arg2.applyAsInt(t1);
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			int t2 = arg2.applyAsInt(t1);
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -43025,12 +43025,12 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				long t2 = arg2.applyAsLong(t1);
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			long t2 = arg2.applyAsLong(t1);
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -43042,12 +43042,12 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				double t2 = arg2.applyAsDouble(t1);
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			double t2 = arg2.applyAsDouble(t1);
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -43060,15 +43060,15 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				sorted1.add(t1);
-			}
-			Collections.sort((List) sorted1);
-			for (T1 t1: sorted1) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (T1 t1: sorted1) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43081,15 +43081,15 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				sortedComp0.add(t1);
-			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43105,15 +43105,15 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43129,15 +43129,15 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				skip0++;
-				if(skip0 <= arg2) {
-					continue;
-				}
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43150,14 +43150,14 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if(!distinct0.add(t1)) {
-					continue;
-				}
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43170,16 +43170,16 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if(dropWhile0 && arg2.test(t1)) {
-					continue;
-				} else {
-					dropWhile0 = false;
-				}
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43191,14 +43191,14 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if(!arg2.test(t1)) {
-					break;
-				}
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(!arg2.test(t1)) {
+				break;
+			}
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43210,12 +43210,12 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				for (T2 t2 : arg2.apply(t1)) {
-					if (arg3.test(t2)) {
-						return true;
-					}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			for (T2 t2 : arg2.apply(t1)) {
+				if (arg3.test(t2)) {
+					return true;
 				}
 			}
 		}
@@ -43228,12 +43228,12 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				T2 t2 = arg2.apply(t1);
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			T2 t2 = arg2.apply(t1);
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -43245,14 +43245,14 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if (!arg2.test(t1)) {
-					continue;
-				}
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43264,12 +43264,12 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				int t2 = arg2.applyAsInt(t1);
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			int t2 = arg2.applyAsInt(t1);
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -43281,12 +43281,12 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				long t2 = arg2.applyAsLong(t1);
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			long t2 = arg2.applyAsLong(t1);
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -43298,12 +43298,12 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				double t2 = arg2.applyAsDouble(t1);
-				if (arg3.test(t2)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			double t2 = arg2.applyAsDouble(t1);
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -43316,15 +43316,15 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				sorted0.add(t1);
-			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43337,15 +43337,15 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				sortedComp1.add(t1);
-			}
-			sortedComp1.sort(arg2);
-			for (T1 t1: sortedComp1) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			sortedComp1.add(t1);
+		}
+		sortedComp1.sort(arg2);
+		for (T1 t1: sortedComp1) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43361,15 +43361,15 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43385,15 +43385,15 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				skip0++;
-				if(skip0 <= arg2) {
-					continue;
-				}
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43406,14 +43406,14 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if(!distinct0.add(t1)) {
-					continue;
-				}
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43426,16 +43426,16 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if(dropWhile0 && arg2.test(t1)) {
-					continue;
-				} else {
-					dropWhile0 = false;
-				}
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43447,14 +43447,14 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if(!arg2.test(t1)) {
-					break;
-				}
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(!arg2.test(t1)) {
+				break;
+			}
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43466,12 +43466,12 @@ public class ForeachStreamAnyMatch {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				for (T2 t2 : arg2.apply(t1)) {
-					if (arg3.test(t2)) {
-						return true;
-					}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			for (T2 t2 : arg2.apply(t1)) {
+				if (arg3.test(t2)) {
+					return true;
 				}
 			}
 		}
@@ -43594,11 +43594,11 @@ public class ForeachStreamAnyMatch {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43618,11 +43618,11 @@ public class ForeachStreamAnyMatch {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43889,11 +43889,11 @@ public class ForeachStreamAnyMatch {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -43913,11 +43913,11 @@ public class ForeachStreamAnyMatch {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -44160,11 +44160,11 @@ public class ForeachStreamAnyMatch {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -44180,11 +44180,11 @@ public class ForeachStreamAnyMatch {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -44415,11 +44415,11 @@ public class ForeachStreamAnyMatch {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -44437,11 +44437,11 @@ public class ForeachStreamAnyMatch {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -44666,11 +44666,11 @@ public class ForeachStreamAnyMatch {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -44685,11 +44685,11 @@ public class ForeachStreamAnyMatch {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				if (arg3.test(t1)) {
-					return true;
-				}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			if (arg3.test(t1)) {
+				return true;
 			}
 		}
 		return false;
@@ -44889,12 +44889,12 @@ public class ForeachStreamAnyMatch {
 				for (T2 t2 : arg1.apply(t1)) {
 					sorted0.add(t2);
 				}
-				Collections.sort((List) sorted0);
-				for (T2 t2: sorted0) {
-					if (arg3.test(t2)) {
-						return true;
-					}
-				}
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;
@@ -44907,12 +44907,12 @@ public class ForeachStreamAnyMatch {
 				for (T2 t2 : arg1.apply(t1)) {
 					sortedComp0.add(t2);
 				}
-				sortedComp0.sort(arg2);
-				for (T2 t2: sortedComp0) {
-					if (arg3.test(t2)) {
-						return true;
-					}
-				}
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			if (arg3.test(t2)) {
+				return true;
 			}
 		}
 		return false;

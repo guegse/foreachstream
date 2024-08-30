@@ -2434,10 +2434,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -2448,10 +2448,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -4982,10 +4982,10 @@ public class ForeachStreamFindFirst {
 			for (T2 t2 : arg1.apply(t1)) {
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (T2 t2: sorted0) {
-				return Optional.of(t2);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			return Optional.of(t2);
 		}
 		return Optional.empty();
 	}
@@ -4997,10 +4997,10 @@ public class ForeachStreamFindFirst {
 			for (T2 t2 : arg1.apply(t1)) {
 				sortedComp0.add(t2);
 			}
-			sortedComp0.sort(arg2);
-			for (T2 t2: sortedComp0) {
-				return Optional.of(t2);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			return Optional.of(t2);
 		}
 		return Optional.empty();
 	}
@@ -7855,10 +7855,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -7872,10 +7872,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -17630,10 +17630,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted1.add(t1);
 			}
-			Collections.sort((List) sorted1);
-			for (T1 t1: sorted1) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted1);
+		for (T1 t1: sorted1) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -17649,10 +17649,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -20849,10 +20849,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -20868,10 +20868,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp1.add(t1);
 			}
-			sortedComp1.sort(arg2);
-			for (T1 t1: sortedComp1) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp1.sort(arg2);
+		for (T1 t1: sortedComp1) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -24545,10 +24545,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -24567,10 +24567,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -28262,10 +28262,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -28284,10 +28284,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -31343,10 +31343,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -31361,10 +31361,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -34714,10 +34714,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -34734,10 +34734,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -37622,10 +37622,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -37639,10 +37639,10 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -37814,10 +37814,10 @@ public class ForeachStreamFindFirst {
 				T2 t2 = arg1.apply(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (T2 t2: sorted0) {
-				return Optional.of(t2);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			return Optional.of(t2);
 		}
 		return Optional.empty();
 	}
@@ -37829,10 +37829,10 @@ public class ForeachStreamFindFirst {
 				T2 t2 = arg1.apply(t1);
 				sortedComp0.add(t2);
 			}
-			sortedComp0.sort(arg2);
-			for (T2 t2: sortedComp0) {
-				return Optional.of(t2);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			return Optional.of(t2);
 		}
 		return Optional.empty();
 	}
@@ -38004,10 +38004,10 @@ public class ForeachStreamFindFirst {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38021,10 +38021,10 @@ public class ForeachStreamFindFirst {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38207,10 +38207,10 @@ public class ForeachStreamFindFirst {
 				int t2 = arg1.applyAsInt(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (int t2: sorted0) {
-				return OptionalInt.of(t2);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (int t2: sorted0) {
+			return OptionalInt.of(t2);
 		}
 		return OptionalInt.empty();
 	}
@@ -38369,10 +38369,10 @@ public class ForeachStreamFindFirst {
 				long t2 = arg1.applyAsLong(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (long t2: sorted0) {
-				return OptionalLong.of(t2);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (long t2: sorted0) {
+			return OptionalLong.of(t2);
 		}
 		return OptionalLong.empty();
 	}
@@ -38531,10 +38531,10 @@ public class ForeachStreamFindFirst {
 				double t2 = arg1.applyAsDouble(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (double t2: sorted0) {
-				return OptionalDouble.of(t2);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (double t2: sorted0) {
+			return OptionalDouble.of(t2);
 		}
 		return OptionalDouble.empty();
 	}
@@ -38624,11 +38624,11 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				T2 t2 = arg2.apply(t1);
-				return Optional.of(t2);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			T2 t2 = arg2.apply(t1);
+			return Optional.of(t2);
 		}
 		return Optional.empty();
 	}
@@ -38639,13 +38639,13 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (!arg2.test(t1)) {
-					continue;
-				}
-				return Optional.of(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (!arg2.test(t1)) {
+				continue;
 			}
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38656,11 +38656,11 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				int t2 = arg2.applyAsInt(t1);
-				return OptionalInt.of(t2);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			int t2 = arg2.applyAsInt(t1);
+			return OptionalInt.of(t2);
 		}
 		return OptionalInt.empty();
 	}
@@ -38671,11 +38671,11 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				long t2 = arg2.applyAsLong(t1);
-				return OptionalLong.of(t2);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			long t2 = arg2.applyAsLong(t1);
+			return OptionalLong.of(t2);
 		}
 		return OptionalLong.empty();
 	}
@@ -38686,11 +38686,11 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				double t2 = arg2.applyAsDouble(t1);
-				return OptionalDouble.of(t2);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			double t2 = arg2.applyAsDouble(t1);
+			return OptionalDouble.of(t2);
 		}
 		return OptionalDouble.empty();
 	}
@@ -38702,14 +38702,14 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				sorted1.add(t1);
-			}
-			Collections.sort((List) sorted1);
-			for (T1 t1: sorted1) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (T1 t1: sorted1) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38721,14 +38721,14 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				sortedComp0.add(t1);
-			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38743,14 +38743,14 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
-				return Optional.of(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
 			}
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38765,14 +38765,14 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				skip0++;
-				if(skip0 <= arg2) {
-					continue;
-				}
-				return Optional.of(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38784,13 +38784,13 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if(!distinct0.add(t1)) {
-					continue;
-				}
-				return Optional.of(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(!distinct0.add(t1)) {
+				continue;
 			}
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38802,15 +38802,15 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if(dropWhile0 && arg2.test(t1)) {
-					continue;
-				} else {
-					dropWhile0 = false;
-				}
-				return Optional.of(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38821,13 +38821,13 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if(!arg2.test(t1)) {
-					break;
-				}
-				return Optional.of(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(!arg2.test(t1)) {
+				break;
 			}
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38838,11 +38838,11 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				for (T2 t2 : arg2.apply(t1)) {
-					return Optional.of(t2);
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
 			}
 		}
 		return Optional.empty();
@@ -38854,11 +38854,11 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				T2 t2 = arg2.apply(t1);
-				return Optional.of(t2);
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			T2 t2 = arg2.apply(t1);
+			return Optional.of(t2);
 		}
 		return Optional.empty();
 	}
@@ -38869,13 +38869,13 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if (!arg2.test(t1)) {
-					continue;
-				}
-				return Optional.of(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if (!arg2.test(t1)) {
+				continue;
 			}
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38886,11 +38886,11 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				int t2 = arg2.applyAsInt(t1);
-				return OptionalInt.of(t2);
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			int t2 = arg2.applyAsInt(t1);
+			return OptionalInt.of(t2);
 		}
 		return OptionalInt.empty();
 	}
@@ -38901,11 +38901,11 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				long t2 = arg2.applyAsLong(t1);
-				return OptionalLong.of(t2);
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			long t2 = arg2.applyAsLong(t1);
+			return OptionalLong.of(t2);
 		}
 		return OptionalLong.empty();
 	}
@@ -38916,11 +38916,11 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				double t2 = arg2.applyAsDouble(t1);
-				return OptionalDouble.of(t2);
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			double t2 = arg2.applyAsDouble(t1);
+			return OptionalDouble.of(t2);
 		}
 		return OptionalDouble.empty();
 	}
@@ -38932,14 +38932,14 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				sorted0.add(t1);
-			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38951,14 +38951,14 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				sortedComp1.add(t1);
-			}
-			sortedComp1.sort(arg2);
-			for (T1 t1: sortedComp1) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			sortedComp1.add(t1);
+		}
+		sortedComp1.sort(arg2);
+		for (T1 t1: sortedComp1) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38973,14 +38973,14 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
-				return Optional.of(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
 			}
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -38995,14 +38995,14 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				skip0++;
-				if(skip0 <= arg2) {
-					continue;
-				}
-				return Optional.of(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -39014,13 +39014,13 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if(!distinct0.add(t1)) {
-					continue;
-				}
-				return Optional.of(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(!distinct0.add(t1)) {
+				continue;
 			}
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -39032,15 +39032,15 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if(dropWhile0 && arg2.test(t1)) {
-					continue;
-				} else {
-					dropWhile0 = false;
-				}
-				return Optional.of(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -39051,13 +39051,13 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if(!arg2.test(t1)) {
-					break;
-				}
-				return Optional.of(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(!arg2.test(t1)) {
+				break;
 			}
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -39068,11 +39068,11 @@ public class ForeachStreamFindFirst {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				for (T2 t2 : arg2.apply(t1)) {
-					return Optional.of(t2);
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			for (T2 t2 : arg2.apply(t1)) {
+				return Optional.of(t2);
 			}
 		}
 		return Optional.empty();
@@ -39184,10 +39184,10 @@ public class ForeachStreamFindFirst {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -39206,10 +39206,10 @@ public class ForeachStreamFindFirst {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -39453,10 +39453,10 @@ public class ForeachStreamFindFirst {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -39475,10 +39475,10 @@ public class ForeachStreamFindFirst {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -39698,10 +39698,10 @@ public class ForeachStreamFindFirst {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -39716,10 +39716,10 @@ public class ForeachStreamFindFirst {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -39927,10 +39927,10 @@ public class ForeachStreamFindFirst {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -39947,10 +39947,10 @@ public class ForeachStreamFindFirst {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -40152,10 +40152,10 @@ public class ForeachStreamFindFirst {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				return Optional.of(t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -40169,10 +40169,10 @@ public class ForeachStreamFindFirst {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				return Optional.of(t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			return Optional.of(t1);
 		}
 		return Optional.empty();
 	}
@@ -40349,11 +40349,11 @@ public class ForeachStreamFindFirst {
 				for (T2 t2 : arg1.apply(t1)) {
 					sorted0.add(t2);
 				}
-				Collections.sort((List) sorted0);
-				for (T2 t2: sorted0) {
-					return Optional.of(t2);
-				}
 			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			return Optional.of(t2);
 		}
 		return Optional.empty();
 	}
@@ -40365,11 +40365,11 @@ public class ForeachStreamFindFirst {
 				for (T2 t2 : arg1.apply(t1)) {
 					sortedComp0.add(t2);
 				}
-				sortedComp0.sort(arg2);
-				for (T2 t2: sortedComp0) {
-					return Optional.of(t2);
-				}
 			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			return Optional.of(t2);
 		}
 		return Optional.empty();
 	}

@@ -2607,10 +2607,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -2622,10 +2622,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -5321,10 +5321,10 @@ public class ForeachStreamCount {
 			for (T2 t2 : arg1.apply(t1)) {
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (T2 t2: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -5337,10 +5337,10 @@ public class ForeachStreamCount {
 			for (T2 t2 : arg1.apply(t1)) {
 				sortedComp0.add(t2);
 			}
-			sortedComp0.sort(arg2);
-			for (T2 t2: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -8360,10 +8360,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -8378,10 +8378,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -18739,10 +18739,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted1.add(t1);
 			}
-			Collections.sort((List) sorted1);
-			for (T1 t1: sorted1) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted1);
+		for (T1 t1: sorted1) {
+			count++;
 		}
 		return count;
 	}
@@ -18759,10 +18759,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -22124,10 +22124,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -22144,10 +22144,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp1.add(t1);
 			}
-			sortedComp1.sort(arg2);
-			for (T1 t1: sortedComp1) {
-				count++;
-			}
+		}
+		sortedComp1.sort(arg2);
+		for (T1 t1: sortedComp1) {
+			count++;
 		}
 		return count;
 	}
@@ -25986,10 +25986,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -26009,10 +26009,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -29869,10 +29869,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -29892,10 +29892,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -33116,10 +33116,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -33135,10 +33135,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -36653,10 +36653,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -36674,10 +36674,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -39727,10 +39727,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -39745,10 +39745,10 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -39932,10 +39932,10 @@ public class ForeachStreamCount {
 				T2 t2 = arg1.apply(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (T2 t2: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -39948,10 +39948,10 @@ public class ForeachStreamCount {
 				T2 t2 = arg1.apply(t1);
 				sortedComp0.add(t2);
 			}
-			sortedComp0.sort(arg2);
-			for (T2 t2: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -40135,10 +40135,10 @@ public class ForeachStreamCount {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -40153,10 +40153,10 @@ public class ForeachStreamCount {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -40352,10 +40352,10 @@ public class ForeachStreamCount {
 				int t2 = arg1.applyAsInt(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (int t2: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (int t2: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -40526,10 +40526,10 @@ public class ForeachStreamCount {
 				long t2 = arg1.applyAsLong(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (long t2: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (long t2: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -40700,10 +40700,10 @@ public class ForeachStreamCount {
 				double t2 = arg1.applyAsDouble(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (double t2: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (double t2: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -40799,11 +40799,11 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				T2 t2 = arg2.apply(t1);
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			T2 t2 = arg2.apply(t1);
+			count++;
 		}
 		return count;
 	}
@@ -40815,13 +40815,13 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (!arg2.test(t1)) {
-					continue;
-				}
-				count++;
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (!arg2.test(t1)) {
+				continue;
 			}
+			count++;
 		}
 		return count;
 	}
@@ -40833,11 +40833,11 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				int t2 = arg2.applyAsInt(t1);
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			int t2 = arg2.applyAsInt(t1);
+			count++;
 		}
 		return count;
 	}
@@ -40849,11 +40849,11 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				long t2 = arg2.applyAsLong(t1);
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			long t2 = arg2.applyAsLong(t1);
+			count++;
 		}
 		return count;
 	}
@@ -40865,11 +40865,11 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				double t2 = arg2.applyAsDouble(t1);
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			double t2 = arg2.applyAsDouble(t1);
+			count++;
 		}
 		return count;
 	}
@@ -40882,14 +40882,14 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				sorted1.add(t1);
-			}
-			Collections.sort((List) sorted1);
-			for (T1 t1: sorted1) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (T1 t1: sorted1) {
+			count++;
 		}
 		return count;
 	}
@@ -40902,14 +40902,14 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				sortedComp0.add(t1);
-			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -40925,14 +40925,14 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
-				count++;
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
 			}
+			count++;
 		}
 		return count;
 	}
@@ -40948,14 +40948,14 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				skip0++;
-				if(skip0 <= arg2) {
-					continue;
-				}
-				count++;
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
+			count++;
 		}
 		return count;
 	}
@@ -40968,13 +40968,13 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if(!distinct0.add(t1)) {
-					continue;
-				}
-				count++;
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(!distinct0.add(t1)) {
+				continue;
 			}
+			count++;
 		}
 		return count;
 	}
@@ -40987,15 +40987,15 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if(dropWhile0 && arg2.test(t1)) {
-					continue;
-				} else {
-					dropWhile0 = false;
-				}
-				count++;
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
+			count++;
 		}
 		return count;
 	}
@@ -41007,13 +41007,13 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if(!arg2.test(t1)) {
-					break;
-				}
-				count++;
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(!arg2.test(t1)) {
+				break;
 			}
+			count++;
 		}
 		return count;
 	}
@@ -41025,11 +41025,11 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				for (T2 t2 : arg2.apply(t1)) {
-					count++;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			for (T2 t2 : arg2.apply(t1)) {
+				count++;
 			}
 		}
 		return count;
@@ -41042,11 +41042,11 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				T2 t2 = arg2.apply(t1);
-				count++;
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			T2 t2 = arg2.apply(t1);
+			count++;
 		}
 		return count;
 	}
@@ -41058,13 +41058,13 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if (!arg2.test(t1)) {
-					continue;
-				}
-				count++;
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if (!arg2.test(t1)) {
+				continue;
 			}
+			count++;
 		}
 		return count;
 	}
@@ -41076,11 +41076,11 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				int t2 = arg2.applyAsInt(t1);
-				count++;
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			int t2 = arg2.applyAsInt(t1);
+			count++;
 		}
 		return count;
 	}
@@ -41092,11 +41092,11 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				long t2 = arg2.applyAsLong(t1);
-				count++;
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			long t2 = arg2.applyAsLong(t1);
+			count++;
 		}
 		return count;
 	}
@@ -41108,11 +41108,11 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				double t2 = arg2.applyAsDouble(t1);
-				count++;
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			double t2 = arg2.applyAsDouble(t1);
+			count++;
 		}
 		return count;
 	}
@@ -41125,14 +41125,14 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				sorted0.add(t1);
-			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -41145,14 +41145,14 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				sortedComp1.add(t1);
-			}
-			sortedComp1.sort(arg2);
-			for (T1 t1: sortedComp1) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			sortedComp1.add(t1);
+		}
+		sortedComp1.sort(arg2);
+		for (T1 t1: sortedComp1) {
+			count++;
 		}
 		return count;
 	}
@@ -41168,14 +41168,14 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
-				count++;
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
 			}
+			count++;
 		}
 		return count;
 	}
@@ -41191,14 +41191,14 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				skip0++;
-				if(skip0 <= arg2) {
-					continue;
-				}
-				count++;
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
+			count++;
 		}
 		return count;
 	}
@@ -41211,13 +41211,13 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if(!distinct0.add(t1)) {
-					continue;
-				}
-				count++;
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(!distinct0.add(t1)) {
+				continue;
 			}
+			count++;
 		}
 		return count;
 	}
@@ -41230,15 +41230,15 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if(dropWhile0 && arg2.test(t1)) {
-					continue;
-				} else {
-					dropWhile0 = false;
-				}
-				count++;
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
+			count++;
 		}
 		return count;
 	}
@@ -41250,13 +41250,13 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if(!arg2.test(t1)) {
-					break;
-				}
-				count++;
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(!arg2.test(t1)) {
+				break;
 			}
+			count++;
 		}
 		return count;
 	}
@@ -41268,11 +41268,11 @@ public class ForeachStreamCount {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				for (T2 t2 : arg2.apply(t1)) {
-					count++;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			for (T2 t2 : arg2.apply(t1)) {
+				count++;
 			}
 		}
 		return count;
@@ -41390,10 +41390,10 @@ public class ForeachStreamCount {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -41413,10 +41413,10 @@ public class ForeachStreamCount {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -41672,10 +41672,10 @@ public class ForeachStreamCount {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -41695,10 +41695,10 @@ public class ForeachStreamCount {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -41930,10 +41930,10 @@ public class ForeachStreamCount {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -41949,10 +41949,10 @@ public class ForeachStreamCount {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -42172,10 +42172,10 @@ public class ForeachStreamCount {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -42193,10 +42193,10 @@ public class ForeachStreamCount {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -42410,10 +42410,10 @@ public class ForeachStreamCount {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				count++;
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -42428,10 +42428,10 @@ public class ForeachStreamCount {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				count++;
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
 		}
 		return count;
 	}
@@ -42620,11 +42620,11 @@ public class ForeachStreamCount {
 				for (T2 t2 : arg1.apply(t1)) {
 					sorted0.add(t2);
 				}
-				Collections.sort((List) sorted0);
-				for (T2 t2: sorted0) {
-					count++;
-				}
 			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			count++;
 		}
 		return count;
 	}
@@ -42637,11 +42637,11 @@ public class ForeachStreamCount {
 				for (T2 t2 : arg1.apply(t1)) {
 					sortedComp0.add(t2);
 				}
-				sortedComp0.sort(arg2);
-				for (T2 t2: sortedComp0) {
-					count++;
-				}
 			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			count++;
 		}
 		return count;
 	}

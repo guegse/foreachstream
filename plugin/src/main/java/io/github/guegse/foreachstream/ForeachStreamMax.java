@@ -24377,14 +24377,14 @@ public class ForeachStreamMax {
 				int t2 = arg1.applyAsInt(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (int t2: sorted0) {
-				if (hasMax) {
-					max = Math.max(max, t2);
-				} else {
-					hasMax = true;
-					max = t2;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (int t2: sorted0) {
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
 			}
 		}
 		if (hasMax) {
@@ -24617,14 +24617,14 @@ public class ForeachStreamMax {
 				long t2 = arg1.applyAsLong(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (long t2: sorted0) {
-				if (hasMax) {
-					max = Math.max(max, t2);
-				} else {
-					hasMax = true;
-					max = t2;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (long t2: sorted0) {
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
 			}
 		}
 		if (hasMax) {
@@ -24857,14 +24857,14 @@ public class ForeachStreamMax {
 				double t2 = arg1.applyAsDouble(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (double t2: sorted0) {
-				if (hasMax) {
-					max = Math.max(max, t2);
-				} else {
-					hasMax = true;
-					max = t2;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (double t2: sorted0) {
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
 			}
 		}
 		if (hasMax) {
@@ -25010,15 +25010,15 @@ public class ForeachStreamMax {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				int t2 = arg2.applyAsInt(t1);
-				if (hasMax) {
-					max = Math.max(max, t2);
-				} else {
-					hasMax = true;
-					max = t2;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			int t2 = arg2.applyAsInt(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
 			}
 		}
 		if (hasMax) {
@@ -25035,15 +25035,15 @@ public class ForeachStreamMax {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				long t2 = arg2.applyAsLong(t1);
-				if (hasMax) {
-					max = Math.max(max, t2);
-				} else {
-					hasMax = true;
-					max = t2;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			long t2 = arg2.applyAsLong(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
 			}
 		}
 		if (hasMax) {
@@ -25060,15 +25060,15 @@ public class ForeachStreamMax {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				double t2 = arg2.applyAsDouble(t1);
-				if (hasMax) {
-					max = Math.max(max, t2);
-				} else {
-					hasMax = true;
-					max = t2;
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			double t2 = arg2.applyAsDouble(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
 			}
 		}
 		if (hasMax) {
@@ -25085,15 +25085,15 @@ public class ForeachStreamMax {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				int t2 = arg2.applyAsInt(t1);
-				if (hasMax) {
-					max = Math.max(max, t2);
-				} else {
-					hasMax = true;
-					max = t2;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			int t2 = arg2.applyAsInt(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
 			}
 		}
 		if (hasMax) {
@@ -25110,15 +25110,15 @@ public class ForeachStreamMax {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				long t2 = arg2.applyAsLong(t1);
-				if (hasMax) {
-					max = Math.max(max, t2);
-				} else {
-					hasMax = true;
-					max = t2;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			long t2 = arg2.applyAsLong(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
 			}
 		}
 		if (hasMax) {
@@ -25135,15 +25135,15 @@ public class ForeachStreamMax {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				double t2 = arg2.applyAsDouble(t1);
-				if (hasMax) {
-					max = Math.max(max, t2);
-				} else {
-					hasMax = true;
-					max = t2;
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			double t2 = arg2.applyAsDouble(t1);
+			if (hasMax) {
+				max = Math.max(max, t2);
+			} else {
+				hasMax = true;
+				max = t2;
 			}
 		}
 		if (hasMax) {

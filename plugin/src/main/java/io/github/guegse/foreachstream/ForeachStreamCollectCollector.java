@@ -1785,10 +1785,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg2.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg2.accumulator().accept(result, t1);
 		}
 		return arg2.finisher().apply(result);
 	}
@@ -1800,10 +1800,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				arg2.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			arg2.accumulator().accept(result, t1);
 		}
 		return arg2.finisher().apply(result);
 	}
@@ -3644,10 +3644,10 @@ public class ForeachStreamCollectCollector {
 			for (T2 t2 : arg1.apply(t1)) {
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (T2 t2: sorted0) {
-				arg3.accumulator().accept(result, t2);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			arg3.accumulator().accept(result, t2);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -3660,10 +3660,10 @@ public class ForeachStreamCollectCollector {
 			for (T2 t2 : arg1.apply(t1)) {
 				sortedComp0.add(t2);
 			}
-			sortedComp0.sort(arg2);
-			for (T2 t2: sortedComp0) {
-				arg3.accumulator().accept(result, t2);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			arg3.accumulator().accept(result, t2);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -5708,10 +5708,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -5726,10 +5726,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -9694,10 +9694,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted1.add(t1);
 			}
-			Collections.sort((List) sorted1);
-			for (T1 t1: sorted1) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted1);
+		for (T1 t1: sorted1) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -9714,10 +9714,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -11984,10 +11984,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -12004,10 +12004,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp1.add(t1);
 			}
-			sortedComp1.sort(arg2);
-			for (T1 t1: sortedComp1) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp1.sort(arg2);
+		for (T1 t1: sortedComp1) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -14571,10 +14571,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -14594,10 +14594,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -17179,10 +17179,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -17202,10 +17202,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -19391,10 +19391,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -19410,10 +19410,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -21773,10 +21773,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -21794,10 +21794,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -23872,10 +23872,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -23890,10 +23890,10 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24041,10 +24041,10 @@ public class ForeachStreamCollectCollector {
 				T2 t2 = arg1.apply(t1);
 				sorted0.add(t2);
 			}
-			Collections.sort((List) sorted0);
-			for (T2 t2: sorted0) {
-				arg3.accumulator().accept(result, t2);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			arg3.accumulator().accept(result, t2);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24057,10 +24057,10 @@ public class ForeachStreamCollectCollector {
 				T2 t2 = arg1.apply(t1);
 				sortedComp0.add(t2);
 			}
-			sortedComp0.sort(arg2);
-			for (T2 t2: sortedComp0) {
-				arg3.accumulator().accept(result, t2);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			arg3.accumulator().accept(result, t2);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24202,10 +24202,10 @@ public class ForeachStreamCollectCollector {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24220,10 +24220,10 @@ public class ForeachStreamCollectCollector {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24416,11 +24416,11 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				T2 t2 = arg2.apply(t1);
-				arg3.accumulator().accept(result, t2);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24432,13 +24432,13 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if (!arg2.test(t1)) {
-					continue;
-				}
-				arg3.accumulator().accept(result, t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (!arg2.test(t1)) {
+				continue;
 			}
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24451,14 +24451,14 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				sorted1.add(t1);
-			}
-			Collections.sort((List) sorted1);
-			for (T1 t1: sorted1) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (T1 t1: sorted1) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24471,14 +24471,14 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				sortedComp0.add(t1);
-			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24494,14 +24494,14 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
-				arg3.accumulator().accept(result, t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
 			}
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24517,14 +24517,14 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				skip0++;
-				if(skip0 <= arg2) {
-					continue;
-				}
-				arg3.accumulator().accept(result, t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24537,13 +24537,13 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if(!distinct0.add(t1)) {
-					continue;
-				}
-				arg3.accumulator().accept(result, t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(!distinct0.add(t1)) {
+				continue;
 			}
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24556,15 +24556,15 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if(dropWhile0 && arg2.test(t1)) {
-					continue;
-				} else {
-					dropWhile0 = false;
-				}
-				arg3.accumulator().accept(result, t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24576,13 +24576,13 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				if(!arg2.test(t1)) {
-					break;
-				}
-				arg3.accumulator().accept(result, t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(!arg2.test(t1)) {
+				break;
 			}
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24594,11 +24594,11 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				for (T2 t2 : arg2.apply(t1)) {
-					arg3.accumulator().accept(result, t2);
-				}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			for (T2 t2 : arg2.apply(t1)) {
+				arg3.accumulator().accept(result, t2);
 			}
 		}
 		return arg3.finisher().apply(result);
@@ -24611,11 +24611,11 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				T2 t2 = arg2.apply(t1);
-				arg3.accumulator().accept(result, t2);
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			T2 t2 = arg2.apply(t1);
+			arg3.accumulator().accept(result, t2);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24627,13 +24627,13 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if (!arg2.test(t1)) {
-					continue;
-				}
-				arg3.accumulator().accept(result, t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if (!arg2.test(t1)) {
+				continue;
 			}
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24646,14 +24646,14 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				sorted0.add(t1);
-			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24666,14 +24666,14 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				sortedComp1.add(t1);
-			}
-			sortedComp1.sort(arg2);
-			for (T1 t1: sortedComp1) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			sortedComp1.add(t1);
+		}
+		sortedComp1.sort(arg2);
+		for (T1 t1: sortedComp1) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24689,14 +24689,14 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
-				arg3.accumulator().accept(result, t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
 			}
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24712,14 +24712,14 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				skip0++;
-				if(skip0 <= arg2) {
-					continue;
-				}
-				arg3.accumulator().accept(result, t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
 			}
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24732,13 +24732,13 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if(!distinct0.add(t1)) {
-					continue;
-				}
-				arg3.accumulator().accept(result, t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(!distinct0.add(t1)) {
+				continue;
 			}
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24751,15 +24751,15 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if(dropWhile0 && arg2.test(t1)) {
-					continue;
-				} else {
-					dropWhile0 = false;
-				}
-				arg3.accumulator().accept(result, t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
 			}
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24771,13 +24771,13 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				if(!arg2.test(t1)) {
-					break;
-				}
-				arg3.accumulator().accept(result, t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(!arg2.test(t1)) {
+				break;
 			}
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24789,11 +24789,11 @@ public class ForeachStreamCollectCollector {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg1);
-			for (T1 t1: sortedComp0) {
-				for (T2 t2 : arg2.apply(t1)) {
-					arg3.accumulator().accept(result, t2);
-				}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			for (T2 t2 : arg2.apply(t1)) {
+				arg3.accumulator().accept(result, t2);
 			}
 		}
 		return arg3.finisher().apply(result);
@@ -24854,10 +24854,10 @@ public class ForeachStreamCollectCollector {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -24877,10 +24877,10 @@ public class ForeachStreamCollectCollector {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -25079,10 +25079,10 @@ public class ForeachStreamCollectCollector {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -25102,10 +25102,10 @@ public class ForeachStreamCollectCollector {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -25292,10 +25292,10 @@ public class ForeachStreamCollectCollector {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -25311,10 +25311,10 @@ public class ForeachStreamCollectCollector {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -25483,10 +25483,10 @@ public class ForeachStreamCollectCollector {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -25504,10 +25504,10 @@ public class ForeachStreamCollectCollector {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -25679,10 +25679,10 @@ public class ForeachStreamCollectCollector {
 				}
 				sorted0.add(t1);
 			}
-			Collections.sort((List) sorted0);
-			for (T1 t1: sorted0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -25697,10 +25697,10 @@ public class ForeachStreamCollectCollector {
 				}
 				sortedComp0.add(t1);
 			}
-			sortedComp0.sort(arg2);
-			for (T1 t1: sortedComp0) {
-				arg3.accumulator().accept(result, t1);
-			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			arg3.accumulator().accept(result, t1);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -25850,11 +25850,11 @@ public class ForeachStreamCollectCollector {
 				for (T2 t2 : arg1.apply(t1)) {
 					sorted0.add(t2);
 				}
-				Collections.sort((List) sorted0);
-				for (T2 t2: sorted0) {
-					arg3.accumulator().accept(result, t2);
-				}
 			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			arg3.accumulator().accept(result, t2);
 		}
 		return arg3.finisher().apply(result);
 	}
@@ -25867,11 +25867,11 @@ public class ForeachStreamCollectCollector {
 				for (T2 t2 : arg1.apply(t1)) {
 					sortedComp0.add(t2);
 				}
-				sortedComp0.sort(arg2);
-				for (T2 t2: sortedComp0) {
-					arg3.accumulator().accept(result, t2);
-				}
 			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			arg3.accumulator().accept(result, t2);
 		}
 		return arg3.finisher().apply(result);
 	}

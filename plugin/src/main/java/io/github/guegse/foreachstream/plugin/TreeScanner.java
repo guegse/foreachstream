@@ -1,6 +1,7 @@
 package io.github.guegse.foreachstream.plugin;
 
 import com.sun.source.tree.*;
+import com.sun.tools.javac.code.Flags;
 import com.sun.tools.javac.code.TypeTag;
 import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.TreeMaker;
@@ -186,7 +187,12 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     for(int i = 0; i < arguments.size(); i++)  {
                         if(containingClass.snd[i].isPrimitive()) {
                             args = args.append(treeMaker.Literal(TypeTag.LONG, 0));
-                        } else {
+                        } else if(arguments.get(i).snd.equals("flatMap")) {
+                            var lambda = createFlatMapLambda();
+                            lambda.params.head.pos = arguments.get(i).fst.pos;
+                            args = args.append(lambda);
+                            //args = args.append(treeMaker.Literal(TypeTag.BOT, null));
+                        }else {
                             args = args.append(treeMaker.Literal(TypeTag.BOT, null));
                         }
                     }
@@ -203,6 +209,20 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
             }
         }
         return super.visitMethodInvocation(node, o);
+    }
+
+    private JCTree.JCLambda createFlatMapLambda() {
+        com.sun.tools.javac.util.Name paramName = names.fromString("list");
+        JCTree.JCVariableDecl param = treeMaker.VarDef(
+                treeMaker.Modifiers(Flags.PARAMETER),
+                paramName,
+                null,
+                null
+        );
+        return treeMaker.Lambda(
+                com.sun.tools.javac.util.List.of(param),
+                treeMaker.Literal(TypeTag.BOT, null)
+        );
     }
 
     private String mapMethodName(String method, MethodInvocationTree node) {

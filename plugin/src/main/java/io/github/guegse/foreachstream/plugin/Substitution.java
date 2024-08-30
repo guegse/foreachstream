@@ -7,6 +7,7 @@ import com.sun.tools.javac.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static io.github.guegse.foreachstream.plugin.ASTHelpers.getReturnType;
 
@@ -68,23 +69,43 @@ public class Substitution {
         return type.tsym.getQualifiedName().toString().equals("java.util.stream.Stream");
     }
 
-    private boolean transformFlatMapArgument(JCTree.JCExpression arg) {
-        if(arg instanceof JCTree.JCLambda lambda
+    private void transformLambda(JCTree.JCLambda lambda, JCTree.JCExpression body, Type.ClassType type) {
+        lambda.body = body;
+        lambda.setType(type);
+        lambda.target = type;
+    }
+
+    private JCTree.JCExpression transformArgument(Pair<JCTree.JCExpression, String> arg, JCTree.JCExpression newArg) {
+        if(!arg.snd.equals("flatMap")) {
+            return arg.fst;
+        } else if(arg.fst instanceof JCTree.JCMemberReference ref
+                && newArg instanceof JCTree.JCLambda lambda
+                && isCollection(ref.expr.type)
+                && isStream(ref.referentType.getReturnType())) {
+            lambda.pos = ref.pos;
+            Type paramType = ref.type.getTypeArguments().get(0);
+            var newclassType =  new Type.ClassType(Type.noType, com.sun.tools.javac.util.List.of(paramType, paramType), ref.type.tsym);
+            JCTree.JCVariableDecl variableDecl = lambda.params.head;
+            variableDecl.setType(paramType);
+            JCTree.JCIdent ident = treeMaker.Ident(variableDecl.sym);
+            ident.setType(paramType);
+            transformLambda(lambda, ident, newclassType);
+            return lambda;
+        } else if(arg.fst instanceof JCTree.JCLambda lambda
                 && lambda.body instanceof JCTree.JCMethodInvocation invocation
                 && invocation.meth instanceof JCTree.JCFieldAccess fieldAccess
                 && fieldAccess.sym.toString().equals("stream()")
                 && isStream(lambda.body.type)
                 && isCollection(fieldAccess.selected.type)) {
-            lambda.body = fieldAccess.selected;
             Type.ClassType classType = (Type.ClassType) lambda.type;
             com.sun.tools.javac.util.List<Type> newTypeParams = com.sun.tools.javac.util.List.from(classType.getTypeArguments().subList(0, 1));
             newTypeParams = newTypeParams.append(fieldAccess.selected.type);
             var newclassType =  new Type.ClassType(classType.getEnclosingType(), newTypeParams, classType.tsym);
-            lambda.setType(newclassType);
-            lambda.target = newclassType;
-            return true;
+            transformLambda(lambda, fieldAccess.selected, newclassType);
+            return lambda;
+        } else {
+            return null;
         }
-        return false;
     }
 
     public void substitute() {
@@ -93,17 +114,26 @@ public class Substitution {
             Type callerType = getReturnType(entry.arguments.get(0).fst);
             if(streamType == null
                     || !isStream(streamType)
-                    || !isCollection(callerType)
-                    || !entry.arguments.stream()
-                                    .filter(operation -> operation.snd.equals("flatMap"))
-                                    .allMatch(operation -> transformFlatMapArgument(operation.fst))) {
+                    || !isCollection(callerType)) {
                 if(statistics != null) {
                     statistics.typeMismatch();
                 }
                 continue;
             }
+
+            com.sun.tools.javac.util.List<JCTree.JCExpression> args = com.sun.tools.javac.util.List.nil();
+            for(int i = 0; i < entry.arguments.size(); i++) {
+                args = args.append(transformArgument(entry.arguments.get(i), entry.sub.args.get(i)));
+            }
+            if(args.stream().anyMatch(Objects::isNull)) {
+                if(statistics != null) {
+                    statistics.intermediateOperationMissing("flatMap");
+                }
+                continue;
+            }
+
             debugOutput.printDebug(entry.original, "replacing with: " + entry.sub.getMethodSelect());
-            entry.original.args = com.sun.tools.javac.util.List.from(entry.arguments.stream().map(arg -> arg.fst).toList());
+            entry.original.args = args;
             entry.original.meth = entry.sub.meth;
 
             if(statistics != null) {

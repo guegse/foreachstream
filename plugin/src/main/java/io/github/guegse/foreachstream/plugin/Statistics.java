@@ -19,7 +19,8 @@ public class Statistics implements Serializable {
             "sortedComp",
             "distinct",
             "skip",
-            "limit"
+            "limit",
+            "flatMap"
     };
     private static final String[] TERMINAL_OPERATIONS_IMPLEMENTED = new String[] {
             "collectCollector",

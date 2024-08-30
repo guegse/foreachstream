@@ -29,12 +29,13 @@ public class FlatMapOp extends IntermediateOperation {
         out.printIndentation();
         out.println("for (" + nextTargetType + " " + nextTargetElement + " : " + argument + ".apply(" + currentStreamElement + ")) {");
         out.increaseIndentation();
+        depth++;
     }
 
     @Override
     void emitPostamble(Emitter out, String inputType, String argument) {
-        out.decreaseIndentation();
-        out.printIndentation();
-        out.println("}");
+        if(depth > 1) {
+            decreaseDepth(out);
+        }
     }
 }
