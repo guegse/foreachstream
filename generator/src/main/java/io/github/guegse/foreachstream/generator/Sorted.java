@@ -32,13 +32,14 @@ public class Sorted extends StatefulIntermediateOperation{
         String collection = getVariable();
         out.printIndentation();
         out.println(collection + ".add(" + currentStreamElement + ");");
-        out.decreaseIndentation();
-        out.printIndentation();
-        out.println("}");
+        while(depth >= 1) {
+            decreaseDepth(out);
+        }
         out.printIndentation();
         out.println("Collections.sort((List) " + collection + ");");
         out.printIndentation();
         out.println("for ("+ inputType + " " + nextTargetElement + ": " + collection + ") {");
         out.increaseIndentation();
+        depth++;
     }
 }

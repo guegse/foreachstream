@@ -175,7 +175,7 @@ return ForeachStreamCollectToList.stream_filter_collect_toList(persons, person -
 | mapToLong        | yes       |
 | mapToDouble      | yes       |
 | mapToObj         | yes       |
-| flatMap          |           |
+| flatMap          | yes*      |
 | flatMapToInt     |           |
 | flatMapToLong    |           |
 | flatMapToDouble  |           |
@@ -191,6 +191,8 @@ return ForeachStreamCollectToList.stream_filter_collect_toList(persons, person -
 | takeWhile        | yes       |
 | dropWhile        | yes       |
 |                  |           |
+
+*Only works if the argument can be transformed to a collection.
 
 ## Benchmarks
 These are very simple benchmarks performed with no real-world scenarios and on small sample data. 
