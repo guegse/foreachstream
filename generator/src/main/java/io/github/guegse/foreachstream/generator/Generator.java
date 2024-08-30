@@ -43,7 +43,8 @@ public class Generator {
             new Min(),
             new Max(),
             new Sum(),
-            new CollectCollector()
+            new CollectCollector(),
+            new ToList()
     };
 
     public static void main(String[] args) throws FileNotFoundException {
