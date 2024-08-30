@@ -38,7 +38,6 @@ public class Statistics implements Serializable {
     private int subCounter;
     private int subFailedCounter;
     private int typeCounter;
-    private int arrayStreamCounter;
     private Map<Integer, Integer> depthMap = new HashMap<>();
     private Map<String, Integer> terminalMissMap = new HashMap<>();
     private Map<String, Integer> intermediateMissMap = new HashMap<>();
@@ -48,11 +47,6 @@ public class Statistics implements Serializable {
     private Map<String, Integer> methodMissMap = new HashMap<>();
 
     private static final String appDataPath = Paths.get(System.getenv("LOCALAPPDATA"), "ForeachStream").toString();
-
-    public void arrayStreamSource() {
-        arrayStreamCounter++;
-        subFailedCounter++;
-    }
 
     public void substituted(String method) {
         subCounter++;
@@ -105,7 +99,6 @@ public class Statistics implements Serializable {
         this.subCounter += statistics.subCounter;
         this.subFailedCounter += statistics.subFailedCounter;
         this.typeCounter += statistics.typeCounter;
-        this.arrayStreamCounter += statistics.arrayStreamCounter;
 
         depthMap = mergeMaps(depthMap, statistics.depthMap);
         terminalMissMap = mergeMaps(terminalMissMap, statistics.terminalMissMap);
@@ -213,7 +206,6 @@ public class Statistics implements Serializable {
         sb.append("Depth insufficient: ").append(sumMapValues(depthMap)).append("\n");
         addDepthsToStringBuilder(sb, depthMap);
         sb.append("Stream Type mismatches: ").append(typeCounter).append("\n");
-        sb.append("Array Stream Sources: ").append(arrayStreamCounter).append("\n");
         sb.append("Intermediate Operations missing: ").append(sumMapValues(intermediateMissMap)).append("\n");
         addOperationsToStringBuilder(sb, intermediateMissMap);
         sb.append("Terminal Operations missing: ").append(sumMapValues(terminalMissMap)).append("\n");

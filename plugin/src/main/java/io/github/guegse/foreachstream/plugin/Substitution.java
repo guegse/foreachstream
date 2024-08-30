@@ -127,7 +127,7 @@ public class Substitution {
             }
             if(args.stream().anyMatch(Objects::isNull)) {
                 if(statistics != null) {
-                    statistics.intermediateOperationMissing("flatMap");
+                    statistics.typeMismatch();
                 }
                 continue;
             }
