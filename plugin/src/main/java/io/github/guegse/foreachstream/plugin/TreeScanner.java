@@ -148,9 +148,6 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     if (streamCall.getArguments().size() != 0
                             || !(memberSelectTree.getExpression() instanceof JCTree.JCExpression)) {
                         debugOutput.printDebug(node, "unexpected number of arguments to stream(): " + streamCall);
-                        if(statistics != null) {
-                            statistics.arrayStreamSource();
-                        }
                         return super.visitMethodInvocation(node, o);
                     }
 
@@ -191,7 +188,6 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                             var lambda = createFlatMapLambda();
                             lambda.params.head.pos = arguments.get(i).fst.pos;
                             args = args.append(lambda);
-                            //args = args.append(treeMaker.Literal(TypeTag.BOT, null));
                         }else {
                             args = args.append(treeMaker.Literal(TypeTag.BOT, null));
                         }
