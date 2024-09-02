@@ -173,22 +173,12 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     arguments.add(new Pair<>((JCTree.JCExpression) ((MemberSelectTree) streamCall.getMethodSelect()).getExpression(), "stream"));
                     Collections.reverse(arguments);
 
-                    if(arguments.size() != containingClass.snd.length) {
-                        debugOutput.printDebug(node, "unexpected number of arguments to method: "
-                                + containingClass.fst);
-                        return super.visitMethodInvocation(node, o);
-                    }
-
                     // create a list with empty arguments
                     com.sun.tools.javac.util.List<JCTree.JCExpression> args = com.sun.tools.javac.util.List.nil();
-                    for(int i = 0; i < arguments.size(); i++)  {
+                    for(int i = 0; i < containingClass.snd.length; i++)  {
                         if(containingClass.snd[i].isPrimitive()) {
                             args = args.append(treeMaker.Literal(TypeTag.LONG, 0));
-                        } else if(arguments.get(i).snd.equals("flatMap")) {
-                            var lambda = createFlatMapLambda();
-                            lambda.params.head.pos = arguments.get(i).fst.pos;
-                            args = args.append(lambda);
-                        }else {
+                        } else {
                             args = args.append(treeMaker.Literal(TypeTag.BOT, null));
                         }
                     }
@@ -207,25 +197,15 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
         return super.visitMethodInvocation(node, o);
     }
 
-    private JCTree.JCLambda createFlatMapLambda() {
-        com.sun.tools.javac.util.Name paramName = names.fromString("list");
-        JCTree.JCVariableDecl param = treeMaker.VarDef(
-                treeMaker.Modifiers(Flags.PARAMETER),
-                paramName,
-                null,
-                null
-        );
-        return treeMaker.Lambda(
-                com.sun.tools.javac.util.List.of(param),
-                treeMaker.Literal(TypeTag.BOT, null)
-        );
-    }
-
     private String mapMethodName(String method, MethodInvocationTree node) {
         if(method.equals("collect") && node.getArguments().size() == 1) {
             return "collectCollector";
         } else if(method.equals("sorted") && node.getArguments().size() == 1) {
             return "sortedComp";
+        } else if(method.equals("flatMap") && node.getArguments().size() == 1 && node.getArguments().get(0) instanceof JCTree.JCLambda) {
+            return "flatMapLambda";
+        } else if(method.equals("flatMap") && node.getArguments().size() == 1 && node.getArguments().get(0) instanceof JCTree.JCMemberReference) {
+            return "flatMapMemberReference";
         } else {
             return method;
         }

@@ -16,6 +16,13 @@ abstract class Operation {
         }
     }
 
+    protected void assertCollectionStream(String inputType) {
+        if (inputType.equals("int") || inputType.equals("long") || inputType.equals("double")
+                || inputType.equals("Integer") || inputType.equals("Long") || inputType.equals("Double")) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
     protected String referenceType(String inputType) {
         return switch (inputType) {
             case "int" -> "Integer";
@@ -62,6 +69,10 @@ abstract class Operation {
     }
 
     abstract String getTargetType(String inputType, String nextOutputType);
+
+    String appendPreviousTargetType(String currentType) {
+        return null;
+    }
 
     abstract String getArgumentType(String inputType, String nextOutputType);
 

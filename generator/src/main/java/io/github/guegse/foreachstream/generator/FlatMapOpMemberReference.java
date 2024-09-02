@@ -1,33 +1,36 @@
 package io.github.guegse.foreachstream.generator;
 
-public class FlatMapOp extends IntermediateOperation {
+public class FlatMapOpMemberReference extends IntermediateOperation {
     @Override
     String getTargetType(String inputType, String nextOutputType) {
+        assertCollectionStream(inputType);
         return nextOutputType;
     }
 
     @Override
+    String appendPreviousTargetType(String currentType) {
+        return "extends Collection<" + currentType + ">";
+    }
+
+    @Override
     String getArgumentType(String inputType, String nextOutputType) {
-        return switch (inputType) {
-            case "int", "long", "double" -> throw new UnsupportedOperationException();
-            default -> "Function<" + inputType + ", Collection<" + nextOutputType + ">>";
-        };
+        return null;
     }
 
     @Override
     String getName() {
-        return "flatMap";
+        return "flatMapMemberReference";
     }
 
     @Override
     boolean hasArgument() {
-        return true;
+        return false;
     }
 
     @Override
     void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
-        out.println("for (" + nextTargetType + " " + nextTargetElement + " : " + argument + ".apply(" + currentStreamElement + ")) {");
+        out.println("for (" + nextTargetType + " " + nextTargetElement + " : " + currentStreamElement + ") {");
         out.increaseIndentation();
         depth++;
     }

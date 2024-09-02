@@ -8,7 +8,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_count(Collection<T0> input) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			count++;
 		}
 		return count;
@@ -16,7 +16,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_count(Collection<T0> input, Function<T0, T1> arg0) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			count++;
 		}
@@ -25,7 +25,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_count(Collection<T0> input, Predicate<T0> arg0) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -36,7 +36,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_count(Collection<T0> input, ToIntFunction<T0> arg0) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			count++;
 		}
@@ -45,7 +45,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_count(Collection<T0> input, ToLongFunction<T0> arg0) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			count++;
 		}
@@ -54,7 +54,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T0> arg0) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			count++;
 		}
@@ -64,7 +64,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_count(Collection<T0> input) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -77,7 +77,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg0) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -93,7 +93,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -109,7 +109,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -122,7 +122,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_count(Collection<T0> input) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -134,7 +134,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_count(Collection<T0> input, Predicate<T0> arg0) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -147,7 +147,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_count(Collection<T0> input, Predicate<T0> arg0) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -156,10 +156,20 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+	public static <T0, T1> long stream_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_count(Collection<T0> input) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
 				count++;
 			}
 		}
@@ -168,7 +178,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1, T2> long stream_map_map_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			count++;
@@ -178,7 +188,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_filter_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -190,7 +200,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			count++;
@@ -200,7 +210,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			count++;
@@ -210,7 +220,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			count++;
@@ -221,7 +231,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_sorted_count(Collection<T0> input, Function<T0, T1> arg0) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -235,7 +245,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_sortedComp_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -252,7 +262,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -269,7 +279,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -283,7 +293,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_distinct_count(Collection<T0> input, Function<T0, T1> arg0) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -296,7 +306,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_dropWhile_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -310,7 +320,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -320,9 +330,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_flatMap_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1) {
+	public static <T0, T1, T2> long stream_map_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				count++;
@@ -331,9 +341,20 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg0) {
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_filter_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -345,7 +366,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -359,7 +380,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -371,7 +392,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -383,7 +404,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -396,7 +417,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_sorted_count(Collection<T0> input, Predicate<T0> arg0) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -412,7 +433,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -431,7 +452,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -450,7 +471,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -466,7 +487,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_distinct_count(Collection<T0> input, Predicate<T0> arg0) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -481,7 +502,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -497,7 +518,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -509,9 +530,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_filter_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -522,9 +543,22 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_filter_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0) {
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0> long stream_mapToInt_map_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			count++;
@@ -534,7 +568,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_filter_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -546,7 +580,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			count++;
@@ -556,7 +590,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			count++;
@@ -566,7 +600,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToInt_mapToObj_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			count++;
@@ -576,7 +610,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_boxed_count(Collection<T0> input, ToIntFunction<T0> arg0) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			count++;
@@ -587,7 +621,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_sorted_count(Collection<T0> input, ToIntFunction<T0> arg0) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -604,7 +638,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -621,7 +655,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -635,7 +669,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_distinct_count(Collection<T0> input, ToIntFunction<T0> arg0) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -648,7 +682,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_dropWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -662,7 +696,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -674,7 +708,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_map_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			count++;
@@ -684,7 +718,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_filter_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -696,7 +730,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			count++;
@@ -706,7 +740,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			count++;
@@ -716,7 +750,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToLong_mapToObj_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			count++;
@@ -726,7 +760,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_boxed_count(Collection<T0> input, ToLongFunction<T0> arg0) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			count++;
@@ -737,7 +771,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_sorted_count(Collection<T0> input, ToLongFunction<T0> arg0) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -754,7 +788,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -771,7 +805,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -785,7 +819,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_distinct_count(Collection<T0> input, ToLongFunction<T0> arg0) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -798,7 +832,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_dropWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -812,7 +846,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -824,7 +858,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_map_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			count++;
@@ -834,7 +868,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -846,7 +880,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			count++;
@@ -856,7 +890,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			count++;
@@ -866,7 +900,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToDouble_mapToObj_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			count++;
@@ -876,7 +910,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_boxed_count(Collection<T0> input, ToDoubleFunction<T0> arg0) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			count++;
@@ -887,7 +921,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_sorted_count(Collection<T0> input, ToDoubleFunction<T0> arg0) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -904,7 +938,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -921,7 +955,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -935,7 +969,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_distinct_count(Collection<T0> input, ToDoubleFunction<T0> arg0) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -948,7 +982,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_dropWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -962,7 +996,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -975,7 +1009,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_sorted_map_count(Collection<T0> input, Function<T0, T1> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -989,7 +1023,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_filter_count(Collection<T0> input, Predicate<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -1005,7 +1039,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToInt_count(Collection<T0> input, ToIntFunction<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -1019,7 +1053,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToLong_count(Collection<T0> input, ToLongFunction<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -1033,7 +1067,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -1048,7 +1082,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -1066,7 +1100,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -1087,7 +1121,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -1108,7 +1142,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -1126,7 +1160,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -1143,7 +1177,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -1161,7 +1195,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_takeWhile_count(Collection<T0> input, Predicate<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -1174,10 +1208,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_sorted_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -1189,10 +1223,25 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_count(Collection<T0> input) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sortedComp_map_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -1206,7 +1255,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_filter_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -1222,7 +1271,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -1236,7 +1285,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -1250,7 +1299,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -1265,7 +1314,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -1283,7 +1332,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -1304,7 +1353,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -1325,7 +1374,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -1343,7 +1392,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -1360,7 +1409,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -1378,7 +1427,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_takeWhile_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -1391,15 +1440,30 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_flatMap_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_sortedComp_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			for (T1 t1 : arg1.apply(t0)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg0) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
 				count++;
 			}
 		}
@@ -1412,7 +1476,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -1429,7 +1493,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -1448,7 +1512,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -1465,7 +1529,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -1482,7 +1546,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -1500,7 +1564,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -1521,7 +1585,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -1545,7 +1609,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -1569,7 +1633,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -1590,7 +1654,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -1610,7 +1674,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -1631,7 +1695,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -1644,18 +1708,36 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_flatMap_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_limit_flatMapLambda_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_flatMapMemberReference_count(Collection<T0> input, long arg0) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
 				count++;
 			}
 		}
@@ -1668,7 +1750,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1685,7 +1767,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1704,7 +1786,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1721,7 +1803,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1738,7 +1820,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1756,7 +1838,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1777,7 +1859,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1801,7 +1883,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1825,7 +1907,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1846,7 +1928,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1866,7 +1948,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1887,7 +1969,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1900,13 +1982,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_flatMap_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_skip_flatMapLambda_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -1918,10 +2000,28 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_skip_flatMapMemberReference_count(Collection<T0> input, long arg0) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_distinct_map_count(Collection<T0> input, Function<T0, T1> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -1934,7 +2034,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_filter_count(Collection<T0> input, Predicate<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -1949,7 +2049,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToInt_count(Collection<T0> input, ToIntFunction<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -1962,7 +2062,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToLong_count(Collection<T0> input, ToLongFunction<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -1975,7 +2075,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -1989,7 +2089,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -2006,7 +2106,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -2026,7 +2126,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -2046,7 +2146,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -2063,7 +2163,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -2079,7 +2179,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -2096,7 +2196,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_takeWhile_count(Collection<T0> input, Predicate<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -2108,10 +2208,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_distinct_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -2122,10 +2222,24 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_count(Collection<T0> input) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_dropWhile_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2140,7 +2254,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2157,7 +2271,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2172,7 +2286,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2187,7 +2301,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2203,7 +2317,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2222,7 +2336,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2244,7 +2358,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2266,7 +2380,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2285,7 +2399,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2303,7 +2417,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2322,7 +2436,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2336,10 +2450,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_dropWhile_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -2352,9 +2466,25 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_takeWhile_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2366,7 +2496,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2380,7 +2510,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2392,7 +2522,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2404,7 +2534,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2417,7 +2547,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_sorted_count(Collection<T0> input, Predicate<T0> arg0) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2433,7 +2563,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2452,7 +2582,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2471,7 +2601,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2487,7 +2617,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_distinct_count(Collection<T0> input, Predicate<T0> arg0) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2502,7 +2632,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2518,7 +2648,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2530,9 +2660,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_takeWhile_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -2543,9 +2673,22 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1) {
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_flatMapLambda_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				count++;
@@ -2554,9 +2697,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -2567,9 +2710,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				count++;
@@ -2578,9 +2721,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				count++;
@@ -2589,9 +2732,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				count++;
@@ -2600,10 +2743,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+	public static <T0, T1> long stream_flatMapLambda_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -2615,10 +2758,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -2630,13 +2773,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+	public static <T0, T1> long stream_flatMapLambda_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -2648,13 +2791,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+	public static <T0, T1> long stream_flatMapLambda_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -2666,10 +2809,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+	public static <T0, T1> long stream_flatMapLambda_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -2680,10 +2823,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -2696,9 +2839,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -2709,9 +2852,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1) {
+	public static <T0, T1, T2> long stream_flatMapLambda_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					count++;
@@ -2721,9 +2864,211 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_map_count(Collection<T0> input, Function<T1, T2> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_filter_count(Collection<T0> input, Predicate<T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToInt_count(Collection<T0> input, ToIntFunction<T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_count(Collection<T0> input, ToLongFunction<T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_count(Collection<T0> input) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_count(Collection<T0> input, Comparator<? super T1> arg1) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_limit_count(Collection<T0> input, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_skip_count(Collection<T0> input, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_count(Collection<T0> input) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_dropWhile_count(Collection<T0> input, Predicate<T1> arg1) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_takeWhile_count(Collection<T0> input, Predicate<T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_flatMapLambda_count(Collection<T0> input, Function<T1, Collection<T2>> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_flatMapMemberReference_count(Collection<T0> input) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2, T3> long stream_map_map_map_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Function<T2, T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			T3 t3 = arg2.apply(t2);
@@ -2734,7 +3079,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1, T2> long stream_map_map_filter_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			if (!arg2.test(t2)) {
@@ -2747,7 +3092,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1, T2> long stream_map_map_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, ToIntFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			int t3 = arg2.applyAsInt(t2);
@@ -2758,7 +3103,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1, T2> long stream_map_map_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, ToLongFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			long t3 = arg2.applyAsLong(t2);
@@ -2769,7 +3114,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1, T2> long stream_map_map_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, ToDoubleFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			double t3 = arg2.applyAsDouble(t2);
@@ -2781,7 +3126,7 @@ public class ForeachStreamCount {
 	public static <T0, T1, T2> long stream_map_map_sorted_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1) {
 		List<T2> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			sorted0.add(t2);
@@ -2796,7 +3141,7 @@ public class ForeachStreamCount {
 	public static <T0, T1, T2> long stream_map_map_sortedComp_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Comparator<? super T2> arg2) {
 		List<T2> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			sortedComp0.add(t2);
@@ -2814,7 +3159,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			limit0++;
@@ -2832,7 +3177,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			skip0++;
@@ -2847,7 +3192,7 @@ public class ForeachStreamCount {
 	public static <T0, T1, T2> long stream_map_map_distinct_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1) {
 		Set<T2> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			if(!distinct0.add(t2)) {
@@ -2861,7 +3206,7 @@ public class ForeachStreamCount {
 	public static <T0, T1, T2> long stream_map_map_dropWhile_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -2876,7 +3221,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1, T2> long stream_map_map_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			if(!arg2.test(t2)) {
@@ -2887,9 +3232,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2, T3> long stream_map_map_flatMap_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Function<T2, Collection<T3>> arg2) {
+	public static <T0, T1, T2, T3> long stream_map_map_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Function<T2, Collection<T3>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			for (T3 t3 : arg2.apply(t2)) {
@@ -2899,9 +3244,21 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1, T2 extends Collection<T3>, T3> long stream_map_map_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			T2 t2 = arg1.apply(t1);
+			for (T3 t3 : t2) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_map_filter_map_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -2914,7 +3271,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_filter_filter_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -2929,7 +3286,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_filter_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -2942,7 +3299,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_filter_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -2955,7 +3312,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_filter_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -2969,7 +3326,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_filter_sorted_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -2986,7 +3343,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_filter_sortedComp_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -3006,7 +3363,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -3026,7 +3383,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -3043,7 +3400,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_filter_distinct_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -3059,7 +3416,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_filter_dropWhile_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -3076,7 +3433,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_filter_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -3089,9 +3446,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_filter_flatMap_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_map_filter_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -3103,9 +3460,23 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_filter_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			if (!arg1.test(t1)) {
+				continue;
+			}
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_map_mapToInt_map_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			t2 = arg2.applyAsInt(t2);
@@ -3116,7 +3487,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToInt_filter_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			if (!arg2.test(t2)) {
@@ -3129,7 +3500,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToInt_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			long t3 = arg2.applyAsLong(t2);
@@ -3140,7 +3511,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToInt_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			double t3 = arg2.applyAsDouble(t2);
@@ -3151,7 +3522,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1, T3> long stream_map_mapToInt_mapToObj_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntFunction<T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			T3 t3 = arg2.apply(t2);
@@ -3162,7 +3533,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToInt_boxed_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			Integer t3 = t2;
@@ -3174,7 +3545,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_mapToInt_sorted_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
@@ -3192,7 +3563,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			limit0++;
@@ -3210,7 +3581,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			skip0++;
@@ -3225,7 +3596,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_mapToInt_distinct_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			if(!distinct0.add(t2)) {
@@ -3239,7 +3610,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_mapToInt_dropWhile_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -3254,7 +3625,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToInt_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			if(!arg2.test(t2)) {
@@ -3267,7 +3638,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToLong_map_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			t2 = arg2.applyAsLong(t2);
@@ -3278,7 +3649,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToLong_filter_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			if (!arg2.test(t2)) {
@@ -3291,7 +3662,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToLong_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			int t3 = arg2.applyAsInt(t2);
@@ -3302,7 +3673,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToLong_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			double t3 = arg2.applyAsDouble(t2);
@@ -3313,7 +3684,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1, T3> long stream_map_mapToLong_mapToObj_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongFunction<T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			T3 t3 = arg2.apply(t2);
@@ -3324,7 +3695,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToLong_boxed_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			Long t3 = t2;
@@ -3336,7 +3707,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_mapToLong_sorted_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
@@ -3354,7 +3725,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			limit0++;
@@ -3372,7 +3743,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			skip0++;
@@ -3387,7 +3758,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_mapToLong_distinct_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			if(!distinct0.add(t2)) {
@@ -3401,7 +3772,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_mapToLong_dropWhile_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -3416,7 +3787,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToLong_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			if(!arg2.test(t2)) {
@@ -3429,7 +3800,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToDouble_map_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			t2 = arg2.applyAsDouble(t2);
@@ -3440,7 +3811,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToDouble_filter_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			if (!arg2.test(t2)) {
@@ -3453,7 +3824,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToDouble_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			int t3 = arg2.applyAsInt(t2);
@@ -3464,7 +3835,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToDouble_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			long t3 = arg2.applyAsLong(t2);
@@ -3475,7 +3846,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1, T3> long stream_map_mapToDouble_mapToObj_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleFunction<T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			T3 t3 = arg2.apply(t2);
@@ -3486,7 +3857,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToDouble_boxed_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			Double t3 = t2;
@@ -3498,7 +3869,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_mapToDouble_sorted_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
@@ -3516,7 +3887,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			limit0++;
@@ -3534,7 +3905,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			skip0++;
@@ -3549,7 +3920,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_mapToDouble_distinct_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			if(!distinct0.add(t2)) {
@@ -3563,7 +3934,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_mapToDouble_dropWhile_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -3578,7 +3949,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_mapToDouble_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			if(!arg2.test(t2)) {
@@ -3592,7 +3963,7 @@ public class ForeachStreamCount {
 	public static <T0, T1, T2> long stream_map_sorted_map_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3607,7 +3978,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_sorted_filter_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3624,7 +3995,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_sorted_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3639,7 +4010,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_sorted_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3654,7 +4025,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_sorted_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3670,7 +4041,7 @@ public class ForeachStreamCount {
 		List<T1> sorted0 = new ArrayList<>();
 		List<T1> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3689,7 +4060,7 @@ public class ForeachStreamCount {
 		List<T1> sorted0 = new ArrayList<>();
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3711,7 +4082,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3733,7 +4104,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3752,7 +4123,7 @@ public class ForeachStreamCount {
 		List<T1> sorted0 = new ArrayList<>();
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3770,7 +4141,7 @@ public class ForeachStreamCount {
 		List<T1> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3789,7 +4160,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_sorted_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3803,10 +4174,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_sorted_flatMap_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_map_sorted_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
@@ -3819,10 +4190,26 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_sorted_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg0) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_map_sortedComp_map_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Function<T1, T2> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -3837,7 +4224,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_sortedComp_filter_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -3854,7 +4241,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_sortedComp_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToIntFunction<T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -3869,7 +4256,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_sortedComp_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToLongFunction<T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -3884,7 +4271,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_sortedComp_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToDoubleFunction<T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -3900,7 +4287,7 @@ public class ForeachStreamCount {
 		List<T1> sortedComp0 = new ArrayList<>();
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -3919,7 +4306,7 @@ public class ForeachStreamCount {
 		List<T1> sortedComp0 = new ArrayList<>();
 		List<T1> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -3941,7 +4328,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -3963,7 +4350,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -3982,7 +4369,7 @@ public class ForeachStreamCount {
 		List<T1> sortedComp0 = new ArrayList<>();
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -4000,7 +4387,7 @@ public class ForeachStreamCount {
 		List<T1> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -4019,7 +4406,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_sortedComp_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -4033,10 +4420,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_sortedComp_flatMap_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_map_sortedComp_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Function<T1, Collection<T2>> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -4049,13 +4436,29 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_sortedComp_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_map_limit_map_count(Collection<T0> input, Function<T0, T1> arg0, long arg1, Function<T1, T2> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4073,7 +4476,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4093,7 +4496,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4111,7 +4514,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4129,7 +4532,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4148,7 +4551,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4170,7 +4573,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4195,7 +4598,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4220,7 +4623,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4242,7 +4645,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4263,7 +4666,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4285,7 +4688,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4299,13 +4702,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_limit_flatMap_count(Collection<T0> input, Function<T0, T1> arg0, long arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_map_limit_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg0, long arg1, Function<T1, Collection<T2>> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -4318,13 +4721,32 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_limit_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_map_skip_map_count(Collection<T0> input, Function<T0, T1> arg0, long arg1, Function<T1, T2> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4342,7 +4764,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4362,7 +4784,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4380,7 +4802,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4398,7 +4820,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4417,7 +4839,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4439,7 +4861,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4464,7 +4886,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4489,7 +4911,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4511,7 +4933,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4532,7 +4954,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4554,7 +4976,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4568,13 +4990,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_skip_flatMap_count(Collection<T0> input, Function<T0, T1> arg0, long arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_map_skip_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg0, long arg1, Function<T1, Collection<T2>> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4587,10 +5009,29 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_skip_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_map_distinct_map_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4604,7 +5045,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_distinct_filter_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4620,7 +5061,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_distinct_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4634,7 +5075,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_distinct_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4648,7 +5089,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_distinct_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4663,7 +5104,7 @@ public class ForeachStreamCount {
 		Set<T1> distinct0 = new HashSet<>();
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4681,7 +5122,7 @@ public class ForeachStreamCount {
 		Set<T1> distinct0 = new HashSet<>();
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4702,7 +5143,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4723,7 +5164,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4741,7 +5182,7 @@ public class ForeachStreamCount {
 		Set<T1> distinct0 = new HashSet<>();
 		Set<T1> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4758,7 +5199,7 @@ public class ForeachStreamCount {
 		Set<T1> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4776,7 +5217,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_distinct_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4789,10 +5230,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_distinct_flatMap_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_map_distinct_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4804,10 +5245,25 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_distinct_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg0) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_map_dropWhile_map_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -4823,7 +5279,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_dropWhile_filter_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -4841,7 +5297,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_dropWhile_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -4857,7 +5313,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_dropWhile_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -4873,7 +5329,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_dropWhile_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -4890,7 +5346,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -4910,7 +5366,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -4933,7 +5389,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -4956,7 +5412,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -4976,7 +5432,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -4995,7 +5451,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -5015,7 +5471,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_dropWhile_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -5030,10 +5486,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_dropWhile_flatMap_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_map_dropWhile_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -5047,9 +5503,26 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_dropWhile_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			if(dropWhile0 && arg1.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_map_takeWhile_map_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5062,7 +5535,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_takeWhile_filter_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5077,7 +5550,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_takeWhile_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5090,7 +5563,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_takeWhile_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5103,7 +5576,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_takeWhile_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5117,7 +5590,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_takeWhile_sorted_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5134,7 +5607,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_takeWhile_sortedComp_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5154,7 +5627,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5174,7 +5647,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5191,7 +5664,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_takeWhile_distinct_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5207,7 +5680,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_map_takeWhile_dropWhile_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5224,7 +5697,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_map_takeWhile_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5237,9 +5710,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_takeWhile_flatMap_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_map_takeWhile_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -5251,9 +5724,23 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2, T3> long stream_map_flatMap_map_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Function<T2, T3> arg2) {
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_takeWhile_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			if(!arg1.test(t1)) {
+				break;
+			}
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2, T3> long stream_map_flatMapLambda_map_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Function<T2, T3> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				T3 t3 = arg2.apply(t2);
@@ -5263,9 +5750,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_flatMap_filter_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+	public static <T0, T1, T2> long stream_map_flatMapLambda_filter_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				if (!arg2.test(t2)) {
@@ -5277,9 +5764,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_flatMap_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToIntFunction<T2> arg2) {
+	public static <T0, T1, T2> long stream_map_flatMapLambda_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToIntFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				int t3 = arg2.applyAsInt(t2);
@@ -5289,9 +5776,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_flatMap_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToLongFunction<T2> arg2) {
+	public static <T0, T1, T2> long stream_map_flatMapLambda_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToLongFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				long t3 = arg2.applyAsLong(t2);
@@ -5301,9 +5788,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_flatMap_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToDoubleFunction<T2> arg2) {
+	public static <T0, T1, T2> long stream_map_flatMapLambda_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, ToDoubleFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				double t3 = arg2.applyAsDouble(t2);
@@ -5313,10 +5800,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_flatMap_sorted_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1) {
+	public static <T0, T1, T2> long stream_map_flatMapLambda_sorted_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1) {
 		List<T2> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				sorted0.add(t2);
@@ -5329,10 +5816,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_flatMap_sortedComp_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Comparator<? super T2> arg2) {
+	public static <T0, T1, T2> long stream_map_flatMapLambda_sortedComp_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Comparator<? super T2> arg2) {
 		List<T2> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				sortedComp0.add(t2);
@@ -5345,13 +5832,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_flatMap_limit_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, long arg2) {
+	public static <T0, T1, T2> long stream_map_flatMapLambda_limit_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				limit0++;
@@ -5364,13 +5851,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_flatMap_skip_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, long arg2) {
+	public static <T0, T1, T2> long stream_map_flatMapLambda_skip_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				skip0++;
@@ -5383,10 +5870,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_flatMap_distinct_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1) {
+	public static <T0, T1, T2> long stream_map_flatMapLambda_distinct_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1) {
 		Set<T2> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				if(!distinct0.add(t2)) {
@@ -5398,10 +5885,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_flatMap_dropWhile_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+	public static <T0, T1, T2> long stream_map_flatMapLambda_dropWhile_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				if(dropWhile0 && arg2.test(t2)) {
@@ -5415,9 +5902,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_map_flatMap_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+	public static <T0, T1, T2> long stream_map_flatMapLambda_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				if(!arg2.test(t2)) {
@@ -5429,9 +5916,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2, T3> long stream_map_flatMap_flatMap_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Function<T2, Collection<T3>> arg2) {
+	public static <T0, T1, T2, T3> long stream_map_flatMapLambda_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Function<T2, Collection<T3>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				for (T3 t3 : arg2.apply(t2)) {
@@ -5442,9 +5929,226 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1, T2 extends Collection<T3>, T3> long stream_map_flatMapLambda_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : arg1.apply(t1)) {
+				for (T3 t3 : t2) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2, T3> long stream_map_flatMapMemberReference_map_count(Collection<T0> input, Function<T0, T1> arg0, Function<T2, T3> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				T3 t3 = arg2.apply(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_flatMapMemberReference_filter_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_flatMapMemberReference_mapToInt_count(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				int t3 = arg2.applyAsInt(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_flatMapMemberReference_mapToLong_count(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				long t3 = arg2.applyAsLong(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_flatMapMemberReference_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				double t3 = arg2.applyAsDouble(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_flatMapMemberReference_sorted_count(Collection<T0> input, Function<T0, T1> arg0) {
+		List<T2> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				sorted0.add(t2);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_flatMapMemberReference_sortedComp_count(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T2> arg2) {
+		List<T2> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				sortedComp0.add(t2);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_flatMapMemberReference_limit_count(Collection<T0> input, Function<T0, T1> arg0, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_flatMapMemberReference_skip_count(Collection<T0> input, Function<T0, T1> arg0, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_flatMapMemberReference_distinct_count(Collection<T0> input, Function<T0, T1> arg0) {
+		Set<T2> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_flatMapMemberReference_dropWhile_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T2> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_map_flatMapMemberReference_takeWhile_count(Collection<T0> input, Function<T0, T1> arg0, Predicate<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				if(!arg2.test(t2)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2, T3> long stream_map_flatMapMemberReference_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg0, Function<T2, Collection<T3>> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				for (T3 t3 : arg2.apply(t2)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2 extends Collection<T3>, T3> long stream_map_flatMapMemberReference_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg0) {
+		long count = 0;
+		for (T0 t0: input) {
+			T1 t1 = arg0.apply(t0);
+			for (T2 t2 : t1) {
+				for (T3 t3 : t2) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_filter_map_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5457,7 +6161,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_filter_map_filter_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5472,7 +6176,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_filter_map_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5485,7 +6189,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_filter_map_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5498,7 +6202,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_filter_map_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5512,7 +6216,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_filter_map_sorted_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5529,7 +6233,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_filter_map_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Comparator<? super T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5549,7 +6253,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5569,7 +6273,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5586,7 +6290,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_filter_map_distinct_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5602,7 +6306,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_filter_map_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5619,7 +6323,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_filter_map_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5632,9 +6336,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_filter_map_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_filter_map_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5646,9 +6350,23 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_filter_map_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_filter_filter_map_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5663,7 +6381,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_filter_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5680,7 +6398,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_filter_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5695,7 +6413,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_filter_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5710,7 +6428,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_filter_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5726,7 +6444,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_filter_sorted_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5745,7 +6463,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_filter_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5767,7 +6485,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5789,7 +6507,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5808,7 +6526,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_filter_distinct_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5826,7 +6544,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_filter_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5845,7 +6563,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_filter_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5860,9 +6578,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_filter_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_filter_filter_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5876,9 +6594,25 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_filter_filter_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0> long stream_filter_mapToInt_map_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5891,7 +6625,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToInt_filter_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5906,7 +6640,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToInt_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5919,7 +6653,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToInt_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5932,7 +6666,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_filter_mapToInt_mapToObj_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5945,7 +6679,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToInt_boxed_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5959,7 +6693,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_mapToInt_sorted_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5979,7 +6713,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5999,7 +6733,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6016,7 +6750,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_mapToInt_distinct_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6032,7 +6766,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_mapToInt_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6049,7 +6783,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToInt_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6064,7 +6798,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToLong_map_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6077,7 +6811,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToLong_filter_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6092,7 +6826,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToLong_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6105,7 +6839,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToLong_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6118,7 +6852,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_filter_mapToLong_mapToObj_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6131,7 +6865,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToLong_boxed_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6145,7 +6879,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_mapToLong_sorted_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6165,7 +6899,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6185,7 +6919,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6202,7 +6936,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_mapToLong_distinct_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6218,7 +6952,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_mapToLong_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6235,7 +6969,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToLong_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6250,7 +6984,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToDouble_map_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6263,7 +6997,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToDouble_filter_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6278,7 +7012,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToDouble_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6291,7 +7025,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToDouble_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6304,7 +7038,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_filter_mapToDouble_mapToObj_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6317,7 +7051,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToDouble_boxed_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6331,7 +7065,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_mapToDouble_sorted_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6351,7 +7085,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6371,7 +7105,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6388,7 +7122,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_mapToDouble_distinct_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6404,7 +7138,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_mapToDouble_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6421,7 +7155,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_mapToDouble_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6437,7 +7171,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_filter_sorted_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6454,7 +7188,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_sorted_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6473,7 +7207,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_sorted_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6490,7 +7224,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_sorted_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6507,7 +7241,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_sorted_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6525,7 +7259,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6546,7 +7280,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6570,7 +7304,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6594,7 +7328,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6615,7 +7349,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6635,7 +7369,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6656,7 +7390,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_sorted_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6672,10 +7406,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_sorted_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_filter_sorted_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6690,10 +7424,28 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_filter_sorted_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_filter_sortedComp_map_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6710,7 +7462,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_sortedComp_filter_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6729,7 +7481,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_sortedComp_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6746,7 +7498,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_sortedComp_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6763,7 +7515,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_sortedComp_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6781,7 +7533,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6802,7 +7554,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6826,7 +7578,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6850,7 +7602,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6871,7 +7623,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6891,7 +7643,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6912,7 +7664,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_sortedComp_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6928,10 +7680,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_sortedComp_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_filter_sortedComp_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6946,13 +7698,31 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_filter_sortedComp_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_filter_limit_map_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6972,7 +7742,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6994,7 +7764,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7014,7 +7784,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7034,7 +7804,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7055,7 +7825,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7079,7 +7849,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7106,7 +7876,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7133,7 +7903,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7157,7 +7927,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7180,7 +7950,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7204,7 +7974,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7220,13 +7990,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_limit_flatMap_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_filter_limit_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7241,13 +8011,34 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_filter_limit_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_filter_skip_map_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7267,7 +8058,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7289,7 +8080,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7309,7 +8100,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7329,7 +8120,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7350,7 +8141,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7374,7 +8165,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7401,7 +8192,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7428,7 +8219,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7452,7 +8243,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7475,7 +8266,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7499,7 +8290,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7515,13 +8306,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_skip_flatMap_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_filter_skip_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7536,10 +8327,31 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_filter_skip_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_filter_distinct_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7555,7 +8367,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_distinct_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7573,7 +8385,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_distinct_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7589,7 +8401,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_distinct_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7605,7 +8417,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_distinct_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7622,7 +8434,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7642,7 +8454,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7665,7 +8477,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7688,7 +8500,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7708,7 +8520,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7727,7 +8539,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7747,7 +8559,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_distinct_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7762,10 +8574,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_distinct_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_filter_distinct_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7779,10 +8591,27 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_filter_distinct_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_filter_dropWhile_map_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7800,7 +8629,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_dropWhile_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7820,7 +8649,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_dropWhile_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7838,7 +8667,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_dropWhile_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7856,7 +8685,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_dropWhile_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7875,7 +8704,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7897,7 +8726,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7922,7 +8751,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7947,7 +8776,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7969,7 +8798,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7990,7 +8819,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8012,7 +8841,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_dropWhile_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8029,10 +8858,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_dropWhile_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_filter_dropWhile_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8048,9 +8877,28 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_filter_dropWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_filter_takeWhile_map_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8065,7 +8913,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_takeWhile_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8082,7 +8930,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_takeWhile_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8097,7 +8945,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_takeWhile_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8112,7 +8960,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_takeWhile_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8128,7 +8976,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_takeWhile_sorted_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8147,7 +8995,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_takeWhile_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8169,7 +9017,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8191,7 +9039,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8210,7 +9058,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_takeWhile_distinct_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8228,7 +9076,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_filter_takeWhile_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8247,7 +9095,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_filter_takeWhile_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8262,9 +9110,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_takeWhile_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_filter_takeWhile_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8278,9 +9126,25 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_filter_flatMap_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+	public static <T0 extends Collection<T1>, T1> long stream_filter_takeWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_filter_flatMapLambda_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8292,9 +9156,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_flatMap_filter_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_filter_flatMapLambda_filter_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8308,9 +9172,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_flatMap_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_filter_flatMapLambda_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8322,9 +9186,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_flatMap_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_filter_flatMapLambda_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8336,9 +9200,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_flatMap_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_filter_flatMapLambda_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8350,10 +9214,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_flatMap_sorted_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_filter_flatMapLambda_sorted_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8368,10 +9232,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_flatMap_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_filter_flatMapLambda_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8386,13 +9250,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_flatMap_limit_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_filter_flatMapLambda_limit_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8407,13 +9271,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_flatMap_skip_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_filter_flatMapLambda_skip_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8428,10 +9292,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_flatMap_distinct_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_filter_flatMapLambda_distinct_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8445,10 +9309,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_flatMap_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_filter_flatMapLambda_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8464,9 +9328,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_filter_flatMap_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_filter_flatMapLambda_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8480,9 +9344,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_filter_flatMap_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_filter_flatMapLambda_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8495,9 +9359,256 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_filter_flatMapLambda_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_filter_flatMapMemberReference_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T1, T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_filter_flatMapMemberReference_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_filter_flatMapMemberReference_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_filter_flatMapMemberReference_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_filter_flatMapMemberReference_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_filter_flatMapMemberReference_sorted_count(Collection<T0> input, Predicate<T0> arg0) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_filter_flatMapMemberReference_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_filter_flatMapMemberReference_limit_count(Collection<T0> input, Predicate<T0> arg0, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_filter_flatMapMemberReference_skip_count(Collection<T0> input, Predicate<T0> arg0, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_filter_flatMapMemberReference_distinct_count(Collection<T0> input, Predicate<T0> arg0) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_filter_flatMapMemberReference_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_filter_flatMapMemberReference_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_filter_flatMapMemberReference_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T1, Collection<T2>> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_filter_flatMapMemberReference_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0) {
+		long count = 0;
+		for (T0 t0: input) {
+			if (!arg0.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
 	public static <T0> long stream_mapToInt_map_map_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			t1 = arg2.applyAsInt(t1);
@@ -8508,7 +9619,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_map_filter_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			if (!arg2.test(t1)) {
@@ -8521,7 +9632,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_map_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			long t2 = arg2.applyAsLong(t1);
@@ -8532,7 +9643,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_map_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			double t2 = arg2.applyAsDouble(t1);
@@ -8543,7 +9654,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToInt_map_mapToObj_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			T2 t2 = arg2.apply(t1);
@@ -8554,7 +9665,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_map_boxed_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			Integer t2 = t1;
@@ -8566,7 +9677,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_map_sorted_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			sorted0.add(t1);
@@ -8584,7 +9695,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			limit0++;
@@ -8602,7 +9713,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			skip0++;
@@ -8617,7 +9728,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_map_distinct_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			if(!distinct0.add(t1)) {
@@ -8631,7 +9742,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_map_dropWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			if(dropWhile0 && arg2.test(t1)) {
@@ -8646,7 +9757,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_map_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			if(!arg2.test(t1)) {
@@ -8659,7 +9770,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_filter_map_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -8672,7 +9783,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_filter_filter_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -8687,7 +9798,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_filter_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -8700,7 +9811,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_filter_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -8713,7 +9824,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToInt_filter_mapToObj_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -8726,7 +9837,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_filter_boxed_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -8740,7 +9851,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_filter_sorted_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -8760,7 +9871,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -8780,7 +9891,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -8797,7 +9908,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_filter_distinct_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -8813,7 +9924,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_filter_dropWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -8830,7 +9941,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_filter_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -8845,7 +9956,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToLong_map_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			t2 = arg2.applyAsLong(t2);
@@ -8856,7 +9967,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToLong_filter_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			if (!arg2.test(t2)) {
@@ -8869,7 +9980,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToLong_mapToInt_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			int t3 = arg2.applyAsInt(t2);
@@ -8880,7 +9991,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToLong_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			double t3 = arg2.applyAsDouble(t2);
@@ -8891,7 +10002,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T3> long stream_mapToInt_mapToLong_mapToObj_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongFunction<T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			T3 t3 = arg2.apply(t2);
@@ -8902,7 +10013,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToLong_boxed_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			Long t3 = t2;
@@ -8914,7 +10025,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_mapToLong_sorted_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
@@ -8932,7 +10043,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			limit0++;
@@ -8950,7 +10061,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			skip0++;
@@ -8965,7 +10076,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_mapToLong_distinct_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			if(!distinct0.add(t2)) {
@@ -8979,7 +10090,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_mapToLong_dropWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -8994,7 +10105,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToLong_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			if(!arg2.test(t2)) {
@@ -9007,7 +10118,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToDouble_map_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			t2 = arg2.applyAsDouble(t2);
@@ -9018,7 +10129,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToDouble_filter_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			if (!arg2.test(t2)) {
@@ -9031,7 +10142,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToDouble_mapToInt_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			int t3 = arg2.applyAsInt(t2);
@@ -9042,7 +10153,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToDouble_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			long t3 = arg2.applyAsLong(t2);
@@ -9053,7 +10164,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T3> long stream_mapToInt_mapToDouble_mapToObj_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleFunction<T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			T3 t3 = arg2.apply(t2);
@@ -9064,7 +10175,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToDouble_boxed_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			Double t3 = t2;
@@ -9076,7 +10187,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_mapToDouble_sorted_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
@@ -9094,7 +10205,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			limit0++;
@@ -9112,7 +10223,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			skip0++;
@@ -9127,7 +10238,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_mapToDouble_distinct_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			if(!distinct0.add(t2)) {
@@ -9141,7 +10252,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_mapToDouble_dropWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -9156,7 +10267,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_mapToDouble_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			if(!arg2.test(t2)) {
@@ -9169,7 +10280,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2, T3> long stream_mapToInt_mapToObj_map_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Function<T2, T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			T3 t3 = arg2.apply(t2);
@@ -9180,7 +10291,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToInt_mapToObj_filter_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			if (!arg2.test(t2)) {
@@ -9193,7 +10304,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToInt_mapToObj_mapToInt_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, ToIntFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			int t3 = arg2.applyAsInt(t2);
@@ -9204,7 +10315,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToInt_mapToObj_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, ToLongFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			long t3 = arg2.applyAsLong(t2);
@@ -9215,7 +10326,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToInt_mapToObj_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, ToDoubleFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			double t3 = arg2.applyAsDouble(t2);
@@ -9227,7 +10338,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToInt_mapToObj_sorted_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1) {
 		List<T2> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			sorted0.add(t2);
@@ -9242,7 +10353,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToInt_mapToObj_sortedComp_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Comparator<? super T2> arg2) {
 		List<T2> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			sortedComp0.add(t2);
@@ -9260,7 +10371,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			limit0++;
@@ -9278,7 +10389,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			skip0++;
@@ -9293,7 +10404,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToInt_mapToObj_distinct_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1) {
 		Set<T2> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			if(!distinct0.add(t2)) {
@@ -9307,7 +10418,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToInt_mapToObj_dropWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Predicate<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -9322,7 +10433,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToInt_mapToObj_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			if(!arg2.test(t2)) {
@@ -9333,9 +10444,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T2, T3> long stream_mapToInt_mapToObj_flatMap_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Function<T2, Collection<T3>> arg2) {
+	public static <T0, T2, T3> long stream_mapToInt_mapToObj_flatMapLambda_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Function<T2, Collection<T3>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			for (T3 t3 : arg2.apply(t2)) {
@@ -9345,9 +10456,21 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T2 extends Collection<T3>, T3> long stream_mapToInt_mapToObj_flatMapMemberReference_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			int t1 = arg0.applyAsInt(t0);
+			T2 t2 = arg1.apply(t1);
+			for (T3 t3 : t2) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T3> long stream_mapToInt_boxed_map_count(Collection<T0> input, ToIntFunction<T0> arg0, Function<Integer, T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			T3 t3 = arg2.apply(t2);
@@ -9358,7 +10481,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_boxed_filter_count(Collection<T0> input, ToIntFunction<T0> arg0, Predicate<Integer> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			if (!arg2.test(t2)) {
@@ -9371,7 +10494,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_boxed_mapToInt_count(Collection<T0> input, ToIntFunction<T0> arg0, ToIntFunction<Integer> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			int t3 = arg2.applyAsInt(t2);
@@ -9382,7 +10505,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_boxed_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg0, ToLongFunction<Integer> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			long t3 = arg2.applyAsLong(t2);
@@ -9393,7 +10516,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_boxed_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg0, ToDoubleFunction<Integer> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			double t3 = arg2.applyAsDouble(t2);
@@ -9405,7 +10528,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_boxed_sorted_count(Collection<T0> input, ToIntFunction<T0> arg0) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			sorted0.add(t2);
@@ -9420,7 +10543,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_boxed_sortedComp_count(Collection<T0> input, ToIntFunction<T0> arg0, Comparator<? super Integer> arg2) {
 		List<Integer> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			sortedComp0.add(t2);
@@ -9438,7 +10561,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			limit0++;
@@ -9456,7 +10579,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			skip0++;
@@ -9471,7 +10594,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_boxed_distinct_count(Collection<T0> input, ToIntFunction<T0> arg0) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			if(!distinct0.add(t2)) {
@@ -9485,7 +10608,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_boxed_dropWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, Predicate<Integer> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			if(dropWhile0 && arg2.test(t2)) {
@@ -9500,7 +10623,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_boxed_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, Predicate<Integer> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			if(!arg2.test(t2)) {
@@ -9511,9 +10634,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T3> long stream_mapToInt_boxed_flatMap_count(Collection<T0> input, ToIntFunction<T0> arg0, Function<Integer, Collection<T3>> arg2) {
+	public static <T0, T3> long stream_mapToInt_boxed_flatMapLambda_count(Collection<T0> input, ToIntFunction<T0> arg0, Function<Integer, Collection<T3>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			for (T3 t3 : arg2.apply(t2)) {
@@ -9526,7 +10649,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_sorted_map_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg2) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -9541,7 +10664,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_sorted_filter_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg2) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -9558,7 +10681,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_sorted_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg2) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -9573,7 +10696,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_sorted_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg2) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -9588,7 +10711,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToInt_sorted_mapToObj_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg2) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -9603,7 +10726,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_sorted_boxed_count(Collection<T0> input, ToIntFunction<T0> arg0) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -9619,7 +10742,7 @@ public class ForeachStreamCount {
 		List<Integer> sorted0 = new ArrayList<>();
 		List<Integer> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -9641,7 +10764,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -9663,7 +10786,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -9682,7 +10805,7 @@ public class ForeachStreamCount {
 		List<Integer> sorted0 = new ArrayList<>();
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -9700,7 +10823,7 @@ public class ForeachStreamCount {
 		List<Integer> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -9719,7 +10842,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_sorted_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg2) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -9739,7 +10862,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -9757,7 +10880,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -9777,7 +10900,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -9795,7 +10918,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -9813,7 +10936,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -9831,7 +10954,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -9850,7 +10973,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -9875,7 +10998,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -9900,7 +11023,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -9922,7 +11045,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -9943,7 +11066,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -9965,7 +11088,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -9985,7 +11108,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10003,7 +11126,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10023,7 +11146,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10041,7 +11164,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10059,7 +11182,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10077,7 +11200,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10096,7 +11219,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10121,7 +11244,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10146,7 +11269,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10168,7 +11291,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10189,7 +11312,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10211,7 +11334,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10228,7 +11351,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_distinct_map_count(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg2) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10242,7 +11365,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_distinct_filter_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg2) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10258,7 +11381,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_distinct_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg2) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10272,7 +11395,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_distinct_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg2) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10286,7 +11409,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToInt_distinct_mapToObj_count(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg2) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10300,7 +11423,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_distinct_boxed_count(Collection<T0> input, ToIntFunction<T0> arg0) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10315,7 +11438,7 @@ public class ForeachStreamCount {
 		Set<Integer> distinct0 = new HashSet<>();
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10336,7 +11459,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10357,7 +11480,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10375,7 +11498,7 @@ public class ForeachStreamCount {
 		Set<Integer> distinct0 = new HashSet<>();
 		Set<Integer> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10392,7 +11515,7 @@ public class ForeachStreamCount {
 		Set<Integer> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10410,7 +11533,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_distinct_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg2) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10426,7 +11549,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_dropWhile_map_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntUnaryOperator arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10442,7 +11565,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_dropWhile_filter_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10460,7 +11583,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_dropWhile_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntToLongFunction arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10476,7 +11599,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_dropWhile_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntToDoubleFunction arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10492,7 +11615,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToInt_dropWhile_mapToObj_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntFunction<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10508,7 +11631,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_dropWhile_boxed_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10525,7 +11648,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10548,7 +11671,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10571,7 +11694,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10591,7 +11714,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10610,7 +11733,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10630,7 +11753,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_dropWhile_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10647,7 +11770,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_takeWhile_map_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -10660,7 +11783,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_takeWhile_filter_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -10675,7 +11798,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_takeWhile_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -10688,7 +11811,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_takeWhile_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -10701,7 +11824,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToInt_takeWhile_mapToObj_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -10714,7 +11837,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_takeWhile_boxed_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -10728,7 +11851,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_takeWhile_sorted_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -10748,7 +11871,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -10768,7 +11891,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -10785,7 +11908,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_takeWhile_distinct_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -10801,7 +11924,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToInt_takeWhile_dropWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -10818,7 +11941,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToInt_takeWhile_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -10833,7 +11956,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_map_map_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			t1 = arg2.applyAsLong(t1);
@@ -10844,7 +11967,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_map_filter_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			if (!arg2.test(t1)) {
@@ -10857,7 +11980,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_map_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			int t2 = arg2.applyAsInt(t1);
@@ -10868,7 +11991,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_map_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			double t2 = arg2.applyAsDouble(t1);
@@ -10879,7 +12002,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToLong_map_mapToObj_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			T2 t2 = arg2.apply(t1);
@@ -10890,7 +12013,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_map_boxed_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			Long t2 = t1;
@@ -10902,7 +12025,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_map_sorted_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			sorted0.add(t1);
@@ -10920,7 +12043,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			limit0++;
@@ -10938,7 +12061,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			skip0++;
@@ -10953,7 +12076,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_map_distinct_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			if(!distinct0.add(t1)) {
@@ -10967,7 +12090,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_map_dropWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			if(dropWhile0 && arg2.test(t1)) {
@@ -10982,7 +12105,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_map_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			if(!arg2.test(t1)) {
@@ -10995,7 +12118,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_filter_map_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -11008,7 +12131,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_filter_filter_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -11023,7 +12146,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_filter_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -11036,7 +12159,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_filter_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -11049,7 +12172,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToLong_filter_mapToObj_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -11062,7 +12185,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_filter_boxed_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -11076,7 +12199,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_filter_sorted_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -11096,7 +12219,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -11116,7 +12239,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -11133,7 +12256,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_filter_distinct_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -11149,7 +12272,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_filter_dropWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -11166,7 +12289,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_filter_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -11181,7 +12304,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToInt_map_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			t2 = arg2.applyAsInt(t2);
@@ -11192,7 +12315,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToInt_filter_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			if (!arg2.test(t2)) {
@@ -11205,7 +12328,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToInt_mapToLong_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			long t3 = arg2.applyAsLong(t2);
@@ -11216,7 +12339,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToInt_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			double t3 = arg2.applyAsDouble(t2);
@@ -11227,7 +12350,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T3> long stream_mapToLong_mapToInt_mapToObj_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntFunction<T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			T3 t3 = arg2.apply(t2);
@@ -11238,7 +12361,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToInt_boxed_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			Integer t3 = t2;
@@ -11250,7 +12373,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_mapToInt_sorted_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
@@ -11268,7 +12391,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			limit0++;
@@ -11286,7 +12409,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			skip0++;
@@ -11301,7 +12424,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_mapToInt_distinct_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			if(!distinct0.add(t2)) {
@@ -11315,7 +12438,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_mapToInt_dropWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -11330,7 +12453,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToInt_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			if(!arg2.test(t2)) {
@@ -11343,7 +12466,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToDouble_map_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			t2 = arg2.applyAsDouble(t2);
@@ -11354,7 +12477,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToDouble_filter_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			if (!arg2.test(t2)) {
@@ -11367,7 +12490,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToDouble_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			int t3 = arg2.applyAsInt(t2);
@@ -11378,7 +12501,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToDouble_mapToLong_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			long t3 = arg2.applyAsLong(t2);
@@ -11389,7 +12512,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T3> long stream_mapToLong_mapToDouble_mapToObj_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleFunction<T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			T3 t3 = arg2.apply(t2);
@@ -11400,7 +12523,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToDouble_boxed_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			Double t3 = t2;
@@ -11412,7 +12535,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_mapToDouble_sorted_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
@@ -11430,7 +12553,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			limit0++;
@@ -11448,7 +12571,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			skip0++;
@@ -11463,7 +12586,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_mapToDouble_distinct_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			if(!distinct0.add(t2)) {
@@ -11477,7 +12600,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_mapToDouble_dropWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -11492,7 +12615,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_mapToDouble_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			if(!arg2.test(t2)) {
@@ -11505,7 +12628,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2, T3> long stream_mapToLong_mapToObj_map_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Function<T2, T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			T3 t3 = arg2.apply(t2);
@@ -11516,7 +12639,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToLong_mapToObj_filter_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			if (!arg2.test(t2)) {
@@ -11529,7 +12652,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToLong_mapToObj_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, ToIntFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			int t3 = arg2.applyAsInt(t2);
@@ -11540,7 +12663,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToLong_mapToObj_mapToLong_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, ToLongFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			long t3 = arg2.applyAsLong(t2);
@@ -11551,7 +12674,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToLong_mapToObj_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, ToDoubleFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			double t3 = arg2.applyAsDouble(t2);
@@ -11563,7 +12686,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToLong_mapToObj_sorted_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1) {
 		List<T2> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			sorted0.add(t2);
@@ -11578,7 +12701,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToLong_mapToObj_sortedComp_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Comparator<? super T2> arg2) {
 		List<T2> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			sortedComp0.add(t2);
@@ -11596,7 +12719,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			limit0++;
@@ -11614,7 +12737,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			skip0++;
@@ -11629,7 +12752,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToLong_mapToObj_distinct_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1) {
 		Set<T2> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			if(!distinct0.add(t2)) {
@@ -11643,7 +12766,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToLong_mapToObj_dropWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Predicate<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -11658,7 +12781,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToLong_mapToObj_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			if(!arg2.test(t2)) {
@@ -11669,9 +12792,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T2, T3> long stream_mapToLong_mapToObj_flatMap_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Function<T2, Collection<T3>> arg2) {
+	public static <T0, T2, T3> long stream_mapToLong_mapToObj_flatMapLambda_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Function<T2, Collection<T3>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			for (T3 t3 : arg2.apply(t2)) {
@@ -11681,9 +12804,21 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T2 extends Collection<T3>, T3> long stream_mapToLong_mapToObj_flatMapMemberReference_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			long t1 = arg0.applyAsLong(t0);
+			T2 t2 = arg1.apply(t1);
+			for (T3 t3 : t2) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T3> long stream_mapToLong_boxed_map_count(Collection<T0> input, ToLongFunction<T0> arg0, Function<Long, T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			T3 t3 = arg2.apply(t2);
@@ -11694,7 +12829,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_boxed_filter_count(Collection<T0> input, ToLongFunction<T0> arg0, Predicate<Long> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			if (!arg2.test(t2)) {
@@ -11707,7 +12842,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_boxed_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg0, ToIntFunction<Long> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			int t3 = arg2.applyAsInt(t2);
@@ -11718,7 +12853,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_boxed_mapToLong_count(Collection<T0> input, ToLongFunction<T0> arg0, ToLongFunction<Long> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			long t3 = arg2.applyAsLong(t2);
@@ -11729,7 +12864,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_boxed_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg0, ToDoubleFunction<Long> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			double t3 = arg2.applyAsDouble(t2);
@@ -11741,7 +12876,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_boxed_sorted_count(Collection<T0> input, ToLongFunction<T0> arg0) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			sorted0.add(t2);
@@ -11756,7 +12891,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_boxed_sortedComp_count(Collection<T0> input, ToLongFunction<T0> arg0, Comparator<? super Long> arg2) {
 		List<Long> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			sortedComp0.add(t2);
@@ -11774,7 +12909,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			limit0++;
@@ -11792,7 +12927,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			skip0++;
@@ -11807,7 +12942,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_boxed_distinct_count(Collection<T0> input, ToLongFunction<T0> arg0) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			if(!distinct0.add(t2)) {
@@ -11821,7 +12956,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_boxed_dropWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, Predicate<Long> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			if(dropWhile0 && arg2.test(t2)) {
@@ -11836,7 +12971,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_boxed_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, Predicate<Long> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			if(!arg2.test(t2)) {
@@ -11847,9 +12982,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T3> long stream_mapToLong_boxed_flatMap_count(Collection<T0> input, ToLongFunction<T0> arg0, Function<Long, Collection<T3>> arg2) {
+	public static <T0, T3> long stream_mapToLong_boxed_flatMapLambda_count(Collection<T0> input, ToLongFunction<T0> arg0, Function<Long, Collection<T3>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			for (T3 t3 : arg2.apply(t2)) {
@@ -11862,7 +12997,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_sorted_map_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg2) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -11877,7 +13012,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_sorted_filter_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg2) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -11894,7 +13029,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_sorted_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg2) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -11909,7 +13044,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_sorted_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg2) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -11924,7 +13059,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToLong_sorted_mapToObj_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg2) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -11939,7 +13074,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_sorted_boxed_count(Collection<T0> input, ToLongFunction<T0> arg0) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -11955,7 +13090,7 @@ public class ForeachStreamCount {
 		List<Long> sorted0 = new ArrayList<>();
 		List<Long> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -11977,7 +13112,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -11999,7 +13134,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -12018,7 +13153,7 @@ public class ForeachStreamCount {
 		List<Long> sorted0 = new ArrayList<>();
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -12036,7 +13171,7 @@ public class ForeachStreamCount {
 		List<Long> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -12055,7 +13190,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_sorted_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg2) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -12075,7 +13210,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -12093,7 +13228,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -12113,7 +13248,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -12131,7 +13266,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -12149,7 +13284,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -12167,7 +13302,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -12186,7 +13321,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -12211,7 +13346,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -12236,7 +13371,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -12258,7 +13393,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -12279,7 +13414,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -12301,7 +13436,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -12321,7 +13456,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -12339,7 +13474,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -12359,7 +13494,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -12377,7 +13512,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -12395,7 +13530,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -12413,7 +13548,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -12432,7 +13567,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -12457,7 +13592,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -12482,7 +13617,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -12504,7 +13639,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -12525,7 +13660,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -12547,7 +13682,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -12564,7 +13699,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_distinct_map_count(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg2) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -12578,7 +13713,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_distinct_filter_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg2) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -12594,7 +13729,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_distinct_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg2) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -12608,7 +13743,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_distinct_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg2) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -12622,7 +13757,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToLong_distinct_mapToObj_count(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg2) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -12636,7 +13771,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_distinct_boxed_count(Collection<T0> input, ToLongFunction<T0> arg0) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -12651,7 +13786,7 @@ public class ForeachStreamCount {
 		Set<Long> distinct0 = new HashSet<>();
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -12672,7 +13807,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -12693,7 +13828,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -12711,7 +13846,7 @@ public class ForeachStreamCount {
 		Set<Long> distinct0 = new HashSet<>();
 		Set<Long> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -12728,7 +13863,7 @@ public class ForeachStreamCount {
 		Set<Long> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -12746,7 +13881,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_distinct_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg2) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -12762,7 +13897,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_dropWhile_map_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongUnaryOperator arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12778,7 +13913,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_dropWhile_filter_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12796,7 +13931,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_dropWhile_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongToIntFunction arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12812,7 +13947,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_dropWhile_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongToDoubleFunction arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12828,7 +13963,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToLong_dropWhile_mapToObj_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongFunction<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12844,7 +13979,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_dropWhile_boxed_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12861,7 +13996,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12884,7 +14019,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12907,7 +14042,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12927,7 +14062,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12946,7 +14081,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12966,7 +14101,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_dropWhile_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12983,7 +14118,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_takeWhile_map_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -12996,7 +14131,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_takeWhile_filter_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -13011,7 +14146,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_takeWhile_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -13024,7 +14159,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_takeWhile_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -13037,7 +14172,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToLong_takeWhile_mapToObj_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -13050,7 +14185,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_takeWhile_boxed_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -13064,7 +14199,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_takeWhile_sorted_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -13084,7 +14219,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -13104,7 +14239,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -13121,7 +14256,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_takeWhile_distinct_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -13137,7 +14272,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToLong_takeWhile_dropWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -13154,7 +14289,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToLong_takeWhile_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -13169,7 +14304,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_map_map_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			t1 = arg2.applyAsDouble(t1);
@@ -13180,7 +14315,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_map_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			if (!arg2.test(t1)) {
@@ -13193,7 +14328,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_map_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			int t2 = arg2.applyAsInt(t1);
@@ -13204,7 +14339,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_map_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			long t2 = arg2.applyAsLong(t1);
@@ -13215,7 +14350,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToDouble_map_mapToObj_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			T2 t2 = arg2.apply(t1);
@@ -13226,7 +14361,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_map_boxed_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			Double t2 = t1;
@@ -13238,7 +14373,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_map_sorted_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			sorted0.add(t1);
@@ -13256,7 +14391,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			limit0++;
@@ -13274,7 +14409,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			skip0++;
@@ -13289,7 +14424,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_map_distinct_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			if(!distinct0.add(t1)) {
@@ -13303,7 +14438,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_map_dropWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			if(dropWhile0 && arg2.test(t1)) {
@@ -13318,7 +14453,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_map_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			if(!arg2.test(t1)) {
@@ -13331,7 +14466,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_filter_map_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -13344,7 +14479,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_filter_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -13359,7 +14494,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_filter_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -13372,7 +14507,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_filter_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -13385,7 +14520,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToDouble_filter_mapToObj_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -13398,7 +14533,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_filter_boxed_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -13412,7 +14547,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_filter_sorted_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -13432,7 +14567,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -13452,7 +14587,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -13469,7 +14604,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_filter_distinct_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -13485,7 +14620,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_filter_dropWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -13502,7 +14637,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_filter_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
@@ -13517,7 +14652,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToInt_map_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			t2 = arg2.applyAsInt(t2);
@@ -13528,7 +14663,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToInt_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			if (!arg2.test(t2)) {
@@ -13541,7 +14676,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToInt_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			long t3 = arg2.applyAsLong(t2);
@@ -13552,7 +14687,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToInt_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			double t3 = arg2.applyAsDouble(t2);
@@ -13563,7 +14698,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T3> long stream_mapToDouble_mapToInt_mapToObj_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntFunction<T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			T3 t3 = arg2.apply(t2);
@@ -13574,7 +14709,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToInt_boxed_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			Integer t3 = t2;
@@ -13586,7 +14721,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_mapToInt_sorted_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
@@ -13604,7 +14739,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			limit0++;
@@ -13622,7 +14757,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			skip0++;
@@ -13637,7 +14772,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_mapToInt_distinct_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			if(!distinct0.add(t2)) {
@@ -13651,7 +14786,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_mapToInt_dropWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -13666,7 +14801,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToInt_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			if(!arg2.test(t2)) {
@@ -13679,7 +14814,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToLong_map_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			t2 = arg2.applyAsLong(t2);
@@ -13690,7 +14825,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToLong_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			if (!arg2.test(t2)) {
@@ -13703,7 +14838,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToLong_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			int t3 = arg2.applyAsInt(t2);
@@ -13714,7 +14849,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToLong_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			double t3 = arg2.applyAsDouble(t2);
@@ -13725,7 +14860,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T3> long stream_mapToDouble_mapToLong_mapToObj_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongFunction<T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			T3 t3 = arg2.apply(t2);
@@ -13736,7 +14871,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToLong_boxed_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			Long t3 = t2;
@@ -13748,7 +14883,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_mapToLong_sorted_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
@@ -13766,7 +14901,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			limit0++;
@@ -13784,7 +14919,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			skip0++;
@@ -13799,7 +14934,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_mapToLong_distinct_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			if(!distinct0.add(t2)) {
@@ -13813,7 +14948,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_mapToLong_dropWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -13828,7 +14963,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_mapToLong_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			if(!arg2.test(t2)) {
@@ -13841,7 +14976,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2, T3> long stream_mapToDouble_mapToObj_map_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Function<T2, T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			T3 t3 = arg2.apply(t2);
@@ -13852,7 +14987,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToDouble_mapToObj_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			if (!arg2.test(t2)) {
@@ -13865,7 +15000,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToDouble_mapToObj_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, ToIntFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			int t3 = arg2.applyAsInt(t2);
@@ -13876,7 +15011,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToDouble_mapToObj_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, ToLongFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			long t3 = arg2.applyAsLong(t2);
@@ -13887,7 +15022,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToDouble_mapToObj_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, ToDoubleFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			double t3 = arg2.applyAsDouble(t2);
@@ -13899,7 +15034,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToDouble_mapToObj_sorted_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1) {
 		List<T2> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			sorted0.add(t2);
@@ -13914,7 +15049,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToDouble_mapToObj_sortedComp_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Comparator<? super T2> arg2) {
 		List<T2> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			sortedComp0.add(t2);
@@ -13932,7 +15067,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			limit0++;
@@ -13950,7 +15085,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			skip0++;
@@ -13965,7 +15100,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToDouble_mapToObj_distinct_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1) {
 		Set<T2> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			if(!distinct0.add(t2)) {
@@ -13979,7 +15114,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToDouble_mapToObj_dropWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Predicate<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			if(dropWhile0 && arg2.test(t2)) {
@@ -13994,7 +15129,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToDouble_mapToObj_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			if(!arg2.test(t2)) {
@@ -14005,9 +15140,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T2, T3> long stream_mapToDouble_mapToObj_flatMap_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Function<T2, Collection<T3>> arg2) {
+	public static <T0, T2, T3> long stream_mapToDouble_mapToObj_flatMapLambda_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Function<T2, Collection<T3>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			for (T3 t3 : arg2.apply(t2)) {
@@ -14017,9 +15152,21 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T2 extends Collection<T3>, T3> long stream_mapToDouble_mapToObj_flatMapMemberReference_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			double t1 = arg0.applyAsDouble(t0);
+			T2 t2 = arg1.apply(t1);
+			for (T3 t3 : t2) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T3> long stream_mapToDouble_boxed_map_count(Collection<T0> input, ToDoubleFunction<T0> arg0, Function<Double, T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			T3 t3 = arg2.apply(t2);
@@ -14030,7 +15177,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_boxed_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg0, Predicate<Double> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			if (!arg2.test(t2)) {
@@ -14043,7 +15190,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_boxed_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg0, ToIntFunction<Double> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			int t3 = arg2.applyAsInt(t2);
@@ -14054,7 +15201,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_boxed_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg0, ToLongFunction<Double> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			long t3 = arg2.applyAsLong(t2);
@@ -14065,7 +15212,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_boxed_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T0> arg0, ToDoubleFunction<Double> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			double t3 = arg2.applyAsDouble(t2);
@@ -14077,7 +15224,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_boxed_sorted_count(Collection<T0> input, ToDoubleFunction<T0> arg0) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			sorted0.add(t2);
@@ -14092,7 +15239,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_boxed_sortedComp_count(Collection<T0> input, ToDoubleFunction<T0> arg0, Comparator<? super Double> arg2) {
 		List<Double> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			sortedComp0.add(t2);
@@ -14110,7 +15257,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			limit0++;
@@ -14128,7 +15275,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			skip0++;
@@ -14143,7 +15290,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_boxed_distinct_count(Collection<T0> input, ToDoubleFunction<T0> arg0) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			if(!distinct0.add(t2)) {
@@ -14157,7 +15304,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_boxed_dropWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, Predicate<Double> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			if(dropWhile0 && arg2.test(t2)) {
@@ -14172,7 +15319,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_boxed_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, Predicate<Double> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			if(!arg2.test(t2)) {
@@ -14183,9 +15330,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T3> long stream_mapToDouble_boxed_flatMap_count(Collection<T0> input, ToDoubleFunction<T0> arg0, Function<Double, Collection<T3>> arg2) {
+	public static <T0, T3> long stream_mapToDouble_boxed_flatMapLambda_count(Collection<T0> input, ToDoubleFunction<T0> arg0, Function<Double, Collection<T3>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			for (T3 t3 : arg2.apply(t2)) {
@@ -14198,7 +15345,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_sorted_map_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg2) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -14213,7 +15360,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_sorted_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg2) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -14230,7 +15377,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_sorted_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg2) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -14245,7 +15392,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_sorted_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg2) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -14260,7 +15407,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToDouble_sorted_mapToObj_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg2) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -14275,7 +15422,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_sorted_boxed_count(Collection<T0> input, ToDoubleFunction<T0> arg0) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -14291,7 +15438,7 @@ public class ForeachStreamCount {
 		List<Double> sorted0 = new ArrayList<>();
 		List<Double> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -14313,7 +15460,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -14335,7 +15482,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -14354,7 +15501,7 @@ public class ForeachStreamCount {
 		List<Double> sorted0 = new ArrayList<>();
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -14372,7 +15519,7 @@ public class ForeachStreamCount {
 		List<Double> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -14391,7 +15538,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_sorted_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg2) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -14411,7 +15558,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -14429,7 +15576,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -14449,7 +15596,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -14467,7 +15614,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -14485,7 +15632,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -14503,7 +15650,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -14522,7 +15669,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -14547,7 +15694,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -14572,7 +15719,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -14594,7 +15741,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -14615,7 +15762,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -14637,7 +15784,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if(limit0 > arg1) {
@@ -14657,7 +15804,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -14675,7 +15822,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -14695,7 +15842,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -14713,7 +15860,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -14731,7 +15878,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -14749,7 +15896,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -14768,7 +15915,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -14793,7 +15940,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -14818,7 +15965,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -14840,7 +15987,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -14861,7 +16008,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -14883,7 +16030,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
@@ -14900,7 +16047,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_distinct_map_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg2) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -14914,7 +16061,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_distinct_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg2) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -14930,7 +16077,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_distinct_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg2) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -14944,7 +16091,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_distinct_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg2) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -14958,7 +16105,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToDouble_distinct_mapToObj_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg2) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -14972,7 +16119,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_distinct_boxed_count(Collection<T0> input, ToDoubleFunction<T0> arg0) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -14987,7 +16134,7 @@ public class ForeachStreamCount {
 		Set<Double> distinct0 = new HashSet<>();
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -15008,7 +16155,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -15029,7 +16176,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -15047,7 +16194,7 @@ public class ForeachStreamCount {
 		Set<Double> distinct0 = new HashSet<>();
 		Set<Double> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -15064,7 +16211,7 @@ public class ForeachStreamCount {
 		Set<Double> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -15082,7 +16229,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_distinct_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg2) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -15098,7 +16245,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_dropWhile_map_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleUnaryOperator arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15114,7 +16261,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_dropWhile_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15132,7 +16279,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_dropWhile_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleToIntFunction arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15148,7 +16295,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_dropWhile_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleToLongFunction arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15164,7 +16311,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_mapToDouble_dropWhile_mapToObj_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleFunction<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15180,7 +16327,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_dropWhile_boxed_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15197,7 +16344,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15220,7 +16367,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15243,7 +16390,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15263,7 +16410,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15282,7 +16429,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15302,7 +16449,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_dropWhile_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15319,7 +16466,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_takeWhile_map_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -15332,7 +16479,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_takeWhile_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -15347,7 +16494,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_takeWhile_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -15360,7 +16507,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_takeWhile_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -15373,7 +16520,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_mapToDouble_takeWhile_mapToObj_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -15386,7 +16533,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_takeWhile_boxed_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -15400,7 +16547,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_takeWhile_sorted_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -15420,7 +16567,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -15440,7 +16587,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -15457,7 +16604,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_takeWhile_distinct_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -15473,7 +16620,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_mapToDouble_takeWhile_dropWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -15490,7 +16637,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_mapToDouble_takeWhile_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
@@ -15506,7 +16653,7 @@ public class ForeachStreamCount {
 	public static <T0, T1, T2> long stream_sorted_map_map_count(Collection<T0> input, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15521,7 +16668,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_sorted_map_filter_count(Collection<T0> input, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15538,7 +16685,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_sorted_map_mapToInt_count(Collection<T0> input, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15553,7 +16700,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_sorted_map_mapToLong_count(Collection<T0> input, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15568,7 +16715,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_sorted_map_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15584,7 +16731,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T1> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15603,7 +16750,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15625,7 +16772,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15647,7 +16794,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15666,7 +16813,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15684,7 +16831,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15703,7 +16850,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_sorted_map_takeWhile_count(Collection<T0> input, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15717,10 +16864,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_sorted_map_flatMap_count(Collection<T0> input, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_sorted_map_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15733,10 +16880,26 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_sorted_map_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sorted_filter_map_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15753,7 +16916,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_filter_filter_count(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15772,7 +16935,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_filter_mapToInt_count(Collection<T0> input, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15789,7 +16952,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_filter_mapToLong_count(Collection<T0> input, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15806,7 +16969,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_filter_mapToDouble_count(Collection<T0> input, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15824,7 +16987,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15845,7 +17008,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15869,7 +17032,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15893,7 +17056,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15914,7 +17077,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15934,7 +17097,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15955,7 +17118,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_filter_takeWhile_count(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15971,10 +17134,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_filter_flatMap_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sorted_filter_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -15989,10 +17152,28 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_filter_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0> long stream_sorted_mapToInt_map_count(Collection<T0> input, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16007,7 +17188,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToInt_filter_count(Collection<T0> input, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16024,7 +17205,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToInt_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16039,7 +17220,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToInt_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16054,7 +17235,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_sorted_mapToInt_mapToObj_count(Collection<T0> input, ToIntFunction<T0> arg1, IntFunction<T2> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16069,7 +17250,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToInt_boxed_count(Collection<T0> input, ToIntFunction<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16085,7 +17266,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<Integer> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16107,7 +17288,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16129,7 +17310,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16148,7 +17329,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16166,7 +17347,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16185,7 +17366,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToInt_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16202,7 +17383,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToLong_map_count(Collection<T0> input, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16217,7 +17398,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToLong_filter_count(Collection<T0> input, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16234,7 +17415,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToLong_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16249,7 +17430,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToLong_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16264,7 +17445,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_sorted_mapToLong_mapToObj_count(Collection<T0> input, ToLongFunction<T0> arg1, LongFunction<T2> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16279,7 +17460,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToLong_boxed_count(Collection<T0> input, ToLongFunction<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16295,7 +17476,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<Long> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16317,7 +17498,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16339,7 +17520,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16358,7 +17539,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16376,7 +17557,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16395,7 +17576,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToLong_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16412,7 +17593,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToDouble_map_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16427,7 +17608,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToDouble_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16444,7 +17625,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToDouble_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16459,7 +17640,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToDouble_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16474,7 +17655,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_sorted_mapToDouble_mapToObj_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleFunction<T2> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16489,7 +17670,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToDouble_boxed_count(Collection<T0> input, ToDoubleFunction<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16505,7 +17686,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<Double> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16527,7 +17708,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16549,7 +17730,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16568,7 +17749,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16586,7 +17767,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16605,7 +17786,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_mapToDouble_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16623,7 +17804,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16642,7 +17823,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16663,7 +17844,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16682,7 +17863,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16701,7 +17882,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16721,7 +17902,7 @@ public class ForeachStreamCount {
 		List<T0> sorted1 = new ArrayList<>();
 		List<T0> sorted2 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16744,7 +17925,7 @@ public class ForeachStreamCount {
 		List<T0> sorted1 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16770,7 +17951,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16796,7 +17977,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16819,7 +18000,7 @@ public class ForeachStreamCount {
 		List<T0> sorted1 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16841,7 +18022,7 @@ public class ForeachStreamCount {
 		List<T0> sorted1 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16864,7 +18045,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16881,11 +18062,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_sorted_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sorted_sorted_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16901,11 +18082,31 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_sorted_flatMapMemberReference_count(Collection<T0> input) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sorted1.add(t0);
+		}
+		Collections.sort((List) sorted1);
+		for (T0 t0: sorted1) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sorted_sortedComp_map_count(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16924,7 +18125,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16945,7 +18146,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16964,7 +18165,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -16983,7 +18184,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17003,7 +18204,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17026,7 +18227,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17052,7 +18253,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17078,7 +18279,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17101,7 +18302,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17123,7 +18324,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17146,7 +18347,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17163,11 +18364,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_sortedComp_flatMap_count(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sorted_sortedComp_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17183,6 +18384,26 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_sortedComp_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sorted_limit_map_count(Collection<T0> input, long arg1, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		if(arg1 < 0) {
@@ -17190,7 +18411,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17212,7 +18433,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17236,7 +18457,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17258,7 +18479,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17280,7 +18501,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17303,7 +18524,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17329,7 +18550,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17358,7 +18579,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17387,7 +18608,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17413,7 +18634,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17438,7 +18659,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17464,7 +18685,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17481,14 +18702,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_limit_flatMap_count(Collection<T0> input, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sorted_limit_flatMapLambda_count(Collection<T0> input, long arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17504,6 +18725,29 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_limit_flatMapMemberReference_count(Collection<T0> input, long arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sorted_skip_map_count(Collection<T0> input, long arg1, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		if(arg1 < 0) {
@@ -17511,7 +18755,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17533,7 +18777,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17557,7 +18801,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17579,7 +18823,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17601,7 +18845,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17624,7 +18868,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17650,7 +18894,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17679,7 +18923,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17708,7 +18952,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17734,7 +18978,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17759,7 +19003,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17785,7 +19029,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17802,14 +19046,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_skip_flatMap_count(Collection<T0> input, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sorted_skip_flatMapLambda_count(Collection<T0> input, long arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17825,11 +19069,34 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_skip_flatMapMemberReference_count(Collection<T0> input, long arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sorted_distinct_map_count(Collection<T0> input, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17847,7 +19114,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17867,7 +19134,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17885,7 +19152,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17903,7 +19170,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17922,7 +19189,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17944,7 +19211,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17969,7 +19236,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17994,7 +19261,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18016,7 +19283,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18037,7 +19304,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18059,7 +19326,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18075,11 +19342,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_distinct_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sorted_distinct_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18094,11 +19361,30 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_distinct_flatMapMemberReference_count(Collection<T0> input) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sorted_dropWhile_map_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18118,7 +19404,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18140,7 +19426,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18160,7 +19446,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18180,7 +19466,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18201,7 +19487,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18225,7 +19511,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18252,7 +19538,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18279,7 +19565,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18303,7 +19589,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18326,7 +19612,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18350,7 +19636,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18368,11 +19654,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_dropWhile_flatMap_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sorted_dropWhile_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18389,10 +19675,31 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_dropWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sorted_takeWhile_map_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18409,7 +19716,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_takeWhile_filter_count(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18428,7 +19735,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_takeWhile_mapToInt_count(Collection<T0> input, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18445,7 +19752,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_takeWhile_mapToLong_count(Collection<T0> input, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18462,7 +19769,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_takeWhile_mapToDouble_count(Collection<T0> input, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18480,7 +19787,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18501,7 +19808,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18525,7 +19832,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18549,7 +19856,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18570,7 +19877,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18590,7 +19897,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18611,7 +19918,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sorted_takeWhile_takeWhile_count(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18627,10 +19934,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_takeWhile_flatMap_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sorted_takeWhile_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18645,10 +19952,28 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_sorted_flatMap_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_takeWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_sorted_flatMapLambda_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18661,10 +19986,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_flatMap_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_sorted_flatMapLambda_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18679,10 +20004,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_flatMap_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_sorted_flatMapLambda_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18695,10 +20020,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_flatMap_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_sorted_flatMapLambda_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18711,10 +20036,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_flatMap_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_sorted_flatMapLambda_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18727,11 +20052,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_flatMap_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_sorted_flatMapLambda_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T1> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18747,11 +20072,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_flatMap_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_sorted_flatMapLambda_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18767,14 +20092,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_flatMap_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_sorted_flatMapLambda_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, long arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18790,14 +20115,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_flatMap_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_sorted_flatMapLambda_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, long arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18813,11 +20138,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_flatMap_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_sorted_flatMapLambda_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18832,11 +20157,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_flatMap_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_sorted_flatMapLambda_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18853,10 +20178,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sorted_flatMap_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_sorted_flatMapLambda_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18871,10 +20196,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_sorted_flatMap_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_sorted_flatMapLambda_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -18888,10 +20213,287 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_sorted_flatMapLambda_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_sorted_flatMapMemberReference_map_count(Collection<T0> input, Function<T1, T2> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_filter_count(Collection<T0> input, Predicate<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_mapToInt_count(Collection<T0> input, ToIntFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_mapToLong_count(Collection<T0> input, ToLongFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_sorted_count(Collection<T0> input) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T1> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				sorted1.add(t1);
+			}
+		}
+		Collections.sort((List) sorted1);
+		for (T1 t1: sorted1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_sortedComp_count(Collection<T0> input, Comparator<? super T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_limit_count(Collection<T0> input, long arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_skip_count(Collection<T0> input, long arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_distinct_count(Collection<T0> input) {
+		List<T0> sorted0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_dropWhile_count(Collection<T0> input, Predicate<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_takeWhile_count(Collection<T0> input, Predicate<T1> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_sorted_flatMapMemberReference_flatMapLambda_count(Collection<T0> input, Function<T1, Collection<T2>> arg2) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_sorted_flatMapMemberReference_flatMapMemberReference_count(Collection<T0> input) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_sortedComp_map_map_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -18906,7 +20508,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_sortedComp_map_filter_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -18923,7 +20525,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_sortedComp_map_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -18938,7 +20540,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_sortedComp_map_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -18953,7 +20555,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_sortedComp_map_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -18969,7 +20571,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -18988,7 +20590,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T1> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19010,7 +20612,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19032,7 +20634,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19051,7 +20653,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19069,7 +20671,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19088,7 +20690,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_sortedComp_map_takeWhile_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19102,10 +20704,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_sortedComp_map_flatMap_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_sortedComp_map_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19118,10 +20720,26 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_sortedComp_map_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sortedComp_filter_map_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19138,7 +20756,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_filter_filter_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19157,7 +20775,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_filter_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19174,7 +20792,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_filter_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19191,7 +20809,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_filter_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19209,7 +20827,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19230,7 +20848,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19254,7 +20872,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19278,7 +20896,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19299,7 +20917,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19319,7 +20937,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19340,7 +20958,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_filter_takeWhile_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19356,10 +20974,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_filter_flatMap_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sortedComp_filter_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19374,10 +20992,28 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_filter_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0> long stream_sortedComp_mapToInt_map_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19392,7 +21028,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToInt_filter_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19409,7 +21045,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToInt_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19424,7 +21060,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToInt_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19439,7 +21075,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_sortedComp_mapToInt_mapToObj_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntFunction<T2> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19454,7 +21090,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToInt_boxed_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19470,7 +21106,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19492,7 +21128,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19514,7 +21150,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19533,7 +21169,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19551,7 +21187,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19570,7 +21206,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToInt_takeWhile_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19587,7 +21223,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToLong_map_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19602,7 +21238,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToLong_filter_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19619,7 +21255,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToLong_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19634,7 +21270,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToLong_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19649,7 +21285,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_sortedComp_mapToLong_mapToObj_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongFunction<T2> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19664,7 +21300,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToLong_boxed_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19680,7 +21316,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19702,7 +21338,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19724,7 +21360,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19743,7 +21379,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19761,7 +21397,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19780,7 +21416,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToLong_takeWhile_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19797,7 +21433,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToDouble_map_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19812,7 +21448,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToDouble_filter_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19829,7 +21465,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToDouble_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19844,7 +21480,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToDouble_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19859,7 +21495,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_sortedComp_mapToDouble_mapToObj_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleFunction<T2> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19874,7 +21510,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToDouble_boxed_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19890,7 +21526,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19912,7 +21548,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19934,7 +21570,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19953,7 +21589,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19971,7 +21607,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -19990,7 +21626,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_mapToDouble_takeWhile_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20008,7 +21644,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20027,7 +21663,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20048,7 +21684,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20067,7 +21703,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20086,7 +21722,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20106,7 +21742,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20129,7 +21765,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20155,7 +21791,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20181,7 +21817,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20204,7 +21840,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20226,7 +21862,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20249,7 +21885,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20266,11 +21902,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_sorted_flatMap_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sortedComp_sorted_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20286,11 +21922,31 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_sorted_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg0) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sortedComp_sortedComp_map_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20309,7 +21965,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20330,7 +21986,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20349,7 +22005,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20368,7 +22024,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20388,7 +22044,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp1 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20411,7 +22067,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp1 = new ArrayList<>();
 		List<T0> sortedComp2 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20437,7 +22093,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20463,7 +22119,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20486,7 +22142,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp1 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20508,7 +22164,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp1 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20531,7 +22187,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20548,11 +22204,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_sortedComp_flatMap_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sortedComp_sortedComp_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20568,6 +22224,26 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_sortedComp_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			sortedComp1.add(t0);
+		}
+		sortedComp1.sort(arg1);
+		for (T0 t0: sortedComp1) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sortedComp_limit_map_count(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		if(arg1 < 0) {
@@ -20575,7 +22251,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20597,7 +22273,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20621,7 +22297,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20643,7 +22319,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20665,7 +22341,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20688,7 +22364,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20714,7 +22390,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20743,7 +22419,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20772,7 +22448,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20798,7 +22474,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20823,7 +22499,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20849,7 +22525,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20866,14 +22542,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_limit_flatMap_count(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sortedComp_limit_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20889,6 +22565,29 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_limit_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg0, long arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sortedComp_skip_map_count(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		if(arg1 < 0) {
@@ -20896,7 +22595,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20918,7 +22617,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20942,7 +22641,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20964,7 +22663,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20986,7 +22685,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21009,7 +22708,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21035,7 +22734,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21064,7 +22763,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21093,7 +22792,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21119,7 +22818,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21144,7 +22843,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21170,7 +22869,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21187,14 +22886,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_skip_flatMap_count(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sortedComp_skip_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21210,11 +22909,34 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_skip_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg0, long arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sortedComp_distinct_map_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21232,7 +22954,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21252,7 +22974,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21270,7 +22992,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21288,7 +23010,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21307,7 +23029,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21329,7 +23051,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21354,7 +23076,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21379,7 +23101,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21401,7 +23123,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21422,7 +23144,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21444,7 +23166,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21460,11 +23182,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_distinct_flatMap_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sortedComp_distinct_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21479,11 +23201,30 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_distinct_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg0) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sortedComp_dropWhile_map_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21503,7 +23244,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21525,7 +23266,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21545,7 +23286,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21565,7 +23306,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21586,7 +23327,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21610,7 +23351,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21637,7 +23378,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21664,7 +23405,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21688,7 +23429,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21711,7 +23452,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21735,7 +23476,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21753,11 +23494,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_dropWhile_flatMap_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sortedComp_dropWhile_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21774,10 +23515,31 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_dropWhile_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_sortedComp_takeWhile_map_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21794,7 +23556,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_takeWhile_filter_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21813,7 +23575,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_takeWhile_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21830,7 +23592,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_takeWhile_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21847,7 +23609,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_takeWhile_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21865,7 +23627,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21886,7 +23648,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21910,7 +23672,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21934,7 +23696,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21955,7 +23717,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21975,7 +23737,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -21996,7 +23758,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_sortedComp_takeWhile_takeWhile_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22012,10 +23774,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_takeWhile_flatMap_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_sortedComp_takeWhile_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22030,10 +23792,28 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_sortedComp_flatMap_map_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_takeWhile_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_sortedComp_flatMapLambda_map_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22046,10 +23826,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_flatMap_filter_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_sortedComp_flatMapLambda_filter_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22064,10 +23844,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_flatMap_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_sortedComp_flatMapLambda_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22080,10 +23860,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_flatMap_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_sortedComp_flatMapLambda_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22096,10 +23876,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_flatMap_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_sortedComp_flatMapLambda_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22112,11 +23892,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_flatMap_sorted_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_sortedComp_flatMapLambda_sorted_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22132,11 +23912,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_flatMap_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_sortedComp_flatMapLambda_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T1> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22152,14 +23932,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_flatMap_limit_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_sortedComp_flatMapLambda_limit_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22175,14 +23955,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_flatMap_skip_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_sortedComp_flatMapLambda_skip_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22198,11 +23978,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_flatMap_distinct_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_sortedComp_flatMapLambda_distinct_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22217,11 +23997,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_flatMap_dropWhile_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_sortedComp_flatMapLambda_dropWhile_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22238,10 +24018,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_sortedComp_flatMap_takeWhile_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_sortedComp_flatMapLambda_takeWhile_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22256,10 +24036,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_sortedComp_flatMap_flatMap_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_sortedComp_flatMapLambda_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22273,13 +24053,290 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_sortedComp_flatMapLambda_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_sortedComp_flatMapMemberReference_map_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T1, T2> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_filter_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_mapToInt_count(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_mapToLong_count(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_mapToDouble_count(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_sorted_count(Collection<T0> input, Comparator<? super T0> arg0) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_sortedComp_count(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				sortedComp1.add(t1);
+			}
+		}
+		sortedComp1.sort(arg2);
+		for (T1 t1: sortedComp1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_limit_count(Collection<T0> input, Comparator<? super T0> arg0, long arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_skip_count(Collection<T0> input, Comparator<? super T0> arg0, long arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_distinct_count(Collection<T0> input, Comparator<? super T0> arg0) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_dropWhile_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_takeWhile_count(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T1> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_sortedComp_flatMapMemberReference_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg0, Function<T1, Collection<T2>> arg2) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_sortedComp_flatMapMemberReference_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg0) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_limit_map_map_count(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22297,7 +24354,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22317,7 +24374,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22335,7 +24392,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22353,7 +24410,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22372,7 +24429,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22394,7 +24451,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22419,7 +24476,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22444,7 +24501,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22466,7 +24523,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22487,7 +24544,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22509,7 +24566,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22523,13 +24580,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_limit_map_flatMap_count(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_limit_map_flatMapLambda_count(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22542,13 +24599,32 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_limit_map_flatMapMemberReference_count(Collection<T0> input, long arg0, Function<T0, T1> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_limit_filter_map_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22568,7 +24644,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22590,7 +24666,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22610,7 +24686,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22630,7 +24706,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22651,7 +24727,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22675,7 +24751,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22702,7 +24778,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22729,7 +24805,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22753,7 +24829,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22776,7 +24852,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22800,7 +24876,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22816,13 +24892,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_filter_flatMap_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_limit_filter_flatMapLambda_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22837,13 +24913,34 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_limit_filter_flatMapMemberReference_count(Collection<T0> input, long arg0, Predicate<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0> long stream_limit_mapToInt_map_count(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22861,7 +24958,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22881,7 +24978,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22899,7 +24996,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22917,7 +25014,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22935,7 +25032,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22954,7 +25051,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -22979,7 +25076,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23004,7 +25101,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23026,7 +25123,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23047,7 +25144,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23069,7 +25166,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23089,7 +25186,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23107,7 +25204,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23127,7 +25224,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23145,7 +25242,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23163,7 +25260,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23181,7 +25278,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23200,7 +25297,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23225,7 +25322,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23250,7 +25347,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23272,7 +25369,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23293,7 +25390,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23315,7 +25412,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23335,7 +25432,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23353,7 +25450,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23373,7 +25470,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23391,7 +25488,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23409,7 +25506,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23427,7 +25524,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23446,7 +25543,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23471,7 +25568,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23496,7 +25593,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23518,7 +25615,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23539,7 +25636,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23561,7 +25658,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23582,7 +25679,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23604,7 +25701,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23628,7 +25725,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23650,7 +25747,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23672,7 +25769,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23695,7 +25792,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23721,7 +25818,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23750,7 +25847,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23779,7 +25876,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23805,7 +25902,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23830,7 +25927,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23856,7 +25953,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23873,14 +25970,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_sorted_flatMap_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_limit_sorted_flatMapLambda_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23896,6 +25993,29 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_limit_sorted_flatMapMemberReference_count(Collection<T0> input, long arg0) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_limit_sortedComp_map_count(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -23903,7 +26023,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23925,7 +26045,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23949,7 +26069,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23971,7 +26091,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -23993,7 +26113,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24016,7 +26136,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24042,7 +26162,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24071,7 +26191,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24100,7 +26220,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24126,7 +26246,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24151,7 +26271,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24177,7 +26297,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24194,14 +26314,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_sortedComp_flatMap_count(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_limit_sortedComp_flatMapLambda_count(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24211,6 +26331,29 @@ public class ForeachStreamCount {
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
 			for (T1 t1 : arg2.apply(t0)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_sortedComp_flatMapMemberReference_count(Collection<T0> input, long arg0, Comparator<? super T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
 				count++;
 			}
 		}
@@ -24227,7 +26370,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24252,7 +26395,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24279,7 +26422,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24304,7 +26447,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24329,7 +26472,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24355,7 +26498,7 @@ public class ForeachStreamCount {
 		long limit1 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24384,7 +26527,7 @@ public class ForeachStreamCount {
 		long limit1 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24416,7 +26559,7 @@ public class ForeachStreamCount {
 		}
 		long limit2 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24448,7 +26591,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24477,7 +26620,7 @@ public class ForeachStreamCount {
 		long limit1 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24505,7 +26648,7 @@ public class ForeachStreamCount {
 		long limit1 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24534,7 +26677,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24551,7 +26694,7 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_limit_flatMap_count(Collection<T0> input, long arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_limit_limit_flatMapLambda_count(Collection<T0> input, long arg0, long arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -24561,7 +26704,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24571,6 +26714,32 @@ public class ForeachStreamCount {
 				break;
 			}
 			for (T1 t1 : arg2.apply(t0)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_limit_flatMapMemberReference_count(Collection<T0> input, long arg0, long arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit1 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			limit1++;
+			if(limit1 > arg1) {
+				break;
+			}
+			for (T1 t1 : t0) {
 				count++;
 			}
 		}
@@ -24587,7 +26756,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24612,7 +26781,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24639,7 +26808,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24664,7 +26833,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24689,7 +26858,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24715,7 +26884,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24744,7 +26913,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24776,7 +26945,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24808,7 +26977,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24837,7 +27006,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24865,7 +27034,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24894,7 +27063,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24911,7 +27080,7 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_skip_flatMap_count(Collection<T0> input, long arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_limit_skip_flatMapLambda_count(Collection<T0> input, long arg0, long arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -24921,7 +27090,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24937,6 +27106,32 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_limit_skip_flatMapMemberReference_count(Collection<T0> input, long arg0, long arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_limit_distinct_map_count(Collection<T0> input, long arg0, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -24944,7 +27139,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24965,7 +27160,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -24988,7 +27183,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25009,7 +27204,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25030,7 +27225,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25052,7 +27247,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25077,7 +27272,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25105,7 +27300,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25133,7 +27328,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25158,7 +27353,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25182,7 +27377,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25207,7 +27402,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25223,14 +27418,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_distinct_flatMap_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_limit_distinct_flatMapLambda_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25245,6 +27440,28 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_limit_distinct_flatMapMemberReference_count(Collection<T0> input, long arg0) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_limit_dropWhile_map_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -25252,7 +27469,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25275,7 +27492,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25300,7 +27517,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25323,7 +27540,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25346,7 +27563,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25370,7 +27587,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25397,7 +27614,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25427,7 +27644,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25457,7 +27674,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25484,7 +27701,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25510,7 +27727,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25537,7 +27754,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25555,14 +27772,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_dropWhile_flatMap_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_limit_dropWhile_flatMapLambda_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25579,13 +27796,37 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_limit_dropWhile_flatMapMemberReference_count(Collection<T0> input, long arg0, Predicate<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_limit_takeWhile_map_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25605,7 +27846,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25627,7 +27868,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25647,7 +27888,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25667,7 +27908,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25688,7 +27929,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25712,7 +27953,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25739,7 +27980,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25766,7 +28007,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25790,7 +28031,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25813,7 +28054,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25837,7 +28078,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25853,13 +28094,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_takeWhile_flatMap_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_limit_takeWhile_flatMapLambda_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25874,13 +28115,34 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_limit_flatMap_map_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+	public static <T0 extends Collection<T1>, T1> long stream_limit_takeWhile_flatMapMemberReference_count(Collection<T0> input, long arg0, Predicate<T0> arg1) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_limit_flatMapLambda_map_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25893,13 +28155,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_flatMap_filter_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_limit_flatMapLambda_filter_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25914,13 +28176,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_flatMap_mapToInt_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_limit_flatMapLambda_mapToInt_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25933,13 +28195,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_flatMap_mapToLong_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_limit_flatMapLambda_mapToLong_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25952,13 +28214,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_flatMap_mapToDouble_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_limit_flatMapLambda_mapToDouble_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25971,14 +28233,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_flatMap_sorted_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_limit_flatMapLambda_sorted_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -25994,14 +28256,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_flatMap_sortedComp_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_limit_flatMapLambda_sortedComp_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -26017,7 +28279,7 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_flatMap_limit_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_limit_flatMapLambda_limit_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, long arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -26027,7 +28289,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -26043,7 +28305,7 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_flatMap_skip_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_limit_flatMapLambda_skip_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, long arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -26053,7 +28315,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -26069,14 +28331,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_flatMap_distinct_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_limit_flatMapLambda_distinct_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -26091,14 +28353,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_flatMap_dropWhile_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_limit_flatMapLambda_dropWhile_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -26115,13 +28377,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_limit_flatMap_takeWhile_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_limit_flatMapLambda_takeWhile_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -26136,13 +28398,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_limit_flatMap_flatMap_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_limit_flatMapLambda_flatMapLambda_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			limit0++;
 			if(limit0 > arg0) {
 				break;
@@ -26156,13 +28418,335 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_limit_flatMapLambda_flatMapMemberReference_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_limit_flatMapMemberReference_map_count(Collection<T0> input, long arg0, Function<T1, T2> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_flatMapMemberReference_filter_count(Collection<T0> input, long arg0, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_flatMapMemberReference_mapToInt_count(Collection<T0> input, long arg0, ToIntFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_flatMapMemberReference_mapToLong_count(Collection<T0> input, long arg0, ToLongFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_flatMapMemberReference_mapToDouble_count(Collection<T0> input, long arg0, ToDoubleFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_flatMapMemberReference_sorted_count(Collection<T0> input, long arg0) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_flatMapMemberReference_sortedComp_count(Collection<T0> input, long arg0, Comparator<? super T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_flatMapMemberReference_limit_count(Collection<T0> input, long arg0, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit1 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				limit1++;
+				if(limit1 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_flatMapMemberReference_skip_count(Collection<T0> input, long arg0, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_flatMapMemberReference_distinct_count(Collection<T0> input, long arg0) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_flatMapMemberReference_dropWhile_count(Collection<T0> input, long arg0, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_limit_flatMapMemberReference_takeWhile_count(Collection<T0> input, long arg0, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_limit_flatMapMemberReference_flatMapLambda_count(Collection<T0> input, long arg0, Function<T1, Collection<T2>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_limit_flatMapMemberReference_flatMapMemberReference_count(Collection<T0> input, long arg0) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			limit0++;
+			if(limit0 > arg0) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_skip_map_map_count(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26180,7 +28764,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26200,7 +28784,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26218,7 +28802,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26236,7 +28820,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26255,7 +28839,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26277,7 +28861,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26302,7 +28886,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26327,7 +28911,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26349,7 +28933,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26370,7 +28954,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26392,7 +28976,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26406,13 +28990,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_skip_map_flatMap_count(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_skip_map_flatMapLambda_count(Collection<T0> input, long arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26425,13 +29009,32 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_skip_map_flatMapMemberReference_count(Collection<T0> input, long arg0, Function<T0, T1> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_skip_filter_map_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26451,7 +29054,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26473,7 +29076,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26493,7 +29096,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26513,7 +29116,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26534,7 +29137,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26558,7 +29161,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26585,7 +29188,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26612,7 +29215,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26636,7 +29239,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26659,7 +29262,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26683,7 +29286,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26699,13 +29302,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_filter_flatMap_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_skip_filter_flatMapLambda_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26720,13 +29323,34 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_skip_filter_flatMapMemberReference_count(Collection<T0> input, long arg0, Predicate<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0> long stream_skip_mapToInt_map_count(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26744,7 +29368,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26764,7 +29388,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26782,7 +29406,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26800,7 +29424,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26818,7 +29442,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26837,7 +29461,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26862,7 +29486,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26887,7 +29511,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26909,7 +29533,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26930,7 +29554,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26952,7 +29576,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26972,7 +29596,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26990,7 +29614,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27010,7 +29634,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27028,7 +29652,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27046,7 +29670,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27064,7 +29688,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27083,7 +29707,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27108,7 +29732,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27133,7 +29757,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27155,7 +29779,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27176,7 +29800,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27198,7 +29822,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27218,7 +29842,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27236,7 +29860,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27256,7 +29880,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27274,7 +29898,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27292,7 +29916,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27310,7 +29934,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27329,7 +29953,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27354,7 +29978,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27379,7 +30003,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27401,7 +30025,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27422,7 +30046,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27444,7 +30068,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27465,7 +30089,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27487,7 +30111,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27511,7 +30135,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27533,7 +30157,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27555,7 +30179,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27578,7 +30202,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27604,7 +30228,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27633,7 +30257,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27662,7 +30286,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27688,7 +30312,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27713,7 +30337,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27739,7 +30363,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27756,14 +30380,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_sorted_flatMap_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_skip_sorted_flatMapLambda_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27779,6 +30403,29 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_skip_sorted_flatMapMemberReference_count(Collection<T0> input, long arg0) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_skip_sortedComp_map_count(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -27786,7 +30433,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27808,7 +30455,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27832,7 +30479,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27854,7 +30501,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27876,7 +30523,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27899,7 +30546,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27925,7 +30572,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27954,7 +30601,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -27983,7 +30630,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28009,7 +30656,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28034,7 +30681,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28060,7 +30707,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28077,14 +30724,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_sortedComp_flatMap_count(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_skip_sortedComp_flatMapLambda_count(Collection<T0> input, long arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28094,6 +30741,29 @@ public class ForeachStreamCount {
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
 			for (T1 t1 : arg2.apply(t0)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_sortedComp_flatMapMemberReference_count(Collection<T0> input, long arg0, Comparator<? super T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
 				count++;
 			}
 		}
@@ -28110,7 +30780,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28135,7 +30805,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28162,7 +30832,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28187,7 +30857,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28212,7 +30882,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28238,7 +30908,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28267,7 +30937,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28299,7 +30969,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28331,7 +31001,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28360,7 +31030,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28388,7 +31058,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28417,7 +31087,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28434,7 +31104,7 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_limit_flatMap_count(Collection<T0> input, long arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_skip_limit_flatMapLambda_count(Collection<T0> input, long arg0, long arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -28444,7 +31114,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28454,6 +31124,32 @@ public class ForeachStreamCount {
 				break;
 			}
 			for (T1 t1 : arg2.apply(t0)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_limit_flatMapMemberReference_count(Collection<T0> input, long arg0, long arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : t0) {
 				count++;
 			}
 		}
@@ -28470,7 +31166,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28495,7 +31191,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28522,7 +31218,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28547,7 +31243,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28572,7 +31268,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28598,7 +31294,7 @@ public class ForeachStreamCount {
 		long skip1 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28627,7 +31323,7 @@ public class ForeachStreamCount {
 		long skip1 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28659,7 +31355,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28691,7 +31387,7 @@ public class ForeachStreamCount {
 		}
 		long skip2 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28720,7 +31416,7 @@ public class ForeachStreamCount {
 		long skip1 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28748,7 +31444,7 @@ public class ForeachStreamCount {
 		long skip1 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28777,7 +31473,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28794,7 +31490,7 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_skip_flatMap_count(Collection<T0> input, long arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_skip_skip_flatMapLambda_count(Collection<T0> input, long arg0, long arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -28804,7 +31500,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28820,6 +31516,32 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_skip_skip_flatMapMemberReference_count(Collection<T0> input, long arg0, long arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			skip1++;
+			if(skip1 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_skip_distinct_map_count(Collection<T0> input, long arg0, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -28827,7 +31549,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28848,7 +31570,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28871,7 +31593,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28892,7 +31614,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28913,7 +31635,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28935,7 +31657,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28960,7 +31682,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -28988,7 +31710,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29016,7 +31738,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29041,7 +31763,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29065,7 +31787,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29090,7 +31812,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29106,14 +31828,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_distinct_flatMap_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_skip_distinct_flatMapLambda_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29128,6 +31850,28 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_skip_distinct_flatMapMemberReference_count(Collection<T0> input, long arg0) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_skip_dropWhile_map_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
@@ -29135,7 +31879,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29158,7 +31902,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29183,7 +31927,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29206,7 +31950,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29229,7 +31973,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29253,7 +31997,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29280,7 +32024,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29310,7 +32054,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29340,7 +32084,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29367,7 +32111,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29393,7 +32137,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29420,7 +32164,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29438,14 +32182,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_dropWhile_flatMap_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_skip_dropWhile_flatMapLambda_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29462,13 +32206,37 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_skip_dropWhile_flatMapMemberReference_count(Collection<T0> input, long arg0, Predicate<T0> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_skip_takeWhile_map_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29488,7 +32256,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29510,7 +32278,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29530,7 +32298,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29550,7 +32318,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29571,7 +32339,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29595,7 +32363,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29622,7 +32390,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29649,7 +32417,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29673,7 +32441,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29696,7 +32464,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29720,7 +32488,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29736,13 +32504,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_takeWhile_flatMap_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_skip_takeWhile_flatMapLambda_count(Collection<T0> input, long arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29757,13 +32525,34 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_skip_flatMap_map_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+	public static <T0 extends Collection<T1>, T1> long stream_skip_takeWhile_flatMapMemberReference_count(Collection<T0> input, long arg0, Predicate<T0> arg1) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_skip_flatMapLambda_map_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29776,13 +32565,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_flatMap_filter_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_skip_flatMapLambda_filter_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29797,13 +32586,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_flatMap_mapToInt_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_skip_flatMapLambda_mapToInt_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29816,13 +32605,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_flatMap_mapToLong_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_skip_flatMapLambda_mapToLong_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29835,13 +32624,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_flatMap_mapToDouble_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_skip_flatMapLambda_mapToDouble_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29854,14 +32643,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_flatMap_sorted_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_skip_flatMapLambda_sorted_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29877,14 +32666,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_flatMap_sortedComp_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_skip_flatMapLambda_sortedComp_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29900,7 +32689,7 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_flatMap_limit_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_skip_flatMapLambda_limit_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, long arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -29910,7 +32699,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29926,7 +32715,7 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_flatMap_skip_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_skip_flatMapLambda_skip_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, long arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -29936,7 +32725,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29952,14 +32741,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_flatMap_distinct_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_skip_flatMapLambda_distinct_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29974,14 +32763,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_flatMap_dropWhile_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_skip_flatMapLambda_dropWhile_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29998,13 +32787,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_skip_flatMap_takeWhile_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_skip_flatMapLambda_takeWhile_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -30019,13 +32808,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_skip_flatMap_flatMap_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_skip_flatMapLambda_flatMapLambda_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -30039,10 +32828,332 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_skip_flatMapLambda_flatMapMemberReference_count(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_skip_flatMapMemberReference_map_count(Collection<T0> input, long arg0, Function<T1, T2> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_flatMapMemberReference_filter_count(Collection<T0> input, long arg0, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_flatMapMemberReference_mapToInt_count(Collection<T0> input, long arg0, ToIntFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_flatMapMemberReference_mapToLong_count(Collection<T0> input, long arg0, ToLongFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_flatMapMemberReference_mapToDouble_count(Collection<T0> input, long arg0, ToDoubleFunction<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_flatMapMemberReference_sorted_count(Collection<T0> input, long arg0) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_flatMapMemberReference_sortedComp_count(Collection<T0> input, long arg0, Comparator<? super T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_flatMapMemberReference_limit_count(Collection<T0> input, long arg0, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_flatMapMemberReference_skip_count(Collection<T0> input, long arg0, long arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				skip1++;
+				if(skip1 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_flatMapMemberReference_distinct_count(Collection<T0> input, long arg0) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_flatMapMemberReference_dropWhile_count(Collection<T0> input, long arg0, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_skip_flatMapMemberReference_takeWhile_count(Collection<T0> input, long arg0, Predicate<T1> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_skip_flatMapMemberReference_flatMapLambda_count(Collection<T0> input, long arg0, Function<T1, Collection<T2>> arg2) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_skip_flatMapMemberReference_flatMapMemberReference_count(Collection<T0> input, long arg0) {
+		if(arg0 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			skip0++;
+			if(skip0 <= arg0) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_distinct_map_map_count(Collection<T0> input, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30056,7 +33167,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_distinct_map_filter_count(Collection<T0> input, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30072,7 +33183,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_distinct_map_mapToInt_count(Collection<T0> input, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30086,7 +33197,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_distinct_map_mapToLong_count(Collection<T0> input, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30100,7 +33211,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_distinct_map_mapToDouble_count(Collection<T0> input, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30115,7 +33226,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30133,7 +33244,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30154,7 +33265,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30175,7 +33286,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30193,7 +33304,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T1> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30210,7 +33321,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30228,7 +33339,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_distinct_map_takeWhile_count(Collection<T0> input, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30241,10 +33352,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_distinct_map_flatMap_count(Collection<T0> input, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_distinct_map_flatMapLambda_count(Collection<T0> input, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30256,10 +33367,25 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_distinct_map_flatMapMemberReference_count(Collection<T0> input, Function<T0, T1> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_distinct_filter_map_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30275,7 +33401,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_filter_filter_count(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30293,7 +33419,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_filter_mapToInt_count(Collection<T0> input, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30309,7 +33435,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_filter_mapToLong_count(Collection<T0> input, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30325,7 +33451,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_filter_mapToDouble_count(Collection<T0> input, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30342,7 +33468,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30362,7 +33488,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30385,7 +33511,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30408,7 +33534,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30428,7 +33554,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30447,7 +33573,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30467,7 +33593,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_filter_takeWhile_count(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30482,10 +33608,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_filter_flatMap_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_distinct_filter_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30499,10 +33625,27 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_filter_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0> long stream_distinct_mapToInt_map_count(Collection<T0> input, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30516,7 +33659,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToInt_filter_count(Collection<T0> input, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30532,7 +33675,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToInt_mapToLong_count(Collection<T0> input, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30546,7 +33689,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToInt_mapToDouble_count(Collection<T0> input, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30560,7 +33703,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_distinct_mapToInt_mapToObj_count(Collection<T0> input, ToIntFunction<T0> arg1, IntFunction<T2> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30574,7 +33717,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToInt_boxed_count(Collection<T0> input, ToIntFunction<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30589,7 +33732,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30610,7 +33753,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30631,7 +33774,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30649,7 +33792,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<Integer> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30666,7 +33809,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30684,7 +33827,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToInt_takeWhile_count(Collection<T0> input, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30700,7 +33843,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToLong_map_count(Collection<T0> input, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30714,7 +33857,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToLong_filter_count(Collection<T0> input, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30730,7 +33873,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToLong_mapToInt_count(Collection<T0> input, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30744,7 +33887,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToLong_mapToDouble_count(Collection<T0> input, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30758,7 +33901,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_distinct_mapToLong_mapToObj_count(Collection<T0> input, ToLongFunction<T0> arg1, LongFunction<T2> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30772,7 +33915,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToLong_boxed_count(Collection<T0> input, ToLongFunction<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30787,7 +33930,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30808,7 +33951,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30829,7 +33972,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30847,7 +33990,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<Long> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30864,7 +34007,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30882,7 +34025,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToLong_takeWhile_count(Collection<T0> input, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30898,7 +34041,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToDouble_map_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30912,7 +34055,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToDouble_filter_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30928,7 +34071,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToDouble_mapToInt_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30942,7 +34085,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToDouble_mapToLong_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30956,7 +34099,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_distinct_mapToDouble_mapToObj_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoubleFunction<T2> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30970,7 +34113,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToDouble_boxed_count(Collection<T0> input, ToDoubleFunction<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -30985,7 +34128,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31006,7 +34149,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31027,7 +34170,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31045,7 +34188,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<Double> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31062,7 +34205,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31080,7 +34223,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_mapToDouble_takeWhile_count(Collection<T0> input, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31097,7 +34240,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31115,7 +34258,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31135,7 +34278,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31153,7 +34296,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31171,7 +34314,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31190,7 +34333,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31212,7 +34355,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31237,7 +34380,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31262,7 +34405,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31284,7 +34427,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31305,7 +34448,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31327,7 +34470,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31343,11 +34486,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_sorted_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_distinct_sorted_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31362,11 +34505,30 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_sorted_flatMapMemberReference_count(Collection<T0> input) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_distinct_sortedComp_map_count(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31384,7 +34546,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31404,7 +34566,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31422,7 +34584,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31440,7 +34602,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31459,7 +34621,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31481,7 +34643,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31506,7 +34668,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31531,7 +34693,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31553,7 +34715,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31574,7 +34736,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31596,7 +34758,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31612,11 +34774,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_sortedComp_flatMap_count(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_distinct_sortedComp_flatMapLambda_count(Collection<T0> input, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31631,6 +34793,25 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_sortedComp_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T0> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_distinct_limit_map_count(Collection<T0> input, long arg1, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		if(arg1 < 0) {
@@ -31638,7 +34819,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31659,7 +34840,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31682,7 +34863,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31703,7 +34884,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31724,7 +34905,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31746,7 +34927,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31771,7 +34952,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31799,7 +34980,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31827,7 +35008,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31852,7 +35033,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31876,7 +35057,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31901,7 +35082,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31917,14 +35098,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_limit_flatMap_count(Collection<T0> input, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_distinct_limit_flatMapLambda_count(Collection<T0> input, long arg1, Function<T0, Collection<T1>> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31939,6 +35120,28 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_limit_flatMapMemberReference_count(Collection<T0> input, long arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_distinct_skip_map_count(Collection<T0> input, long arg1, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		if(arg1 < 0) {
@@ -31946,7 +35149,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31967,7 +35170,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31990,7 +35193,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32011,7 +35214,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32032,7 +35235,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32054,7 +35257,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32079,7 +35282,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32107,7 +35310,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32135,7 +35338,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32160,7 +35363,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32184,7 +35387,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32209,7 +35412,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32225,14 +35428,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_skip_flatMap_count(Collection<T0> input, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_distinct_skip_flatMapLambda_count(Collection<T0> input, long arg1, Function<T0, Collection<T1>> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32247,11 +35450,33 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_skip_flatMapMemberReference_count(Collection<T0> input, long arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_distinct_distinct_map_count(Collection<T0> input, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32268,7 +35493,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32287,7 +35512,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32304,7 +35529,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32321,7 +35546,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32339,7 +35564,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct1 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32360,7 +35585,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct1 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32384,7 +35609,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32408,7 +35633,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32429,7 +35654,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct1 = new HashSet<>();
 		Set<T0> distinct2 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32449,7 +35674,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct1 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32470,7 +35695,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32485,11 +35710,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_distinct_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_distinct_distinct_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32503,11 +35728,29 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_distinct_flatMapMemberReference_count(Collection<T0> input) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!distinct1.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_distinct_dropWhile_map_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32526,7 +35769,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32547,7 +35790,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32566,7 +35809,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32585,7 +35828,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32605,7 +35848,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32628,7 +35871,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32654,7 +35897,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32680,7 +35923,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32703,7 +35946,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32725,7 +35968,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32748,7 +35991,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32765,11 +36008,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_dropWhile_flatMap_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_distinct_dropWhile_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32785,10 +36028,30 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_dropWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_distinct_takeWhile_map_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32804,7 +36067,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_takeWhile_filter_count(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32822,7 +36085,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_takeWhile_mapToInt_count(Collection<T0> input, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32838,7 +36101,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_takeWhile_mapToLong_count(Collection<T0> input, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32854,7 +36117,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_takeWhile_mapToDouble_count(Collection<T0> input, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32871,7 +36134,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32891,7 +36154,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32914,7 +36177,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32937,7 +36200,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32957,7 +36220,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32976,7 +36239,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -32996,7 +36259,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_distinct_takeWhile_takeWhile_count(Collection<T0> input, Predicate<T0> arg1, Predicate<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33011,10 +36274,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_takeWhile_flatMap_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_distinct_takeWhile_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33028,10 +36291,27 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_distinct_flatMap_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_takeWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_distinct_flatMapLambda_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33043,10 +36323,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_flatMap_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_distinct_flatMapLambda_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33060,10 +36340,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_flatMap_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_distinct_flatMapLambda_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33075,10 +36355,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_flatMap_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_distinct_flatMapLambda_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33090,10 +36370,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_flatMap_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_distinct_flatMapLambda_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33105,11 +36385,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_flatMap_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_distinct_flatMapLambda_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33124,11 +36404,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_flatMap_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_distinct_flatMapLambda_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33143,14 +36423,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_flatMap_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_distinct_flatMapLambda_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, long arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33165,14 +36445,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_flatMap_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_distinct_flatMapLambda_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, long arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33187,11 +36467,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_flatMap_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_distinct_flatMapLambda_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T1> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33205,11 +36485,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_flatMap_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_distinct_flatMapLambda_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33225,10 +36505,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_distinct_flatMap_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_distinct_flatMapLambda_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33242,10 +36522,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_distinct_flatMap_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_distinct_flatMapLambda_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33258,10 +36538,272 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_distinct_flatMapLambda_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg1) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_distinct_flatMapMemberReference_map_count(Collection<T0> input, Function<T1, T2> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_filter_count(Collection<T0> input, Predicate<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_mapToInt_count(Collection<T0> input, ToIntFunction<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_mapToLong_count(Collection<T0> input, ToLongFunction<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_sorted_count(Collection<T0> input) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_sortedComp_count(Collection<T0> input, Comparator<? super T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_limit_count(Collection<T0> input, long arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_skip_count(Collection<T0> input, long arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_distinct_count(Collection<T0> input) {
+		Set<T0> distinct0 = new HashSet<>();
+		Set<T1> distinct1 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				if(!distinct1.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_dropWhile_count(Collection<T0> input, Predicate<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_takeWhile_count(Collection<T0> input, Predicate<T1> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_distinct_flatMapMemberReference_flatMapLambda_count(Collection<T0> input, Function<T1, Collection<T2>> arg2) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_distinct_flatMapMemberReference_flatMapMemberReference_count(Collection<T0> input) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_dropWhile_map_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33277,7 +36819,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_dropWhile_map_filter_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33295,7 +36837,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_dropWhile_map_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33311,7 +36853,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_dropWhile_map_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33327,7 +36869,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_dropWhile_map_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33344,7 +36886,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33364,7 +36906,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33387,7 +36929,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33410,7 +36952,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33430,7 +36972,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33449,7 +36991,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33469,7 +37011,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_dropWhile_map_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33484,10 +37026,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_dropWhile_map_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_dropWhile_map_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33501,10 +37043,27 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_dropWhile_map_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_dropWhile_filter_map_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33522,7 +37081,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_filter_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33542,7 +37101,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_filter_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33560,7 +37119,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_filter_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33578,7 +37137,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_filter_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33597,7 +37156,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33619,7 +37178,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33644,7 +37203,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33669,7 +37228,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33691,7 +37250,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33712,7 +37271,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33734,7 +37293,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_filter_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33751,10 +37310,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_filter_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_dropWhile_filter_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33770,10 +37329,29 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_filter_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0> long stream_dropWhile_mapToInt_map_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33789,7 +37367,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToInt_filter_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33807,7 +37385,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToInt_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33823,7 +37401,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToInt_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33839,7 +37417,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_dropWhile_mapToInt_mapToObj_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntFunction<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33855,7 +37433,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToInt_boxed_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33872,7 +37450,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33895,7 +37473,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33918,7 +37496,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33938,7 +37516,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33957,7 +37535,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33977,7 +37555,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToInt_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -33995,7 +37573,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToLong_map_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34011,7 +37589,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToLong_filter_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34029,7 +37607,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToLong_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34045,7 +37623,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToLong_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34061,7 +37639,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_dropWhile_mapToLong_mapToObj_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongFunction<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34077,7 +37655,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToLong_boxed_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34094,7 +37672,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34117,7 +37695,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34140,7 +37718,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34160,7 +37738,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34179,7 +37757,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34199,7 +37777,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToLong_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34217,7 +37795,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToDouble_map_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34233,7 +37811,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToDouble_filter_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34251,7 +37829,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToDouble_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34267,7 +37845,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToDouble_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34283,7 +37861,7 @@ public class ForeachStreamCount {
 	public static <T0, T2> long stream_dropWhile_mapToDouble_mapToObj_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleFunction<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34299,7 +37877,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToDouble_boxed_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34316,7 +37894,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34339,7 +37917,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34362,7 +37940,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34382,7 +37960,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34401,7 +37979,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34421,7 +37999,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_mapToDouble_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34440,7 +38018,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34460,7 +38038,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34482,7 +38060,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34502,7 +38080,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34522,7 +38100,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34543,7 +38121,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34567,7 +38145,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34594,7 +38172,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34621,7 +38199,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34645,7 +38223,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34668,7 +38246,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34692,7 +38270,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34710,11 +38288,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_sorted_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_dropWhile_sorted_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34731,11 +38309,32 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_sorted_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0) {
+		boolean dropWhile0 = true;
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_dropWhile_sortedComp_map_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34755,7 +38354,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34777,7 +38376,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34797,7 +38396,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34817,7 +38416,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34838,7 +38437,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34862,7 +38461,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34889,7 +38488,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34916,7 +38515,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34940,7 +38539,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34963,7 +38562,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -34987,7 +38586,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35005,11 +38604,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_sortedComp_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_dropWhile_sortedComp_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35026,6 +38625,27 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_sortedComp_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1) {
+		boolean dropWhile0 = true;
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_dropWhile_limit_map_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		if(arg1 < 0) {
@@ -35033,7 +38653,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35056,7 +38676,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35081,7 +38701,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35104,7 +38724,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35127,7 +38747,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35151,7 +38771,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35178,7 +38798,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35208,7 +38828,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35238,7 +38858,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35265,7 +38885,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35291,7 +38911,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35318,7 +38938,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35336,14 +38956,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_limit_flatMap_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_dropWhile_limit_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
 		boolean dropWhile0 = true;
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35360,6 +38980,30 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_limit_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, long arg1) {
+		boolean dropWhile0 = true;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_dropWhile_skip_map_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		if(arg1 < 0) {
@@ -35367,7 +39011,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35390,7 +39034,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35415,7 +39059,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35438,7 +39082,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35461,7 +39105,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35485,7 +39129,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35512,7 +39156,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35542,7 +39186,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35572,7 +39216,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35599,7 +39243,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35625,7 +39269,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35652,7 +39296,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35670,14 +39314,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_skip_flatMap_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_dropWhile_skip_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
 		boolean dropWhile0 = true;
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35694,11 +39338,35 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_skip_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, long arg1) {
+		boolean dropWhile0 = true;
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_dropWhile_distinct_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35717,7 +39385,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35738,7 +39406,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35757,7 +39425,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35776,7 +39444,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35796,7 +39464,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35819,7 +39487,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35845,7 +39513,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35871,7 +39539,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35894,7 +39562,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35916,7 +39584,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35939,7 +39607,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35956,11 +39624,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_distinct_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_dropWhile_distinct_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -35976,11 +39644,31 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_distinct_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0) {
+		boolean dropWhile0 = true;
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_dropWhile_dropWhile_map_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36001,7 +39689,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36024,7 +39712,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36045,7 +39733,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36066,7 +39754,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36088,7 +39776,7 @@ public class ForeachStreamCount {
 		boolean dropWhile1 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36113,7 +39801,7 @@ public class ForeachStreamCount {
 		boolean dropWhile1 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36141,7 +39829,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36169,7 +39857,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36194,7 +39882,7 @@ public class ForeachStreamCount {
 		boolean dropWhile1 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36218,7 +39906,7 @@ public class ForeachStreamCount {
 		boolean dropWhile1 = true;
 		boolean dropWhile2 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36243,7 +39931,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36262,11 +39950,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_dropWhile_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_dropWhile_dropWhile_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36284,10 +39972,32 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_dropWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(dropWhile1 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile1 = false;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_dropWhile_takeWhile_map_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36305,7 +40015,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_takeWhile_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36325,7 +40035,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_takeWhile_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36343,7 +40053,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_takeWhile_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36361,7 +40071,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_takeWhile_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36380,7 +40090,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36402,7 +40112,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36427,7 +40137,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36452,7 +40162,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36474,7 +40184,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36495,7 +40205,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36517,7 +40227,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_dropWhile_takeWhile_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36534,10 +40244,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_takeWhile_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_dropWhile_takeWhile_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36553,10 +40263,29 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_dropWhile_flatMap_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_takeWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_dropWhile_flatMapLambda_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36570,10 +40299,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_flatMap_filter_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_dropWhile_flatMapLambda_filter_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36589,10 +40318,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_flatMap_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_dropWhile_flatMapLambda_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36606,10 +40335,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_flatMap_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_dropWhile_flatMapLambda_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36623,10 +40352,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_flatMap_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_dropWhile_flatMapLambda_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36640,11 +40369,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_flatMap_sorted_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_dropWhile_flatMapLambda_sorted_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
 		boolean dropWhile0 = true;
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36661,11 +40390,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_flatMap_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_dropWhile_flatMapLambda_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
 		boolean dropWhile0 = true;
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36682,14 +40411,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_flatMap_limit_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_dropWhile_flatMapLambda_limit_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
 		boolean dropWhile0 = true;
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36706,14 +40435,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_flatMap_skip_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_dropWhile_flatMapLambda_skip_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
 		boolean dropWhile0 = true;
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36730,11 +40459,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_flatMap_distinct_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_dropWhile_flatMapLambda_distinct_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
 		boolean dropWhile0 = true;
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36750,11 +40479,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_flatMap_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_dropWhile_flatMapLambda_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36772,10 +40501,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_dropWhile_flatMap_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_dropWhile_flatMapLambda_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36791,10 +40520,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_dropWhile_flatMap_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_dropWhile_flatMapLambda_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36809,9 +40538,301 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_dropWhile_flatMapLambda_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_dropWhile_flatMapMemberReference_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T1, T2> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_flatMapMemberReference_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_flatMapMemberReference_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_flatMapMemberReference_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_flatMapMemberReference_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_flatMapMemberReference_sorted_count(Collection<T0> input, Predicate<T0> arg0) {
+		boolean dropWhile0 = true;
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_flatMapMemberReference_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T1> arg2) {
+		boolean dropWhile0 = true;
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_flatMapMemberReference_limit_count(Collection<T0> input, Predicate<T0> arg0, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_flatMapMemberReference_skip_count(Collection<T0> input, Predicate<T0> arg0, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_flatMapMemberReference_distinct_count(Collection<T0> input, Predicate<T0> arg0) {
+		boolean dropWhile0 = true;
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_flatMapMemberReference_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				if(dropWhile1 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile1 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_dropWhile_flatMapMemberReference_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_dropWhile_flatMapMemberReference_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T1, Collection<T2>> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_dropWhile_flatMapMemberReference_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(dropWhile0 && arg0.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1, T2> long stream_takeWhile_map_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -36824,7 +40845,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_takeWhile_map_filter_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -36839,7 +40860,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_takeWhile_map_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -36852,7 +40873,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_takeWhile_map_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -36865,7 +40886,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_takeWhile_map_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -36879,7 +40900,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_takeWhile_map_sorted_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -36896,7 +40917,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_takeWhile_map_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Comparator<? super T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -36916,7 +40937,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -36936,7 +40957,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -36953,7 +40974,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_takeWhile_map_distinct_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -36969,7 +40990,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_takeWhile_map_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -36986,7 +41007,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T1> long stream_takeWhile_map_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -36999,9 +41020,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_takeWhile_map_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_takeWhile_map_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37013,9 +41034,23 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0, T1 extends Collection<T2>, T2> long stream_takeWhile_map_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			T1 t1 = arg1.apply(t0);
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_takeWhile_filter_map_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37030,7 +41065,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_filter_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37047,7 +41082,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_filter_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37062,7 +41097,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_filter_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37077,7 +41112,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_filter_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37093,7 +41128,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_filter_sorted_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37112,7 +41147,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_filter_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37134,7 +41169,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37156,7 +41191,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37175,7 +41210,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_filter_distinct_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37193,7 +41228,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_filter_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37212,7 +41247,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_filter_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37227,9 +41262,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_filter_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_takeWhile_filter_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37243,9 +41278,25 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_filter_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if (!arg1.test(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0> long stream_takeWhile_mapToInt_map_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37258,7 +41309,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToInt_filter_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37273,7 +41324,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToInt_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37286,7 +41337,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToInt_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37299,7 +41350,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_takeWhile_mapToInt_mapToObj_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37312,7 +41363,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToInt_boxed_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37326,7 +41377,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_mapToInt_sorted_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37346,7 +41397,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37366,7 +41417,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37383,7 +41434,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_mapToInt_distinct_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37399,7 +41450,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_mapToInt_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37416,7 +41467,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToInt_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37431,7 +41482,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToLong_map_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37444,7 +41495,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToLong_filter_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37459,7 +41510,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToLong_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37472,7 +41523,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToLong_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37485,7 +41536,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_takeWhile_mapToLong_mapToObj_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37498,7 +41549,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToLong_boxed_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37512,7 +41563,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_mapToLong_sorted_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37532,7 +41583,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37552,7 +41603,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37569,7 +41620,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_mapToLong_distinct_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37585,7 +41636,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_mapToLong_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37602,7 +41653,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToLong_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37617,7 +41668,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToDouble_map_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37630,7 +41681,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToDouble_filter_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37645,7 +41696,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToDouble_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37658,7 +41709,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToDouble_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37671,7 +41722,7 @@ public class ForeachStreamCount {
 
 	public static <T0, T2> long stream_takeWhile_mapToDouble_mapToObj_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37684,7 +41735,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToDouble_boxed_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37698,7 +41749,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_mapToDouble_sorted_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37718,7 +41769,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37738,7 +41789,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37755,7 +41806,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_mapToDouble_distinct_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37771,7 +41822,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_mapToDouble_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37788,7 +41839,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_mapToDouble_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37804,7 +41855,7 @@ public class ForeachStreamCount {
 	public static <T0, T1> long stream_takeWhile_sorted_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37821,7 +41872,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_sorted_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37840,7 +41891,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_sorted_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37857,7 +41908,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_sorted_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37874,7 +41925,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_sorted_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37892,7 +41943,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37913,7 +41964,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37937,7 +41988,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37961,7 +42012,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -37982,7 +42033,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38002,7 +42053,7 @@ public class ForeachStreamCount {
 		List<T0> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38023,7 +42074,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_sorted_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38039,10 +42090,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_sorted_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_takeWhile_sorted_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38057,10 +42108,28 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_sorted_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0) {
+		List<T0> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sorted0.add(t0);
+		}
+		Collections.sort((List) sorted0);
+		for (T0 t0: sorted0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_takeWhile_sortedComp_map_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38077,7 +42146,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_sortedComp_filter_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38096,7 +42165,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_sortedComp_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38113,7 +42182,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_sortedComp_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38130,7 +42199,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_sortedComp_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38148,7 +42217,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38169,7 +42238,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		List<T0> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38193,7 +42262,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38217,7 +42286,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38238,7 +42307,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38258,7 +42327,7 @@ public class ForeachStreamCount {
 		List<T0> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38279,7 +42348,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_sortedComp_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38295,10 +42364,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_sortedComp_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_takeWhile_sortedComp_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38313,13 +42382,31 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_sortedComp_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1) {
+		List<T0> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg1);
+		for (T0 t0: sortedComp0) {
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_takeWhile_limit_map_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38339,7 +42426,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38361,7 +42448,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38381,7 +42468,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38401,7 +42488,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38422,7 +42509,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38446,7 +42533,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38473,7 +42560,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38500,7 +42587,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38524,7 +42611,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38547,7 +42634,7 @@ public class ForeachStreamCount {
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38571,7 +42658,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38587,13 +42674,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_limit_flatMap_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_takeWhile_limit_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38608,13 +42695,34 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_limit_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			limit0++;
+			if(limit0 > arg1) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_takeWhile_skip_map_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38634,7 +42742,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38656,7 +42764,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38676,7 +42784,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38696,7 +42804,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38717,7 +42825,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38741,7 +42849,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38768,7 +42876,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38795,7 +42903,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38819,7 +42927,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38842,7 +42950,7 @@ public class ForeachStreamCount {
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38866,7 +42974,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38882,13 +42990,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_skip_flatMap_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_takeWhile_skip_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, Collection<T1>> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38903,10 +43011,31 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_skip_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			skip0++;
+			if(skip0 <= arg1) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_takeWhile_distinct_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38922,7 +43051,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_distinct_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38940,7 +43069,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_distinct_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38956,7 +43085,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_distinct_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38972,7 +43101,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_distinct_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -38989,7 +43118,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39009,7 +43138,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39032,7 +43161,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39055,7 +43184,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39075,7 +43204,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		Set<T0> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39094,7 +43223,7 @@ public class ForeachStreamCount {
 		Set<T0> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39114,7 +43243,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_distinct_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39129,10 +43258,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_distinct_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_takeWhile_distinct_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg2) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39146,10 +43275,27 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_distinct_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0) {
+		Set<T0> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!distinct0.add(t0)) {
+				continue;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_takeWhile_dropWhile_map_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39167,7 +43313,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_dropWhile_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39187,7 +43333,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_dropWhile_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39205,7 +43351,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_dropWhile_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39223,7 +43369,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_dropWhile_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39242,7 +43388,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39264,7 +43410,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39289,7 +43435,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39314,7 +43460,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39336,7 +43482,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39357,7 +43503,7 @@ public class ForeachStreamCount {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39379,7 +43525,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_dropWhile_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39396,10 +43542,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_dropWhile_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_takeWhile_dropWhile_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39415,9 +43561,28 @@ public class ForeachStreamCount {
 		return count;
 	}
 
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_dropWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(dropWhile0 && arg1.test(t0)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public static <T0, T1> long stream_takeWhile_takeWhile_map_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39432,7 +43597,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_takeWhile_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39449,7 +43614,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_takeWhile_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39464,7 +43629,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_takeWhile_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39479,7 +43644,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_takeWhile_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39495,7 +43660,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_takeWhile_sorted_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		List<T0> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39514,7 +43679,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_takeWhile_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2) {
 		List<T0> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39536,7 +43701,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39558,7 +43723,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39577,7 +43742,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_takeWhile_distinct_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		Set<T0> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39595,7 +43760,7 @@ public class ForeachStreamCount {
 	public static <T0> long stream_takeWhile_takeWhile_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39614,7 +43779,7 @@ public class ForeachStreamCount {
 
 	public static <T0> long stream_takeWhile_takeWhile_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39629,9 +43794,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_takeWhile_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
+	public static <T0, T1> long stream_takeWhile_takeWhile_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39645,9 +43810,25 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_takeWhile_flatMap_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_takeWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			if(!arg1.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_takeWhile_flatMapLambda_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39659,9 +43840,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_flatMap_filter_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_takeWhile_flatMapLambda_filter_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39675,9 +43856,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_flatMap_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_takeWhile_flatMapLambda_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39689,9 +43870,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_flatMap_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_takeWhile_flatMapLambda_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39703,9 +43884,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_flatMap_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_takeWhile_flatMapLambda_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39717,10 +43898,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_flatMap_sorted_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_takeWhile_flatMapLambda_sorted_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39735,10 +43916,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_flatMap_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_takeWhile_flatMapLambda_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39753,13 +43934,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_flatMap_limit_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_takeWhile_flatMapLambda_limit_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39774,13 +43955,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_flatMap_skip_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
+	public static <T0, T1> long stream_takeWhile_flatMapLambda_skip_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39795,10 +43976,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_flatMap_distinct_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
+	public static <T0, T1> long stream_takeWhile_flatMapLambda_distinct_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39812,10 +43993,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_flatMap_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_takeWhile_flatMapLambda_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39831,9 +44012,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_takeWhile_flatMap_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_takeWhile_flatMapLambda_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39847,9 +44028,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_takeWhile_flatMap_flatMap_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_takeWhile_flatMapLambda_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -39862,9 +44043,256 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2, T3> long stream_flatMap_map_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Function<T2, T3> arg2) {
+	public static <T0, T1 extends Collection<T2>, T2> long stream_takeWhile_flatMapLambda_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : arg1.apply(t0)) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_takeWhile_flatMapMemberReference_map_count(Collection<T0> input, Predicate<T0> arg0, Function<T1, T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_flatMapMemberReference_filter_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_flatMapMemberReference_mapToInt_count(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_flatMapMemberReference_mapToLong_count(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_flatMapMemberReference_mapToDouble_count(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_flatMapMemberReference_sorted_count(Collection<T0> input, Predicate<T0> arg0) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_flatMapMemberReference_sortedComp_count(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_flatMapMemberReference_limit_count(Collection<T0> input, Predicate<T0> arg0, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_flatMapMemberReference_skip_count(Collection<T0> input, Predicate<T0> arg0, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_flatMapMemberReference_distinct_count(Collection<T0> input, Predicate<T0> arg0) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_flatMapMemberReference_dropWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_takeWhile_flatMapMemberReference_takeWhile_count(Collection<T0> input, Predicate<T0> arg0, Predicate<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_takeWhile_flatMapMemberReference_flatMapLambda_count(Collection<T0> input, Predicate<T0> arg0, Function<T1, Collection<T2>> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_takeWhile_flatMapMemberReference_flatMapMemberReference_count(Collection<T0> input, Predicate<T0> arg0) {
+		long count = 0;
+		for (T0 t0: input) {
+			if(!arg0.test(t0)) {
+				break;
+			}
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2, T3> long stream_flatMapLambda_map_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Function<T2, T3> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				T3 t3 = arg2.apply(t2);
@@ -39874,9 +44302,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_map_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_map_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				if (!arg2.test(t2)) {
@@ -39888,9 +44316,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_map_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToIntFunction<T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_map_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToIntFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				int t3 = arg2.applyAsInt(t2);
@@ -39900,9 +44328,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_map_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToLongFunction<T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_map_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToLongFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				long t3 = arg2.applyAsLong(t2);
@@ -39912,9 +44340,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_map_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToDoubleFunction<T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_map_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, ToDoubleFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				double t3 = arg2.applyAsDouble(t2);
@@ -39924,10 +44352,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_map_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1) {
+	public static <T0, T1, T2> long stream_flatMapLambda_map_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1) {
 		List<T2> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				sorted0.add(t2);
@@ -39940,10 +44368,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_map_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Comparator<? super T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_map_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Comparator<? super T2> arg2) {
 		List<T2> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				sortedComp0.add(t2);
@@ -39956,13 +44384,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_map_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, long arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_map_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				limit0++;
@@ -39975,13 +44403,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_map_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, long arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_map_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				skip0++;
@@ -39994,10 +44422,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_map_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1) {
+	public static <T0, T1, T2> long stream_flatMapLambda_map_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1) {
 		Set<T2> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				if(!distinct0.add(t2)) {
@@ -40009,10 +44437,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_map_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_map_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				if(dropWhile0 && arg2.test(t2)) {
@@ -40026,9 +44454,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_map_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_map_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				if(!arg2.test(t2)) {
@@ -40040,9 +44468,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2, T3> long stream_flatMap_map_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Function<T2, Collection<T3>> arg2) {
+	public static <T0, T1, T2, T3> long stream_flatMapLambda_map_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Function<T2, Collection<T3>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				for (T3 t3 : arg2.apply(t2)) {
@@ -40053,9 +44481,22 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_filter_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
+	public static <T0, T1, T2 extends Collection<T3>, T3> long stream_flatMapLambda_map_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				T2 t2 = arg1.apply(t1);
+				for (T3 t3 : t2) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_flatMapLambda_filter_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40067,9 +44508,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_filter_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_filter_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40083,9 +44524,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_filter_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_filter_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40097,9 +44538,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_filter_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_filter_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40111,9 +44552,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_filter_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_filter_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40125,10 +44566,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_filter_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_filter_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40143,10 +44584,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_filter_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_filter_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40161,13 +44602,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_filter_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_filter_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40182,13 +44623,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_filter_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_filter_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40203,10 +44644,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_filter_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_filter_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40220,10 +44661,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_filter_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_filter_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40239,9 +44680,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_filter_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_filter_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40255,9 +44696,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_filter_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_filter_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -40270,9 +44711,24 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToInt_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntUnaryOperator arg2) {
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_filter_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1> long stream_flatMapLambda_mapToInt_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntUnaryOperator arg2) {
+		long count = 0;
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				t2 = arg2.applyAsInt(t2);
@@ -40282,9 +44738,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToInt_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToInt_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				if (!arg2.test(t2)) {
@@ -40296,9 +44752,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToInt_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntToLongFunction arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToInt_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				long t3 = arg2.applyAsLong(t2);
@@ -40308,9 +44764,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToInt_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntToDoubleFunction arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToInt_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				double t3 = arg2.applyAsDouble(t2);
@@ -40320,9 +44776,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T3> long stream_flatMap_mapToInt_mapToObj_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntFunction<T3> arg2) {
+	public static <T0, T1, T3> long stream_flatMapLambda_mapToInt_mapToObj_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntFunction<T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				T3 t3 = arg2.apply(t2);
@@ -40332,9 +44788,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToInt_boxed_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_mapToInt_boxed_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				Integer t3 = t2;
@@ -40344,10 +44800,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToInt_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_mapToInt_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
 		List<Integer> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				sorted0.add(t2);
@@ -40360,13 +44816,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToInt_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToInt_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				limit0++;
@@ -40379,13 +44835,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToInt_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToInt_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				skip0++;
@@ -40398,10 +44854,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToInt_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_mapToInt_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
 		Set<Integer> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				if(!distinct0.add(t2)) {
@@ -40413,10 +44869,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToInt_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToInt_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				if(dropWhile0 && arg2.test(t2)) {
@@ -40430,9 +44886,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToInt_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToInt_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				if(!arg2.test(t2)) {
@@ -40444,9 +44900,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToLong_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongUnaryOperator arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToLong_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				t2 = arg2.applyAsLong(t2);
@@ -40456,9 +44912,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToLong_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToLong_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				if (!arg2.test(t2)) {
@@ -40470,9 +44926,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToLong_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongToIntFunction arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToLong_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				int t3 = arg2.applyAsInt(t2);
@@ -40482,9 +44938,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToLong_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongToDoubleFunction arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToLong_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongToDoubleFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				double t3 = arg2.applyAsDouble(t2);
@@ -40494,9 +44950,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T3> long stream_flatMap_mapToLong_mapToObj_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongFunction<T3> arg2) {
+	public static <T0, T1, T3> long stream_flatMapLambda_mapToLong_mapToObj_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongFunction<T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				T3 t3 = arg2.apply(t2);
@@ -40506,9 +44962,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToLong_boxed_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_mapToLong_boxed_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				Long t3 = t2;
@@ -40518,10 +44974,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToLong_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_mapToLong_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
 		List<Long> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				sorted0.add(t2);
@@ -40534,13 +44990,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToLong_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToLong_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				limit0++;
@@ -40553,13 +45009,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToLong_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToLong_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				skip0++;
@@ -40572,10 +45028,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToLong_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_mapToLong_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
 		Set<Long> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				if(!distinct0.add(t2)) {
@@ -40587,10 +45043,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToLong_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToLong_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				if(dropWhile0 && arg2.test(t2)) {
@@ -40604,9 +45060,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToLong_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToLong_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongPredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				if(!arg2.test(t2)) {
@@ -40618,9 +45074,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToDouble_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleUnaryOperator arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToDouble_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleUnaryOperator arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				t2 = arg2.applyAsDouble(t2);
@@ -40630,9 +45086,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToDouble_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToDouble_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				if (!arg2.test(t2)) {
@@ -40644,9 +45100,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToDouble_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleToIntFunction arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToDouble_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleToIntFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				int t3 = arg2.applyAsInt(t2);
@@ -40656,9 +45112,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToDouble_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleToLongFunction arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToDouble_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleToLongFunction arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				long t3 = arg2.applyAsLong(t2);
@@ -40668,9 +45124,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T3> long stream_flatMap_mapToDouble_mapToObj_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleFunction<T3> arg2) {
+	public static <T0, T1, T3> long stream_flatMapLambda_mapToDouble_mapToObj_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleFunction<T3> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				T3 t3 = arg2.apply(t2);
@@ -40680,9 +45136,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToDouble_boxed_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_mapToDouble_boxed_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				Double t3 = t2;
@@ -40692,10 +45148,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToDouble_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_mapToDouble_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
 		List<Double> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				sorted0.add(t2);
@@ -40708,13 +45164,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToDouble_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToDouble_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				limit0++;
@@ -40727,13 +45183,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToDouble_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToDouble_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				skip0++;
@@ -40746,10 +45202,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToDouble_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_mapToDouble_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
 		Set<Double> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				if(!distinct0.add(t2)) {
@@ -40761,10 +45217,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToDouble_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToDouble_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				if(dropWhile0 && arg2.test(t2)) {
@@ -40778,9 +45234,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_mapToDouble_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+	public static <T0, T1> long stream_flatMapLambda_mapToDouble_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				if(!arg2.test(t2)) {
@@ -40792,10 +45248,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_sorted_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_sorted_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -40808,10 +45264,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sorted_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sorted_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -40826,10 +45282,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sorted_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sorted_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -40842,10 +45298,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sorted_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sorted_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -40858,10 +45314,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sorted_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sorted_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -40874,11 +45330,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sorted_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+	public static <T0, T1> long stream_flatMapLambda_sorted_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
 		List<T1> sorted0 = new ArrayList<>();
 		List<T1> sorted1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -40894,11 +45350,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sorted_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sorted_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -40914,14 +45370,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sorted_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sorted_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -40937,14 +45393,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sorted_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sorted_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -40960,11 +45416,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sorted_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+	public static <T0, T1> long stream_flatMapLambda_sorted_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
 		List<T1> sorted0 = new ArrayList<>();
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -40979,11 +45435,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sorted_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sorted_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -41000,10 +45456,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sorted_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sorted_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -41018,10 +45474,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_sorted_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_sorted_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg2) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
@@ -41035,10 +45491,27 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_sortedComp_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Function<T1, T2> arg2) {
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_sorted_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_flatMapLambda_sortedComp_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Function<T1, T2> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41051,10 +45524,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sortedComp_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sortedComp_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41069,10 +45542,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sortedComp_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sortedComp_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToIntFunction<T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41085,10 +45558,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sortedComp_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sortedComp_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToLongFunction<T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41101,10 +45574,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sortedComp_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sortedComp_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToDoubleFunction<T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41117,11 +45590,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sortedComp_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_sortedComp_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41137,11 +45610,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sortedComp_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sortedComp_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Comparator<? super T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		List<T1> sortedComp1 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41157,14 +45630,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sortedComp_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sortedComp_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, long arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41180,14 +45653,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sortedComp_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sortedComp_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, long arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41203,11 +45676,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sortedComp_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_sortedComp_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41222,11 +45695,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sortedComp_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sortedComp_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41243,10 +45716,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_sortedComp_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_sortedComp_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41261,10 +45734,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_sortedComp_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_sortedComp_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Function<T1, Collection<T2>> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -41278,13 +45751,30 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_limit_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Function<T1, T2> arg2) {
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_sortedComp_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_flatMapLambda_limit_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Function<T1, T2> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41297,13 +45787,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_limit_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_limit_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41318,13 +45808,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_limit_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_limit_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToIntFunction<T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41337,13 +45827,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_limit_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_limit_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToLongFunction<T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41356,13 +45846,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_limit_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_limit_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToDoubleFunction<T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41375,14 +45865,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_limit_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+	public static <T0, T1> long stream_flatMapLambda_limit_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41398,14 +45888,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_limit_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_limit_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Comparator<? super T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41421,7 +45911,7 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_limit_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_limit_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, long arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -41431,7 +45921,7 @@ public class ForeachStreamCount {
 		}
 		long limit1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41447,7 +45937,7 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_limit_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_limit_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, long arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -41457,7 +45947,7 @@ public class ForeachStreamCount {
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41473,14 +45963,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_limit_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+	public static <T0, T1> long stream_flatMapLambda_limit_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41495,14 +45985,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_limit_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_limit_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41519,13 +46009,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_limit_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_limit_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41540,13 +46030,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_limit_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_limit_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Function<T1, Collection<T2>> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
 				if(limit0 > arg1) {
@@ -41560,13 +46050,33 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_skip_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Function<T1, T2> arg2) {
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_limit_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_flatMapLambda_skip_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Function<T1, T2> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41579,13 +46089,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_skip_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_skip_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41600,13 +46110,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_skip_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_skip_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToIntFunction<T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41619,13 +46129,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_skip_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_skip_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToLongFunction<T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41638,13 +46148,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_skip_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_skip_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, ToDoubleFunction<T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41657,14 +46167,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_skip_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+	public static <T0, T1> long stream_flatMapLambda_skip_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41680,14 +46190,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_skip_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_skip_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Comparator<? super T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41703,7 +46213,7 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_skip_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_skip_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, long arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -41713,7 +46223,7 @@ public class ForeachStreamCount {
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41729,7 +46239,7 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_skip_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_skip_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, long arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -41739,7 +46249,7 @@ public class ForeachStreamCount {
 		}
 		long skip1 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41755,14 +46265,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_skip_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+	public static <T0, T1> long stream_flatMapLambda_skip_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41777,14 +46287,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_skip_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_skip_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41801,13 +46311,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_skip_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_skip_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Predicate<T1> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41822,13 +46332,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_skip_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_skip_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1, Function<T1, Collection<T2>> arg2) {
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -41842,10 +46352,30 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_distinct_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg2) {
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_skip_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_flatMapLambda_distinct_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -41857,10 +46387,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_distinct_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_distinct_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -41874,10 +46404,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_distinct_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_distinct_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -41889,10 +46419,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_distinct_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_distinct_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -41904,10 +46434,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_distinct_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_distinct_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -41919,11 +46449,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_distinct_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+	public static <T0, T1> long stream_flatMapLambda_distinct_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
 		Set<T1> distinct0 = new HashSet<>();
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -41938,11 +46468,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_distinct_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_distinct_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -41957,14 +46487,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_distinct_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_distinct_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -41979,14 +46509,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_distinct_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_distinct_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -42001,11 +46531,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_distinct_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+	public static <T0, T1> long stream_flatMapLambda_distinct_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
 		Set<T1> distinct0 = new HashSet<>();
 		Set<T1> distinct1 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -42019,11 +46549,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_distinct_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_distinct_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -42039,10 +46569,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_distinct_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_distinct_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -42056,10 +46586,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_distinct_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_distinct_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg2) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -42072,10 +46602,26 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_dropWhile_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_distinct_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_flatMapLambda_dropWhile_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42089,10 +46635,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_dropWhile_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_dropWhile_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42108,10 +46654,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_dropWhile_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_dropWhile_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42125,10 +46671,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_dropWhile_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_dropWhile_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42142,10 +46688,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_dropWhile_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_dropWhile_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42159,11 +46705,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_dropWhile_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_dropWhile_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
 		boolean dropWhile0 = true;
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42180,11 +46726,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_dropWhile_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_dropWhile_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
 		boolean dropWhile0 = true;
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42201,14 +46747,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_dropWhile_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_dropWhile_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
 		boolean dropWhile0 = true;
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42225,14 +46771,14 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_dropWhile_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_dropWhile_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
 		boolean dropWhile0 = true;
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42249,11 +46795,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_dropWhile_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_dropWhile_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
 		boolean dropWhile0 = true;
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42269,11 +46815,11 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_dropWhile_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_dropWhile_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42291,10 +46837,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_dropWhile_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_dropWhile_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42310,10 +46856,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_dropWhile_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_dropWhile_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -42328,9 +46874,27 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_takeWhile_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_dropWhile_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2> long stream_flatMapLambda_takeWhile_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42342,9 +46906,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_takeWhile_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_takeWhile_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42358,9 +46922,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_takeWhile_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_takeWhile_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42372,9 +46936,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_takeWhile_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_takeWhile_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42386,9 +46950,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_takeWhile_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_takeWhile_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42400,10 +46964,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_takeWhile_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_takeWhile_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
 		List<T1> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42418,10 +46982,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_takeWhile_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_takeWhile_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2) {
 		List<T1> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42436,13 +47000,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_takeWhile_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_takeWhile_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42457,13 +47021,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_takeWhile_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
+	public static <T0, T1> long stream_flatMapLambda_takeWhile_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42478,10 +47042,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_takeWhile_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
+	public static <T0, T1> long stream_flatMapLambda_takeWhile_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
 		Set<T1> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42495,10 +47059,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_takeWhile_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_takeWhile_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42514,9 +47078,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1> long stream_flatMap_takeWhile_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
+	public static <T0, T1> long stream_flatMapLambda_takeWhile_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Predicate<T1> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42530,9 +47094,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_takeWhile_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_takeWhile_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
@@ -42545,9 +47109,24 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2, T3> long stream_flatMap_flatMap_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Function<T2, T3> arg2) {
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_takeWhile_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2, T3> long stream_flatMapLambda_flatMapLambda_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Function<T2, T3> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					T3 t3 = arg2.apply(t2);
@@ -42558,9 +47137,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_flatMap_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_flatMapLambda_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					if (!arg2.test(t2)) {
@@ -42573,9 +47152,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_flatMap_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToIntFunction<T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_flatMapLambda_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToIntFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					int t3 = arg2.applyAsInt(t2);
@@ -42586,9 +47165,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_flatMap_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToLongFunction<T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_flatMapLambda_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToLongFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					long t3 = arg2.applyAsLong(t2);
@@ -42599,9 +47178,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_flatMap_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToDoubleFunction<T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_flatMapLambda_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, ToDoubleFunction<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					double t3 = arg2.applyAsDouble(t2);
@@ -42612,10 +47191,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_flatMap_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1) {
+	public static <T0, T1, T2> long stream_flatMapLambda_flatMapLambda_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1) {
 		List<T2> sorted0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					sorted0.add(t2);
@@ -42629,10 +47208,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_flatMap_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Comparator<? super T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_flatMapLambda_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Comparator<? super T2> arg2) {
 		List<T2> sortedComp0 = new ArrayList<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					sortedComp0.add(t2);
@@ -42646,13 +47225,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_flatMap_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, long arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_flatMapLambda_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					limit0++;
@@ -42666,13 +47245,13 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_flatMap_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, long arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_flatMapLambda_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, long arg2) {
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					skip0++;
@@ -42686,10 +47265,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_flatMap_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1) {
+	public static <T0, T1, T2> long stream_flatMapLambda_flatMapLambda_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1) {
 		Set<T2> distinct0 = new HashSet<>();
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					if(!distinct0.add(t2)) {
@@ -42702,10 +47281,10 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_flatMap_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_flatMapLambda_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
 		boolean dropWhile0 = true;
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					if(dropWhile0 && arg2.test(t2)) {
@@ -42720,9 +47299,9 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2> long stream_flatMap_flatMap_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+	public static <T0, T1, T2> long stream_flatMapLambda_flatMapLambda_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					if(!arg2.test(t2)) {
@@ -42735,12 +47314,3514 @@ public class ForeachStreamCount {
 		return count;
 	}
 
-	public static <T0, T1, T2, T3> long stream_flatMap_flatMap_flatMap_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Function<T2, Collection<T3>> arg2) {
+	public static <T0, T1, T2, T3> long stream_flatMapLambda_flatMapLambda_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Function<T2, Collection<T3>> arg2) {
 		long count = 0;
-		for (T0 t0 : input) {
+		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					for (T3 t3 : arg2.apply(t2)) {
+						count++;
+					}
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1, T2 extends Collection<T3>, T3> long stream_flatMapLambda_flatMapLambda_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : arg1.apply(t1)) {
+					for (T3 t3 : t2) {
+						count++;
+					}
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2, T3> long stream_flatMapLambda_flatMapMemberReference_map_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T2, T3> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					T3 t3 = arg2.apply(t2);
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_flatMapMemberReference_filter_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					if (!arg2.test(t2)) {
+						continue;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_flatMapMemberReference_mapToInt_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					int t3 = arg2.applyAsInt(t2);
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_flatMapMemberReference_mapToLong_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					long t3 = arg2.applyAsLong(t2);
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_flatMapMemberReference_mapToDouble_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					double t3 = arg2.applyAsDouble(t2);
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_flatMapMemberReference_sorted_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		List<T2> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					sorted0.add(t2);
+				}
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_flatMapMemberReference_sortedComp_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T2> arg2) {
+		List<T2> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					sortedComp0.add(t2);
+				}
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_flatMapMemberReference_limit_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					limit0++;
+					if(limit0 > arg2) {
+						break;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_flatMapMemberReference_skip_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					skip0++;
+					if(skip0 <= arg2) {
+						continue;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_flatMapMemberReference_distinct_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		Set<T2> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					if(!distinct0.add(t2)) {
+						continue;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_flatMapMemberReference_dropWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T2> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					if(dropWhile0 && arg2.test(t2)) {
+						continue;
+					} else {
+						dropWhile0 = false;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2> long stream_flatMapLambda_flatMapMemberReference_takeWhile_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					if(!arg2.test(t2)) {
+						break;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2, T3> long stream_flatMapLambda_flatMapMemberReference_flatMapLambda_count(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T2, Collection<T3>> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					for (T3 t3 : arg2.apply(t2)) {
+						count++;
+					}
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0, T1 extends Collection<T2>, T2 extends Collection<T3>, T3> long stream_flatMapLambda_flatMapMemberReference_flatMapMemberReference_count(Collection<T0> input, Function<T0, Collection<T1>> arg0) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : arg0.apply(t0)) {
+				for (T2 t2 : t1) {
+					for (T3 t3 : t2) {
+						count++;
+					}
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2, T3> long stream_flatMapMemberReference_map_map_count(Collection<T0> input, Function<T1, T2> arg1, Function<T2, T3> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				T3 t3 = arg2.apply(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_map_filter_count(Collection<T0> input, Function<T1, T2> arg1, Predicate<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_map_mapToInt_count(Collection<T0> input, Function<T1, T2> arg1, ToIntFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				int t3 = arg2.applyAsInt(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_map_mapToLong_count(Collection<T0> input, Function<T1, T2> arg1, ToLongFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				long t3 = arg2.applyAsLong(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_map_mapToDouble_count(Collection<T0> input, Function<T1, T2> arg1, ToDoubleFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				double t3 = arg2.applyAsDouble(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_map_sorted_count(Collection<T0> input, Function<T1, T2> arg1) {
+		List<T2> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				sorted0.add(t2);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_map_sortedComp_count(Collection<T0> input, Function<T1, T2> arg1, Comparator<? super T2> arg2) {
+		List<T2> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				sortedComp0.add(t2);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_map_limit_count(Collection<T0> input, Function<T1, T2> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_map_skip_count(Collection<T0> input, Function<T1, T2> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_map_distinct_count(Collection<T0> input, Function<T1, T2> arg1) {
+		Set<T2> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_map_dropWhile_count(Collection<T0> input, Function<T1, T2> arg1, Predicate<T2> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_map_takeWhile_count(Collection<T0> input, Function<T1, T2> arg1, Predicate<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				if(!arg2.test(t2)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2, T3> long stream_flatMapMemberReference_map_flatMapLambda_count(Collection<T0> input, Function<T1, T2> arg1, Function<T2, Collection<T3>> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				for (T3 t3 : arg2.apply(t2)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2 extends Collection<T3>, T3> long stream_flatMapMemberReference_map_flatMapMemberReference_count(Collection<T0> input, Function<T1, T2> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				T2 t2 = arg1.apply(t1);
+				for (T3 t3 : t2) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_filter_map_count(Collection<T0> input, Predicate<T1> arg1, Function<T1, T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_filter_filter_count(Collection<T0> input, Predicate<T1> arg1, Predicate<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_filter_mapToInt_count(Collection<T0> input, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_filter_mapToLong_count(Collection<T0> input, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_filter_mapToDouble_count(Collection<T0> input, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_filter_sorted_count(Collection<T0> input, Predicate<T1> arg1) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_filter_sortedComp_count(Collection<T0> input, Predicate<T1> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_filter_limit_count(Collection<T0> input, Predicate<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_filter_skip_count(Collection<T0> input, Predicate<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_filter_distinct_count(Collection<T0> input, Predicate<T1> arg1) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_filter_dropWhile_count(Collection<T0> input, Predicate<T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_filter_takeWhile_count(Collection<T0> input, Predicate<T1> arg1, Predicate<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_filter_flatMapLambda_count(Collection<T0> input, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_filter_flatMapMemberReference_count(Collection<T0> input, Predicate<T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if (!arg1.test(t1)) {
+					continue;
+				}
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToInt_map_count(Collection<T0> input, ToIntFunction<T1> arg1, IntUnaryOperator arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				t2 = arg2.applyAsInt(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToInt_filter_count(Collection<T0> input, ToIntFunction<T1> arg1, IntPredicate arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToInt_mapToLong_count(Collection<T0> input, ToIntFunction<T1> arg1, IntToLongFunction arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				long t3 = arg2.applyAsLong(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToInt_mapToDouble_count(Collection<T0> input, ToIntFunction<T1> arg1, IntToDoubleFunction arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				double t3 = arg2.applyAsDouble(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T3> long stream_flatMapMemberReference_mapToInt_mapToObj_count(Collection<T0> input, ToIntFunction<T1> arg1, IntFunction<T3> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				T3 t3 = arg2.apply(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToInt_boxed_count(Collection<T0> input, ToIntFunction<T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				Integer t3 = t2;
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToInt_sorted_count(Collection<T0> input, ToIntFunction<T1> arg1) {
+		List<Integer> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				sorted0.add(t2);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (int t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToInt_limit_count(Collection<T0> input, ToIntFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToInt_skip_count(Collection<T0> input, ToIntFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToInt_distinct_count(Collection<T0> input, ToIntFunction<T1> arg1) {
+		Set<Integer> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToInt_dropWhile_count(Collection<T0> input, ToIntFunction<T1> arg1, IntPredicate arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToInt_takeWhile_count(Collection<T0> input, ToIntFunction<T1> arg1, IntPredicate arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				int t2 = arg1.applyAsInt(t1);
+				if(!arg2.test(t2)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_map_count(Collection<T0> input, ToLongFunction<T1> arg1, LongUnaryOperator arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				t2 = arg2.applyAsLong(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_filter_count(Collection<T0> input, ToLongFunction<T1> arg1, LongPredicate arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_mapToInt_count(Collection<T0> input, ToLongFunction<T1> arg1, LongToIntFunction arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				int t3 = arg2.applyAsInt(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_mapToDouble_count(Collection<T0> input, ToLongFunction<T1> arg1, LongToDoubleFunction arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				double t3 = arg2.applyAsDouble(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T3> long stream_flatMapMemberReference_mapToLong_mapToObj_count(Collection<T0> input, ToLongFunction<T1> arg1, LongFunction<T3> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				T3 t3 = arg2.apply(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_boxed_count(Collection<T0> input, ToLongFunction<T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				Long t3 = t2;
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_sorted_count(Collection<T0> input, ToLongFunction<T1> arg1) {
+		List<Long> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				sorted0.add(t2);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (long t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_limit_count(Collection<T0> input, ToLongFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_skip_count(Collection<T0> input, ToLongFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_distinct_count(Collection<T0> input, ToLongFunction<T1> arg1) {
+		Set<Long> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_dropWhile_count(Collection<T0> input, ToLongFunction<T1> arg1, LongPredicate arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_takeWhile_count(Collection<T0> input, ToLongFunction<T1> arg1, LongPredicate arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				long t2 = arg1.applyAsLong(t1);
+				if(!arg2.test(t2)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToDouble_map_count(Collection<T0> input, ToDoubleFunction<T1> arg1, DoubleUnaryOperator arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				t2 = arg2.applyAsDouble(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToDouble_filter_count(Collection<T0> input, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				if (!arg2.test(t2)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToDouble_mapToInt_count(Collection<T0> input, ToDoubleFunction<T1> arg1, DoubleToIntFunction arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				int t3 = arg2.applyAsInt(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToDouble_mapToLong_count(Collection<T0> input, ToDoubleFunction<T1> arg1, DoubleToLongFunction arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				long t3 = arg2.applyAsLong(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T3> long stream_flatMapMemberReference_mapToDouble_mapToObj_count(Collection<T0> input, ToDoubleFunction<T1> arg1, DoubleFunction<T3> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				T3 t3 = arg2.apply(t2);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToDouble_boxed_count(Collection<T0> input, ToDoubleFunction<T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				Double t3 = t2;
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToDouble_sorted_count(Collection<T0> input, ToDoubleFunction<T1> arg1) {
+		List<Double> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				sorted0.add(t2);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (double t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToDouble_limit_count(Collection<T0> input, ToDoubleFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToDouble_skip_count(Collection<T0> input, ToDoubleFunction<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToDouble_distinct_count(Collection<T0> input, ToDoubleFunction<T1> arg1) {
+		Set<Double> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				if(!distinct0.add(t2)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToDouble_dropWhile_count(Collection<T0> input, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				if(dropWhile0 && arg2.test(t2)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToDouble_takeWhile_count(Collection<T0> input, ToDoubleFunction<T1> arg1, DoublePredicate arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				double t2 = arg1.applyAsDouble(t1);
+				if(!arg2.test(t2)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_sorted_map_count(Collection<T0> input, Function<T1, T2> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			T2 t2 = arg2.apply(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_filter_count(Collection<T0> input, Predicate<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_mapToInt_count(Collection<T0> input, ToIntFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			int t2 = arg2.applyAsInt(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_mapToLong_count(Collection<T0> input, ToLongFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			long t2 = arg2.applyAsLong(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			double t2 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_sorted_count(Collection<T0> input) {
+		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			sorted1.add(t1);
+		}
+		Collections.sort((List) sorted1);
+		for (T1 t1: sorted1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_sortedComp_count(Collection<T0> input, Comparator<? super T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			sortedComp0.add(t1);
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_limit_count(Collection<T0> input, long arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_skip_count(Collection<T0> input, long arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_distinct_count(Collection<T0> input) {
+		List<T1> sorted0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_dropWhile_count(Collection<T0> input, Predicate<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_takeWhile_count(Collection<T0> input, Predicate<T1> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			if(!arg2.test(t1)) {
+				break;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_sorted_flatMapLambda_count(Collection<T0> input, Function<T1, Collection<T2>> arg2) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			for (T2 t2 : arg2.apply(t1)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_sorted_flatMapMemberReference_count(Collection<T0> input) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_sortedComp_map_count(Collection<T0> input, Comparator<? super T1> arg1, Function<T1, T2> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			T2 t2 = arg2.apply(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_filter_count(Collection<T0> input, Comparator<? super T1> arg1, Predicate<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if (!arg2.test(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_mapToInt_count(Collection<T0> input, Comparator<? super T1> arg1, ToIntFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			int t2 = arg2.applyAsInt(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_mapToLong_count(Collection<T0> input, Comparator<? super T1> arg1, ToLongFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			long t2 = arg2.applyAsLong(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_mapToDouble_count(Collection<T0> input, Comparator<? super T1> arg1, ToDoubleFunction<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			double t2 = arg2.applyAsDouble(t1);
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_sorted_count(Collection<T0> input, Comparator<? super T1> arg1) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			sorted0.add(t1);
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_sortedComp_count(Collection<T0> input, Comparator<? super T1> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp1 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			sortedComp1.add(t1);
+		}
+		sortedComp1.sort(arg2);
+		for (T1 t1: sortedComp1) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_limit_count(Collection<T0> input, Comparator<? super T1> arg1, long arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			limit0++;
+			if(limit0 > arg2) {
+				break;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_skip_count(Collection<T0> input, Comparator<? super T1> arg1, long arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			skip0++;
+			if(skip0 <= arg2) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_distinct_count(Collection<T0> input, Comparator<? super T1> arg1) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(!distinct0.add(t1)) {
+				continue;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_dropWhile_count(Collection<T0> input, Comparator<? super T1> arg1, Predicate<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(dropWhile0 && arg2.test(t1)) {
+				continue;
+			} else {
+				dropWhile0 = false;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_takeWhile_count(Collection<T0> input, Comparator<? super T1> arg1, Predicate<T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			if(!arg2.test(t1)) {
+				break;
+			}
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_sortedComp_flatMapLambda_count(Collection<T0> input, Comparator<? super T1> arg1, Function<T1, Collection<T2>> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			for (T2 t2 : arg2.apply(t1)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_sortedComp_flatMapMemberReference_count(Collection<T0> input, Comparator<? super T1> arg1) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg1);
+		for (T1 t1: sortedComp0) {
+			for (T2 t2 : t1) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_limit_map_count(Collection<T0> input, long arg1, Function<T1, T2> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_limit_filter_count(Collection<T0> input, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_limit_mapToInt_count(Collection<T0> input, long arg1, ToIntFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_limit_mapToLong_count(Collection<T0> input, long arg1, ToLongFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_limit_mapToDouble_count(Collection<T0> input, long arg1, ToDoubleFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_limit_sorted_count(Collection<T0> input, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_limit_sortedComp_count(Collection<T0> input, long arg1, Comparator<? super T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_limit_limit_count(Collection<T0> input, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit1 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				limit1++;
+				if(limit1 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_limit_skip_count(Collection<T0> input, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_limit_distinct_count(Collection<T0> input, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_limit_dropWhile_count(Collection<T0> input, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_limit_takeWhile_count(Collection<T0> input, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_limit_flatMapLambda_count(Collection<T0> input, long arg1, Function<T1, Collection<T2>> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_limit_flatMapMemberReference_count(Collection<T0> input, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				limit0++;
+				if(limit0 > arg1) {
+					break;
+				}
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_skip_map_count(Collection<T0> input, long arg1, Function<T1, T2> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_skip_filter_count(Collection<T0> input, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_skip_mapToInt_count(Collection<T0> input, long arg1, ToIntFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_skip_mapToLong_count(Collection<T0> input, long arg1, ToLongFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_skip_mapToDouble_count(Collection<T0> input, long arg1, ToDoubleFunction<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_skip_sorted_count(Collection<T0> input, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_skip_sortedComp_count(Collection<T0> input, long arg1, Comparator<? super T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_skip_limit_count(Collection<T0> input, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_skip_skip_count(Collection<T0> input, long arg1, long arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip1 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				skip1++;
+				if(skip1 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_skip_distinct_count(Collection<T0> input, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_skip_dropWhile_count(Collection<T0> input, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_skip_takeWhile_count(Collection<T0> input, long arg1, Predicate<T1> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_skip_flatMapLambda_count(Collection<T0> input, long arg1, Function<T1, Collection<T2>> arg2) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_skip_flatMapMemberReference_count(Collection<T0> input, long arg1) {
+		if(arg1 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				skip0++;
+				if(skip0 <= arg1) {
+					continue;
+				}
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_distinct_map_count(Collection<T0> input, Function<T1, T2> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_filter_count(Collection<T0> input, Predicate<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_mapToInt_count(Collection<T0> input, ToIntFunction<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_mapToLong_count(Collection<T0> input, ToLongFunction<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_sorted_count(Collection<T0> input) {
+		Set<T1> distinct0 = new HashSet<>();
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_sortedComp_count(Collection<T0> input, Comparator<? super T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_limit_count(Collection<T0> input, long arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_skip_count(Collection<T0> input, long arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_distinct_count(Collection<T0> input) {
+		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct1 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				if(!distinct1.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_dropWhile_count(Collection<T0> input, Predicate<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_takeWhile_count(Collection<T0> input, Predicate<T1> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_distinct_flatMapLambda_count(Collection<T0> input, Function<T1, Collection<T2>> arg2) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_distinct_flatMapMemberReference_count(Collection<T0> input) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_dropWhile_map_count(Collection<T0> input, Predicate<T1> arg1, Function<T1, T2> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_dropWhile_filter_count(Collection<T0> input, Predicate<T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_dropWhile_mapToInt_count(Collection<T0> input, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_dropWhile_mapToLong_count(Collection<T0> input, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_dropWhile_mapToDouble_count(Collection<T0> input, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_dropWhile_sorted_count(Collection<T0> input, Predicate<T1> arg1) {
+		boolean dropWhile0 = true;
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_dropWhile_sortedComp_count(Collection<T0> input, Predicate<T1> arg1, Comparator<? super T1> arg2) {
+		boolean dropWhile0 = true;
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_dropWhile_limit_count(Collection<T0> input, Predicate<T1> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_dropWhile_skip_count(Collection<T0> input, Predicate<T1> arg1, long arg2) {
+		boolean dropWhile0 = true;
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_dropWhile_distinct_count(Collection<T0> input, Predicate<T1> arg1) {
+		boolean dropWhile0 = true;
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_dropWhile_dropWhile_count(Collection<T0> input, Predicate<T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		boolean dropWhile1 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				if(dropWhile1 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile1 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_dropWhile_takeWhile_count(Collection<T0> input, Predicate<T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_dropWhile_flatMapLambda_count(Collection<T0> input, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_dropWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T1> arg1) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(dropWhile0 && arg1.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_takeWhile_map_count(Collection<T0> input, Predicate<T1> arg1, Function<T1, T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				T2 t2 = arg2.apply(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_takeWhile_filter_count(Collection<T0> input, Predicate<T1> arg1, Predicate<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				if (!arg2.test(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_takeWhile_mapToInt_count(Collection<T0> input, Predicate<T1> arg1, ToIntFunction<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				int t2 = arg2.applyAsInt(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_takeWhile_mapToLong_count(Collection<T0> input, Predicate<T1> arg1, ToLongFunction<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				long t2 = arg2.applyAsLong(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_takeWhile_mapToDouble_count(Collection<T0> input, Predicate<T1> arg1, ToDoubleFunction<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				double t2 = arg2.applyAsDouble(t1);
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_takeWhile_sorted_count(Collection<T0> input, Predicate<T1> arg1) {
+		List<T1> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				sorted0.add(t1);
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T1 t1: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_takeWhile_sortedComp_count(Collection<T0> input, Predicate<T1> arg1, Comparator<? super T1> arg2) {
+		List<T1> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				sortedComp0.add(t1);
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T1 t1: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_takeWhile_limit_count(Collection<T0> input, Predicate<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				limit0++;
+				if(limit0 > arg2) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_takeWhile_skip_count(Collection<T0> input, Predicate<T1> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				skip0++;
+				if(skip0 <= arg2) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_takeWhile_distinct_count(Collection<T0> input, Predicate<T1> arg1) {
+		Set<T1> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				if(!distinct0.add(t1)) {
+					continue;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_takeWhile_dropWhile_count(Collection<T0> input, Predicate<T1> arg1, Predicate<T1> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				if(dropWhile0 && arg2.test(t1)) {
+					continue;
+				} else {
+					dropWhile0 = false;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_takeWhile_takeWhile_count(Collection<T0> input, Predicate<T1> arg1, Predicate<T1> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				if(!arg2.test(t1)) {
+					break;
+				}
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_takeWhile_flatMapLambda_count(Collection<T0> input, Predicate<T1> arg1, Function<T1, Collection<T2>> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				for (T2 t2 : arg2.apply(t1)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_takeWhile_flatMapMemberReference_count(Collection<T0> input, Predicate<T1> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				if(!arg1.test(t1)) {
+					break;
+				}
+				for (T2 t2 : t1) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2, T3> long stream_flatMapMemberReference_flatMapLambda_map_count(Collection<T0> input, Function<T1, Collection<T2>> arg1, Function<T2, T3> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					T3 t3 = arg2.apply(t2);
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_flatMapLambda_filter_count(Collection<T0> input, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					if (!arg2.test(t2)) {
+						continue;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_flatMapLambda_mapToInt_count(Collection<T0> input, Function<T1, Collection<T2>> arg1, ToIntFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					int t3 = arg2.applyAsInt(t2);
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_flatMapLambda_mapToLong_count(Collection<T0> input, Function<T1, Collection<T2>> arg1, ToLongFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					long t3 = arg2.applyAsLong(t2);
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_flatMapLambda_mapToDouble_count(Collection<T0> input, Function<T1, Collection<T2>> arg1, ToDoubleFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					double t3 = arg2.applyAsDouble(t2);
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_flatMapLambda_sorted_count(Collection<T0> input, Function<T1, Collection<T2>> arg1) {
+		List<T2> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					sorted0.add(t2);
+				}
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_flatMapLambda_sortedComp_count(Collection<T0> input, Function<T1, Collection<T2>> arg1, Comparator<? super T2> arg2) {
+		List<T2> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					sortedComp0.add(t2);
+				}
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_flatMapLambda_limit_count(Collection<T0> input, Function<T1, Collection<T2>> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					limit0++;
+					if(limit0 > arg2) {
+						break;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_flatMapLambda_skip_count(Collection<T0> input, Function<T1, Collection<T2>> arg1, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					skip0++;
+					if(skip0 <= arg2) {
+						continue;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_flatMapLambda_distinct_count(Collection<T0> input, Function<T1, Collection<T2>> arg1) {
+		Set<T2> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					if(!distinct0.add(t2)) {
+						continue;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_flatMapLambda_dropWhile_count(Collection<T0> input, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					if(dropWhile0 && arg2.test(t2)) {
+						continue;
+					} else {
+						dropWhile0 = false;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2> long stream_flatMapMemberReference_flatMapLambda_takeWhile_count(Collection<T0> input, Function<T1, Collection<T2>> arg1, Predicate<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					if(!arg2.test(t2)) {
+						break;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2, T3> long stream_flatMapMemberReference_flatMapLambda_flatMapLambda_count(Collection<T0> input, Function<T1, Collection<T2>> arg1, Function<T2, Collection<T3>> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					for (T3 t3 : arg2.apply(t2)) {
+						count++;
+					}
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1, T2 extends Collection<T3>, T3> long stream_flatMapMemberReference_flatMapLambda_flatMapMemberReference_count(Collection<T0> input, Function<T1, Collection<T2>> arg1) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : arg1.apply(t1)) {
+					for (T3 t3 : t2) {
+						count++;
+					}
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2, T3> long stream_flatMapMemberReference_flatMapMemberReference_map_count(Collection<T0> input, Function<T2, T3> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					T3 t3 = arg2.apply(t2);
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_flatMapMemberReference_filter_count(Collection<T0> input, Predicate<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					if (!arg2.test(t2)) {
+						continue;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_flatMapMemberReference_mapToInt_count(Collection<T0> input, ToIntFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					int t3 = arg2.applyAsInt(t2);
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_flatMapMemberReference_mapToLong_count(Collection<T0> input, ToLongFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					long t3 = arg2.applyAsLong(t2);
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_flatMapMemberReference_mapToDouble_count(Collection<T0> input, ToDoubleFunction<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					double t3 = arg2.applyAsDouble(t2);
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_flatMapMemberReference_sorted_count(Collection<T0> input) {
+		List<T2> sorted0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					sorted0.add(t2);
+				}
+			}
+		}
+		Collections.sort((List) sorted0);
+		for (T2 t2: sorted0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_flatMapMemberReference_sortedComp_count(Collection<T0> input, Comparator<? super T2> arg2) {
+		List<T2> sortedComp0 = new ArrayList<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					sortedComp0.add(t2);
+				}
+			}
+		}
+		sortedComp0.sort(arg2);
+		for (T2 t2: sortedComp0) {
+			count++;
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_flatMapMemberReference_limit_count(Collection<T0> input, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long limit0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					limit0++;
+					if(limit0 > arg2) {
+						break;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_flatMapMemberReference_skip_count(Collection<T0> input, long arg2) {
+		if(arg2 < 0) {
+			throw new IllegalArgumentException();
+		}
+		long skip0 = 0;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					skip0++;
+					if(skip0 <= arg2) {
+						continue;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_flatMapMemberReference_distinct_count(Collection<T0> input) {
+		Set<T2> distinct0 = new HashSet<>();
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					if(!distinct0.add(t2)) {
+						continue;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_flatMapMemberReference_dropWhile_count(Collection<T0> input, Predicate<T2> arg2) {
+		boolean dropWhile0 = true;
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					if(dropWhile0 && arg2.test(t2)) {
+						continue;
+					} else {
+						dropWhile0 = false;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> long stream_flatMapMemberReference_flatMapMemberReference_takeWhile_count(Collection<T0> input, Predicate<T2> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					if(!arg2.test(t2)) {
+						break;
+					}
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2, T3> long stream_flatMapMemberReference_flatMapMemberReference_flatMapLambda_count(Collection<T0> input, Function<T2, Collection<T3>> arg2) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					for (T3 t3 : arg2.apply(t2)) {
+						count++;
+					}
+				}
+			}
+		}
+		return count;
+	}
+
+	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2 extends Collection<T3>, T3> long stream_flatMapMemberReference_flatMapMemberReference_flatMapMemberReference_count(Collection<T0> input) {
+		long count = 0;
+		for (T0 t0: input) {
+			for (T1 t1 : t0) {
+				for (T2 t2 : t1) {
+					for (T3 t3 : t2) {
 						count++;
 					}
 				}

@@ -7,7 +7,6 @@ import com.sun.tools.javac.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import static io.github.guegse.foreachstream.plugin.ASTHelpers.getReturnType;
 
@@ -69,29 +68,8 @@ public class Substitution {
         return type.tsym.getQualifiedName().toString().equals("java.util.stream.Stream");
     }
 
-    private void transformLambda(JCTree.JCLambda lambda, JCTree.JCExpression body, Type.ClassType type) {
-        lambda.body = body;
-        lambda.setType(type);
-        lambda.target = type;
-    }
-
-    private JCTree.JCExpression transformArgument(Pair<JCTree.JCExpression, String> arg, JCTree.JCExpression newArg) {
-        if(!arg.snd.equals("flatMap")) {
-            return arg.fst;
-        } else if(arg.fst instanceof JCTree.JCMemberReference ref
-                && newArg instanceof JCTree.JCLambda lambda
-                && isCollection(ref.expr.type)
-                && isStream(ref.referentType.getReturnType())) {
-            lambda.pos = ref.pos;
-            Type paramType = ref.type.getTypeArguments().get(0);
-            var newclassType =  new Type.ClassType(Type.noType, com.sun.tools.javac.util.List.of(paramType, paramType), ref.type.tsym);
-            JCTree.JCVariableDecl variableDecl = lambda.params.head;
-            variableDecl.setType(paramType);
-            JCTree.JCIdent ident = treeMaker.Ident(variableDecl.sym);
-            ident.setType(paramType);
-            transformLambda(lambda, ident, newclassType);
-            return lambda;
-        } else if(arg.fst instanceof JCTree.JCLambda lambda
+    private JCTree.JCLambda transformLambda(JCTree.JCExpression arg) {
+            if(arg instanceof JCTree.JCLambda lambda
                 && lambda.body instanceof JCTree.JCMethodInvocation invocation
                 && invocation.meth instanceof JCTree.JCFieldAccess fieldAccess
                 && fieldAccess.sym.toString().equals("stream()")
@@ -101,11 +79,34 @@ public class Substitution {
             com.sun.tools.javac.util.List<Type> newTypeParams = com.sun.tools.javac.util.List.from(classType.getTypeArguments().subList(0, 1));
             newTypeParams = newTypeParams.append(fieldAccess.selected.type);
             var newclassType =  new Type.ClassType(classType.getEnclosingType(), newTypeParams, classType.tsym);
-            transformLambda(lambda, fieldAccess.selected, newclassType);
+            lambda.body = fieldAccess.selected;
+            lambda.setType(newclassType);
+            lambda.target = newclassType;
             return lambda;
         } else {
             return null;
         }
+    }
+
+    private com.sun.tools.javac.util.List<JCTree.JCExpression> transformArguments (List<Pair<JCTree. JCExpression, String>> arguments) {
+        com.sun.tools.javac.util.List<JCTree.JCExpression> args = com.sun.tools.javac.util.List.nil();
+        for(var pair : arguments) {
+            JCTree.JCExpression arg = pair.fst;
+            if(pair.snd.equals("flatMap")) {
+                if(arg instanceof JCTree.JCLambda) {
+                    arg = transformLambda(arg);
+                } else if(pair.fst instanceof JCTree.JCMemberReference ref
+                        && isCollection(ref.expr.type)
+                        && isStream(ref.referentType.getReturnType())) {
+                    continue;
+                } else {
+                    arg = null;
+                }
+            }
+            if(arg == null) return null; // argument couldn't be proc
+            args = args.append(pair.fst);
+        }
+        return args;
     }
 
     public void substitute() {
@@ -118,19 +119,25 @@ public class Substitution {
                 if(statistics != null) {
                     statistics.typeMismatch();
                 }
+                debugOutput.printDebug(entry.original, "type error: " + entry.sub.getMethodSelect());
                 continue;
             }
 
-            com.sun.tools.javac.util.List<JCTree.JCExpression> args = com.sun.tools.javac.util.List.nil();
-            for(int i = 0; i < entry.arguments.size(); i++) {
-                args = args.append(transformArgument(entry.arguments.get(i), entry.sub.args.get(i)));
-            }
-            if(args.stream().anyMatch(Objects::isNull)) {
+            com.sun.tools.javac.util.List<JCTree.JCExpression> args = transformArguments(entry.arguments);
+            if(args == null) {
                 if(statistics != null) {
                     statistics.typeMismatch();
                 }
+                debugOutput.printDebug(entry.original, "arguments type error: " + entry.sub.getMethodSelect());
                 continue;
             }
+
+            entry.sub.meth.type = new Type.MethodType(
+                    com.sun.tools.javac.util.List.from(args.stream().map(expr -> expr.type).toList()),
+                    entry.original.meth.type.getReturnType(),
+                    entry.sub.meth.type.getThrownTypes(),
+                    entry.sub.type.tsym
+            );
 
             debugOutput.printDebug(entry.original, "replacing with: " + entry.sub.getMethodSelect());
             entry.original.args = args;
