@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -13,6 +12,7 @@ public class Generator {
 
     private static final int MAX_DEPTH = 4;
 
+    private static final Operation stream = new io.github.guegse.foreachstream.generator.Stream();
 
     private static final IntermediateOperation[] INTERMEDIATE_OPS = {
             new MapOp(),
@@ -29,7 +29,8 @@ public class Generator {
             new Distinct(),
             new DropWhile(),
             new TakeWhile(),
-            new FlatMapOp(),
+            new FlatMapOpLambda(),
+            new FlatMapOpMemberReference(),
     };
 
     private static final TerminalOperation[] TERMINAL_OPS = {
@@ -125,16 +126,12 @@ public class Generator {
         out.print("public static ");
         List<OperationInstance> operationInstances = getOperationInstances(intermediateOperations, terminalOperation);
         String returnType = operationInstances.get(operationInstances.size() - 1).targetType;
-        OperationInstance terminalInstance = operationInstances.get(operationInstances.size() - 1);
         emitTypeParameterList(out, operationInstances);
         out.print(" ");
         out.print(returnType);
-        emitMethodName(out, terminalOperation, intermediateOperations);
+        out.print(" ");
+        emitMethodName(out, operationInstances);
         out.print("(");
-        out.print("Collection<T0> input");
-        if (intermediateOperations.stream().anyMatch(Operation::hasArgument) || terminalOperation.hasArgument()) {
-            out.print(", ");
-        }
         emitArgumentDeclarations(out, operationInstances);
         out.print(") ");
         out.println("{");
@@ -150,12 +147,6 @@ public class Generator {
             operation.emitPreamble(out, operationInstance.sourceType, operationInstance.argumentName, sizeEstimate);
         }
 
-        //terminalOperation.emitPreamble(out, terminalInstance.sourceType, terminalInstance.argumentName, sizeEstimate);
-
-        out.printIndentation();
-        out.println("for (T0 t0 : input) {");
-        out.increaseIndentation();
-
         for (int i = 0; i < operationInstances.size(); i++) {
             OperationInstance operationInstance = operationInstances.get(i);
             String targetElement = i + 1 < operationInstances.size()
@@ -164,16 +155,11 @@ public class Generator {
             Operation operation = operationInstance.operation;
             operation.emitOperation(out, operationInstance.sourceType, operationInstance.argumentName, operationInstance.streamElement, operationInstance.targetType, targetElement);
         }
-        out.decreaseIndentation();
-        out.printIndentation();
-        out.println("}");
+
         for (OperationInstance operationInstance : operationInstances) {
             Operation operation = operationInstance.operation;
-            if (operation != terminalOperation) {
-                operation.emitPostamble(out, operationInstance.sourceType, operationInstance.argumentName);
-            }
+            operation.emitPostamble(out, operationInstance.sourceType, operationInstance.argumentName);
         }
-        terminalOperation.emitPostamble(out, terminalInstance.sourceType, terminalInstance.argumentName);
 
         out.decreaseIndentation();
         out.printIndentation();
@@ -182,15 +168,15 @@ public class Generator {
     }
 
     private static void emitTypeParameterList(Emitter out, List<OperationInstance> operationInstances) {
-        List<String> types = Stream.concat(
-                Stream.of("T0"),
-                operationInstances
-                        .stream()
-                        .filter(op -> op.operation instanceof IntermediateOperation)
-                        .map(OperationInstance::targetType))
-                .filter(s -> !"int".equals(s) && !"long".equals(s) && !"double".equals(s) && !"Integer".equals(s) && !"Long".equals(s) && !"Double".equals(s))
-                .distinct()
-                .collect(Collectors.toList());
+        List<OperationInstance> uniqueInstances = new ArrayList<>();
+        uniqueInstances.add(operationInstances.get(0));
+        for(int i = 1; i < operationInstances.size() - 1; i++) {
+            if(!operationInstances.get(i).targetType.equals(operationInstances.get(i - 1).targetType)) {
+                uniqueInstances.add(operationInstances.get(i));
+            }
+        }
+
+        List<String> types = new ArrayList<>();
 
         OperationInstance terminalInstance = operationInstances.get(operationInstances.size() - 1);
         if(terminalInstance.operation instanceof CollectCollector collector) {
@@ -199,28 +185,42 @@ public class Generator {
             types.add(argumentTypes[argumentTypes.length - 1].trim()); // add type of combiner
         }
 
+        OperationInstance prev = null;
+        for(int i = uniqueInstances.size() - 1; i >= 0; i--) {
+            OperationInstance op = uniqueInstances.get(i);
+            if (!"int".equals(op.targetType)
+                    && !"long".equals(op.targetType)
+                    && !"double".equals(op.targetType)
+                    && !"Integer".equals(op.targetType)
+                    && !"Long".equals(op.targetType)
+                    && !"Double".equals(op.targetType)) {
+                String targetType = op.targetType;
+                if(prev != null && prev.operation.appendPreviousTargetType(prev.targetType) != null) {
+                    targetType = targetType + " " + prev.operation.appendPreviousTargetType(prev.targetType);
+                }
+                types.add(targetType);
+                prev = op;
+            }
+        }
+        Collections.reverse(types);
+
         out.print(types.stream().collect(Collectors.joining(", ", "<", ">")));
     }
 
-    private static void emitMethodName(Emitter out, TerminalOperation terminalOperation, List<IntermediateOperation> intermediateOperationList) {
-        out.print(" stream_");
-        out.print(intermediateOperationList.stream().map(IntermediateOperation::getName).collect(Collectors.joining("_")));
-        if (!intermediateOperationList.isEmpty()) {
-            out.print("_");
-        }
-        out.print(terminalOperation.getName());
+    private static void emitMethodName(Emitter out, List<OperationInstance> operationInstances) {
+        out.print(operationInstances.stream().map(instance -> instance.operation.getName()).collect(Collectors.joining("_")));
     }
 
     private static List<OperationInstance> getOperationInstances(List<IntermediateOperation> intermediateOperations, TerminalOperation terminalOperation) {
-        String currentType = "T0";
-        int typeCount = 1;
         List<OperationInstance> operationInstances = new ArrayList<>();
+        String currentType = "T0";
+        int typeCount = 0;
         int argumentIndex = 0;
-        int currentElement = 0;
         String currentStreamElement = "t0";
+        operationInstances.add(new OperationInstance(stream, currentType, stream.getTargetType(currentType, "T" + typeCount), "input", currentStreamElement));
+        typeCount++;
         for (IntermediateOperation operation : intermediateOperations) {
             String targetType = operation.getTargetType(currentType, "T" + typeCount);
-            assert operation.hasArgument();
             operationInstances.add(new OperationInstance(operation, currentType, targetType, "arg" + argumentIndex++, currentStreamElement));
             if (!targetType.equals(currentType)) {
                 currentStreamElement = "t" + typeCount;

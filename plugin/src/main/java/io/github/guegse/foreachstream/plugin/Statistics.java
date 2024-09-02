@@ -20,7 +20,8 @@ public class Statistics implements Serializable {
             "distinct",
             "skip",
             "limit",
-            "flatMap"
+            "flatMapLambda",
+            "flatMapMemberReference"
     };
     private static final String[] TERMINAL_OPERATIONS_IMPLEMENTED = new String[] {
             "collectCollector",
@@ -206,7 +207,7 @@ public class Statistics implements Serializable {
         addOperationsToStringBuilder(sb, methodMissMap);
         sb.append("Depth insufficient: ").append(sumMapValues(depthMap)).append("\n");
         addDepthsToStringBuilder(sb, depthMap);
-        sb.append("Stream Type mismatches: ").append(typeCounter).append("\n");
+        sb.append("Type mismatches: ").append(typeCounter).append("\n");
         sb.append("Intermediate Operations missing: ").append(sumMapValues(intermediateMissMap)).append("\n");
         addOperationsToStringBuilder(sb, intermediateMissMap);
         sb.append("Terminal Operations missing: ").append(sumMapValues(terminalMissMap)).append("\n");
