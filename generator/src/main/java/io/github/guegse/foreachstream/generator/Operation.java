@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 abstract class Operation {
     protected static int depth = 1;
 
@@ -74,15 +76,13 @@ abstract class Operation {
         return null;
     }
 
-    abstract String getArgumentType(String inputType, String nextOutputType);
+    abstract List<String> getArgumentTypes(String inputType, String nextOutputType);
 
     abstract String getName();
 
-    abstract boolean hasArgument();
+    abstract void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize);
 
-    abstract void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize);
+    abstract void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement);
 
-    abstract void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement);
-
-    abstract void emitPostamble(Emitter out, String inputType, String argument);
+    abstract void emitPostamble(Emitter out, String inputType, List<String> arguments);
 }

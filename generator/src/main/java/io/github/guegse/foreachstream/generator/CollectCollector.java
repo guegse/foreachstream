@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class CollectCollector extends TerminalOperation{
     @Override
     String getName() {
@@ -13,32 +15,27 @@ public class CollectCollector extends TerminalOperation{
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
-        return "Collector<? super " + inputType + ", A, R>";
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
+        return List.of("Collector<? super " + inputType + ", A, R>");
+    }
+
+    void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize) {
+        out.printIndentation();
+        out.println("A result = " + arguments.get(0) + ".supplier().get();");
     }
 
     @Override
-    boolean hasArgument() {
-        return true;
-    }
-
-    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
-        out.println("A result = " + argument + ".supplier().get();");
-    }
-
-    @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
-        out.printIndentation();
-        out.print(argument);
+        out.print(arguments.get(0));
         out.print(".accumulator().accept(result, ");
         out.print(currentStreamElement);
         out.println(");");
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType, String argument) {
+    void emitPostamble(Emitter out, String inputType, List<String> arguments) {
         out.printIndentation();
-        out.println("return " + argument + ".finisher().apply(result);");
+        out.println("return " + arguments.get(0) + ".finisher().apply(result);");
     }
 }

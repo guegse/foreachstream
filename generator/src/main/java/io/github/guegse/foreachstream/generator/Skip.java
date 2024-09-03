@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class Skip extends StatefulIntermediateOperation{
     @Override
     String getName() {
@@ -12,19 +14,14 @@ public class Skip extends StatefulIntermediateOperation{
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
-        return "long";
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
+        return List.of("long");
     }
 
     @Override
-    boolean hasArgument() {
-        return true;
-    }
-
-    @Override
-    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize) {
         out.printIndentation();
-        out.println("if(" + argument + " < 0) {");
+        out.println("if(" + arguments.get(0) + " < 0) {");
         out.increaseIndentation();
         out.printIndentation();
         out.println("throw new IllegalArgumentException();"); // consistent with the  streams implementation
@@ -36,12 +33,12 @@ public class Skip extends StatefulIntermediateOperation{
     }
 
     @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         String variable = getVariable();
         out.printIndentation();
         out.println(variable + "++;");
         out.printIndentation();
-        out.println("if(" + variable + " <= " + argument + ") {");
+        out.println("if(" + variable + " <= " + arguments.get(0) + ") {");
         out.increaseIndentation();
         out.printIndentation();
         out.println("continue;");

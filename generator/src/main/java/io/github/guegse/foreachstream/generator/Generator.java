@@ -117,7 +117,7 @@ public class Generator {
         }
     }
 
-    private record OperationInstance(Operation operation, String sourceType, String targetType, String argumentName,
+    private record OperationInstance(Operation operation, String sourceType, String targetType, List<String> argumentNames,
                                      String streamElement) {
     }
 
@@ -144,7 +144,7 @@ public class Generator {
 
         for (OperationInstance operationInstance : operationInstances) {
             Operation operation = operationInstance.operation;
-            operation.emitPreamble(out, operationInstance.sourceType, operationInstance.argumentName, sizeEstimate);
+            operation.emitPreamble(out, operationInstance.sourceType, operationInstance.argumentNames, sizeEstimate);
         }
 
         for (int i = 0; i < operationInstances.size(); i++) {
@@ -153,12 +153,12 @@ public class Generator {
                     ? operationInstances.get(i + 1).streamElement
                     : null;
             Operation operation = operationInstance.operation;
-            operation.emitOperation(out, operationInstance.sourceType, operationInstance.argumentName, operationInstance.streamElement, operationInstance.targetType, targetElement);
+            operation.emitOperation(out, operationInstance.sourceType, operationInstance.argumentNames, operationInstance.streamElement, operationInstance.targetType, targetElement);
         }
 
         for (OperationInstance operationInstance : operationInstances) {
             Operation operation = operationInstance.operation;
-            operation.emitPostamble(out, operationInstance.sourceType, operationInstance.argumentName);
+            operation.emitPostamble(out, operationInstance.sourceType, operationInstance.argumentNames);
         }
 
         out.decreaseIndentation();
@@ -180,7 +180,7 @@ public class Generator {
 
         OperationInstance terminalInstance = operationInstances.get(operationInstances.size() - 1);
         if(terminalInstance.operation instanceof CollectCollector collector) {
-            String[] argumentTypes = collector.getArgumentType(terminalInstance.sourceType, terminalInstance.targetType).split("[,<>]");
+            String[] argumentTypes = collector.getArgumentTypes(terminalInstance.sourceType, terminalInstance.targetType).get(0).split("[,<>]");
             types.add(argumentTypes[argumentTypes.length - 2].trim()); // add type of accumulator
             types.add(argumentTypes[argumentTypes.length - 1].trim()); // add type of combiner
         }
@@ -211,39 +211,58 @@ public class Generator {
         out.print(operationInstances.stream().map(instance -> instance.operation.getName()).collect(Collectors.joining("_")));
     }
 
+    private static List<String> createArgumentNames(int numberOfArguments, int index) {
+        if(numberOfArguments <= 0) return null;
+        List<String> argumentNames = new ArrayList<>();
+        for(int i = 0; i < numberOfArguments; i++) {
+            argumentNames.add("arg" + index++);
+        }
+        return argumentNames;
+    }
+
     private static List<OperationInstance> getOperationInstances(List<IntermediateOperation> intermediateOperations, TerminalOperation terminalOperation) {
         List<OperationInstance> operationInstances = new ArrayList<>();
         String currentType = "T0";
         int typeCount = 0;
         int argumentIndex = 0;
         String currentStreamElement = "t0";
-        operationInstances.add(new OperationInstance(stream, currentType, stream.getTargetType(currentType, "T" + typeCount), "input", currentStreamElement));
+        List<String> argumentTypes;
+        String targetType;
+        operationInstances.add(new OperationInstance(stream, currentType, stream.getTargetType(currentType, "T" + typeCount), List.of("input"), currentStreamElement));
         typeCount++;
         for (IntermediateOperation operation : intermediateOperations) {
-            String targetType = operation.getTargetType(currentType, "T" + typeCount);
-            operationInstances.add(new OperationInstance(operation, currentType, targetType, "arg" + argumentIndex++, currentStreamElement));
+            targetType = operation.getTargetType(currentType, "T" + typeCount);
+            argumentTypes = operation.getArgumentTypes(currentType, targetType);
+            operationInstances.add(new OperationInstance(operation, currentType, targetType, createArgumentNames(argumentTypes == null ? 0 : argumentTypes.size(), argumentIndex), currentStreamElement));
+            argumentIndex += argumentTypes == null ? 0 : argumentTypes.size();
             if (!targetType.equals(currentType)) {
                 currentStreamElement = "t" + typeCount;
                 typeCount++;
                 currentType = targetType;
             }
         }
-        operationInstances.add(new OperationInstance(terminalOperation, currentType, terminalOperation.getTargetType(currentType, null), "arg" + argumentIndex, currentStreamElement));
+        targetType = terminalOperation.getTargetType(currentType, null);
+        argumentTypes = terminalOperation.getArgumentTypes(currentType, targetType);
+        operationInstances.add(new OperationInstance(terminalOperation, currentType, targetType, createArgumentNames(argumentTypes == null ? 0 : argumentTypes.size(), argumentIndex), currentStreamElement));
         return operationInstances;
     }
 
     private static void emitArgumentDeclarations(Emitter out, List<OperationInstance> operationInstances) {
         String argumentDeclarations = operationInstances.stream()
-                .filter(op -> op.operation.hasArgument())
+                .filter(op -> op.operation.getArgumentTypes(op.sourceType, op.targetType) != null)
                 .map(Generator::getArgumentDeclaration)
                 .collect(Collectors.joining(", "));
         out.print(argumentDeclarations);
     }
 
     private static String getArgumentDeclaration(OperationInstance operationInstance) {
-        return operationInstance.operation.getArgumentType(operationInstance.sourceType, operationInstance.targetType)
-                + " "
-                + operationInstance.argumentName;
+        if(operationInstance.argumentNames == null) return null;
+        StringBuilder argumentDecl = new StringBuilder();
+        List<String> types = operationInstance.operation.getArgumentTypes(operationInstance.sourceType, operationInstance.targetType);
+        for(int i = 0; i < operationInstance.argumentNames.size(); i++) {
+            argumentDecl.append(types.get(i)).append(" ").append(operationInstance.argumentNames.get(i));
+        }
+        return argumentDecl.toString();
     }
 
 }

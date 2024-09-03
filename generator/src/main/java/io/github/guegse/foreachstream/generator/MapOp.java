@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 class MapOp extends IntermediateOperation {
 
     @Override
@@ -18,27 +20,22 @@ class MapOp extends IntermediateOperation {
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
-        return switch (inputType) {
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
+        return List.of(switch (inputType) {
             case "int" -> "IntUnaryOperator";
             case "long" -> "LongUnaryOperator";
             case "double" -> "DoubleUnaryOperator";
             default -> "Function<" + inputType + ", " + nextOutputType + ">";
-        };
+        });
     }
 
     @Override
-    boolean hasArgument() {
-        return true;
-    }
-
-    @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
         if (!inputType.equals(nextTargetType)) {
             out.print(nextTargetType + " ");
         }
-        out.print(nextTargetElement + " = " + argument);
+        out.print(nextTargetElement + " = " + arguments.get(0));
         String applyFn = switch (inputType) {
             case "int" -> "applyAsInt";
             case "long" -> "applyAsLong";

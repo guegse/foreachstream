@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class ToList extends TerminalOperation {
     @Override
     String getName() {
@@ -13,23 +15,18 @@ public class ToList extends TerminalOperation {
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
         return null;
     }
 
     @Override
-    boolean hasArgument() {
-        return false;
-    }
-
-    @Override
-    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize) {
         out.printIndentation();
         out.println("List<" + inputType + "> result = new ArrayList<>(" + estimatedSize + ");");
     }
 
     @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
         out.print("result.add(");
         out.print(currentStreamElement);
@@ -37,7 +34,7 @@ public class ToList extends TerminalOperation {
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType, String argument) {
+    void emitPostamble(Emitter out, String inputType, List<String> arguments) {
         out.printIndentation();
         out.println("return Collections.unmodifiableList(result);");
     }

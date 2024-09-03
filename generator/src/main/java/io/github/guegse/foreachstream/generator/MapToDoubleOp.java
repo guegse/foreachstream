@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class MapToDoubleOp extends IntermediateOperation {
     @Override
     String getTargetType(String inputType, String nextOutputType) {
@@ -7,13 +9,13 @@ public class MapToDoubleOp extends IntermediateOperation {
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
-        return switch (inputType) {
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
+        return List.of( switch (inputType) {
             case "int" -> "IntToDoubleFunction";
             case "long" -> "LongToDoubleFunction";
             case "double" -> throw new UnsupportedOperationException("cannot map double to double");
             default -> "ToDoubleFunction<" + inputType + ">";
-        };
+        });
     }
 
     @Override
@@ -22,13 +24,8 @@ public class MapToDoubleOp extends IntermediateOperation {
     }
 
     @Override
-    boolean hasArgument() {
-        return true;
-    }
-
-    @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
-        out.println("double " + nextTargetElement + " = " + argument + ".applyAsDouble(" + currentStreamElement + ");");
+        out.println("double " + nextTargetElement + " = " + arguments.get(0) + ".applyAsDouble(" + currentStreamElement + ");");
     }
 }

@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class DropWhile extends StatefulIntermediateOperation{
     @Override
     String getName() {
@@ -12,26 +14,21 @@ public class DropWhile extends StatefulIntermediateOperation{
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
-        return predicateType(inputType);
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
+        return List.of(predicateType(inputType));
     }
 
     @Override
-    boolean hasArgument() {
-        return true;
-    }
-
-    @Override
-    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize) {
         out.printIndentation();
         out.println("boolean " + addVariable() + " = true;");
     }
 
     @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         String variable = getVariable();
         out.printIndentation();
-        out.println("if(" + variable + " && " + argument + ".test(" + currentStreamElement + ")) {");
+        out.println("if(" + variable + " && " + arguments.get(0) + ".test(" + currentStreamElement + ")) {");
         out.increaseIndentation();
         out.printIndentation();
         out.println("continue;");
