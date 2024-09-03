@@ -10,13 +10,17 @@ public class Collect extends TerminalOperation{
 
     @Override
     String getTargetType(String inputType, String nextOutputType) {
-        assertNonPrimitiveStream(inputType);
         return "R";
     }
 
     @Override
     List<String> getArgumentTypes(String inputType, String nextOutputType) {
-        return List.of("Supplier<R>", "BiConsumer<R,? super " + inputType + ">", "BiConsumer<R,R>");
+        return List.of("Supplier<R>", switch (inputType) {
+            case "int" -> "ObjIntConsumer<R>";
+            case "long" -> "ObjLongConsumer<R>";
+            case "double" -> "ObjDoubleConsumer<R>";
+            default -> "BiConsumer<R,? super " + inputType + ">";
+        }, "BiConsumer<R,R>");
     }
 
     void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize) {
