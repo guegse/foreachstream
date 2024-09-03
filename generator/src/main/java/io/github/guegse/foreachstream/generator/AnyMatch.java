@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class AnyMatch extends TerminalOperation {
     @Override
     String getTargetType(String inputType, String nextOutputType) {
@@ -7,8 +9,8 @@ public class AnyMatch extends TerminalOperation {
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
-        return predicateType(inputType);
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
+        return List.of(predicateType(inputType));
     }
 
     @Override
@@ -17,19 +19,14 @@ public class AnyMatch extends TerminalOperation {
     }
 
     @Override
-    boolean hasArgument() {
-        return true;
-    }
-
-    @Override
-    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize) {
 
     }
 
     @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
-        out.println("if (" + argument + ".test(" + currentStreamElement + ")) {");
+        out.println("if (" + arguments.get(0) + ".test(" + currentStreamElement + ")) {");
         out.increaseIndentation();
         out.printIndentation();
         out.println("return true;");
@@ -39,7 +36,7 @@ public class AnyMatch extends TerminalOperation {
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType, String argument) {
+    void emitPostamble(Emitter out, String inputType, List<String> arguments) {
         out.printIndentation();
         out.println("return false;");
     }

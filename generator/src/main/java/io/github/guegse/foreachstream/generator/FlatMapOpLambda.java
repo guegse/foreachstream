@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class FlatMapOpLambda extends IntermediateOperation {
     @Override
     String getTargetType(String inputType, String nextOutputType) {
@@ -7,10 +9,10 @@ public class FlatMapOpLambda extends IntermediateOperation {
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
         return switch (inputType) {
             case "int", "long", "double" -> throw new UnsupportedOperationException();
-            default -> "Function<" + inputType + ", Collection<" + nextOutputType + ">>";
+            default -> List.of("Function<" + inputType + ", Collection<" + nextOutputType + ">>");
         };
     }
 
@@ -20,20 +22,15 @@ public class FlatMapOpLambda extends IntermediateOperation {
     }
 
     @Override
-    boolean hasArgument() {
-        return true;
-    }
-
-    @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
-        out.println("for (" + nextTargetType + " " + nextTargetElement + " : " + argument + ".apply(" + currentStreamElement + ")) {");
+        out.println("for (" + nextTargetType + " " + nextTargetElement + " : " + arguments.get(0) + ".apply(" + currentStreamElement + ")) {");
         out.increaseIndentation();
         depth++;
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType, String argument) {
+    void emitPostamble(Emitter out, String inputType, List<String> arguments) {
         if(depth > 1) {
             decreaseDepth(out);
         }

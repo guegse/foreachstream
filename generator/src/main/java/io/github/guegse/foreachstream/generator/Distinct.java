@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class Distinct extends StatefulIntermediateOperation{
     @Override
     String getName() {
@@ -12,23 +14,18 @@ public class Distinct extends StatefulIntermediateOperation{
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
         return null;
     }
 
     @Override
-    boolean hasArgument() {
-        return false;
-    }
-
-    @Override
-    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize) {
         out.printIndentation();
         out.println("Set<" + referenceType(inputType) + "> " + addVariable() + " = new HashSet<>();");
     }
 
     @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         String collection = getVariable();
         out.printIndentation();
         out.println("if(!" + collection + ".add(" + currentStreamElement + ")) {");

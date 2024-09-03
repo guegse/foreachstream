@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class FlatMapOpMemberReference extends IntermediateOperation {
     @Override
     String getTargetType(String inputType, String nextOutputType) {
@@ -13,7 +15,7 @@ public class FlatMapOpMemberReference extends IntermediateOperation {
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
         return null;
     }
 
@@ -23,12 +25,7 @@ public class FlatMapOpMemberReference extends IntermediateOperation {
     }
 
     @Override
-    boolean hasArgument() {
-        return false;
-    }
-
-    @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
         out.println("for (" + nextTargetType + " " + nextTargetElement + " : " + currentStreamElement + ") {");
         out.increaseIndentation();
@@ -36,7 +33,7 @@ public class FlatMapOpMemberReference extends IntermediateOperation {
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType, String argument) {
+    void emitPostamble(Emitter out, String inputType, List<String> arguments) {
         if(depth > 1) {
             decreaseDepth(out);
         }

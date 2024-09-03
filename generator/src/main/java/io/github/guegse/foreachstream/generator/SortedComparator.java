@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class SortedComparator extends StatefulIntermediateOperation{
     @Override
     String getName() {
@@ -13,23 +15,18 @@ public class SortedComparator extends StatefulIntermediateOperation{
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
-        return "Comparator<? super " + inputType + ">";
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
+        return List.of("Comparator<? super " + inputType + ">");
     }
 
     @Override
-    boolean hasArgument() {
-        return true;
-    }
-
-    @Override
-    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize) {
         out.printIndentation();
         out.println("List<" + inputType + "> " + addVariable() + " = new ArrayList<>();");
     }
 
     @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         String collection = getVariable();
         out.printIndentation();
         out.println(collection + ".add(" + currentStreamElement + ");");
@@ -37,7 +34,7 @@ public class SortedComparator extends StatefulIntermediateOperation{
             decreaseDepth(out);
         }
         out.printIndentation();
-        out.println(collection + ".sort(" + argument + ");");
+        out.println(collection + ".sort(" + arguments.get(0) + ");");
         out.printIndentation();
         out.println("for ("+ inputType + " " + nextTargetElement + ": " + collection + ") {");
         out.increaseIndentation();

@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class TakeWhile extends StatefulIntermediateOperation{
     @Override
     String getName() {
@@ -12,19 +14,14 @@ public class TakeWhile extends StatefulIntermediateOperation{
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
-        return predicateType(inputType);
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
+        return List.of(predicateType(inputType));
     }
 
     @Override
-    boolean hasArgument() {
-        return true;
-    }
-
-    @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
-        out.println("if(!" + argument + ".test(" + currentStreamElement + ")) {");
+        out.println("if(!" + arguments.get(0) + ".test(" + currentStreamElement + ")) {");
         out.increaseIndentation();
         out.printIndentation();
         out.println("break;");

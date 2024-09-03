@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 class Foreach extends TerminalOperation {
 
     @Override
@@ -13,31 +15,26 @@ class Foreach extends TerminalOperation {
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
-        return consumerType(inputType);
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
+        return List.of(consumerType(inputType));
     }
 
     @Override
-    boolean hasArgument() {
-        return true;
-    }
-
-    @Override
-    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize) {
 
     }
 
     @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
-        out.print(argument);
+        out.print(arguments.get(0));
         out.print(".accept(");
         out.print(currentStreamElement);
         out.println(");");
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType, String argument) {
+    void emitPostamble(Emitter out, String inputType, List<String> arguments) {
 
     }
 }

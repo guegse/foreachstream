@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class Boxed extends IntermediateOperation {
     @Override
     String getTargetType(String inputType, String nextOutputType) {
@@ -12,7 +14,7 @@ public class Boxed extends IntermediateOperation {
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
         return null;
     }
 
@@ -22,12 +24,7 @@ public class Boxed extends IntermediateOperation {
     }
 
     @Override
-    boolean hasArgument() {
-        return false;
-    }
-
-    @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
         switch (inputType) {
             case "int" -> out.println("Integer " + nextTargetElement + " = " + currentStreamElement + ";");

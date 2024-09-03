@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class MapToLongOp extends IntermediateOperation {
     @Override
     String getTargetType(String inputType, String nextOutputType) {
@@ -7,13 +9,13 @@ public class MapToLongOp extends IntermediateOperation {
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
-        return switch (inputType) {
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
+        return List.of( switch (inputType) {
             case "int" -> "IntToLongFunction";
             case "long" -> throw new UnsupportedOperationException("cannot map long to long");
             case "double" -> "DoubleToLongFunction";
             default -> "ToLongFunction<" + inputType + ">";
-        };
+        });
     }
 
     @Override
@@ -22,13 +24,8 @@ public class MapToLongOp extends IntermediateOperation {
     }
 
     @Override
-    boolean hasArgument() {
-        return true;
-    }
-
-    @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
-        out.println("long " + nextTargetElement + " = " + argument + ".applyAsLong(" + currentStreamElement + ");");
+        out.println("long " + nextTargetElement + " = " + arguments.get(0) + ".applyAsLong(" + currentStreamElement + ");");
     }
 }

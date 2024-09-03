@@ -1,5 +1,7 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.List;
+
 public class Max extends TerminalOperation {
     @Override
     String getTargetType(String inputType, String nextOutputType) {
@@ -12,7 +14,7 @@ public class Max extends TerminalOperation {
     }
 
     @Override
-    String getArgumentType(String inputType, String nextOutputType) {
+    List<String> getArgumentTypes(String inputType, String nextOutputType) {
         return null;
     }
 
@@ -22,12 +24,7 @@ public class Max extends TerminalOperation {
     }
 
     @Override
-    boolean hasArgument() {
-        return false;
-    }
-
-    @Override
-    void emitPreamble(Emitter out, String inputType, String argument, String estimatedSize) {
+    void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize) {
         out.printIndentation();
         switch (inputType) {
             case "int" -> out.println("int max = 0;");
@@ -40,7 +37,7 @@ public class Max extends TerminalOperation {
     }
 
     @Override
-    void emitOperation(Emitter out, String inputType, String argument, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
         out.println("if (hasMax) {");
         out.increaseIndentation();
@@ -60,7 +57,7 @@ public class Max extends TerminalOperation {
     }
 
     @Override
-    void emitPostamble(Emitter out, String inputType, String argument) {
+    void emitPostamble(Emitter out, String inputType, List<String> arguments) {
         out.printIndentation();
         out.println("if (hasMax) {");
         out.increaseIndentation();
