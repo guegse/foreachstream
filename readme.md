@@ -146,8 +146,7 @@ return ForeachStreamCollectToList.stream_filter_collect_toList(persons, person -
 |--------------------------------------------|-----------|
 | toSet (Java 16)                            |           |
 | toList (Java 16)                           | yes       |
-| collect (Collector)                        | yes       |
-| collect (Supplier, Accumulator, Combiner)  |           |
+| collect                                    | yes       |
 | forEach                                    | yes       |
 | forEachOrdered                             |           |
 | toArray                                    |           |

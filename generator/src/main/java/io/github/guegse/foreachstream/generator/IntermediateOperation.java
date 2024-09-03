@@ -15,4 +15,9 @@ abstract class IntermediateOperation extends Operation {
     boolean isFilter() {
         return false;
     }
+
+    @Override
+    boolean addTargetTypeToTypeParameterList() {
+        return true;
+    }
 }

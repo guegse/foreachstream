@@ -25,6 +25,7 @@ public class Statistics implements Serializable {
     };
     private static final String[] TERMINAL_OPERATIONS_IMPLEMENTED = new String[] {
             "collectCollector",
+            "collect",
             "forEach",
             "anyMatch",
             "allMatch",

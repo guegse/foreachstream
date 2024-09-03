@@ -11,6 +11,7 @@ import com.sun.tools.javac.util.Pair;
 import javax.lang.model.element.Name;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -129,18 +130,12 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     String terminalOperation = mapMethodName(methodName.toString(), node);
                     String methodToCall = methodToCallWithoutTerminalOp + "_" + terminalOperation;;
                     var containingClass = availableMethodsToTheirClasses.get(methodToCall);
-                    if (containingClass == null || node.getArguments().size() > 1) {
+                    if (containingClass == null) {
                         debugOutput.printDebug(node, "method for this pattern not available: " + methodToCall);
                         if(statistics != null) {
                             statistics.substitutionFailed(methodToCall);
                         }
                         return super.visitMethodInvocation(node, o);
-                    }
-
-                    ExpressionTree terminalArgument = null;
-                    if (!node.getArguments().isEmpty()) {
-                        // There is an argument to the terminal method (e.g. a Consumer for forEach)
-                        terminalArgument = node.getArguments().get(0);
                     }
 
                     // invocations[0] contains the stream() call
@@ -155,9 +150,10 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     methodMemberSelect.pos = streamCall.pos;
 
                     java.util.List<Pair<JCTree.JCExpression, String>> arguments = new ArrayList<>(invocations.size() + 1);
-                    if (terminalArgument != null) {
-                        arguments.add(new Pair<>((JCTree.JCExpression) terminalArgument, terminalOperation));
+                    for(int i = node.getArguments().size() - 1; i >= 0; i--) {
+                        arguments.add(new Pair<>((JCTree.JCExpression) node.getArguments().get(i), terminalOperation));
                     }
+
                     for (int i = invocations.size() - 1; i > 0; i--) {
                         MethodInvocationTree methodInvocationTree = invocations.get(i);
                         if (methodInvocationTree.getArguments().size() > 1){
