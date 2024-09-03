@@ -37,4 +37,9 @@ public class Stream extends Operation{
         out.printIndentation();
         out.println("}");
     }
+
+    @Override
+    boolean addTargetTypeToTypeParameterList() {
+        return true;
+    }
 }

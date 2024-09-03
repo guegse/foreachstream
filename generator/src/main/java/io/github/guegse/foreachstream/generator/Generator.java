@@ -45,6 +45,7 @@ public class Generator {
             new Max(),
             new Sum(),
             new CollectCollector(),
+            new Collect(),
             new ToList()
     };
 
@@ -170,9 +171,11 @@ public class Generator {
     private static void emitTypeParameterList(Emitter out, List<OperationInstance> operationInstances) {
         List<OperationInstance> uniqueInstances = new ArrayList<>();
         uniqueInstances.add(operationInstances.get(0));
-        for(int i = 1; i < operationInstances.size() - 1; i++) {
-            if(!operationInstances.get(i).targetType.equals(operationInstances.get(i - 1).targetType)) {
-                uniqueInstances.add(operationInstances.get(i));
+        for(int i = 1; i < operationInstances.size(); i++) {
+            OperationInstance instance = operationInstances.get(i);
+            if(instance.operation.addTargetTypeToTypeParameterList()
+                    && !instance.targetType.equals(uniqueInstances.get(uniqueInstances.size() - 1).targetType)) {
+                uniqueInstances.add(instance);
             }
         }
 
@@ -180,9 +183,7 @@ public class Generator {
 
         OperationInstance terminalInstance = operationInstances.get(operationInstances.size() - 1);
         if(terminalInstance.operation instanceof CollectCollector collector) {
-            String[] argumentTypes = collector.getArgumentTypes(terminalInstance.sourceType, terminalInstance.targetType).get(0).split("[,<>]");
-            types.add(argumentTypes[argumentTypes.length - 2].trim()); // add type of accumulator
-            types.add(argumentTypes[argumentTypes.length - 1].trim()); // add type of combiner
+            types.add("A");
         }
 
         OperationInstance prev = null;
@@ -203,7 +204,6 @@ public class Generator {
             }
         }
         Collections.reverse(types);
-
         out.print(types.stream().collect(Collectors.joining(", ", "<", ">")));
     }
 
@@ -260,6 +260,9 @@ public class Generator {
         StringBuilder argumentDecl = new StringBuilder();
         List<String> types = operationInstance.operation.getArgumentTypes(operationInstance.sourceType, operationInstance.targetType);
         for(int i = 0; i < operationInstance.argumentNames.size(); i++) {
+            if(i > 0) {
+                argumentDecl.append(", ");
+            }
             argumentDecl.append(types.get(i)).append(" ").append(operationInstance.argumentNames.get(i));
         }
         return argumentDecl.toString();

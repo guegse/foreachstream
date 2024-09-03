@@ -70,6 +70,8 @@ abstract class Operation {
         };
     }
 
+    abstract boolean addTargetTypeToTypeParameterList();
+
     abstract String getTargetType(String inputType, String nextOutputType);
 
     String appendPreviousTargetType(String currentType) {
