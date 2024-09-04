@@ -150,7 +150,7 @@ return ForeachStreamCollectToList.stream_filter_collect_toList(persons, person -
 | forEach                                    | yes       |
 | forEachOrdered                             |           |
 | toArray                                    |           |
-| reduce                                     |           |
+| reduce                                     | yes       |
 | anyMatch                                   | yes       |
 | allMatch                                   | yes       |
 | noneMatch                                  | yes       |

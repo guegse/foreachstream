@@ -17,5 +17,8 @@ public class ForeachStreamClasses {
 			ForeachStreamCollectCollector.class,
 			ForeachStreamCollect.class,
 			ForeachStreamToList.class,
+			ForeachStreamReduceOptional.class,
+			ForeachStreamReduce.class,
+			ForeachStreamReduceCombiner.class,
 		};
 }

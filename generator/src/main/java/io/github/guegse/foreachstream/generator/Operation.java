@@ -2,7 +2,7 @@ package io.github.guegse.foreachstream.generator;
 
 import java.util.List;
 
-abstract class Operation {
+public abstract class Operation {
     protected static int depth = 1;
 
     protected void decreaseDepth(Emitter out) {
@@ -12,15 +12,18 @@ abstract class Operation {
         depth--;
     }
 
+    protected boolean isPrimitiveType(String inputType) {
+        return inputType.equals("int") || inputType.equals("long") || inputType.equals("double");
+    }
+
     protected void assertNonPrimitiveStream(String inputType) {
-        if (inputType.equals("int") || inputType.equals("long") || inputType.equals("double")) {
+        if (isPrimitiveType(inputType)) {
             throw new UnsupportedOperationException();
         }
     }
 
     protected void assertCollectionStream(String inputType) {
-        if (inputType.equals("int") || inputType.equals("long") || inputType.equals("double")
-                || inputType.equals("Integer") || inputType.equals("Long") || inputType.equals("Double")) {
+        if (isPrimitiveType(inputType) || inputType.equals("Integer") || inputType.equals("Long") || inputType.equals("Double")) {
             throw new UnsupportedOperationException();
         }
     }
@@ -67,6 +70,24 @@ abstract class Operation {
             case "long" -> "OptionalLong";
             case "double" -> "OptionalDouble";
             default -> "Optional";
+        };
+    }
+
+    protected String binaryOperatorType(String inputType) {
+        return switch (inputType) {
+            case "int" -> "IntBinaryOperator";
+            case "long" -> "LongBinaryOperator";
+            case "double" -> "DoubleBinaryOperator";
+            default -> " BinaryOperator<" + inputType + ">";
+        };
+    }
+
+    protected String applyType(String inputType) {
+        return switch (inputType) {
+            case "int" -> "applyAsInt";
+            case "long" -> "applyAsLong";
+            case "double" -> "applyAsDouble";
+            default -> "apply";
         };
     }
 

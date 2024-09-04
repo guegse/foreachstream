@@ -36,7 +36,10 @@ public class Statistics implements Serializable {
             "max",
             "sum",
             "count",
-            "toList"
+            "toList",
+            "reduce",
+            "reduceCombiner",
+            "reduceOptional"
     };
     private int subCounter;
     private int subFailedCounter;

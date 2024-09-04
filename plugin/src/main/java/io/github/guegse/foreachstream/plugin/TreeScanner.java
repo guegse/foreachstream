@@ -80,7 +80,7 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
 
     @Override
     public Void visitClass(ClassTree node, Void o) {
-        // Add anonymous static block to class
+        // Add static initializer to prepare the method invocations
         JCTree.JCClassDecl classDecl = (JCTree.JCClassDecl) node;
         classDecl.defs = classDecl.defs.prepend(subs.getStaticBlock());
         return super.visitClass(node, o);
@@ -172,11 +172,12 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
                     // create a list with empty arguments
                     com.sun.tools.javac.util.List<JCTree.JCExpression> args = com.sun.tools.javac.util.List.nil();
                     for(int i = 0; i < containingClass.snd.length; i++)  {
-                        if(containingClass.snd[i].isPrimitive()) {
-                            args = args.append(treeMaker.Literal(TypeTag.LONG, 0));
-                        } else {
-                            args = args.append(treeMaker.Literal(TypeTag.BOT, null));
-                        }
+                        args = switch (containingClass.snd[i].getName()) {
+                            case "long" -> args.append(treeMaker.Literal(TypeTag.LONG, 0));
+                            case "int" -> args.append(treeMaker.Literal(TypeTag.INT, 0));
+                            case "double" -> args.append(treeMaker.Literal(TypeTag.DOUBLE, 0.0));
+                            default -> args.append(treeMaker.Literal(TypeTag.BOT, null));
+                        };
                     }
 
                     JCTree.JCMethodInvocation original = (JCTree.JCMethodInvocation) node;
@@ -194,7 +195,7 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
     }
 
     private String mapMethodName(String method, MethodInvocationTree node) {
-        if(method.equals("collect") && node.getArguments().size() == 1) {
+        if (method.equals("collect") && node.getArguments().size() == 1) {
             return "collectCollector";
         } else if(method.equals("sorted") && node.getArguments().size() == 1) {
             return "sortedComp";
@@ -202,6 +203,10 @@ public class TreeScanner extends com.sun.source.util.TreeScanner<Void, Void> {
             return "flatMapLambda";
         } else if(method.equals("flatMap") && node.getArguments().size() == 1 && node.getArguments().get(0) instanceof JCTree.JCMemberReference) {
             return "flatMapMemberReference";
+        } else if(method.equals("reduce") && node.getArguments().size() == 1) {
+            return "reduceOptional";
+        } else if(method.equals("reduce") && node.getArguments().size() == 3) {
+            return "reduceCombiner";
         } else {
             return method;
         }
