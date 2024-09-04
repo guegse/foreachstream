@@ -103,7 +103,7 @@ public class Substitution {
                     arg = null;
                 }
             }
-            if(arg == null) return null; // argument couldn't be proc
+            if(arg == null) return null; // argument couldn't be processed
             args = args.append(pair.fst);
         }
         return args;

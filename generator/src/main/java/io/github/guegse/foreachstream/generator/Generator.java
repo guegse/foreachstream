@@ -46,7 +46,10 @@ public class Generator {
             new Sum(),
             new CollectCollector(),
             new Collect(),
-            new ToList()
+            new ToList(),
+            new ReduceOptional(),
+            new Reduce(),
+            new ReduceCombiner()
     };
 
     public static void main(String[] args) throws FileNotFoundException {
