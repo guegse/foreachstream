@@ -148,7 +148,7 @@ public class ForeachStreamSum {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -278,7 +278,7 @@ public class ForeachStreamSum {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -408,7 +408,7 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -495,7 +495,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			sum += t1;
@@ -509,7 +509,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			sum += t1;
@@ -523,7 +523,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			sum += t1;
@@ -987,7 +987,7 @@ public class ForeachStreamSum {
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			sum += t2;
 		}
@@ -1127,7 +1127,7 @@ public class ForeachStreamSum {
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			sum += t2;
 		}
@@ -1267,7 +1267,7 @@ public class ForeachStreamSum {
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			sum += t2;
 		}
@@ -1360,7 +1360,7 @@ public class ForeachStreamSum {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			sum += t2;
@@ -1375,7 +1375,7 @@ public class ForeachStreamSum {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			sum += t2;
@@ -1390,7 +1390,7 @@ public class ForeachStreamSum {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			sum += t2;
@@ -1900,7 +1900,7 @@ public class ForeachStreamSum {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -2060,7 +2060,7 @@ public class ForeachStreamSum {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -2220,7 +2220,7 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -2325,7 +2325,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			sum += t1;
@@ -2342,7 +2342,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			sum += t1;
@@ -2359,7 +2359,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			sum += t1;
@@ -2823,7 +2823,7 @@ public class ForeachStreamSum {
 			t1 = arg1.applyAsInt(t1);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -2973,7 +2973,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -3123,7 +3123,7 @@ public class ForeachStreamSum {
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			sum += t2;
 		}
@@ -3263,7 +3263,7 @@ public class ForeachStreamSum {
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			sum += t2;
 		}
@@ -3422,7 +3422,7 @@ public class ForeachStreamSum {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			t1 = arg1.applyAsInt(t1);
 			sum += t1;
@@ -3437,7 +3437,7 @@ public class ForeachStreamSum {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -3454,7 +3454,7 @@ public class ForeachStreamSum {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			sum += t2;
@@ -3469,7 +3469,7 @@ public class ForeachStreamSum {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			sum += t2;
@@ -3485,11 +3485,11 @@ public class ForeachStreamSum {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (int t1: sorted1) {
 			sum += t1;
 		}
@@ -3510,7 +3510,7 @@ public class ForeachStreamSum {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			limit0++;
 			sum += t1;
@@ -3529,7 +3529,7 @@ public class ForeachStreamSum {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -3548,7 +3548,7 @@ public class ForeachStreamSum {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -3566,7 +3566,7 @@ public class ForeachStreamSum {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -3585,7 +3585,7 @@ public class ForeachStreamSum {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -3684,7 +3684,7 @@ public class ForeachStreamSum {
 			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -3894,7 +3894,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -4084,7 +4084,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -4264,7 +4264,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -4439,7 +4439,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -4589,7 +4589,7 @@ public class ForeachStreamSum {
 			t1 = arg1.applyAsLong(t1);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -4739,7 +4739,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -4889,7 +4889,7 @@ public class ForeachStreamSum {
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			sum += t2;
 		}
@@ -5029,7 +5029,7 @@ public class ForeachStreamSum {
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			sum += t2;
 		}
@@ -5188,7 +5188,7 @@ public class ForeachStreamSum {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			t1 = arg1.applyAsLong(t1);
 			sum += t1;
@@ -5203,7 +5203,7 @@ public class ForeachStreamSum {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -5220,7 +5220,7 @@ public class ForeachStreamSum {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			sum += t2;
@@ -5235,7 +5235,7 @@ public class ForeachStreamSum {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			sum += t2;
@@ -5251,11 +5251,11 @@ public class ForeachStreamSum {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (long t1: sorted1) {
 			sum += t1;
 		}
@@ -5276,7 +5276,7 @@ public class ForeachStreamSum {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			limit0++;
 			sum += t1;
@@ -5295,7 +5295,7 @@ public class ForeachStreamSum {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -5314,7 +5314,7 @@ public class ForeachStreamSum {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -5332,7 +5332,7 @@ public class ForeachStreamSum {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -5351,7 +5351,7 @@ public class ForeachStreamSum {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -5450,7 +5450,7 @@ public class ForeachStreamSum {
 			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -5660,7 +5660,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -5850,7 +5850,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -6030,7 +6030,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -6205,7 +6205,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -6355,7 +6355,7 @@ public class ForeachStreamSum {
 			t1 = arg1.applyAsDouble(t1);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -6505,7 +6505,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -6655,7 +6655,7 @@ public class ForeachStreamSum {
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			sum += t2;
 		}
@@ -6795,7 +6795,7 @@ public class ForeachStreamSum {
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			sum += t2;
 		}
@@ -6954,7 +6954,7 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			t1 = arg1.applyAsDouble(t1);
 			sum += t1;
@@ -6969,7 +6969,7 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -6986,7 +6986,7 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			sum += t2;
@@ -7001,7 +7001,7 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			sum += t2;
@@ -7017,11 +7017,11 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (double t1: sorted1) {
 			sum += t1;
 		}
@@ -7042,7 +7042,7 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			limit0++;
 			sum += t1;
@@ -7061,7 +7061,7 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -7080,7 +7080,7 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -7098,7 +7098,7 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -7117,7 +7117,7 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -7216,7 +7216,7 @@ public class ForeachStreamSum {
 			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -7426,7 +7426,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -7616,7 +7616,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -7796,7 +7796,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -7971,7 +7971,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -8073,7 +8073,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
@@ -8088,7 +8088,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
@@ -8103,7 +8103,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
@@ -8118,7 +8118,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -8135,7 +8135,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -8152,7 +8152,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -8169,7 +8169,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
@@ -8184,7 +8184,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
@@ -8201,7 +8201,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
@@ -8216,7 +8216,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
@@ -8232,12 +8232,12 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (int t1: sorted1) {
 			sum += t1;
 		}
@@ -8257,7 +8257,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
@@ -8276,7 +8276,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
@@ -8295,7 +8295,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
@@ -8313,7 +8313,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -8332,7 +8332,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
@@ -8349,7 +8349,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
@@ -8364,7 +8364,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
@@ -8381,7 +8381,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
@@ -8396,7 +8396,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
@@ -8412,12 +8412,12 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (long t1: sorted1) {
 			sum += t1;
 		}
@@ -8437,7 +8437,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
@@ -8456,7 +8456,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
@@ -8475,7 +8475,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
@@ -8493,7 +8493,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -8512,7 +8512,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
@@ -8529,7 +8529,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
@@ -8544,7 +8544,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
@@ -8561,7 +8561,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
@@ -8576,7 +8576,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
@@ -8592,12 +8592,12 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (double t1: sorted1) {
 			sum += t1;
 		}
@@ -8617,7 +8617,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
@@ -8636,7 +8636,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
@@ -8655,7 +8655,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
@@ -8673,7 +8673,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -8692,7 +8692,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
@@ -8710,11 +8710,11 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			int t1 = arg0.applyAsInt(t0);
 			sum += t1;
@@ -8729,11 +8729,11 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			long t1 = arg0.applyAsLong(t0);
 			sum += t1;
@@ -8748,11 +8748,11 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			double t1 = arg0.applyAsDouble(t0);
 			sum += t1;
@@ -8767,7 +8767,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -8786,7 +8786,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -8805,7 +8805,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -8830,7 +8830,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			int t1 = arg1.applyAsInt(t0);
@@ -8852,7 +8852,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			long t1 = arg1.applyAsLong(t0);
@@ -8874,7 +8874,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
@@ -8893,7 +8893,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -8915,7 +8915,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -8937,7 +8937,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -8956,7 +8956,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -8974,7 +8974,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -8992,7 +8992,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -9010,7 +9010,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -9030,7 +9030,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -9050,7 +9050,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -9069,7 +9069,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -9086,7 +9086,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -9103,7 +9103,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -9120,7 +9120,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
@@ -9136,7 +9136,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
@@ -9152,7 +9152,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
@@ -9168,7 +9168,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				int t2 = arg0.applyAsInt(t1);
@@ -9184,7 +9184,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				long t2 = arg0.applyAsLong(t1);
@@ -9200,7 +9200,7 @@ public class ForeachStreamSum {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				double t2 = arg0.applyAsDouble(t1);
@@ -9380,7 +9380,7 @@ public class ForeachStreamSum {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -9560,7 +9560,7 @@ public class ForeachStreamSum {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -9740,7 +9740,7 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -9857,7 +9857,7 @@ public class ForeachStreamSum {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			sum += t1;
@@ -9876,7 +9876,7 @@ public class ForeachStreamSum {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			sum += t1;
@@ -9895,7 +9895,7 @@ public class ForeachStreamSum {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			sum += t1;
@@ -10556,7 +10556,7 @@ public class ForeachStreamSum {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -10766,7 +10766,7 @@ public class ForeachStreamSum {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -10976,7 +10976,7 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -11111,7 +11111,7 @@ public class ForeachStreamSum {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			sum += t1;
@@ -11133,7 +11133,7 @@ public class ForeachStreamSum {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			sum += t1;
@@ -11155,7 +11155,7 @@ public class ForeachStreamSum {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			sum += t1;
@@ -11888,7 +11888,7 @@ public class ForeachStreamSum {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -12098,7 +12098,7 @@ public class ForeachStreamSum {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -12308,7 +12308,7 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -12443,7 +12443,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			sum += t1;
@@ -12465,7 +12465,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			sum += t1;
@@ -12487,7 +12487,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			sum += t1;
@@ -13176,7 +13176,7 @@ public class ForeachStreamSum {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -13346,7 +13346,7 @@ public class ForeachStreamSum {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -13516,7 +13516,7 @@ public class ForeachStreamSum {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -13627,7 +13627,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			sum += t1;
@@ -13645,7 +13645,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			sum += t1;
@@ -13663,7 +13663,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			sum += t1;
@@ -14278,7 +14278,7 @@ public class ForeachStreamSum {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -14468,7 +14468,7 @@ public class ForeachStreamSum {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -14658,7 +14658,7 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -14781,7 +14781,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			sum += t1;
@@ -14801,7 +14801,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			sum += t1;
@@ -14821,7 +14821,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			sum += t1;
@@ -15451,7 +15451,7 @@ public class ForeachStreamSum {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sum += t1;
 		}
@@ -15611,7 +15611,7 @@ public class ForeachStreamSum {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sum += t1;
 		}
@@ -15771,7 +15771,7 @@ public class ForeachStreamSum {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sum += t1;
 		}
@@ -15876,7 +15876,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			sum += t1;
@@ -15893,7 +15893,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			sum += t1;
@@ -15910,7 +15910,7 @@ public class ForeachStreamSum {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			sum += t1;
@@ -16457,7 +16457,7 @@ public class ForeachStreamSum {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			sum += t2;
 		}
@@ -16607,7 +16607,7 @@ public class ForeachStreamSum {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			sum += t2;
 		}
@@ -16757,7 +16757,7 @@ public class ForeachStreamSum {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			sum += t2;
 		}
@@ -16856,7 +16856,7 @@ public class ForeachStreamSum {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			sum += t2;
@@ -16872,7 +16872,7 @@ public class ForeachStreamSum {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			sum += t2;
@@ -16888,7 +16888,7 @@ public class ForeachStreamSum {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			sum += t2;
@@ -17411,7 +17411,7 @@ public class ForeachStreamSum {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			sum += t2;
 		}
@@ -17561,7 +17561,7 @@ public class ForeachStreamSum {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			sum += t2;
 		}
@@ -17711,7 +17711,7 @@ public class ForeachStreamSum {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			sum += t2;
 		}
@@ -17810,7 +17810,7 @@ public class ForeachStreamSum {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			int t2 = arg0.applyAsInt(t1);
 			sum += t2;
@@ -17826,7 +17826,7 @@ public class ForeachStreamSum {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			long t2 = arg0.applyAsLong(t1);
 			sum += t2;
@@ -17842,7 +17842,7 @@ public class ForeachStreamSum {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			double t2 = arg0.applyAsDouble(t1);
 			sum += t2;
