@@ -67,7 +67,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg1.accept(result, t0);
 		}
@@ -94,10 +94,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			arg2.accept(result, t0);
 		}
 		return result;
@@ -235,7 +235,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -263,11 +263,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -423,7 +423,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -453,13 +453,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -625,7 +625,7 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -639,11 +639,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -775,7 +775,7 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -789,11 +789,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -925,7 +925,7 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -939,11 +939,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -1012,7 +1012,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			arg2.accept(result, t1);
@@ -1026,7 +1026,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -1042,7 +1042,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			arg2.accept(result, t1);
@@ -1056,7 +1056,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			arg2.accept(result, t1);
@@ -1070,7 +1070,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			arg2.accept(result, t1);
@@ -1085,11 +1085,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg1.accept(result, t0);
 		}
@@ -1103,7 +1103,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -1122,14 +1122,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			arg2.accept(result, t0);
 		}
 		return result;
@@ -1145,7 +1145,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -1163,7 +1163,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -1180,7 +1180,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -1198,7 +1198,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -1214,7 +1214,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				arg2.accept(result, t1);
@@ -1229,7 +1229,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				arg1.accept(result, t1);
@@ -1321,7 +1321,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -1354,14 +1354,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -1477,10 +1477,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			arg3.accept(result, t1);
 		}
@@ -1494,10 +1494,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -1513,10 +1513,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			arg3.accept(result, t1);
 		}
@@ -1530,10 +1530,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			arg3.accept(result, t1);
 		}
@@ -1547,10 +1547,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			arg3.accept(result, t1);
 		}
@@ -1565,13 +1565,13 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -1586,10 +1586,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -1610,14 +1610,14 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -1634,10 +1634,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -1655,10 +1655,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -1675,10 +1675,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -1696,10 +1696,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -1715,10 +1715,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				arg3.accept(result, t1);
 			}
@@ -1733,10 +1733,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				arg2.accept(result, t1);
 			}
@@ -1845,7 +1845,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -1884,14 +1884,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -2095,7 +2095,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg1.accept(result, t0);
 		}
@@ -2127,13 +2127,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			arg2.accept(result, t0);
 		}
 		return result;
@@ -2325,7 +2325,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -2359,15 +2359,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -2553,7 +2553,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -2583,13 +2583,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -2751,7 +2751,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -2780,11 +2780,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -2941,7 +2941,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg1.accept(result, t1);
 		}
@@ -2970,11 +2970,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				arg2.accept(result, t1);
 			}
 		}
@@ -3131,7 +3131,7 @@ public class ForeachStreamCollect {
 			T2 t2 = arg1.apply(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -3160,12 +3160,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -3333,7 +3333,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -3364,14 +3364,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -3550,7 +3550,7 @@ public class ForeachStreamCollect {
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -3564,12 +3564,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -3712,7 +3712,7 @@ public class ForeachStreamCollect {
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -3726,12 +3726,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -3874,7 +3874,7 @@ public class ForeachStreamCollect {
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -3888,12 +3888,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -3967,7 +3967,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			T2 t2 = arg1.apply(t1);
 			arg3.accept(result, t2);
@@ -3982,7 +3982,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -3999,7 +3999,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			arg3.accept(result, t2);
@@ -4014,7 +4014,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			arg3.accept(result, t2);
@@ -4029,7 +4029,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			arg3.accept(result, t2);
@@ -4045,11 +4045,11 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T1 t1: sorted1) {
 			arg2.accept(result, t1);
 		}
@@ -4064,7 +4064,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			sortedComp0.add(t1);
 		}
@@ -4083,15 +4083,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -4108,7 +4108,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4127,7 +4127,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4145,7 +4145,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -4164,7 +4164,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -4181,7 +4181,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			for (T2 t2 : arg1.apply(t1)) {
 				arg3.accept(result, t2);
@@ -4197,7 +4197,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			for (T2 t2 : t1) {
 				arg2.accept(result, t2);
@@ -4295,7 +4295,7 @@ public class ForeachStreamCollect {
 		for (T1 t1: sortedComp0) {
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -4329,15 +4329,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
 		sortedComp0.sort(arg1);
 		for (T1 t1: sortedComp0) {
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -4459,11 +4459,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			T2 t2 = arg2.apply(t1);
 			arg4.accept(result, t2);
 		}
@@ -4477,11 +4477,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			if (!arg2.test(t1)) {
 				continue;
 			}
@@ -4497,11 +4497,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			int t2 = arg2.applyAsInt(t1);
 			arg4.accept(result, t2);
 		}
@@ -4515,11 +4515,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			long t2 = arg2.applyAsLong(t1);
 			arg4.accept(result, t2);
 		}
@@ -4533,11 +4533,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			double t2 = arg2.applyAsDouble(t1);
 			arg4.accept(result, t2);
 		}
@@ -4552,14 +4552,14 @@ public class ForeachStreamCollect {
 		List<T1> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -4574,11 +4574,11 @@ public class ForeachStreamCollect {
 		List<T1> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			sortedComp0.add(t1);
 		}
 		sortedComp0.sort(arg2);
@@ -4599,15 +4599,15 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -4624,11 +4624,11 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			skip0++;
 			if(skip0 <= arg2) {
 				continue;
@@ -4646,11 +4646,11 @@ public class ForeachStreamCollect {
 		Set<T1> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			if(!distinct0.add(t1)) {
 				continue;
 			}
@@ -4667,11 +4667,11 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
 			} else {
@@ -4689,11 +4689,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			if(!arg2.test(t1)) {
 				break;
 			}
@@ -4709,11 +4709,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			for (T2 t2 : arg2.apply(t1)) {
 				arg4.accept(result, t2);
 			}
@@ -4728,11 +4728,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			for (T2 t2 : t1) {
 				arg3.accept(result, t2);
 			}
@@ -4847,7 +4847,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -4887,15 +4887,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -5111,7 +5111,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -5144,14 +5144,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -5355,7 +5355,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -5390,6 +5390,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -5397,9 +5400,6 @@ public class ForeachStreamCollect {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -5597,7 +5597,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -5628,14 +5628,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -5809,7 +5809,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -5839,12 +5839,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t2);
 			}
 		}
@@ -6013,7 +6013,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			arg2.accept(result, t2);
 		}
@@ -6043,12 +6043,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : t1) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t2);
 			}
 		}
@@ -6223,7 +6223,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg1.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -6254,14 +6254,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			T1 t1 = arg1.apply(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -6453,7 +6453,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -6486,6 +6486,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -6493,9 +6496,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -6700,7 +6700,7 @@ public class ForeachStreamCollect {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -6714,14 +6714,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -6886,7 +6886,7 @@ public class ForeachStreamCollect {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -6900,14 +6900,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -7072,7 +7072,7 @@ public class ForeachStreamCollect {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -7086,14 +7086,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -7177,7 +7177,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg1.apply(t0);
 			arg3.accept(result, t1);
@@ -7194,7 +7194,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				continue;
@@ -7213,7 +7213,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			arg3.accept(result, t1);
@@ -7230,7 +7230,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			arg3.accept(result, t1);
@@ -7247,7 +7247,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			arg3.accept(result, t1);
@@ -7265,11 +7265,11 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg2.accept(result, t0);
 		}
@@ -7286,7 +7286,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -7305,17 +7305,17 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -7334,7 +7334,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -7355,7 +7355,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -7375,7 +7375,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -7396,7 +7396,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg1.test(t0)) {
 				break;
@@ -7415,7 +7415,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				arg3.accept(result, t1);
@@ -7433,7 +7433,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				arg2.accept(result, t1);
@@ -7543,7 +7543,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -7579,6 +7579,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -7587,9 +7590,6 @@ public class ForeachStreamCollect {
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -7723,13 +7723,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			T1 t1 = arg2.apply(t0);
 			arg4.accept(result, t1);
 		}
@@ -7743,13 +7743,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (!arg2.test(t0)) {
 				continue;
 			}
@@ -7765,13 +7765,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			int t1 = arg2.applyAsInt(t0);
 			arg4.accept(result, t1);
 		}
@@ -7785,13 +7785,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			long t1 = arg2.applyAsLong(t0);
 			arg4.accept(result, t1);
 		}
@@ -7805,13 +7805,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			double t1 = arg2.applyAsDouble(t0);
 			arg4.accept(result, t1);
 		}
@@ -7826,16 +7826,16 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -7850,13 +7850,13 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg2);
@@ -7877,17 +7877,17 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -7904,13 +7904,13 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			skip0++;
 			if(skip0 <= arg2) {
 				continue;
@@ -7928,13 +7928,13 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -7951,13 +7951,13 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(dropWhile0 && arg2.test(t0)) {
 				continue;
 			} else {
@@ -7975,13 +7975,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(!arg2.test(t0)) {
 				break;
 			}
@@ -7997,13 +7997,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			for (T1 t1 : arg2.apply(t0)) {
 				arg4.accept(result, t1);
 			}
@@ -8018,13 +8018,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				arg3.accept(result, t1);
 			}
@@ -8151,7 +8151,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -8193,6 +8193,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8201,9 +8204,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -8443,7 +8443,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -8478,6 +8478,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8485,9 +8488,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -8715,7 +8715,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -8752,6 +8752,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -8761,9 +8764,6 @@ public class ForeachStreamCollect {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -8985,7 +8985,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -9018,6 +9018,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -9025,9 +9028,6 @@ public class ForeachStreamCollect {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -9225,7 +9225,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -9257,14 +9257,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t1);
 			}
 		}
@@ -9457,7 +9457,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -9489,14 +9489,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -9682,7 +9682,7 @@ public class ForeachStreamCollect {
 			t1 = arg1.applyAsInt(t1);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -9696,12 +9696,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -9858,7 +9858,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -9872,14 +9872,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -10030,7 +10030,7 @@ public class ForeachStreamCollect {
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -10044,12 +10044,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -10192,7 +10192,7 @@ public class ForeachStreamCollect {
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -10206,12 +10206,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -10343,7 +10343,7 @@ public class ForeachStreamCollect {
 			T2 t2 = arg1.apply(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -10372,12 +10372,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -10533,7 +10533,7 @@ public class ForeachStreamCollect {
 			Integer t2 = t1;
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (Integer t2: sorted0) {
 			arg2.accept(result, t2);
 		}
@@ -10562,12 +10562,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t2);
 		}
 		return result;
@@ -10653,7 +10653,7 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			t1 = arg1.applyAsInt(t1);
 			arg3.accept(result, t1);
@@ -10668,7 +10668,7 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -10685,7 +10685,7 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			arg3.accept(result, t2);
@@ -10700,7 +10700,7 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			arg3.accept(result, t2);
@@ -10715,7 +10715,7 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			T2 t2 = arg1.apply(t1);
 			arg3.accept(result, t2);
@@ -10730,7 +10730,7 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			Integer t2 = t1;
 			arg2.accept(result, t2);
@@ -10746,11 +10746,11 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (int t1: sorted1) {
 			arg2.accept(result, t1);
 		}
@@ -10765,15 +10765,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -10790,7 +10790,7 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -10809,7 +10809,7 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -10827,7 +10827,7 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -10846,7 +10846,7 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -10863,11 +10863,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			t1 = arg2.applyAsInt(t1);
 			arg4.accept(result, t1);
 		}
@@ -10881,11 +10881,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			if (!arg2.test(t1)) {
 				continue;
 			}
@@ -10901,11 +10901,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			long t2 = arg2.applyAsLong(t1);
 			arg4.accept(result, t2);
 		}
@@ -10919,11 +10919,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			double t2 = arg2.applyAsDouble(t1);
 			arg4.accept(result, t2);
 		}
@@ -10937,11 +10937,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			T2 t2 = arg2.apply(t1);
 			arg4.accept(result, t2);
 		}
@@ -10955,11 +10955,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			Integer t2 = t1;
 			arg3.accept(result, t2);
 		}
@@ -10974,14 +10974,14 @@ public class ForeachStreamCollect {
 		List<Integer> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -10999,15 +10999,15 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -11024,11 +11024,11 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			skip0++;
 			if(skip0 <= arg2) {
 				continue;
@@ -11046,11 +11046,11 @@ public class ForeachStreamCollect {
 		Set<Integer> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			if(!distinct0.add(t1)) {
 				continue;
 			}
@@ -11067,11 +11067,11 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
 			} else {
@@ -11089,11 +11089,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			if(!arg2.test(t1)) {
 				break;
 			}
@@ -11227,7 +11227,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -11245,15 +11245,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -11445,7 +11445,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -11460,14 +11460,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -11657,7 +11657,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -11672,6 +11672,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -11679,9 +11682,6 @@ public class ForeachStreamCollect {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -11858,7 +11858,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -11872,14 +11872,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -12030,7 +12030,7 @@ public class ForeachStreamCollect {
 			t1 = arg1.applyAsLong(t1);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -12044,12 +12044,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -12206,7 +12206,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -12220,14 +12220,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -12378,7 +12378,7 @@ public class ForeachStreamCollect {
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -12392,12 +12392,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -12540,7 +12540,7 @@ public class ForeachStreamCollect {
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -12554,12 +12554,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -12691,7 +12691,7 @@ public class ForeachStreamCollect {
 			T2 t2 = arg1.apply(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -12720,12 +12720,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -12881,7 +12881,7 @@ public class ForeachStreamCollect {
 			Long t2 = t1;
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (Long t2: sorted0) {
 			arg2.accept(result, t2);
 		}
@@ -12910,12 +12910,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t2);
 		}
 		return result;
@@ -13001,7 +13001,7 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			t1 = arg1.applyAsLong(t1);
 			arg3.accept(result, t1);
@@ -13016,7 +13016,7 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -13033,7 +13033,7 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			arg3.accept(result, t2);
@@ -13048,7 +13048,7 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			arg3.accept(result, t2);
@@ -13063,7 +13063,7 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			T2 t2 = arg1.apply(t1);
 			arg3.accept(result, t2);
@@ -13078,7 +13078,7 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			Long t2 = t1;
 			arg2.accept(result, t2);
@@ -13094,11 +13094,11 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (long t1: sorted1) {
 			arg2.accept(result, t1);
 		}
@@ -13113,15 +13113,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -13138,7 +13138,7 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -13157,7 +13157,7 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -13175,7 +13175,7 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -13194,7 +13194,7 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -13211,11 +13211,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			t1 = arg2.applyAsLong(t1);
 			arg4.accept(result, t1);
 		}
@@ -13229,11 +13229,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			if (!arg2.test(t1)) {
 				continue;
 			}
@@ -13249,11 +13249,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			int t2 = arg2.applyAsInt(t1);
 			arg4.accept(result, t2);
 		}
@@ -13267,11 +13267,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			double t2 = arg2.applyAsDouble(t1);
 			arg4.accept(result, t2);
 		}
@@ -13285,11 +13285,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			T2 t2 = arg2.apply(t1);
 			arg4.accept(result, t2);
 		}
@@ -13303,11 +13303,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			Long t2 = t1;
 			arg3.accept(result, t2);
 		}
@@ -13322,14 +13322,14 @@ public class ForeachStreamCollect {
 		List<Long> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -13347,15 +13347,15 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -13372,11 +13372,11 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			skip0++;
 			if(skip0 <= arg2) {
 				continue;
@@ -13394,11 +13394,11 @@ public class ForeachStreamCollect {
 		Set<Long> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			if(!distinct0.add(t1)) {
 				continue;
 			}
@@ -13415,11 +13415,11 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
 			} else {
@@ -13437,11 +13437,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			if(!arg2.test(t1)) {
 				break;
 			}
@@ -13575,7 +13575,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -13593,15 +13593,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -13793,7 +13793,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -13808,14 +13808,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -14005,7 +14005,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -14020,6 +14020,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -14027,9 +14030,6 @@ public class ForeachStreamCollect {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -14206,7 +14206,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -14220,14 +14220,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -14378,7 +14378,7 @@ public class ForeachStreamCollect {
 			t1 = arg1.applyAsDouble(t1);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -14392,12 +14392,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -14554,7 +14554,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -14568,14 +14568,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -14726,7 +14726,7 @@ public class ForeachStreamCollect {
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -14740,12 +14740,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -14888,7 +14888,7 @@ public class ForeachStreamCollect {
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -14902,12 +14902,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -15039,7 +15039,7 @@ public class ForeachStreamCollect {
 			T2 t2 = arg1.apply(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -15068,12 +15068,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t2);
 		}
 		return result;
@@ -15229,7 +15229,7 @@ public class ForeachStreamCollect {
 			Double t2 = t1;
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (Double t2: sorted0) {
 			arg2.accept(result, t2);
 		}
@@ -15258,12 +15258,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t2);
 		}
 		return result;
@@ -15349,7 +15349,7 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			t1 = arg1.applyAsDouble(t1);
 			arg3.accept(result, t1);
@@ -15364,7 +15364,7 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -15381,7 +15381,7 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			arg3.accept(result, t2);
@@ -15396,7 +15396,7 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			arg3.accept(result, t2);
@@ -15411,7 +15411,7 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			T2 t2 = arg1.apply(t1);
 			arg3.accept(result, t2);
@@ -15426,7 +15426,7 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			Double t2 = t1;
 			arg2.accept(result, t2);
@@ -15442,11 +15442,11 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (double t1: sorted1) {
 			arg2.accept(result, t1);
 		}
@@ -15461,15 +15461,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -15486,7 +15486,7 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -15505,7 +15505,7 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -15523,7 +15523,7 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -15542,7 +15542,7 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -15559,11 +15559,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			t1 = arg2.applyAsDouble(t1);
 			arg4.accept(result, t1);
 		}
@@ -15577,11 +15577,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			if (!arg2.test(t1)) {
 				continue;
 			}
@@ -15597,11 +15597,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			int t2 = arg2.applyAsInt(t1);
 			arg4.accept(result, t2);
 		}
@@ -15615,11 +15615,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			long t2 = arg2.applyAsLong(t1);
 			arg4.accept(result, t2);
 		}
@@ -15633,11 +15633,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			T2 t2 = arg2.apply(t1);
 			arg4.accept(result, t2);
 		}
@@ -15651,11 +15651,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			Double t2 = t1;
 			arg3.accept(result, t2);
 		}
@@ -15670,14 +15670,14 @@ public class ForeachStreamCollect {
 		List<Double> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -15695,15 +15695,15 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -15720,11 +15720,11 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			skip0++;
 			if(skip0 <= arg2) {
 				continue;
@@ -15742,11 +15742,11 @@ public class ForeachStreamCollect {
 		Set<Double> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			if(!distinct0.add(t1)) {
 				continue;
 			}
@@ -15763,11 +15763,11 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
 			} else {
@@ -15785,11 +15785,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			if(!arg2.test(t1)) {
 				break;
 			}
@@ -15923,7 +15923,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -15941,15 +15941,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -16141,7 +16141,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -16156,14 +16156,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -16353,7 +16353,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -16368,6 +16368,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -16375,9 +16378,6 @@ public class ForeachStreamCollect {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -16554,7 +16554,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -16568,14 +16568,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -16656,7 +16656,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
@@ -16671,7 +16671,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
@@ -16688,7 +16688,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
@@ -16703,7 +16703,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
@@ -16718,7 +16718,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
@@ -16734,12 +16734,12 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T1 t1: sorted1) {
 			arg2.accept(result, t1);
 		}
@@ -16753,7 +16753,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
@@ -16773,15 +16773,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -16797,7 +16797,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
@@ -16816,7 +16816,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
@@ -16834,7 +16834,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -16853,7 +16853,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
@@ -16870,7 +16870,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
@@ -16886,7 +16886,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : t1) {
@@ -16902,7 +16902,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -16919,7 +16919,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -16938,7 +16938,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -16955,7 +16955,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -16972,7 +16972,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -16990,14 +16990,14 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg2.accept(result, t0);
 		}
@@ -17011,7 +17011,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -17033,17 +17033,17 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -17059,7 +17059,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -17080,7 +17080,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -17100,7 +17100,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -17121,7 +17121,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -17140,7 +17140,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -17158,7 +17158,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -17176,7 +17176,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
@@ -17191,7 +17191,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
@@ -17208,7 +17208,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
@@ -17223,7 +17223,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
@@ -17238,7 +17238,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
@@ -17253,7 +17253,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
@@ -17269,12 +17269,12 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (int t1: sorted1) {
 			arg2.accept(result, t1);
 		}
@@ -17289,15 +17289,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -17313,7 +17313,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
@@ -17332,7 +17332,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
@@ -17350,7 +17350,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -17369,7 +17369,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
@@ -17386,7 +17386,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
@@ -17401,7 +17401,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
@@ -17418,7 +17418,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
@@ -17433,7 +17433,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
@@ -17448,7 +17448,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
@@ -17463,7 +17463,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
@@ -17479,12 +17479,12 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (long t1: sorted1) {
 			arg2.accept(result, t1);
 		}
@@ -17499,15 +17499,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -17523,7 +17523,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
@@ -17542,7 +17542,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
@@ -17560,7 +17560,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -17579,7 +17579,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
@@ -17596,7 +17596,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
@@ -17611,7 +17611,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
@@ -17628,7 +17628,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
@@ -17643,7 +17643,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
@@ -17658,7 +17658,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
@@ -17673,7 +17673,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
@@ -17689,12 +17689,12 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (double t1: sorted1) {
 			arg2.accept(result, t1);
 		}
@@ -17709,15 +17709,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -17733,7 +17733,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
@@ -17752,7 +17752,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
@@ -17770,7 +17770,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -17789,7 +17789,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
@@ -17807,11 +17807,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			T1 t1 = arg0.apply(t0);
 			arg2.accept(result, t1);
@@ -17826,11 +17826,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -17847,11 +17847,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			int t1 = arg0.applyAsInt(t0);
 			arg2.accept(result, t1);
@@ -17866,11 +17866,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			long t1 = arg0.applyAsLong(t0);
 			arg2.accept(result, t1);
@@ -17885,11 +17885,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			double t1 = arg0.applyAsDouble(t0);
 			arg2.accept(result, t1);
@@ -17905,15 +17905,15 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			sorted2.add(t0);
 		}
-		Collections.sort((List) sorted2);
+		sorted2.sort(null);
 		for (T0 t0: sorted2) {
 			arg1.accept(result, t0);
 		}
@@ -17928,11 +17928,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			sortedComp0.add(t0);
 		}
@@ -17952,18 +17952,18 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			arg2.accept(result, t0);
 		}
 		return result;
@@ -17980,11 +17980,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -18003,11 +18003,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -18025,11 +18025,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -18048,11 +18048,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if(!arg0.test(t0)) {
 				break;
@@ -18069,11 +18069,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			for (T1 t1 : arg0.apply(t0)) {
 				arg2.accept(result, t1);
@@ -18089,11 +18089,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			for (T1 t1 : t0) {
 				arg1.accept(result, t1);
@@ -18109,7 +18109,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18128,7 +18128,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18149,7 +18149,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18168,7 +18168,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18187,7 +18187,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18207,7 +18207,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18215,7 +18215,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg2.accept(result, t0);
 		}
@@ -18230,7 +18230,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18254,18 +18254,18 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -18282,7 +18282,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18305,7 +18305,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18327,7 +18327,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18350,7 +18350,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18371,7 +18371,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18391,7 +18391,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -18412,14 +18412,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			arg3.accept(result, t1);
 		}
@@ -18434,14 +18434,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -18458,14 +18458,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			arg3.accept(result, t1);
 		}
@@ -18480,14 +18480,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			arg3.accept(result, t1);
 		}
@@ -18502,14 +18502,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			arg3.accept(result, t1);
 		}
@@ -18525,17 +18525,17 @@ public class ForeachStreamCollect {
 		List<T0> sorted1 = new ArrayList<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg2.accept(result, t0);
 		}
@@ -18551,14 +18551,14 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -18580,18 +18580,18 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -18609,14 +18609,14 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -18635,14 +18635,14 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -18660,14 +18660,14 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -18686,14 +18686,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -18710,14 +18710,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				arg3.accept(result, t1);
 			}
@@ -18733,14 +18733,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
-			sorted0.add(t0);
-		}
-		Collections.sort((List) sorted0);
-		for (T0 t0: sorted0) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
+			limit0++;
 			for (T1 t1 : t0) {
 				arg2.accept(result, t1);
 			}
@@ -18758,7 +18758,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -18780,7 +18780,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -18804,7 +18804,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -18826,7 +18826,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -18848,7 +18848,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -18871,7 +18871,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -18879,7 +18879,7 @@ public class ForeachStreamCollect {
 			}
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg2.accept(result, t0);
 		}
@@ -18897,7 +18897,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -18924,18 +18924,18 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -18955,7 +18955,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -18981,7 +18981,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -19006,7 +19006,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -19032,7 +19032,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -19056,7 +19056,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -19079,7 +19079,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -19099,7 +19099,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19117,7 +19117,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19137,7 +19137,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19155,7 +19155,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19173,7 +19173,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19192,14 +19192,14 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg1.accept(result, t0);
 		}
@@ -19214,7 +19214,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19237,17 +19237,17 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			arg2.accept(result, t0);
 		}
 		return result;
@@ -19264,7 +19264,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19286,7 +19286,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19307,7 +19307,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19329,7 +19329,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19349,7 +19349,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19368,7 +19368,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19387,7 +19387,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19407,7 +19407,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19429,7 +19429,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19449,7 +19449,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19469,7 +19469,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19490,7 +19490,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19499,7 +19499,7 @@ public class ForeachStreamCollect {
 			}
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg2.accept(result, t0);
 		}
@@ -19514,7 +19514,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19539,9 +19539,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19549,9 +19552,6 @@ public class ForeachStreamCollect {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -19568,7 +19568,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19592,7 +19592,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19615,7 +19615,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19639,7 +19639,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19661,7 +19661,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19682,7 +19682,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19702,7 +19702,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19719,7 +19719,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19738,7 +19738,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19755,7 +19755,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19772,7 +19772,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19790,14 +19790,14 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
 			}
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg2.accept(result, t0);
 		}
@@ -19811,7 +19811,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19833,17 +19833,17 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -19859,7 +19859,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19880,7 +19880,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19900,7 +19900,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19921,7 +19921,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19940,7 +19940,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19958,7 +19958,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19976,7 +19976,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
@@ -19992,7 +19992,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
@@ -20010,7 +20010,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
@@ -20026,7 +20026,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
@@ -20042,7 +20042,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
@@ -20059,13 +20059,13 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted1.add(t1);
 			}
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T1 t1: sorted1) {
 			arg2.accept(result, t1);
 		}
@@ -20079,7 +20079,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
@@ -20100,15 +20100,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -20125,7 +20125,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
@@ -20145,7 +20145,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
@@ -20164,7 +20164,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
@@ -20184,7 +20184,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
@@ -20202,7 +20202,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
@@ -20219,7 +20219,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : t1) {
@@ -20236,7 +20236,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				T2 t2 = arg0.apply(t1);
@@ -20252,7 +20252,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if (!arg0.test(t1)) {
@@ -20270,7 +20270,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				int t2 = arg0.applyAsInt(t1);
@@ -20286,7 +20286,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				long t2 = arg0.applyAsLong(t1);
@@ -20302,7 +20302,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				double t2 = arg0.applyAsDouble(t1);
@@ -20319,13 +20319,13 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				sorted1.add(t1);
 			}
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T1 t1: sorted1) {
 			arg1.accept(result, t1);
 		}
@@ -20339,7 +20339,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				sortedComp0.add(t1);
@@ -20360,15 +20360,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				arg2.accept(result, t1);
 			}
 		}
@@ -20385,7 +20385,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				skip0++;
@@ -20405,7 +20405,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if(!distinct0.add(t1)) {
@@ -20424,7 +20424,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if(dropWhile0 && arg0.test(t1)) {
@@ -20444,7 +20444,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if(!arg0.test(t1)) {
@@ -20462,7 +20462,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				for (T2 t2 : arg0.apply(t1)) {
@@ -20479,7 +20479,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				for (T2 t2 : t1) {
@@ -20579,7 +20579,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg1.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -20613,15 +20613,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			T1 t1 = arg1.apply(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -20837,7 +20837,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -20873,6 +20873,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -20881,9 +20884,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -21114,7 +21114,7 @@ public class ForeachStreamCollect {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -21129,15 +21129,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -21324,7 +21324,7 @@ public class ForeachStreamCollect {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -21339,15 +21339,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -21534,7 +21534,7 @@ public class ForeachStreamCollect {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -21549,15 +21549,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -21651,7 +21651,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg1.apply(t0);
 			arg3.accept(result, t1);
@@ -21670,7 +21670,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				continue;
@@ -21691,7 +21691,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			arg3.accept(result, t1);
@@ -21710,7 +21710,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			arg3.accept(result, t1);
@@ -21729,7 +21729,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			arg3.accept(result, t1);
@@ -21749,11 +21749,11 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg2.accept(result, t0);
 		}
@@ -21772,7 +21772,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp1.add(t0);
 		}
@@ -21792,18 +21792,18 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -21824,7 +21824,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -21847,7 +21847,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -21869,7 +21869,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -21892,7 +21892,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg1.test(t0)) {
 				break;
@@ -21913,7 +21913,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				arg3.accept(result, t1);
@@ -21933,7 +21933,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				arg2.accept(result, t1);
@@ -22055,7 +22055,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp1) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -22094,6 +22094,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22103,9 +22106,6 @@ public class ForeachStreamCollect {
 		sortedComp1.sort(arg1);
 		for (T0 t0: sortedComp1) {
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -22252,14 +22252,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			T1 t1 = arg2.apply(t0);
 			arg4.accept(result, t1);
 		}
@@ -22274,14 +22274,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (!arg2.test(t0)) {
 				continue;
 			}
@@ -22298,14 +22298,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			int t1 = arg2.applyAsInt(t0);
 			arg4.accept(result, t1);
 		}
@@ -22320,14 +22320,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			long t1 = arg2.applyAsLong(t0);
 			arg4.accept(result, t1);
 		}
@@ -22342,14 +22342,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			double t1 = arg2.applyAsDouble(t0);
 			arg4.accept(result, t1);
 		}
@@ -22365,17 +22365,17 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -22391,14 +22391,14 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp1 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			sortedComp1.add(t0);
 		}
 		sortedComp1.sort(arg2);
@@ -22420,18 +22420,18 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -22449,14 +22449,14 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			skip0++;
 			if(skip0 <= arg2) {
 				continue;
@@ -22475,14 +22475,14 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -22500,14 +22500,14 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(dropWhile0 && arg2.test(t0)) {
 				continue;
 			} else {
@@ -22526,14 +22526,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(!arg2.test(t0)) {
 				break;
 			}
@@ -22550,14 +22550,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			for (T1 t1 : arg2.apply(t0)) {
 				arg4.accept(result, t1);
 			}
@@ -22573,14 +22573,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				arg3.accept(result, t1);
 			}
@@ -22719,7 +22719,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -22764,6 +22764,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -22773,9 +22776,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -23039,7 +23039,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -23077,6 +23077,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -23085,9 +23088,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -23339,7 +23339,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -23379,6 +23379,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -23389,9 +23392,6 @@ public class ForeachStreamCollect {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -23637,7 +23637,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -23673,6 +23673,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -23681,9 +23684,6 @@ public class ForeachStreamCollect {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -23905,7 +23905,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -23940,15 +23940,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t1);
 			}
 		}
@@ -24165,7 +24165,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -24200,15 +24200,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -24337,10 +24337,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			T2 t2 = arg2.apply(t1);
 			arg4.accept(result, t2);
@@ -24355,10 +24355,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			if (!arg2.test(t1)) {
 				continue;
@@ -24375,10 +24375,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			int t2 = arg2.applyAsInt(t1);
 			arg4.accept(result, t2);
@@ -24393,10 +24393,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			long t2 = arg2.applyAsLong(t1);
 			arg4.accept(result, t2);
@@ -24411,10 +24411,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			double t2 = arg2.applyAsDouble(t1);
 			arg4.accept(result, t2);
@@ -24430,14 +24430,14 @@ public class ForeachStreamCollect {
 		List<T1> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -24452,10 +24452,10 @@ public class ForeachStreamCollect {
 		List<T1> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			sortedComp0.add(t1);
 		}
@@ -24477,15 +24477,15 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -24502,10 +24502,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			skip0++;
 			if(skip0 <= arg2) {
@@ -24524,10 +24524,10 @@ public class ForeachStreamCollect {
 		Set<T1> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -24545,10 +24545,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
@@ -24567,10 +24567,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			if(!arg2.test(t1)) {
 				break;
@@ -24587,10 +24587,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			for (T2 t2 : arg2.apply(t1)) {
 				arg4.accept(result, t2);
@@ -24606,10 +24606,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			for (T2 t2 : t1) {
 				arg3.accept(result, t2);
@@ -24625,10 +24625,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -24645,10 +24645,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -24667,10 +24667,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -24687,10 +24687,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -24707,10 +24707,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -24728,16 +24728,16 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -24752,10 +24752,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -24779,17 +24779,17 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -24806,10 +24806,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -24830,10 +24830,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -24853,10 +24853,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -24877,10 +24877,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -24899,10 +24899,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -24920,10 +24920,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -24941,10 +24941,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			t1 = arg2.applyAsInt(t1);
 			arg4.accept(result, t1);
@@ -24959,10 +24959,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			if (!arg2.test(t1)) {
 				continue;
@@ -24979,10 +24979,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			long t2 = arg2.applyAsLong(t1);
 			arg4.accept(result, t2);
@@ -24997,10 +24997,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			double t2 = arg2.applyAsDouble(t1);
 			arg4.accept(result, t2);
@@ -25015,10 +25015,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			T2 t2 = arg2.apply(t1);
 			arg4.accept(result, t2);
@@ -25033,10 +25033,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			Integer t2 = t1;
 			arg3.accept(result, t2);
@@ -25052,14 +25052,14 @@ public class ForeachStreamCollect {
 		List<Integer> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -25077,15 +25077,15 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -25102,10 +25102,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg2) {
@@ -25124,10 +25124,10 @@ public class ForeachStreamCollect {
 		Set<Integer> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -25145,10 +25145,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
@@ -25167,10 +25167,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			if(!arg2.test(t1)) {
 				break;
@@ -25187,10 +25187,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			t1 = arg2.applyAsLong(t1);
 			arg4.accept(result, t1);
@@ -25205,10 +25205,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			if (!arg2.test(t1)) {
 				continue;
@@ -25225,10 +25225,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			int t2 = arg2.applyAsInt(t1);
 			arg4.accept(result, t2);
@@ -25243,10 +25243,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			double t2 = arg2.applyAsDouble(t1);
 			arg4.accept(result, t2);
@@ -25261,10 +25261,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			T2 t2 = arg2.apply(t1);
 			arg4.accept(result, t2);
@@ -25279,10 +25279,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			Long t2 = t1;
 			arg3.accept(result, t2);
@@ -25298,14 +25298,14 @@ public class ForeachStreamCollect {
 		List<Long> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -25323,15 +25323,15 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -25348,10 +25348,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg2) {
@@ -25370,10 +25370,10 @@ public class ForeachStreamCollect {
 		Set<Long> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -25391,10 +25391,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
@@ -25413,10 +25413,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			if(!arg2.test(t1)) {
 				break;
@@ -25433,10 +25433,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			t1 = arg2.applyAsDouble(t1);
 			arg4.accept(result, t1);
@@ -25451,10 +25451,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			if (!arg2.test(t1)) {
 				continue;
@@ -25471,10 +25471,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			int t2 = arg2.applyAsInt(t1);
 			arg4.accept(result, t2);
@@ -25489,10 +25489,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			long t2 = arg2.applyAsLong(t1);
 			arg4.accept(result, t2);
@@ -25507,10 +25507,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			T2 t2 = arg2.apply(t1);
 			arg4.accept(result, t2);
@@ -25525,10 +25525,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			Double t2 = t1;
 			arg3.accept(result, t2);
@@ -25544,14 +25544,14 @@ public class ForeachStreamCollect {
 		List<Double> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -25569,15 +25569,15 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -25594,10 +25594,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg2) {
@@ -25616,10 +25616,10 @@ public class ForeachStreamCollect {
 		Set<Double> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -25637,10 +25637,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
@@ -25659,10 +25659,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			if(!arg2.test(t1)) {
 				break;
@@ -25680,13 +25680,13 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg1.apply(t0);
 			arg3.accept(result, t1);
@@ -25702,13 +25702,13 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				continue;
@@ -25726,13 +25726,13 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			arg3.accept(result, t1);
@@ -25748,13 +25748,13 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			arg3.accept(result, t1);
@@ -25770,13 +25770,13 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			arg3.accept(result, t1);
@@ -25793,17 +25793,17 @@ public class ForeachStreamCollect {
 		List<T0> sorted1 = new ArrayList<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg2.accept(result, t0);
 		}
@@ -25819,13 +25819,13 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -25848,18 +25848,18 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg1) {
+				break;
+			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -25877,13 +25877,13 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -25903,13 +25903,13 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -25928,13 +25928,13 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -25954,13 +25954,13 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg1.test(t0)) {
 				break;
@@ -25978,13 +25978,13 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				arg3.accept(result, t1);
@@ -26001,13 +26001,13 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				arg2.accept(result, t1);
@@ -26024,10 +26024,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -26046,10 +26046,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -26070,10 +26070,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -26092,10 +26092,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -26114,10 +26114,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -26137,17 +26137,17 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -26163,10 +26163,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp1 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -26192,18 +26192,18 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -26221,10 +26221,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -26247,10 +26247,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -26272,10 +26272,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -26298,10 +26298,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -26322,10 +26322,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -26345,10 +26345,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -26371,14 +26371,14 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			T1 t1 = arg2.apply(t0);
 			arg4.accept(result, t1);
 		}
@@ -26396,14 +26396,14 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			if (!arg2.test(t0)) {
 				continue;
 			}
@@ -26423,14 +26423,14 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			int t1 = arg2.applyAsInt(t0);
 			arg4.accept(result, t1);
 		}
@@ -26448,14 +26448,14 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			long t1 = arg2.applyAsLong(t0);
 			arg4.accept(result, t1);
 		}
@@ -26473,14 +26473,14 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			double t1 = arg2.applyAsDouble(t0);
 			arg4.accept(result, t1);
 		}
@@ -26499,17 +26499,17 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -26528,14 +26528,14 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg2);
@@ -26560,18 +26560,18 @@ public class ForeachStreamCollect {
 		long limit2 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
+			if(limit2 >= arg2) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			limit2++;
-			if(limit2 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -26592,14 +26592,14 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			skip0++;
 			if(skip0 <= arg2) {
 				continue;
@@ -26621,14 +26621,14 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -26649,14 +26649,14 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			if(dropWhile0 && arg2.test(t0)) {
 				continue;
 			} else {
@@ -26678,14 +26678,14 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			if(!arg2.test(t0)) {
 				break;
 			}
@@ -26705,14 +26705,14 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			for (T1 t1 : arg2.apply(t0)) {
 				arg4.accept(result, t1);
 			}
@@ -26731,14 +26731,14 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				arg3.accept(result, t1);
 			}
@@ -26757,10 +26757,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -26782,10 +26782,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -26809,10 +26809,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -26834,10 +26834,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -26859,10 +26859,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -26885,17 +26885,17 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -26914,10 +26914,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -26946,18 +26946,18 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
 			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -26978,10 +26978,10 @@ public class ForeachStreamCollect {
 		long skip1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -27007,10 +27007,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -27035,10 +27035,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -27064,10 +27064,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -27091,10 +27091,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -27117,10 +27117,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -27140,10 +27140,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -27161,10 +27161,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -27184,10 +27184,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -27205,10 +27205,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -27226,10 +27226,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -27248,16 +27248,16 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -27273,10 +27273,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -27301,17 +27301,17 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg1) {
+				break;
+			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -27329,10 +27329,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -27354,10 +27354,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct1 = new HashSet<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -27378,10 +27378,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -27403,10 +27403,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -27426,10 +27426,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -27448,10 +27448,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -27470,10 +27470,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27493,10 +27493,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27518,10 +27518,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27541,10 +27541,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27564,10 +27564,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27588,10 +27588,10 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27599,7 +27599,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -27615,10 +27615,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27645,19 +27645,19 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -27675,10 +27675,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27702,10 +27702,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27728,10 +27728,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile1 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27755,10 +27755,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27780,10 +27780,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27804,10 +27804,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -27827,10 +27827,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -27847,10 +27847,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -27869,10 +27869,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -27889,10 +27889,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -27909,10 +27909,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -27930,16 +27930,16 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -27954,10 +27954,10 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -27981,17 +27981,17 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -28008,10 +28008,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -28032,10 +28032,10 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -28055,10 +28055,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -28079,10 +28079,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -28101,10 +28101,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -28122,10 +28122,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -28143,10 +28143,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				T2 t2 = arg2.apply(t1);
 				arg4.accept(result, t2);
@@ -28162,10 +28162,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				if (!arg2.test(t1)) {
 					continue;
@@ -28183,10 +28183,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				int t2 = arg2.applyAsInt(t1);
 				arg4.accept(result, t2);
@@ -28202,10 +28202,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				long t2 = arg2.applyAsLong(t1);
 				arg4.accept(result, t2);
@@ -28221,10 +28221,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				double t2 = arg2.applyAsDouble(t1);
 				arg4.accept(result, t2);
@@ -28241,15 +28241,15 @@ public class ForeachStreamCollect {
 		List<T1> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -28264,10 +28264,10 @@ public class ForeachStreamCollect {
 		List<T1> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -28290,15 +28290,15 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				limit1++;
-				if(limit1 > arg2) {
-					break;
-				}
 				arg4.accept(result, t1);
 			}
 		}
@@ -28316,10 +28316,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg2) {
@@ -28339,10 +28339,10 @@ public class ForeachStreamCollect {
 		Set<T1> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -28361,10 +28361,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				if(dropWhile0 && arg2.test(t1)) {
 					continue;
@@ -28384,10 +28384,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				if(!arg2.test(t1)) {
 					break;
@@ -28405,10 +28405,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				for (T2 t2 : arg2.apply(t1)) {
 					arg4.accept(result, t2);
@@ -28425,10 +28425,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				for (T2 t2 : t1) {
 					arg3.accept(result, t2);
@@ -28445,10 +28445,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				T2 t2 = arg1.apply(t1);
 				arg3.accept(result, t2);
@@ -28464,10 +28464,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				if (!arg1.test(t1)) {
 					continue;
@@ -28485,10 +28485,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				int t2 = arg1.applyAsInt(t1);
 				arg3.accept(result, t2);
@@ -28504,10 +28504,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				long t2 = arg1.applyAsLong(t1);
 				arg3.accept(result, t2);
@@ -28523,10 +28523,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				double t2 = arg1.applyAsDouble(t1);
 				arg3.accept(result, t2);
@@ -28543,15 +28543,15 @@ public class ForeachStreamCollect {
 		List<T1> sorted0 = new ArrayList<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -28566,10 +28566,10 @@ public class ForeachStreamCollect {
 		List<T1> sortedComp0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				sortedComp0.add(t1);
 			}
@@ -28592,15 +28592,15 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg1) {
+				break;
+			}
+			limit0++;
 			for (T1 t1 : t0) {
 				limit1++;
-				if(limit1 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -28618,10 +28618,10 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				skip0++;
 				if(skip0 <= arg1) {
@@ -28641,10 +28641,10 @@ public class ForeachStreamCollect {
 		Set<T1> distinct0 = new HashSet<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				if(!distinct0.add(t1)) {
 					continue;
@@ -28663,10 +28663,10 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -28686,10 +28686,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				if(!arg1.test(t1)) {
 					break;
@@ -28707,10 +28707,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				for (T2 t2 : arg1.apply(t1)) {
 					arg3.accept(result, t2);
@@ -28727,10 +28727,10 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				for (T2 t2 : t1) {
 					arg2.accept(result, t2);
@@ -28847,7 +28847,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg1.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -28887,15 +28887,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			T1 t1 = arg1.apply(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -29147,7 +29147,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -29189,6 +29189,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -29197,9 +29200,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -29469,7 +29469,7 @@ public class ForeachStreamCollect {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -29487,15 +29487,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -29715,7 +29715,7 @@ public class ForeachStreamCollect {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -29733,15 +29733,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -29961,7 +29961,7 @@ public class ForeachStreamCollect {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -29979,15 +29979,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -30096,7 +30096,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg1.apply(t0);
 			arg3.accept(result, t1);
@@ -30118,7 +30118,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				continue;
@@ -30142,7 +30142,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			arg3.accept(result, t1);
@@ -30164,7 +30164,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			arg3.accept(result, t1);
@@ -30186,7 +30186,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			arg3.accept(result, t1);
@@ -30209,11 +30209,11 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg2.accept(result, t0);
 		}
@@ -30235,7 +30235,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -30258,18 +30258,18 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -30293,7 +30293,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip1++;
 			if(skip1 <= arg1) {
@@ -30319,7 +30319,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -30344,7 +30344,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -30370,7 +30370,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg1.test(t0)) {
 				break;
@@ -30394,7 +30394,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				arg3.accept(result, t1);
@@ -30417,7 +30417,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				arg2.accept(result, t1);
@@ -30557,7 +30557,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -30602,6 +30602,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -30611,9 +30614,6 @@ public class ForeachStreamCollect {
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -30781,14 +30781,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			T1 t1 = arg2.apply(t0);
 			arg4.accept(result, t1);
 		}
@@ -30806,14 +30806,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (!arg2.test(t0)) {
 				continue;
 			}
@@ -30833,14 +30833,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			int t1 = arg2.applyAsInt(t0);
 			arg4.accept(result, t1);
 		}
@@ -30858,14 +30858,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			long t1 = arg2.applyAsLong(t0);
 			arg4.accept(result, t1);
 		}
@@ -30883,14 +30883,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			double t1 = arg2.applyAsDouble(t0);
 			arg4.accept(result, t1);
 		}
@@ -30909,17 +30909,17 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -30938,14 +30938,14 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg2);
@@ -30970,18 +30970,18 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -31002,14 +31002,14 @@ public class ForeachStreamCollect {
 		long skip1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			skip1++;
 			if(skip1 <= arg2) {
 				continue;
@@ -31031,14 +31031,14 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31059,14 +31059,14 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(dropWhile0 && arg2.test(t0)) {
 				continue;
 			} else {
@@ -31088,14 +31088,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(!arg2.test(t0)) {
 				break;
 			}
@@ -31115,14 +31115,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			for (T1 t1 : arg2.apply(t0)) {
 				arg4.accept(result, t1);
 			}
@@ -31141,14 +31141,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				arg3.accept(result, t1);
 			}
@@ -31305,7 +31305,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -31356,6 +31356,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -31365,9 +31368,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -31667,7 +31667,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -31711,6 +31711,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -31719,9 +31722,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -32009,7 +32009,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -32055,6 +32055,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -32065,9 +32068,6 @@ public class ForeachStreamCollect {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -32349,7 +32349,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -32391,6 +32391,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -32399,9 +32402,6 @@ public class ForeachStreamCollect {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -32659,7 +32659,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -32700,15 +32700,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t1);
 			}
 		}
@@ -32961,7 +32961,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -33002,15 +33002,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -33233,7 +33233,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -33266,14 +33266,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			T1 t1 = arg0.apply(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -33477,7 +33477,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -33512,6 +33512,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -33519,9 +33522,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -33739,7 +33739,7 @@ public class ForeachStreamCollect {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -33754,14 +33754,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -33937,7 +33937,7 @@ public class ForeachStreamCollect {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -33952,14 +33952,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -34135,7 +34135,7 @@ public class ForeachStreamCollect {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -34150,14 +34150,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -34246,7 +34246,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			arg2.accept(result, t1);
@@ -34264,7 +34264,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -34284,7 +34284,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			arg2.accept(result, t1);
@@ -34302,7 +34302,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			arg2.accept(result, t1);
@@ -34320,7 +34320,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			arg2.accept(result, t1);
@@ -34339,11 +34339,11 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg1.accept(result, t0);
 		}
@@ -34361,7 +34361,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -34381,17 +34381,17 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			arg2.accept(result, t0);
 		}
 		return result;
@@ -34411,7 +34411,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -34433,7 +34433,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct1.add(t0)) {
 				continue;
@@ -34454,7 +34454,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -34476,7 +34476,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -34496,7 +34496,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				arg2.accept(result, t1);
@@ -34515,7 +34515,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				arg1.accept(result, t1);
@@ -34631,7 +34631,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -34669,6 +34669,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -34677,9 +34680,6 @@ public class ForeachStreamCollect {
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -34820,13 +34820,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			T1 t1 = arg1.apply(t0);
 			arg3.accept(result, t1);
 		}
@@ -34841,13 +34841,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -34864,13 +34864,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			int t1 = arg1.applyAsInt(t0);
 			arg3.accept(result, t1);
 		}
@@ -34885,13 +34885,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			long t1 = arg1.applyAsLong(t0);
 			arg3.accept(result, t1);
 		}
@@ -34906,13 +34906,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			double t1 = arg1.applyAsDouble(t0);
 			arg3.accept(result, t1);
 		}
@@ -34928,16 +34928,16 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -34953,13 +34953,13 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -34981,17 +34981,17 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -35009,13 +35009,13 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -35034,13 +35034,13 @@ public class ForeachStreamCollect {
 		Set<T0> distinct1 = new HashSet<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			if(!distinct1.add(t0)) {
 				continue;
 			}
@@ -35058,13 +35058,13 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -35083,13 +35083,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -35106,13 +35106,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			for (T1 t1 : arg1.apply(t0)) {
 				arg3.accept(result, t1);
 			}
@@ -35128,13 +35128,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				arg2.accept(result, t1);
 			}
@@ -35267,7 +35267,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -35311,6 +35311,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -35319,9 +35322,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -35573,7 +35573,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg1.accept(result, t0);
 		}
@@ -35610,6 +35610,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -35617,9 +35620,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			arg2.accept(result, t0);
 		}
 		return result;
@@ -35859,7 +35859,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -35898,6 +35898,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -35907,9 +35910,6 @@ public class ForeachStreamCollect {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -36143,7 +36143,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -36178,6 +36178,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -36185,9 +36188,6 @@ public class ForeachStreamCollect {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -36397,7 +36397,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -36431,14 +36431,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -36643,7 +36643,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg1.accept(result, t1);
 		}
@@ -36677,14 +36677,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				arg2.accept(result, t1);
 			}
 		}
@@ -36895,7 +36895,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg1.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -36930,6 +36930,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -36937,9 +36940,6 @@ public class ForeachStreamCollect {
 			}
 			T1 t1 = arg1.apply(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -37167,7 +37167,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -37204,6 +37204,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -37213,9 +37216,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -37459,7 +37459,7 @@ public class ForeachStreamCollect {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -37474,6 +37474,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -37481,9 +37484,6 @@ public class ForeachStreamCollect {
 			}
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -37681,7 +37681,7 @@ public class ForeachStreamCollect {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -37696,6 +37696,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -37703,9 +37706,6 @@ public class ForeachStreamCollect {
 			}
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -37903,7 +37903,7 @@ public class ForeachStreamCollect {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -37918,6 +37918,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -37925,9 +37928,6 @@ public class ForeachStreamCollect {
 			}
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -38026,7 +38026,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg1.apply(t0);
 			arg3.accept(result, t1);
@@ -38046,7 +38046,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				continue;
@@ -38068,7 +38068,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			arg3.accept(result, t1);
@@ -38088,7 +38088,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			arg3.accept(result, t1);
@@ -38108,7 +38108,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			arg3.accept(result, t1);
@@ -38129,11 +38129,11 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg2.accept(result, t0);
 		}
@@ -38153,7 +38153,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -38173,6 +38173,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -38180,12 +38183,9 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -38207,7 +38207,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -38231,7 +38231,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -38254,7 +38254,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile1 && arg1.test(t0)) {
 				continue;
@@ -38278,7 +38278,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg1.test(t0)) {
 				break;
@@ -38300,7 +38300,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				arg3.accept(result, t1);
@@ -38321,7 +38321,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				arg2.accept(result, t1);
@@ -38449,7 +38449,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -38489,6 +38489,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -38499,9 +38502,6 @@ public class ForeachStreamCollect {
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -38654,15 +38654,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			T1 t1 = arg2.apply(t0);
 			arg4.accept(result, t1);
 		}
@@ -38677,15 +38677,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (!arg2.test(t0)) {
 				continue;
 			}
@@ -38702,15 +38702,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			int t1 = arg2.applyAsInt(t0);
 			arg4.accept(result, t1);
 		}
@@ -38725,15 +38725,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			long t1 = arg2.applyAsLong(t0);
 			arg4.accept(result, t1);
 		}
@@ -38748,15 +38748,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			double t1 = arg2.applyAsDouble(t0);
 			arg4.accept(result, t1);
 		}
@@ -38772,18 +38772,18 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -38799,15 +38799,15 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg2);
@@ -38829,19 +38829,19 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -38859,15 +38859,15 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			skip0++;
 			if(skip0 <= arg2) {
 				continue;
@@ -38886,15 +38886,15 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -38912,15 +38912,15 @@ public class ForeachStreamCollect {
 		boolean dropWhile1 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(dropWhile1 && arg2.test(t0)) {
 				continue;
 			} else {
@@ -38939,15 +38939,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(!arg2.test(t0)) {
 				break;
 			}
@@ -38964,15 +38964,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			for (T1 t1 : arg2.apply(t0)) {
 				arg4.accept(result, t1);
 			}
@@ -38988,15 +38988,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				arg3.accept(result, t1);
 			}
@@ -39141,7 +39141,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -39187,6 +39187,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -39197,9 +39200,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -39475,7 +39475,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -39514,6 +39514,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -39523,9 +39526,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -39789,7 +39789,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -39830,6 +39830,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -39841,9 +39844,6 @@ public class ForeachStreamCollect {
 				dropWhile1 = false;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -40101,7 +40101,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -40138,6 +40138,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -40147,9 +40150,6 @@ public class ForeachStreamCollect {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -40383,7 +40383,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -40419,6 +40419,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -40426,9 +40429,6 @@ public class ForeachStreamCollect {
 			}
 			for (T1 t1 : arg1.apply(t0)) {
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t1);
 			}
 		}
@@ -40657,7 +40657,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -40693,6 +40693,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -40700,9 +40703,6 @@ public class ForeachStreamCollect {
 			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -40907,7 +40907,7 @@ public class ForeachStreamCollect {
 			T1 t1 = arg1.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -40938,14 +40938,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			T1 t1 = arg1.apply(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -41137,7 +41137,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -41170,6 +41170,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -41177,9 +41180,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -41384,7 +41384,7 @@ public class ForeachStreamCollect {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -41398,14 +41398,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -41570,7 +41570,7 @@ public class ForeachStreamCollect {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -41584,14 +41584,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -41756,7 +41756,7 @@ public class ForeachStreamCollect {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -41770,14 +41770,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -41861,7 +41861,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg1.apply(t0);
 			arg3.accept(result, t1);
@@ -41878,7 +41878,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				continue;
@@ -41897,7 +41897,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			arg3.accept(result, t1);
@@ -41914,7 +41914,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			arg3.accept(result, t1);
@@ -41931,7 +41931,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			arg3.accept(result, t1);
@@ -41949,11 +41949,11 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			arg2.accept(result, t0);
 		}
@@ -41970,7 +41970,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -41989,17 +41989,17 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -42018,7 +42018,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -42039,7 +42039,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -42059,7 +42059,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -42080,7 +42080,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg1.test(t0)) {
 				break;
@@ -42099,7 +42099,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				arg3.accept(result, t1);
@@ -42117,7 +42117,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				arg2.accept(result, t1);
@@ -42227,7 +42227,7 @@ public class ForeachStreamCollect {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -42263,6 +42263,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -42271,9 +42274,6 @@ public class ForeachStreamCollect {
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -42407,13 +42407,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			T1 t1 = arg2.apply(t0);
 			arg4.accept(result, t1);
 		}
@@ -42427,13 +42427,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (!arg2.test(t0)) {
 				continue;
 			}
@@ -42449,13 +42449,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			int t1 = arg2.applyAsInt(t0);
 			arg4.accept(result, t1);
 		}
@@ -42469,13 +42469,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			long t1 = arg2.applyAsLong(t0);
 			arg4.accept(result, t1);
 		}
@@ -42489,13 +42489,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			double t1 = arg2.applyAsDouble(t0);
 			arg4.accept(result, t1);
 		}
@@ -42510,16 +42510,16 @@ public class ForeachStreamCollect {
 		List<T0> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -42534,13 +42534,13 @@ public class ForeachStreamCollect {
 		List<T0> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg2);
@@ -42561,17 +42561,17 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -42588,13 +42588,13 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			skip0++;
 			if(skip0 <= arg2) {
 				continue;
@@ -42612,13 +42612,13 @@ public class ForeachStreamCollect {
 		Set<T0> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -42635,13 +42635,13 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(dropWhile0 && arg2.test(t0)) {
 				continue;
 			} else {
@@ -42659,13 +42659,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if(!arg2.test(t0)) {
 				break;
 			}
@@ -42681,13 +42681,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			for (T1 t1 : arg2.apply(t0)) {
 				arg4.accept(result, t1);
 			}
@@ -42702,13 +42702,13 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				arg3.accept(result, t1);
 			}
@@ -42835,7 +42835,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -42877,6 +42877,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -42885,9 +42888,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -43127,7 +43127,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg2.accept(result, t0);
 		}
@@ -43162,6 +43162,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -43169,9 +43172,6 @@ public class ForeachStreamCollect {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t0);
 		}
 		return result;
@@ -43399,7 +43399,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -43436,6 +43436,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -43445,9 +43448,6 @@ public class ForeachStreamCollect {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -43669,7 +43669,7 @@ public class ForeachStreamCollect {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			arg3.accept(result, t0);
 		}
@@ -43702,6 +43702,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -43709,9 +43712,6 @@ public class ForeachStreamCollect {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t0);
 		}
 		return result;
@@ -43909,7 +43909,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -43941,14 +43941,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t1);
 			}
 		}
@@ -44141,7 +44141,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -44173,14 +44173,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -44361,7 +44361,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -44391,12 +44391,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t2);
 			}
 		}
@@ -44577,7 +44577,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -44609,14 +44609,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
 					continue;
 				}
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t1);
 			}
 		}
@@ -44809,7 +44809,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -44823,12 +44823,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t2);
 			}
 		}
@@ -44983,7 +44983,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -44997,12 +44997,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t2);
 			}
 		}
@@ -45157,7 +45157,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -45171,12 +45171,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t2);
 			}
 		}
@@ -45256,7 +45256,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			T2 t2 = arg1.apply(t1);
 			arg3.accept(result, t2);
@@ -45272,7 +45272,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -45290,7 +45290,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			arg3.accept(result, t2);
@@ -45306,7 +45306,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			arg3.accept(result, t2);
@@ -45322,7 +45322,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			arg3.accept(result, t2);
@@ -45339,11 +45339,11 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T1 t1: sorted1) {
 			arg2.accept(result, t1);
 		}
@@ -45359,7 +45359,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			sortedComp0.add(t1);
 		}
@@ -45378,16 +45378,16 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -45405,7 +45405,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -45425,7 +45425,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -45444,7 +45444,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -45464,7 +45464,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -45482,7 +45482,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			for (T2 t2 : arg1.apply(t1)) {
 				arg3.accept(result, t2);
@@ -45499,7 +45499,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			for (T2 t2 : t1) {
 				arg2.accept(result, t2);
@@ -45603,7 +45603,7 @@ public class ForeachStreamCollect {
 		for (T1 t1: sortedComp0) {
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -45638,6 +45638,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
@@ -45645,9 +45648,6 @@ public class ForeachStreamCollect {
 		sortedComp0.sort(arg1);
 		for (T1 t1: sortedComp0) {
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			arg4.accept(result, t1);
 		}
 		return result;
@@ -45775,11 +45775,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				T2 t2 = arg2.apply(t1);
 				arg4.accept(result, t2);
 			}
@@ -45794,11 +45794,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				if (!arg2.test(t1)) {
 					continue;
 				}
@@ -45815,11 +45815,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				int t2 = arg2.applyAsInt(t1);
 				arg4.accept(result, t2);
 			}
@@ -45834,11 +45834,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				long t2 = arg2.applyAsLong(t1);
 				arg4.accept(result, t2);
 			}
@@ -45853,11 +45853,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				double t2 = arg2.applyAsDouble(t1);
 				arg4.accept(result, t2);
 			}
@@ -45873,15 +45873,15 @@ public class ForeachStreamCollect {
 		List<T1> sorted0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -45896,11 +45896,11 @@ public class ForeachStreamCollect {
 		List<T1> sortedComp0 = new ArrayList<>();
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				sortedComp0.add(t1);
 			}
 		}
@@ -45922,15 +45922,15 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				limit1++;
-				if(limit1 > arg2) {
-					break;
-				}
 				arg4.accept(result, t1);
 			}
 		}
@@ -45948,11 +45948,11 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				skip0++;
 				if(skip0 <= arg2) {
 					continue;
@@ -45971,11 +45971,11 @@ public class ForeachStreamCollect {
 		Set<T1> distinct0 = new HashSet<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				if(!distinct0.add(t1)) {
 					continue;
 				}
@@ -45993,11 +45993,11 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				if(dropWhile0 && arg2.test(t1)) {
 					continue;
 				} else {
@@ -46016,11 +46016,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				if(!arg2.test(t1)) {
 					break;
 				}
@@ -46037,11 +46037,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				for (T2 t2 : arg2.apply(t1)) {
 					arg4.accept(result, t2);
 				}
@@ -46057,11 +46057,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				for (T2 t2 : t1) {
 					arg3.accept(result, t2);
 				}
@@ -46183,7 +46183,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -46224,15 +46224,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
 				if(skip0 <= arg1) {
 					continue;
 				}
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t1);
 			}
 		}
@@ -46461,7 +46461,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -46495,14 +46495,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
 					continue;
 				}
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -46719,7 +46719,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -46755,6 +46755,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -46762,9 +46765,6 @@ public class ForeachStreamCollect {
 					dropWhile0 = false;
 				}
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t1);
 			}
 		}
@@ -46975,7 +46975,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg3.accept(result, t1);
 		}
@@ -47007,14 +47007,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
 					break;
 				}
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				arg4.accept(result, t1);
 			}
 		}
@@ -47201,7 +47201,7 @@ public class ForeachStreamCollect {
 				}
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			arg3.accept(result, t2);
 		}
@@ -47232,12 +47232,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg3.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
 					limit0++;
-					if(limit0 > arg2) {
-						break;
-					}
 					arg4.accept(result, t2);
 				}
 			}
@@ -47419,7 +47419,7 @@ public class ForeachStreamCollect {
 				}
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			arg2.accept(result, t2);
 		}
@@ -47450,12 +47450,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : t1) {
 					limit0++;
-					if(limit0 > arg1) {
-						break;
-					}
 					arg3.accept(result, t2);
 				}
 			}
@@ -47631,7 +47631,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			arg2.accept(result, t2);
 		}
@@ -47661,12 +47661,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				T2 t2 = arg0.apply(t1);
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t2);
 			}
 		}
@@ -47847,7 +47847,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -47879,14 +47879,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				if (!arg0.test(t1)) {
 					continue;
 				}
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -48079,7 +48079,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			arg2.accept(result, t2);
 		}
@@ -48093,12 +48093,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				int t2 = arg0.applyAsInt(t1);
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t2);
 			}
 		}
@@ -48253,7 +48253,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			arg2.accept(result, t2);
 		}
@@ -48267,12 +48267,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				long t2 = arg0.applyAsLong(t1);
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t2);
 			}
 		}
@@ -48427,7 +48427,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			arg2.accept(result, t2);
 		}
@@ -48441,12 +48441,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				double t2 = arg0.applyAsDouble(t1);
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t2);
 			}
 		}
@@ -48526,7 +48526,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			T2 t2 = arg0.apply(t1);
 			arg2.accept(result, t2);
@@ -48542,7 +48542,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg0.test(t1)) {
 				continue;
@@ -48560,7 +48560,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			int t2 = arg0.applyAsInt(t1);
 			arg2.accept(result, t2);
@@ -48576,7 +48576,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			long t2 = arg0.applyAsLong(t1);
 			arg2.accept(result, t2);
@@ -48592,7 +48592,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			double t2 = arg0.applyAsDouble(t1);
 			arg2.accept(result, t2);
@@ -48609,11 +48609,11 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T1 t1: sorted1) {
 			arg1.accept(result, t1);
 		}
@@ -48629,7 +48629,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			sortedComp0.add(t1);
 		}
@@ -48648,16 +48648,16 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			arg2.accept(result, t1);
 		}
 		return result;
@@ -48675,7 +48675,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -48695,7 +48695,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -48714,7 +48714,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(dropWhile0 && arg0.test(t1)) {
 				continue;
@@ -48734,7 +48734,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(!arg0.test(t1)) {
 				break;
@@ -48752,7 +48752,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			for (T2 t2 : arg0.apply(t1)) {
 				arg2.accept(result, t2);
@@ -48769,7 +48769,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			for (T2 t2 : t1) {
 				arg1.accept(result, t2);
@@ -48873,7 +48873,7 @@ public class ForeachStreamCollect {
 		for (T1 t1: sortedComp0) {
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -48908,6 +48908,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				sortedComp0.add(t1);
 			}
@@ -48915,9 +48918,6 @@ public class ForeachStreamCollect {
 		sortedComp0.sort(arg0);
 		for (T1 t1: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			arg3.accept(result, t1);
 		}
 		return result;
@@ -49045,11 +49045,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				T2 t2 = arg1.apply(t1);
 				arg3.accept(result, t2);
 			}
@@ -49064,11 +49064,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				if (!arg1.test(t1)) {
 					continue;
 				}
@@ -49085,11 +49085,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				int t2 = arg1.applyAsInt(t1);
 				arg3.accept(result, t2);
 			}
@@ -49104,11 +49104,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				long t2 = arg1.applyAsLong(t1);
 				arg3.accept(result, t2);
 			}
@@ -49123,11 +49123,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				double t2 = arg1.applyAsDouble(t1);
 				arg3.accept(result, t2);
 			}
@@ -49143,15 +49143,15 @@ public class ForeachStreamCollect {
 		List<T1> sorted0 = new ArrayList<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -49166,11 +49166,11 @@ public class ForeachStreamCollect {
 		List<T1> sortedComp0 = new ArrayList<>();
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				sortedComp0.add(t1);
 			}
 		}
@@ -49192,15 +49192,15 @@ public class ForeachStreamCollect {
 		long limit1 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				limit1++;
-				if(limit1 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -49218,11 +49218,11 @@ public class ForeachStreamCollect {
 		long skip0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				skip0++;
 				if(skip0 <= arg1) {
 					continue;
@@ -49241,11 +49241,11 @@ public class ForeachStreamCollect {
 		Set<T1> distinct0 = new HashSet<>();
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				if(!distinct0.add(t1)) {
 					continue;
 				}
@@ -49263,11 +49263,11 @@ public class ForeachStreamCollect {
 		boolean dropWhile0 = true;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
 				} else {
@@ -49286,11 +49286,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				if(!arg1.test(t1)) {
 					break;
 				}
@@ -49307,11 +49307,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				for (T2 t2 : arg1.apply(t1)) {
 					arg3.accept(result, t2);
 				}
@@ -49327,11 +49327,11 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				for (T2 t2 : t1) {
 					arg2.accept(result, t2);
 				}
@@ -49453,7 +49453,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -49494,15 +49494,15 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				skip0++;
 				if(skip0 <= arg0) {
 					continue;
 				}
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -49731,7 +49731,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg1.accept(result, t1);
 		}
@@ -49765,14 +49765,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				if(!distinct0.add(t1)) {
 					continue;
 				}
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				arg2.accept(result, t1);
 			}
 		}
@@ -49989,7 +49989,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -50025,6 +50025,9 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				if(dropWhile0 && arg0.test(t1)) {
 					continue;
@@ -50032,9 +50035,6 @@ public class ForeachStreamCollect {
 					dropWhile0 = false;
 				}
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -50245,7 +50245,7 @@ public class ForeachStreamCollect {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			arg2.accept(result, t1);
 		}
@@ -50277,14 +50277,14 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				if(!arg0.test(t1)) {
 					break;
 				}
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				arg3.accept(result, t1);
 			}
 		}
@@ -50471,7 +50471,7 @@ public class ForeachStreamCollect {
 				}
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			arg2.accept(result, t2);
 		}
@@ -50502,12 +50502,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg2.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				for (T2 t2 : arg0.apply(t1)) {
 					limit0++;
-					if(limit0 > arg1) {
-						break;
-					}
 					arg3.accept(result, t2);
 				}
 			}
@@ -50689,7 +50689,7 @@ public class ForeachStreamCollect {
 				}
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			arg1.accept(result, t2);
 		}
@@ -50720,12 +50720,12 @@ public class ForeachStreamCollect {
 		long limit0 = 0;
 		R result = arg1.get();
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				for (T2 t2 : t1) {
 					limit0++;
-					if(limit0 > arg0) {
-						break;
-					}
 					arg2.accept(result, t2);
 				}
 			}

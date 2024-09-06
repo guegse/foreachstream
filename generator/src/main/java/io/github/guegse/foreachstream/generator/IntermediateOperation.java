@@ -12,6 +12,11 @@ abstract class IntermediateOperation extends Operation {
     void emitPostamble(Emitter out, String inputType, List<String> arguments) {
     }
 
+    @Override
+    void emitShortCircuit(Emitter out, String inputType, List<String> arguments) {
+
+    }
+
     boolean isFilter() {
         return false;
     }

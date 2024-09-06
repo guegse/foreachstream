@@ -84,9 +84,9 @@ public class ForeachStreamPlugin implements Plugin, TaskListener {
         } else if(e.getKind() == TaskEvent.Kind.COMPILATION) {
             if(statistics != null) {
                 log.printRawLines(Log.WriterKind.NOTICE, statistics.printStatistics());
-            }
-            if(rootProjectPath != null && projectPath != null && taskName != null) {
-                statistics.writeToFile(rootProjectPath, projectPath, taskName);
+                if(rootProjectPath != null && projectPath != null && taskName != null) {
+                    statistics.writeToFile(rootProjectPath, projectPath, taskName);
+                }
             }
         }
     }
