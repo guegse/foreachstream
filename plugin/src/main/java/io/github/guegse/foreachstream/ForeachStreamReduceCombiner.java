@@ -597,13 +597,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg1;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			result = arg2.apply(result, t0);
 		}
@@ -787,13 +787,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			result = arg3.apply(result, t0);
 		}
@@ -1962,6 +1962,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				result = arg3.apply(result, t1);
 			}
@@ -2119,6 +2122,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				result = arg2.apply(result, t1);
 			}
@@ -2691,14 +2697,14 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
 		sorted0.sort(null);
 		for (T1 t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			result = arg3.apply(result, t1);
 		}
@@ -2892,14 +2898,14 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
 		sortedComp0.sort(arg1);
 		for (T1 t1: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			result = arg4.apply(result, t1);
 		}
@@ -4134,6 +4140,9 @@ public class ForeachStreamReduceCombiner {
 			}
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				result = arg4.apply(result, t2);
 			}
@@ -4302,6 +4311,9 @@ public class ForeachStreamReduceCombiner {
 			}
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : t1) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				result = arg3.apply(result, t2);
 			}
@@ -4944,9 +4956,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -4954,6 +4963,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			result = arg3.apply(result, t0);
 		}
@@ -5167,9 +5179,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -5177,6 +5186,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			result = arg4.apply(result, t0);
 		}
@@ -6543,6 +6555,9 @@ public class ForeachStreamReduceCombiner {
 				continue;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				result = arg4.apply(result, t1);
 			}
@@ -6733,6 +6748,9 @@ public class ForeachStreamReduceCombiner {
 				continue;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				result = arg3.apply(result, t1);
 			}
@@ -8667,13 +8685,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			result = arg3.apply(result, t1);
@@ -8876,13 +8894,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -9198,9 +9216,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg1;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
@@ -9209,6 +9224,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sorted1.sort(null);
 		for (T0 t0: sorted1) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			result = arg2.apply(result, t0);
 		}
@@ -9443,9 +9461,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
@@ -9454,6 +9469,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			result = arg3.apply(result, t0);
 		}
@@ -9601,13 +9619,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			T1 t1 = arg1.apply(t0);
 			result = arg3.apply(result, t1);
@@ -9623,13 +9641,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
@@ -9648,13 +9666,13 @@ public class ForeachStreamReduceCombiner {
 		List<T0> sorted1 = new ArrayList<>();
 		U result = arg1;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			sorted1.add(t0);
 		}
@@ -9674,13 +9692,13 @@ public class ForeachStreamReduceCombiner {
 		List<T0> sortedComp0 = new ArrayList<>();
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			sortedComp0.add(t0);
 		}
@@ -9703,16 +9721,16 @@ public class ForeachStreamReduceCombiner {
 		long limit1 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
 			if(limit0 >= arg0) {
 				break;
 			}
 			if(limit1 >= arg1) {
 				break;
 			}
-			sorted0.add(t0);
-		}
-		sorted0.sort(null);
-		for (T0 t0: sorted0) {
 			limit0++;
 			limit1++;
 			result = arg3.apply(result, t0);
@@ -9732,13 +9750,13 @@ public class ForeachStreamReduceCombiner {
 		long skip0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
@@ -9758,13 +9776,13 @@ public class ForeachStreamReduceCombiner {
 		Set<T0> distinct0 = new HashSet<>();
 		U result = arg1;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
@@ -9783,13 +9801,13 @@ public class ForeachStreamReduceCombiner {
 		boolean dropWhile0 = true;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -9809,13 +9827,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if(!arg1.test(t0)) {
 				break;
@@ -9833,13 +9851,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				result = arg3.apply(result, t1);
@@ -9856,13 +9874,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg1;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			for (T1 t1 : t0) {
 				result = arg2.apply(result, t1);
@@ -9981,13 +9999,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -10240,13 +10258,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg1;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -10482,13 +10500,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -10725,13 +10743,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -10944,14 +10962,17 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				result = arg3.apply(result, t1);
 			}
@@ -11156,14 +11177,17 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg1;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				result = arg2.apply(result, t1);
 			}
@@ -11364,13 +11388,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg1.apply(t0);
 			limit0++;
 			result = arg4.apply(result, t1);
@@ -11573,13 +11597,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -11895,9 +11919,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -11906,6 +11927,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			result = arg3.apply(result, t0);
 		}
@@ -12140,9 +12164,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -12151,6 +12172,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sortedComp1.sort(arg1);
 		for (T0 t0: sortedComp1) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			result = arg4.apply(result, t0);
 		}
@@ -12298,13 +12322,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			T1 t1 = arg2.apply(t0);
 			result = arg4.apply(result, t1);
@@ -12320,13 +12344,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!arg2.test(t0)) {
 				continue;
@@ -12345,13 +12369,13 @@ public class ForeachStreamReduceCombiner {
 		List<T0> sorted0 = new ArrayList<>();
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			sorted0.add(t0);
 		}
@@ -12371,13 +12395,13 @@ public class ForeachStreamReduceCombiner {
 		List<T0> sortedComp1 = new ArrayList<>();
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			sortedComp1.add(t0);
 		}
@@ -12400,16 +12424,16 @@ public class ForeachStreamReduceCombiner {
 		long limit1 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
 			if(limit0 >= arg1) {
 				break;
 			}
 			if(limit1 >= arg2) {
 				break;
 			}
-			sortedComp0.add(t0);
-		}
-		sortedComp0.sort(arg0);
-		for (T0 t0: sortedComp0) {
 			limit0++;
 			limit1++;
 			result = arg4.apply(result, t0);
@@ -12429,13 +12453,13 @@ public class ForeachStreamReduceCombiner {
 		long skip0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			skip0++;
 			if(skip0 <= arg2) {
@@ -12455,13 +12479,13 @@ public class ForeachStreamReduceCombiner {
 		Set<T0> distinct0 = new HashSet<>();
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
@@ -12480,13 +12504,13 @@ public class ForeachStreamReduceCombiner {
 		boolean dropWhile0 = true;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if(dropWhile0 && arg2.test(t0)) {
 				continue;
@@ -12506,13 +12530,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if(!arg2.test(t0)) {
 				break;
@@ -12530,13 +12554,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			for (T1 t1 : arg2.apply(t0)) {
 				result = arg4.apply(result, t1);
@@ -12553,13 +12577,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			for (T1 t1 : t0) {
 				result = arg3.apply(result, t1);
@@ -12678,13 +12702,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -12937,13 +12961,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -13179,13 +13203,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -13422,13 +13446,13 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -13641,14 +13665,17 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				result = arg4.apply(result, t1);
 			}
@@ -13853,14 +13880,17 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				result = arg3.apply(result, t1);
 			}
@@ -14694,15 +14724,15 @@ public class ForeachStreamReduceCombiner {
 			if(limit0 >= arg0) {
 				break;
 			}
-			if(limit1 >= arg1) {
-				break;
-			}
-			limit0++;
+			limit1++;
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
-			limit1++;
+			if(limit0 >= arg1) {
+				break;
+			}
+			limit0++;
 			result = arg3.apply(result, t0);
 		}
 		return result;
@@ -14972,15 +15002,15 @@ public class ForeachStreamReduceCombiner {
 			if(limit0 >= arg0) {
 				break;
 			}
-			if(limit1 >= arg2) {
-				break;
-			}
-			limit0++;
+			limit1++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
-			limit1++;
+			if(limit0 >= arg2) {
+				break;
+			}
+			limit0++;
 			result = arg4.apply(result, t0);
 		}
 		return result;
@@ -16676,6 +16706,9 @@ public class ForeachStreamReduceCombiner {
 			}
 			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit1 >= arg2) {
+					break;
+				}
 				limit1++;
 				result = arg4.apply(result, t1);
 			}
@@ -16921,6 +16954,9 @@ public class ForeachStreamReduceCombiner {
 			}
 			limit0++;
 			for (T1 t1 : t0) {
+				if(limit1 >= arg1) {
+					break;
+				}
 				limit1++;
 				result = arg3.apply(result, t1);
 			}
@@ -17769,9 +17805,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -17780,6 +17813,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			result = arg3.apply(result, t0);
 		}
@@ -18047,9 +18083,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -18058,6 +18091,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			result = arg4.apply(result, t0);
 		}
@@ -19754,6 +19790,9 @@ public class ForeachStreamReduceCombiner {
 				continue;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				result = arg4.apply(result, t1);
 			}
@@ -19999,6 +20038,9 @@ public class ForeachStreamReduceCombiner {
 				continue;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				result = arg3.apply(result, t1);
 			}
@@ -20716,9 +20758,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg1;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -20726,6 +20765,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			result = arg2.apply(result, t0);
 		}
@@ -20950,9 +20992,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -20960,6 +20999,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			result = arg3.apply(result, t0);
 		}
@@ -22392,6 +22434,9 @@ public class ForeachStreamReduceCombiner {
 				continue;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				result = arg3.apply(result, t1);
 			}
@@ -22593,6 +22638,9 @@ public class ForeachStreamReduceCombiner {
 				continue;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				result = arg2.apply(result, t1);
 			}
@@ -23350,9 +23398,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -23362,6 +23407,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			result = arg3.apply(result, t0);
 		}
@@ -23606,9 +23654,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -23618,6 +23663,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			result = arg4.apply(result, t0);
 		}
@@ -25182,6 +25230,9 @@ public class ForeachStreamReduceCombiner {
 				dropWhile0 = false;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				result = arg4.apply(result, t1);
 			}
@@ -25405,6 +25456,9 @@ public class ForeachStreamReduceCombiner {
 				dropWhile0 = false;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				result = arg3.apply(result, t1);
 			}
@@ -26077,9 +26131,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -26087,6 +26138,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			result = arg3.apply(result, t0);
 		}
@@ -26300,9 +26354,6 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -26310,6 +26361,9 @@ public class ForeachStreamReduceCombiner {
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			result = arg4.apply(result, t0);
 		}
@@ -27676,6 +27730,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				result = arg4.apply(result, t1);
 			}
@@ -27866,6 +27923,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				result = arg3.apply(result, t1);
 			}
@@ -28045,6 +28105,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				T2 t2 = arg1.apply(t1);
 				limit0++;
 				result = arg4.apply(result, t2);
@@ -28221,6 +28284,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				if (!arg1.test(t1)) {
 					continue;
 				}
@@ -28488,15 +28554,15 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
 		}
 		sorted0.sort(null);
 		for (T1 t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			result = arg3.apply(result, t1);
 		}
@@ -28700,15 +28766,15 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg3;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
 		}
 		sortedComp0.sort(arg1);
 		for (T1 t1: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			result = arg4.apply(result, t1);
 		}
@@ -28841,6 +28907,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				T2 t2 = arg2.apply(t1);
 				result = arg4.apply(result, t2);
@@ -28860,6 +28929,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!arg2.test(t1)) {
 					continue;
@@ -28882,6 +28954,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				sorted0.add(t1);
 			}
@@ -28905,6 +28980,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				sortedComp0.add(t1);
 			}
@@ -28934,6 +29012,12 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
+				if(limit1 >= arg2) {
+					break;
+				}
 				limit0++;
 				limit1++;
 				result = arg4.apply(result, t1);
@@ -28957,6 +29041,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				skip0++;
 				if(skip0 <= arg2) {
@@ -28980,6 +29067,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if(!distinct0.add(t1)) {
 					continue;
@@ -29002,6 +29092,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if(dropWhile0 && arg2.test(t1)) {
 					continue;
@@ -29025,6 +29118,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if(!arg2.test(t1)) {
 					break;
@@ -29046,6 +29142,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				for (T2 t2 : arg2.apply(t1)) {
 					result = arg4.apply(result, t2);
@@ -29066,6 +29165,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				for (T2 t2 : t1) {
 					result = arg3.apply(result, t2);
@@ -29176,6 +29278,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				skip0++;
 				if(skip0 <= arg1) {
 					continue;
@@ -29402,6 +29507,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				if(!distinct0.add(t1)) {
 					continue;
 				}
@@ -29611,6 +29719,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
 				} else {
@@ -29821,6 +29932,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				if(!arg1.test(t1)) {
 					break;
 				}
@@ -30007,7 +30121,13 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				for (T2 t2 : arg1.apply(t1)) {
+					if(limit0 >= arg2) {
+						break;
+					}
 					limit0++;
 					result = arg4.apply(result, t2);
 				}
@@ -30186,7 +30306,13 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				for (T2 t2 : t1) {
+					if(limit0 >= arg1) {
+						break;
+					}
 					limit0++;
 					result = arg3.apply(result, t2);
 				}
@@ -30361,6 +30487,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				T2 t2 = arg0.apply(t1);
 				limit0++;
 				result = arg3.apply(result, t2);
@@ -30537,6 +30666,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				if (!arg0.test(t1)) {
 					continue;
 				}
@@ -30804,15 +30936,15 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg1;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				sorted0.add(t1);
 			}
 		}
 		sorted0.sort(null);
 		for (T1 t1: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			result = arg2.apply(result, t1);
 		}
@@ -31016,15 +31148,15 @@ public class ForeachStreamReduceCombiner {
 		long limit0 = 0;
 		U result = arg2;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				sortedComp0.add(t1);
 			}
 		}
 		sortedComp0.sort(arg0);
 		for (T1 t1: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			result = arg3.apply(result, t1);
 		}
@@ -31157,6 +31289,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				T2 t2 = arg1.apply(t1);
 				result = arg3.apply(result, t2);
@@ -31176,6 +31311,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if (!arg1.test(t1)) {
 					continue;
@@ -31198,6 +31336,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				sorted0.add(t1);
 			}
@@ -31221,6 +31362,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				sortedComp0.add(t1);
 			}
@@ -31250,6 +31394,12 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
+				if(limit1 >= arg1) {
+					break;
+				}
 				limit0++;
 				limit1++;
 				result = arg3.apply(result, t1);
@@ -31273,6 +31423,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				skip0++;
 				if(skip0 <= arg1) {
@@ -31296,6 +31449,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if(!distinct0.add(t1)) {
 					continue;
@@ -31318,6 +31474,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -31341,6 +31500,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if(!arg1.test(t1)) {
 					break;
@@ -31362,6 +31524,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				for (T2 t2 : arg1.apply(t1)) {
 					result = arg3.apply(result, t2);
@@ -31382,6 +31547,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				for (T2 t2 : t1) {
 					result = arg2.apply(result, t2);
@@ -31492,6 +31660,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				skip0++;
 				if(skip0 <= arg0) {
 					continue;
@@ -31718,6 +31889,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				if(!distinct0.add(t1)) {
 					continue;
 				}
@@ -31927,6 +32101,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				if(dropWhile0 && arg0.test(t1)) {
 					continue;
 				} else {
@@ -32137,6 +32314,9 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				if(!arg0.test(t1)) {
 					break;
 				}
@@ -32323,7 +32503,13 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				for (T2 t2 : arg0.apply(t1)) {
+					if(limit0 >= arg1) {
+						break;
+					}
 					limit0++;
 					result = arg3.apply(result, t2);
 				}
@@ -32502,7 +32688,13 @@ public class ForeachStreamReduceCombiner {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				for (T2 t2 : t1) {
+					if(limit0 >= arg0) {
+						break;
+					}
 					limit0++;
 					result = arg2.apply(result, t2);
 				}
