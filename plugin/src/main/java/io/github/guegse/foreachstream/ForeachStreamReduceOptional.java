@@ -1639,13 +1639,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -1955,13 +1955,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -3889,6 +3889,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -4163,6 +4166,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -5740,14 +5746,14 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
 		sorted0.sort(null);
 		for (T1 t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -6070,14 +6076,14 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
 		sortedComp0.sort(arg1);
 		for (T1 t1: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -8089,6 +8095,9 @@ public class ForeachStreamReduceOptional {
 			}
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -8377,6 +8386,9 @@ public class ForeachStreamReduceOptional {
 			}
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : t1) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -10102,9 +10114,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -10112,6 +10121,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -10460,9 +10472,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -10470,6 +10479,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -12649,6 +12661,9 @@ public class ForeachStreamReduceOptional {
 				continue;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -12965,6 +12980,9 @@ public class ForeachStreamReduceOptional {
 				continue;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -14768,14 +14786,14 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
 		sorted0.sort(null);
 		for (int t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -17998,14 +18016,14 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
 		sorted0.sort(null);
 		for (long t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -21228,14 +21246,14 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
 		sorted0.sort(null);
 		for (double t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -22972,13 +22990,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if (!foundAny) {
@@ -23316,13 +23334,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -23656,13 +23674,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if (!foundAny) {
@@ -23938,13 +23956,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if (!foundAny) {
@@ -24220,13 +24238,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if (!foundAny) {
@@ -24535,9 +24553,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
@@ -24546,6 +24561,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted1.sort(null);
 		for (T0 t0: sorted1) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -24921,9 +24939,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
@@ -24932,6 +24947,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -25121,13 +25139,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			T1 t1 = arg1.apply(t0);
 			if (!foundAny) {
@@ -25149,13 +25167,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
@@ -25179,13 +25197,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			if (!foundAny) {
@@ -25207,13 +25225,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			if (!foundAny) {
@@ -25235,13 +25253,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			if (!foundAny) {
@@ -25264,13 +25282,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			sorted1.add(t0);
 		}
@@ -25296,13 +25314,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			sortedComp0.add(t0);
 		}
@@ -25331,16 +25349,16 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
 			if(limit0 >= arg0) {
 				break;
 			}
 			if(limit1 >= arg1) {
 				break;
 			}
-			sorted0.add(t0);
-		}
-		sorted0.sort(null);
-		for (T0 t0: sorted0) {
 			limit0++;
 			limit1++;
 			if (!foundAny) {
@@ -25366,13 +25384,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
@@ -25398,13 +25416,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
@@ -25429,13 +25447,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -25461,13 +25479,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if(!arg1.test(t0)) {
 				break;
@@ -25491,13 +25509,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				if (!foundAny) {
@@ -25520,13 +25538,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			for (T1 t1 : t0) {
 				if (!foundAny) {
@@ -25759,13 +25777,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -26156,13 +26174,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -26542,13 +26560,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -26920,13 +26938,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -27271,14 +27289,17 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -27615,14 +27636,17 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -27952,13 +27976,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg1.apply(t0);
 			limit0++;
 			if (!foundAny) {
@@ -28296,13 +28320,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -28636,13 +28660,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
 			if (!foundAny) {
@@ -28918,13 +28942,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
 			if (!foundAny) {
@@ -29200,13 +29224,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
 			if (!foundAny) {
@@ -29515,9 +29539,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -29526,6 +29547,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -29901,9 +29925,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -29912,6 +29933,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp1.sort(arg1);
 		for (T0 t0: sortedComp1) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -30101,13 +30125,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			T1 t1 = arg2.apply(t0);
 			if (!foundAny) {
@@ -30129,13 +30153,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!arg2.test(t0)) {
 				continue;
@@ -30159,13 +30183,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			int t1 = arg2.applyAsInt(t0);
 			if (!foundAny) {
@@ -30187,13 +30211,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			long t1 = arg2.applyAsLong(t0);
 			if (!foundAny) {
@@ -30215,13 +30239,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			double t1 = arg2.applyAsDouble(t0);
 			if (!foundAny) {
@@ -30244,13 +30268,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			sorted0.add(t0);
 		}
@@ -30276,13 +30300,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			sortedComp1.add(t0);
 		}
@@ -30311,16 +30335,16 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
 			if(limit0 >= arg1) {
 				break;
 			}
 			if(limit1 >= arg2) {
 				break;
 			}
-			sortedComp0.add(t0);
-		}
-		sortedComp0.sort(arg0);
-		for (T0 t0: sortedComp0) {
 			limit0++;
 			limit1++;
 			if (!foundAny) {
@@ -30346,13 +30370,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			skip0++;
 			if(skip0 <= arg2) {
@@ -30378,13 +30402,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
@@ -30409,13 +30433,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if(dropWhile0 && arg2.test(t0)) {
 				continue;
@@ -30441,13 +30465,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if(!arg2.test(t0)) {
 				break;
@@ -30471,13 +30495,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			for (T1 t1 : arg2.apply(t0)) {
 				if (!foundAny) {
@@ -30500,13 +30524,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			for (T1 t1 : t0) {
 				if (!foundAny) {
@@ -30739,13 +30763,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -31136,13 +31160,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31522,13 +31546,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -31900,13 +31924,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -32251,14 +32275,17 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -32595,14 +32622,17 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -34714,15 +34744,15 @@ public class ForeachStreamReduceOptional {
 			if(limit0 >= arg0) {
 				break;
 			}
-			if(limit1 >= arg1) {
-				break;
-			}
-			limit0++;
+			limit1++;
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
-			limit1++;
+			if(limit0 >= arg1) {
+				break;
+			}
+			limit0++;
 			if (!foundAny) {
 				foundAny = true;
 				result = t0;
@@ -35142,15 +35172,15 @@ public class ForeachStreamReduceOptional {
 			if(limit0 >= arg0) {
 				break;
 			}
-			if(limit1 >= arg2) {
-				break;
-			}
-			limit0++;
+			limit1++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
-			limit1++;
+			if(limit0 >= arg2) {
+				break;
+			}
+			limit0++;
 			if (!foundAny) {
 				foundAny = true;
 				result = t0;
@@ -37749,6 +37779,9 @@ public class ForeachStreamReduceOptional {
 			}
 			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit1 >= arg2) {
+					break;
+				}
 				limit1++;
 				if (!foundAny) {
 					foundAny = true;
@@ -38135,6 +38168,9 @@ public class ForeachStreamReduceOptional {
 			}
 			limit0++;
 			for (T1 t1 : t0) {
+				if(limit1 >= arg1) {
+					break;
+				}
 				limit1++;
 				if (!foundAny) {
 					foundAny = true;
@@ -40261,9 +40297,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -40272,6 +40305,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -40689,9 +40725,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -40700,6 +40733,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -43299,6 +43335,9 @@ public class ForeachStreamReduceOptional {
 				continue;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -43685,6 +43724,9 @@ public class ForeachStreamReduceOptional {
 				continue;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -45524,9 +45566,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -45534,6 +45573,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -45896,9 +45938,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -45906,6 +45945,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -48169,6 +48211,9 @@ public class ForeachStreamReduceOptional {
 				continue;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -48499,6 +48544,9 @@ public class ForeachStreamReduceOptional {
 				continue;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -50456,9 +50504,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -50468,6 +50513,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -50856,9 +50904,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -50868,6 +50913,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -53299,6 +53347,9 @@ public class ForeachStreamReduceOptional {
 				dropWhile0 = false;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -53657,6 +53708,9 @@ public class ForeachStreamReduceOptional {
 				dropWhile0 = false;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -55412,9 +55466,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -55422,6 +55473,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -55770,9 +55824,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -55780,6 +55831,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -57959,6 +58013,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -58275,6 +58332,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -58574,6 +58634,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				T2 t2 = arg1.apply(t1);
 				limit0++;
 				if (!foundAny) {
@@ -58876,6 +58939,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				if (!arg1.test(t1)) {
 					continue;
 				}
@@ -59174,6 +59240,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				int t2 = arg1.applyAsInt(t1);
 				limit0++;
 				if (!foundAny) {
@@ -59420,6 +59489,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				long t2 = arg1.applyAsLong(t1);
 				limit0++;
 				if (!foundAny) {
@@ -59666,6 +59738,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				double t2 = arg1.applyAsDouble(t1);
 				limit0++;
 				if (!foundAny) {
@@ -59941,15 +60016,15 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
 		}
 		sorted0.sort(null);
 		for (T1 t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -60285,15 +60360,15 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
 		}
 		sortedComp0.sort(arg1);
 		for (T1 t1: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -60468,6 +60543,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				T2 t2 = arg2.apply(t1);
 				if (!foundAny) {
@@ -60493,6 +60571,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!arg2.test(t1)) {
 					continue;
@@ -60520,6 +60601,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				int t2 = arg2.applyAsInt(t1);
 				if (!foundAny) {
@@ -60545,6 +60629,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				long t2 = arg2.applyAsLong(t1);
 				if (!foundAny) {
@@ -60570,6 +60657,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				double t2 = arg2.applyAsDouble(t1);
 				if (!foundAny) {
@@ -60596,6 +60686,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				sorted0.add(t1);
 			}
@@ -60625,6 +60718,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				sortedComp0.add(t1);
 			}
@@ -60660,6 +60756,12 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
+				if(limit1 >= arg2) {
+					break;
+				}
 				limit0++;
 				limit1++;
 				if (!foundAny) {
@@ -60689,6 +60791,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				skip0++;
 				if(skip0 <= arg2) {
@@ -60718,6 +60823,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if(!distinct0.add(t1)) {
 					continue;
@@ -60746,6 +60854,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if(dropWhile0 && arg2.test(t1)) {
 					continue;
@@ -60775,6 +60886,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if(!arg2.test(t1)) {
 					break;
@@ -60802,6 +60916,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				for (T2 t2 : arg2.apply(t1)) {
 					if (!foundAny) {
@@ -60828,6 +60945,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				for (T2 t2 : t1) {
 					if (!foundAny) {
@@ -61043,6 +61163,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				skip0++;
 				if(skip0 <= arg1) {
 					continue;
@@ -61398,6 +61521,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				if(!distinct0.add(t1)) {
 					continue;
 				}
@@ -61742,6 +61868,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
 				} else {
@@ -62078,6 +62207,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				if(!arg1.test(t1)) {
 					break;
 				}
@@ -62387,7 +62519,13 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				for (T2 t2 : arg1.apply(t1)) {
+					if(limit0 >= arg2) {
+						break;
+					}
 					limit0++;
 					if (!foundAny) {
 						foundAny = true;
@@ -62689,7 +62827,13 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				for (T2 t2 : t1) {
+					if(limit0 >= arg1) {
+						break;
+					}
 					limit0++;
 					if (!foundAny) {
 						foundAny = true;
@@ -62984,6 +63128,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				T2 t2 = arg0.apply(t1);
 				limit0++;
 				if (!foundAny) {
@@ -63286,6 +63433,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				if (!arg0.test(t1)) {
 					continue;
 				}
@@ -63584,6 +63734,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				int t2 = arg0.applyAsInt(t1);
 				limit0++;
 				if (!foundAny) {
@@ -63830,6 +63983,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				long t2 = arg0.applyAsLong(t1);
 				limit0++;
 				if (!foundAny) {
@@ -64076,6 +64232,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				double t2 = arg0.applyAsDouble(t1);
 				limit0++;
 				if (!foundAny) {
@@ -64351,15 +64510,15 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				sorted0.add(t1);
 			}
 		}
 		sorted0.sort(null);
 		for (T1 t1: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -64695,15 +64854,15 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				sortedComp0.add(t1);
 			}
 		}
 		sortedComp0.sort(arg0);
 		for (T1 t1: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -64878,6 +65037,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				T2 t2 = arg1.apply(t1);
 				if (!foundAny) {
@@ -64903,6 +65065,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if (!arg1.test(t1)) {
 					continue;
@@ -64930,6 +65095,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				int t2 = arg1.applyAsInt(t1);
 				if (!foundAny) {
@@ -64955,6 +65123,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				long t2 = arg1.applyAsLong(t1);
 				if (!foundAny) {
@@ -64980,6 +65151,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				double t2 = arg1.applyAsDouble(t1);
 				if (!foundAny) {
@@ -65006,6 +65180,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				sorted0.add(t1);
 			}
@@ -65035,6 +65212,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				sortedComp0.add(t1);
 			}
@@ -65070,6 +65250,12 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
+				if(limit1 >= arg1) {
+					break;
+				}
 				limit0++;
 				limit1++;
 				if (!foundAny) {
@@ -65099,6 +65285,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				skip0++;
 				if(skip0 <= arg1) {
@@ -65128,6 +65317,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if(!distinct0.add(t1)) {
 					continue;
@@ -65156,6 +65348,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -65185,6 +65380,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if(!arg1.test(t1)) {
 					break;
@@ -65212,6 +65410,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				for (T2 t2 : arg1.apply(t1)) {
 					if (!foundAny) {
@@ -65238,6 +65439,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				for (T2 t2 : t1) {
 					if (!foundAny) {
@@ -65453,6 +65657,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				skip0++;
 				if(skip0 <= arg0) {
 					continue;
@@ -65808,6 +66015,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				if(!distinct0.add(t1)) {
 					continue;
 				}
@@ -66152,6 +66362,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				if(dropWhile0 && arg0.test(t1)) {
 					continue;
 				} else {
@@ -66488,6 +66701,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				if(!arg0.test(t1)) {
 					break;
 				}
@@ -66797,7 +67013,13 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				for (T2 t2 : arg0.apply(t1)) {
+					if(limit0 >= arg1) {
+						break;
+					}
 					limit0++;
 					if (!foundAny) {
 						foundAny = true;
@@ -67099,7 +67321,13 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				for (T2 t2 : t1) {
+					if(limit0 >= arg0) {
+						break;
+					}
 					limit0++;
 					if (!foundAny) {
 						foundAny = true;

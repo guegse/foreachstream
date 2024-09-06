@@ -158,8 +158,8 @@ public class Generator {
                     : null;
             Operation operation = operationInstance.operation;
             operation.emitOperation(out, operationInstance.sourceType, operationInstance.argumentNames, operationInstance.streamElement, operationInstance.targetType, targetElement);
-            if (i == 0) {
-                emitShortCircuitOperations(out, operationInstances);
+            if (i == 0 || isSorted(operation.getName()) || isFlatMap(operation.getName())) {
+                emitShortCircuitOperations(out, operationInstances, i + 1);
             }
         }
 
@@ -174,10 +174,21 @@ public class Generator {
         out.println();
     }
 
-    private static void emitShortCircuitOperations(Emitter out, List<OperationInstance> operationInstances) {
-        for (int j = 1; j < operationInstances.size(); j++) {
+    private static boolean isSorted(String name) {
+        return  "sorted".equals(name) || "sortedComp".equals(name);
+    }
+
+    private static boolean isFlatMap(String name) {
+        return "flatMapLambda".equals(name) || "flatMapMemberReference".equals(name);
+    }
+
+    private static void emitShortCircuitOperations(Emitter out, List<OperationInstance> operationInstances, int index) {
+        for (int j = index; j < operationInstances.size(); j++) {
             OperationInstance operationInstance = operationInstances.get(j);
             Operation operation = operationInstance.operation;
+            if(isSorted(operation.getName())) {
+                return;
+            }
             operation.emitShortCircuit(out, operationInstance.sourceType, operationInstance.argumentNames);
         }
     }
