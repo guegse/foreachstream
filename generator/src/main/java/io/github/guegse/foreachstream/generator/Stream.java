@@ -25,6 +25,11 @@ public class Stream extends Operation{
     }
 
     @Override
+    void emitShortCircuit(Emitter out, String inputType, List<String> arguments) {
+
+    }
+
+    @Override
     void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
         out.printIndentation();
         out.println("for ("+ inputType + " " + nextTargetElement + ": " + arguments.get(0) + ") {");
