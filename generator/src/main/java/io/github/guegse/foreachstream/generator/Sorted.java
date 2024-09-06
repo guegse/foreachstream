@@ -33,7 +33,7 @@ public class Sorted extends StatefulIntermediateOperation{
             decreaseDepth(out);
         }
         out.printIndentation();
-        out.println("Collections.sort((List) " + collection + ");");
+        out.println(collection + ".sort(null);");
         out.printIndentation();
         out.println("for ("+ inputType + " " + nextTargetElement + ": " + collection + ") {");
         out.increaseIndentation();

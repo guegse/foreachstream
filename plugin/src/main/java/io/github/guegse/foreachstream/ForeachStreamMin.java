@@ -266,7 +266,7 @@ public class ForeachStreamMin {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -486,7 +486,7 @@ public class ForeachStreamMin {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -706,7 +706,7 @@ public class ForeachStreamMin {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -847,7 +847,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if (hasMin) {
@@ -870,7 +870,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if (hasMin) {
@@ -893,7 +893,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (hasMin) {
@@ -1672,7 +1672,7 @@ public class ForeachStreamMin {
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -1902,7 +1902,7 @@ public class ForeachStreamMin {
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -2132,7 +2132,7 @@ public class ForeachStreamMin {
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -2279,7 +2279,7 @@ public class ForeachStreamMin {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			if (hasMin) {
@@ -2303,7 +2303,7 @@ public class ForeachStreamMin {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			if (hasMin) {
@@ -2327,7 +2327,7 @@ public class ForeachStreamMin {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			if (hasMin) {
@@ -3152,7 +3152,7 @@ public class ForeachStreamMin {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -3402,7 +3402,7 @@ public class ForeachStreamMin {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -3652,7 +3652,7 @@ public class ForeachStreamMin {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -3811,7 +3811,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			if (hasMin) {
@@ -3837,7 +3837,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			if (hasMin) {
@@ -3863,7 +3863,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			if (hasMin) {
@@ -4588,7 +4588,7 @@ public class ForeachStreamMin {
 			t1 = arg1.applyAsInt(t1);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -4828,7 +4828,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -5068,7 +5068,7 @@ public class ForeachStreamMin {
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -5298,7 +5298,7 @@ public class ForeachStreamMin {
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -5565,7 +5565,7 @@ public class ForeachStreamMin {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			t1 = arg1.applyAsInt(t1);
 			if (hasMin) {
@@ -5589,7 +5589,7 @@ public class ForeachStreamMin {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -5615,7 +5615,7 @@ public class ForeachStreamMin {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			if (hasMin) {
@@ -5639,7 +5639,7 @@ public class ForeachStreamMin {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			if (hasMin) {
@@ -5664,11 +5664,11 @@ public class ForeachStreamMin {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (int t1: sorted1) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -5698,7 +5698,7 @@ public class ForeachStreamMin {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			limit0++;
 			if (hasMin) {
@@ -5726,7 +5726,7 @@ public class ForeachStreamMin {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -5754,7 +5754,7 @@ public class ForeachStreamMin {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -5781,7 +5781,7 @@ public class ForeachStreamMin {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -5809,7 +5809,7 @@ public class ForeachStreamMin {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -5953,7 +5953,7 @@ public class ForeachStreamMin {
 			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -6253,7 +6253,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -6533,7 +6533,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -6803,7 +6803,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -7068,7 +7068,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -7308,7 +7308,7 @@ public class ForeachStreamMin {
 			t1 = arg1.applyAsLong(t1);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -7548,7 +7548,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -7788,7 +7788,7 @@ public class ForeachStreamMin {
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -8018,7 +8018,7 @@ public class ForeachStreamMin {
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -8285,7 +8285,7 @@ public class ForeachStreamMin {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			t1 = arg1.applyAsLong(t1);
 			if (hasMin) {
@@ -8309,7 +8309,7 @@ public class ForeachStreamMin {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -8335,7 +8335,7 @@ public class ForeachStreamMin {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			if (hasMin) {
@@ -8359,7 +8359,7 @@ public class ForeachStreamMin {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			if (hasMin) {
@@ -8384,11 +8384,11 @@ public class ForeachStreamMin {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (long t1: sorted1) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -8418,7 +8418,7 @@ public class ForeachStreamMin {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			limit0++;
 			if (hasMin) {
@@ -8446,7 +8446,7 @@ public class ForeachStreamMin {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -8474,7 +8474,7 @@ public class ForeachStreamMin {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -8501,7 +8501,7 @@ public class ForeachStreamMin {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -8529,7 +8529,7 @@ public class ForeachStreamMin {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -8673,7 +8673,7 @@ public class ForeachStreamMin {
 			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -8973,7 +8973,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -9253,7 +9253,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -9523,7 +9523,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -9788,7 +9788,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -10028,7 +10028,7 @@ public class ForeachStreamMin {
 			t1 = arg1.applyAsDouble(t1);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -10268,7 +10268,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -10508,7 +10508,7 @@ public class ForeachStreamMin {
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -10738,7 +10738,7 @@ public class ForeachStreamMin {
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -11005,7 +11005,7 @@ public class ForeachStreamMin {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			t1 = arg1.applyAsDouble(t1);
 			if (hasMin) {
@@ -11029,7 +11029,7 @@ public class ForeachStreamMin {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -11055,7 +11055,7 @@ public class ForeachStreamMin {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			if (hasMin) {
@@ -11079,7 +11079,7 @@ public class ForeachStreamMin {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			if (hasMin) {
@@ -11104,11 +11104,11 @@ public class ForeachStreamMin {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (double t1: sorted1) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -11138,7 +11138,7 @@ public class ForeachStreamMin {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			limit0++;
 			if (hasMin) {
@@ -11166,7 +11166,7 @@ public class ForeachStreamMin {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -11194,7 +11194,7 @@ public class ForeachStreamMin {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -11221,7 +11221,7 @@ public class ForeachStreamMin {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -11249,7 +11249,7 @@ public class ForeachStreamMin {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -11393,7 +11393,7 @@ public class ForeachStreamMin {
 			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -11693,7 +11693,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -11973,7 +11973,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -12243,7 +12243,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -12508,7 +12508,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -12664,7 +12664,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
@@ -12688,7 +12688,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
@@ -12712,7 +12712,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
@@ -12736,7 +12736,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -12762,7 +12762,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -12788,7 +12788,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -12814,7 +12814,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
@@ -12838,7 +12838,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
@@ -12864,7 +12864,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
@@ -12888,7 +12888,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
@@ -12913,12 +12913,12 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (int t1: sorted1) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -12947,7 +12947,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
@@ -12975,7 +12975,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
@@ -13003,7 +13003,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
@@ -13030,7 +13030,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -13058,7 +13058,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
@@ -13084,7 +13084,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
@@ -13108,7 +13108,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
@@ -13134,7 +13134,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
@@ -13158,7 +13158,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
@@ -13183,12 +13183,12 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (long t1: sorted1) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -13217,7 +13217,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
@@ -13245,7 +13245,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
@@ -13273,7 +13273,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
@@ -13300,7 +13300,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -13328,7 +13328,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
@@ -13354,7 +13354,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
@@ -13378,7 +13378,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
@@ -13404,7 +13404,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
@@ -13428,7 +13428,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
@@ -13453,12 +13453,12 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (double t1: sorted1) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -13487,7 +13487,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
@@ -13515,7 +13515,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
@@ -13543,7 +13543,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
@@ -13570,7 +13570,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -13598,7 +13598,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
@@ -13625,11 +13625,11 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			int t1 = arg0.applyAsInt(t0);
 			if (hasMin) {
@@ -13653,11 +13653,11 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			long t1 = arg0.applyAsLong(t0);
 			if (hasMin) {
@@ -13681,11 +13681,11 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (hasMin) {
@@ -13709,7 +13709,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -13737,7 +13737,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -13765,7 +13765,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -13799,7 +13799,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			int t1 = arg1.applyAsInt(t0);
@@ -13830,7 +13830,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			long t1 = arg1.applyAsLong(t0);
@@ -13861,7 +13861,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
@@ -13889,7 +13889,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -13920,7 +13920,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -13951,7 +13951,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -13979,7 +13979,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -14006,7 +14006,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -14033,7 +14033,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -14060,7 +14060,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -14089,7 +14089,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -14118,7 +14118,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -14146,7 +14146,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -14172,7 +14172,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -14198,7 +14198,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -14224,7 +14224,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
@@ -14249,7 +14249,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
@@ -14274,7 +14274,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
@@ -14299,7 +14299,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				int t2 = arg0.applyAsInt(t1);
@@ -14324,7 +14324,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				long t2 = arg0.applyAsLong(t1);
@@ -14349,7 +14349,7 @@ public class ForeachStreamMin {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				double t2 = arg0.applyAsDouble(t1);
@@ -14628,7 +14628,7 @@ public class ForeachStreamMin {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -14898,7 +14898,7 @@ public class ForeachStreamMin {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -15168,7 +15168,7 @@ public class ForeachStreamMin {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -15339,7 +15339,7 @@ public class ForeachStreamMin {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			if (hasMin) {
@@ -15367,7 +15367,7 @@ public class ForeachStreamMin {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			if (hasMin) {
@@ -15395,7 +15395,7 @@ public class ForeachStreamMin {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			if (hasMin) {
@@ -16371,7 +16371,7 @@ public class ForeachStreamMin {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -16671,7 +16671,7 @@ public class ForeachStreamMin {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -16971,7 +16971,7 @@ public class ForeachStreamMin {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -17160,7 +17160,7 @@ public class ForeachStreamMin {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			if (hasMin) {
@@ -17191,7 +17191,7 @@ public class ForeachStreamMin {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			if (hasMin) {
@@ -17222,7 +17222,7 @@ public class ForeachStreamMin {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			if (hasMin) {
@@ -18270,7 +18270,7 @@ public class ForeachStreamMin {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -18570,7 +18570,7 @@ public class ForeachStreamMin {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -18870,7 +18870,7 @@ public class ForeachStreamMin {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -19059,7 +19059,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			if (hasMin) {
@@ -19090,7 +19090,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			if (hasMin) {
@@ -19121,7 +19121,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			if (hasMin) {
@@ -20125,7 +20125,7 @@ public class ForeachStreamMin {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -20385,7 +20385,7 @@ public class ForeachStreamMin {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -20645,7 +20645,7 @@ public class ForeachStreamMin {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -20810,7 +20810,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if (hasMin) {
@@ -20837,7 +20837,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if (hasMin) {
@@ -20864,7 +20864,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (hasMin) {
@@ -21794,7 +21794,7 @@ public class ForeachStreamMin {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -22074,7 +22074,7 @@ public class ForeachStreamMin {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -22354,7 +22354,7 @@ public class ForeachStreamMin {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -22531,7 +22531,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			if (hasMin) {
@@ -22560,7 +22560,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			if (hasMin) {
@@ -22589,7 +22589,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			if (hasMin) {
@@ -23534,7 +23534,7 @@ public class ForeachStreamMin {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -23784,7 +23784,7 @@ public class ForeachStreamMin {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -24034,7 +24034,7 @@ public class ForeachStreamMin {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -24193,7 +24193,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			if (hasMin) {
@@ -24219,7 +24219,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			if (hasMin) {
@@ -24245,7 +24245,7 @@ public class ForeachStreamMin {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			if (hasMin) {
@@ -25107,7 +25107,7 @@ public class ForeachStreamMin {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -25347,7 +25347,7 @@ public class ForeachStreamMin {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -25587,7 +25587,7 @@ public class ForeachStreamMin {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -25740,7 +25740,7 @@ public class ForeachStreamMin {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			if (hasMin) {
@@ -25765,7 +25765,7 @@ public class ForeachStreamMin {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			if (hasMin) {
@@ -25790,7 +25790,7 @@ public class ForeachStreamMin {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			if (hasMin) {
@@ -26628,7 +26628,7 @@ public class ForeachStreamMin {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -26868,7 +26868,7 @@ public class ForeachStreamMin {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -27108,7 +27108,7 @@ public class ForeachStreamMin {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -27261,7 +27261,7 @@ public class ForeachStreamMin {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			int t2 = arg0.applyAsInt(t1);
 			if (hasMin) {
@@ -27286,7 +27286,7 @@ public class ForeachStreamMin {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			long t2 = arg0.applyAsLong(t1);
 			if (hasMin) {
@@ -27311,7 +27311,7 @@ public class ForeachStreamMin {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			double t2 = arg0.applyAsDouble(t1);
 			if (hasMin) {

@@ -72,7 +72,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				return false;
@@ -254,7 +254,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -456,7 +456,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -673,7 +673,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -835,7 +835,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -997,7 +997,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -1090,7 +1090,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
@@ -1105,7 +1105,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -1122,7 +1122,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
@@ -1137,7 +1137,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
@@ -1152,7 +1152,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
@@ -1168,11 +1168,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg0.test(t0)) {
 				return false;
@@ -1187,7 +1187,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -1212,7 +1212,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			if (!arg1.test(t0)) {
@@ -1231,7 +1231,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -1250,7 +1250,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -1268,7 +1268,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -1287,7 +1287,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -1304,7 +1304,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
@@ -1320,7 +1320,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if (!arg0.test(t1)) {
@@ -1418,7 +1418,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -1682,7 +1682,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -1970,7 +1970,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -2234,7 +2234,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				return false;
@@ -2478,7 +2478,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -2720,7 +2720,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -2932,7 +2932,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -3136,7 +3136,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg0.test(t1)) {
 				return false;
@@ -3340,7 +3340,7 @@ public class ForeachStreamAllMatch {
 			T2 t2 = arg1.apply(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -3556,7 +3556,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -3788,7 +3788,7 @@ public class ForeachStreamAllMatch {
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -3962,7 +3962,7 @@ public class ForeachStreamAllMatch {
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -4136,7 +4136,7 @@ public class ForeachStreamAllMatch {
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -4235,7 +4235,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			T2 t2 = arg1.apply(t1);
 			if (!arg2.test(t2)) {
@@ -4251,7 +4251,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -4269,7 +4269,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			if (!arg2.test(t2)) {
@@ -4285,7 +4285,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			if (!arg2.test(t2)) {
@@ -4301,7 +4301,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			if (!arg2.test(t2)) {
@@ -4318,11 +4318,11 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T1 t1: sorted1) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -4338,7 +4338,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			sortedComp0.add(t1);
 		}
@@ -4364,7 +4364,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			limit0++;
 			if (!arg2.test(t1)) {
@@ -4384,7 +4384,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -4404,7 +4404,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -4423,7 +4423,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -4443,7 +4443,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -4461,7 +4461,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			for (T2 t2 : arg1.apply(t1)) {
 				if (!arg2.test(t2)) {
@@ -4478,7 +4478,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			for (T2 t2 : t1) {
 				if (!arg1.test(t2)) {
@@ -4582,7 +4582,7 @@ public class ForeachStreamAllMatch {
 		for (T1 t1: sortedComp0) {
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -4860,7 +4860,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -5162,7 +5162,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -5440,7 +5440,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -5698,7 +5698,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -5954,7 +5954,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -6180,7 +6180,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -6398,7 +6398,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			if (!arg1.test(t2)) {
 				return false;
@@ -6622,7 +6622,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg1.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -6866,7 +6866,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -7128,7 +7128,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -7326,7 +7326,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -7524,7 +7524,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -7635,7 +7635,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg1.apply(t0);
 			if (!arg2.test(t1)) {
@@ -7653,7 +7653,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				continue;
@@ -7673,7 +7673,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			if (!arg2.test(t1)) {
@@ -7691,7 +7691,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			if (!arg2.test(t1)) {
@@ -7709,7 +7709,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			if (!arg2.test(t1)) {
@@ -7728,11 +7728,11 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -7750,7 +7750,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -7778,7 +7778,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			if (!arg2.test(t0)) {
@@ -7800,7 +7800,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -7822,7 +7822,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -7843,7 +7843,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -7865,7 +7865,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg1.test(t0)) {
 				break;
@@ -7885,7 +7885,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				if (!arg2.test(t1)) {
@@ -7904,7 +7904,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if (!arg1.test(t1)) {
@@ -8020,7 +8020,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -8326,7 +8326,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -8656,7 +8656,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -8962,7 +8962,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -9248,7 +9248,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -9532,7 +9532,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -9786,7 +9786,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -10032,7 +10032,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -10272,7 +10272,7 @@ public class ForeachStreamAllMatch {
 			t1 = arg1.applyAsInt(t1);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -10460,7 +10460,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -10644,7 +10644,7 @@ public class ForeachStreamAllMatch {
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -10818,7 +10818,7 @@ public class ForeachStreamAllMatch {
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -10980,7 +10980,7 @@ public class ForeachStreamAllMatch {
 			T2 t2 = arg1.apply(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -11184,7 +11184,7 @@ public class ForeachStreamAllMatch {
 			Integer t2 = t1;
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (Integer t2: sorted0) {
 			if (!arg1.test(t2)) {
 				return false;
@@ -11312,7 +11312,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			t1 = arg1.applyAsInt(t1);
 			if (!arg2.test(t1)) {
@@ -11328,7 +11328,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -11346,7 +11346,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			if (!arg2.test(t2)) {
@@ -11362,7 +11362,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			if (!arg2.test(t2)) {
@@ -11378,7 +11378,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			T2 t2 = arg1.apply(t1);
 			if (!arg2.test(t2)) {
@@ -11394,7 +11394,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			Integer t2 = t1;
 			if (!arg1.test(t2)) {
@@ -11411,11 +11411,11 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (int t1: sorted1) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -11437,7 +11437,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			limit0++;
 			if (!arg2.test(t1)) {
@@ -11457,7 +11457,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -11477,7 +11477,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -11496,7 +11496,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -11516,7 +11516,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -11658,7 +11658,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -11916,7 +11916,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -12146,7 +12146,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -12370,7 +12370,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -12583,7 +12583,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -12767,7 +12767,7 @@ public class ForeachStreamAllMatch {
 			t1 = arg1.applyAsLong(t1);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -12955,7 +12955,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -13139,7 +13139,7 @@ public class ForeachStreamAllMatch {
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -13313,7 +13313,7 @@ public class ForeachStreamAllMatch {
 			double t2 = arg1.applyAsDouble(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -13475,7 +13475,7 @@ public class ForeachStreamAllMatch {
 			T2 t2 = arg1.apply(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -13679,7 +13679,7 @@ public class ForeachStreamAllMatch {
 			Long t2 = t1;
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (Long t2: sorted0) {
 			if (!arg1.test(t2)) {
 				return false;
@@ -13807,7 +13807,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			t1 = arg1.applyAsLong(t1);
 			if (!arg2.test(t1)) {
@@ -13823,7 +13823,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -13841,7 +13841,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			if (!arg2.test(t2)) {
@@ -13857,7 +13857,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			if (!arg2.test(t2)) {
@@ -13873,7 +13873,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			T2 t2 = arg1.apply(t1);
 			if (!arg2.test(t2)) {
@@ -13889,7 +13889,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			Long t2 = t1;
 			if (!arg1.test(t2)) {
@@ -13906,11 +13906,11 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (long t1: sorted1) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -13932,7 +13932,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			limit0++;
 			if (!arg2.test(t1)) {
@@ -13952,7 +13952,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -13972,7 +13972,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -13991,7 +13991,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -14011,7 +14011,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -14153,7 +14153,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -14411,7 +14411,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -14641,7 +14641,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -14865,7 +14865,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -15078,7 +15078,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -15262,7 +15262,7 @@ public class ForeachStreamAllMatch {
 			t1 = arg1.applyAsDouble(t1);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -15450,7 +15450,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -15634,7 +15634,7 @@ public class ForeachStreamAllMatch {
 			int t2 = arg1.applyAsInt(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -15808,7 +15808,7 @@ public class ForeachStreamAllMatch {
 			long t2 = arg1.applyAsLong(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -15970,7 +15970,7 @@ public class ForeachStreamAllMatch {
 			T2 t2 = arg1.apply(t1);
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -16174,7 +16174,7 @@ public class ForeachStreamAllMatch {
 			Double t2 = t1;
 			sorted0.add(t2);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (Double t2: sorted0) {
 			if (!arg1.test(t2)) {
 				return false;
@@ -16302,7 +16302,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			t1 = arg1.applyAsDouble(t1);
 			if (!arg2.test(t1)) {
@@ -16318,7 +16318,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -16336,7 +16336,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			if (!arg2.test(t2)) {
@@ -16352,7 +16352,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			if (!arg2.test(t2)) {
@@ -16368,7 +16368,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			T2 t2 = arg1.apply(t1);
 			if (!arg2.test(t2)) {
@@ -16384,7 +16384,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			Double t2 = t1;
 			if (!arg1.test(t2)) {
@@ -16401,11 +16401,11 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (double t1: sorted1) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -16427,7 +16427,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			limit0++;
 			if (!arg2.test(t1)) {
@@ -16447,7 +16447,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -16467,7 +16467,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -16486,7 +16486,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -16506,7 +16506,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -16648,7 +16648,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -16906,7 +16906,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -17136,7 +17136,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -17360,7 +17360,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -17573,7 +17573,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -17681,7 +17681,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			T2 t2 = arg1.apply(t1);
@@ -17697,7 +17697,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
@@ -17715,7 +17715,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
@@ -17731,7 +17731,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
@@ -17747,7 +17747,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
@@ -17764,12 +17764,12 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T1 t1: sorted1) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -17784,7 +17784,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
@@ -17810,7 +17810,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			limit0++;
@@ -17830,7 +17830,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			skip0++;
@@ -17850,7 +17850,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			if(!distinct0.add(t1)) {
@@ -17869,7 +17869,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -17889,7 +17889,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			if(!arg1.test(t1)) {
@@ -17907,7 +17907,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
@@ -17924,7 +17924,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : t1) {
@@ -17941,7 +17941,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -17959,7 +17959,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -17979,7 +17979,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -17997,7 +17997,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -18015,7 +18015,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -18034,14 +18034,14 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -18056,7 +18056,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -18084,7 +18084,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -18106,7 +18106,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -18128,7 +18128,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -18149,7 +18149,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -18171,7 +18171,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -18191,7 +18191,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -18210,7 +18210,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -18229,7 +18229,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
@@ -18245,7 +18245,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
@@ -18263,7 +18263,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
@@ -18279,7 +18279,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
@@ -18295,7 +18295,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			T2 t2 = arg1.apply(t1);
@@ -18311,7 +18311,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			Integer t2 = t1;
@@ -18328,12 +18328,12 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (int t1: sorted1) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -18354,7 +18354,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
@@ -18374,7 +18374,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
@@ -18394,7 +18394,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
@@ -18413,7 +18413,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -18433,7 +18433,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
@@ -18451,7 +18451,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
@@ -18467,7 +18467,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
@@ -18485,7 +18485,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
@@ -18501,7 +18501,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
@@ -18517,7 +18517,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			T2 t2 = arg1.apply(t1);
@@ -18533,7 +18533,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			Long t2 = t1;
@@ -18550,12 +18550,12 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (long t1: sorted1) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -18576,7 +18576,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
@@ -18596,7 +18596,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
@@ -18616,7 +18616,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
@@ -18635,7 +18635,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -18655,7 +18655,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
@@ -18673,7 +18673,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
@@ -18689,7 +18689,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
@@ -18707,7 +18707,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
@@ -18723,7 +18723,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
@@ -18739,7 +18739,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			T2 t2 = arg1.apply(t1);
@@ -18755,7 +18755,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			Double t2 = t1;
@@ -18772,12 +18772,12 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (double t1: sorted1) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -18798,7 +18798,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
@@ -18818,7 +18818,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
@@ -18838,7 +18838,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
@@ -18857,7 +18857,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
@@ -18877,7 +18877,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
@@ -18896,11 +18896,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
@@ -18916,11 +18916,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -18938,11 +18938,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
@@ -18958,11 +18958,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
@@ -18978,11 +18978,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
@@ -18999,15 +18999,15 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			sorted2.add(t0);
 		}
-		Collections.sort((List) sorted2);
+		sorted2.sort(null);
 		for (T0 t0: sorted2) {
 			if (!arg0.test(t0)) {
 				return false;
@@ -19023,11 +19023,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			sortedComp0.add(t0);
 		}
@@ -19053,11 +19053,11 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			limit0++;
 			if (!arg1.test(t0)) {
@@ -19077,11 +19077,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -19101,11 +19101,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -19124,11 +19124,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -19148,11 +19148,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if(!arg0.test(t0)) {
 				break;
@@ -19170,11 +19170,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
@@ -19191,11 +19191,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			for (T1 t1 : t0) {
 				if (!arg0.test(t1)) {
@@ -19212,7 +19212,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19232,7 +19232,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19254,7 +19254,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19274,7 +19274,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19294,7 +19294,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19315,7 +19315,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19323,7 +19323,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -19339,7 +19339,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19369,7 +19369,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19393,7 +19393,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19417,7 +19417,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19440,7 +19440,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19464,7 +19464,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19486,7 +19486,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19507,7 +19507,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -19534,7 +19534,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			T1 t1 = arg1.apply(t0);
@@ -19557,7 +19557,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			if (!arg1.test(t0)) {
@@ -19582,7 +19582,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			int t1 = arg1.applyAsInt(t0);
@@ -19605,7 +19605,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			long t1 = arg1.applyAsLong(t0);
@@ -19628,7 +19628,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
@@ -19652,12 +19652,12 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -19679,7 +19679,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			sortedComp0.add(t0);
@@ -19712,7 +19712,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			limit1++;
@@ -19739,7 +19739,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			skip0++;
@@ -19766,7 +19766,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			if(!distinct0.add(t0)) {
@@ -19792,7 +19792,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
@@ -19819,7 +19819,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			if(!arg1.test(t0)) {
@@ -19844,7 +19844,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
@@ -19868,7 +19868,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			for (T1 t1 : t0) {
@@ -19889,7 +19889,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -19912,7 +19912,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -19937,7 +19937,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -19960,7 +19960,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -19983,7 +19983,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -20007,7 +20007,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -20015,7 +20015,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -20034,7 +20034,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -20067,7 +20067,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -20094,7 +20094,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -20121,7 +20121,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -20147,7 +20147,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -20174,7 +20174,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -20199,7 +20199,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -20223,7 +20223,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -20244,7 +20244,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20263,7 +20263,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20284,7 +20284,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20303,7 +20303,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20322,7 +20322,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20342,14 +20342,14 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg0.test(t0)) {
 				return false;
@@ -20365,7 +20365,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20394,7 +20394,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20417,7 +20417,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20440,7 +20440,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20462,7 +20462,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20485,7 +20485,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20506,7 +20506,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20526,7 +20526,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -20546,7 +20546,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20567,7 +20567,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20590,7 +20590,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20611,7 +20611,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20632,7 +20632,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20654,7 +20654,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20663,7 +20663,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -20679,7 +20679,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20710,7 +20710,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20735,7 +20735,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20760,7 +20760,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20784,7 +20784,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20809,7 +20809,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20832,7 +20832,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20854,7 +20854,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -20875,7 +20875,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -20893,7 +20893,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -20913,7 +20913,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -20931,7 +20931,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -20949,7 +20949,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -20968,14 +20968,14 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
 			}
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -20990,7 +20990,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -21018,7 +21018,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -21040,7 +21040,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -21062,7 +21062,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -21083,7 +21083,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -21105,7 +21105,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -21125,7 +21125,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -21144,7 +21144,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -21163,7 +21163,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				T2 t2 = arg1.apply(t1);
@@ -21180,7 +21180,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
@@ -21199,7 +21199,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
@@ -21216,7 +21216,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
@@ -21233,7 +21233,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
@@ -21251,13 +21251,13 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted1.add(t1);
 			}
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T1 t1: sorted1) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -21272,7 +21272,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
@@ -21299,7 +21299,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
@@ -21320,7 +21320,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				skip0++;
@@ -21341,7 +21341,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!distinct0.add(t1)) {
@@ -21361,7 +21361,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(dropWhile0 && arg1.test(t1)) {
@@ -21382,7 +21382,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if(!arg1.test(t1)) {
@@ -21401,7 +21401,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : arg1.apply(t1)) {
@@ -21419,7 +21419,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				for (T2 t2 : t1) {
@@ -21437,7 +21437,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				T2 t2 = arg0.apply(t1);
@@ -21454,7 +21454,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if (!arg0.test(t1)) {
@@ -21473,7 +21473,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				int t2 = arg0.applyAsInt(t1);
@@ -21490,7 +21490,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				long t2 = arg0.applyAsLong(t1);
@@ -21507,7 +21507,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				double t2 = arg0.applyAsDouble(t1);
@@ -21525,13 +21525,13 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				sorted1.add(t1);
 			}
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T1 t1: sorted1) {
 			if (!arg0.test(t1)) {
 				return false;
@@ -21546,7 +21546,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				sortedComp0.add(t1);
@@ -21573,7 +21573,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				limit0++;
@@ -21594,7 +21594,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				skip0++;
@@ -21615,7 +21615,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if(!distinct0.add(t1)) {
@@ -21635,7 +21635,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if(dropWhile0 && arg0.test(t1)) {
@@ -21656,7 +21656,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if(!arg0.test(t1)) {
@@ -21675,7 +21675,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				for (T2 t2 : arg0.apply(t1)) {
@@ -21693,7 +21693,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: input) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				for (T2 t2 : t1) {
@@ -21799,7 +21799,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg1.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -22071,7 +22071,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -22363,7 +22363,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -22585,7 +22585,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -22807,7 +22807,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -22930,7 +22930,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg1.apply(t0);
 			if (!arg2.test(t1)) {
@@ -22950,7 +22950,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				continue;
@@ -22972,7 +22972,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			if (!arg2.test(t1)) {
@@ -22992,7 +22992,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			if (!arg2.test(t1)) {
@@ -23012,7 +23012,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			if (!arg2.test(t1)) {
@@ -23033,11 +23033,11 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -23057,7 +23057,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp1.add(t0);
 		}
@@ -23087,7 +23087,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			if (!arg2.test(t0)) {
@@ -23111,7 +23111,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -23135,7 +23135,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -23158,7 +23158,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -23182,7 +23182,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg1.test(t0)) {
 				break;
@@ -23204,7 +23204,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				if (!arg2.test(t1)) {
@@ -23225,7 +23225,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if (!arg1.test(t1)) {
@@ -23353,7 +23353,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp1) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -23687,7 +23687,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -24045,7 +24045,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -24379,7 +24379,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -24693,7 +24693,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -25005,7 +25005,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -25287,7 +25287,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -25561,7 +25561,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -25847,7 +25847,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg1.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -26161,7 +26161,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -26498,7 +26498,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -26756,7 +26756,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -27014,7 +27014,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -27155,7 +27155,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg1.apply(t0);
 			if (!arg2.test(t1)) {
@@ -27178,7 +27178,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				continue;
@@ -27203,7 +27203,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			if (!arg2.test(t1)) {
@@ -27226,7 +27226,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			if (!arg2.test(t1)) {
@@ -27249,7 +27249,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			if (!arg2.test(t1)) {
@@ -27273,11 +27273,11 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -27300,7 +27300,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -27333,7 +27333,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit1++;
 			if (!arg2.test(t0)) {
@@ -27360,7 +27360,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -27387,7 +27387,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -27413,7 +27413,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -27440,7 +27440,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg1.test(t0)) {
 				break;
@@ -27465,7 +27465,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				if (!arg2.test(t1)) {
@@ -27489,7 +27489,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if (!arg1.test(t1)) {
@@ -27635,7 +27635,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -28011,7 +28011,7 @@ public class ForeachStreamAllMatch {
 			limit1++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -28411,7 +28411,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -28787,7 +28787,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -29143,7 +29143,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -29497,7 +29497,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -29821,7 +29821,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -30137,7 +30137,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -30447,7 +30447,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg1.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -30761,7 +30761,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -31098,7 +31098,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -31356,7 +31356,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -31614,7 +31614,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -31755,7 +31755,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg1.apply(t0);
 			if (!arg2.test(t1)) {
@@ -31778,7 +31778,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				continue;
@@ -31803,7 +31803,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			if (!arg2.test(t1)) {
@@ -31826,7 +31826,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			if (!arg2.test(t1)) {
@@ -31849,7 +31849,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			if (!arg2.test(t1)) {
@@ -31873,11 +31873,11 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -31900,7 +31900,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -31933,7 +31933,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			if (!arg2.test(t0)) {
@@ -31960,7 +31960,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip1++;
 			if(skip1 <= arg1) {
@@ -31987,7 +31987,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -32013,7 +32013,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -32040,7 +32040,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg1.test(t0)) {
 				break;
@@ -32065,7 +32065,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				if (!arg2.test(t1)) {
@@ -32089,7 +32089,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if (!arg1.test(t1)) {
@@ -32235,7 +32235,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -32611,7 +32611,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -33011,7 +33011,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -33387,7 +33387,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -33743,7 +33743,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -34097,7 +34097,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -34421,7 +34421,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -34737,7 +34737,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -35023,7 +35023,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -35281,7 +35281,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -35558,7 +35558,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -35768,7 +35768,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -35978,7 +35978,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -36095,7 +36095,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg0.apply(t0);
 			if (!arg1.test(t1)) {
@@ -36114,7 +36114,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				continue;
@@ -36135,7 +36135,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
@@ -36154,7 +36154,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
@@ -36173,7 +36173,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
@@ -36193,11 +36193,11 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg0.test(t0)) {
 				return false;
@@ -36216,7 +36216,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -36245,7 +36245,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			if (!arg1.test(t0)) {
@@ -36268,7 +36268,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -36291,7 +36291,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct1.add(t0)) {
 				continue;
@@ -36313,7 +36313,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
@@ -36336,7 +36336,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg0.test(t0)) {
 				break;
@@ -36357,7 +36357,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg0.apply(t0)) {
 				if (!arg1.test(t1)) {
@@ -36377,7 +36377,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if (!arg0.test(t1)) {
@@ -36499,7 +36499,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -36819,7 +36819,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -37163,7 +37163,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -37483,7 +37483,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg0.test(t0)) {
 				return false;
@@ -37783,7 +37783,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -38081,7 +38081,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -38349,7 +38349,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -38609,7 +38609,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg0.test(t1)) {
 				return false;
@@ -38875,7 +38875,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg1.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -39161,7 +39161,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -39468,7 +39468,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -39702,7 +39702,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -39936,7 +39936,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -40065,7 +40065,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg1.apply(t0);
 			if (!arg2.test(t1)) {
@@ -40086,7 +40086,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				continue;
@@ -40109,7 +40109,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			if (!arg2.test(t1)) {
@@ -40130,7 +40130,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			if (!arg2.test(t1)) {
@@ -40151,7 +40151,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			if (!arg2.test(t1)) {
@@ -40173,11 +40173,11 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -40198,7 +40198,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -40229,7 +40229,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			if (!arg2.test(t0)) {
@@ -40254,7 +40254,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -40279,7 +40279,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -40303,7 +40303,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile1 && arg1.test(t0)) {
 				continue;
@@ -40328,7 +40328,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg1.test(t0)) {
 				break;
@@ -40351,7 +40351,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				if (!arg2.test(t1)) {
@@ -40373,7 +40373,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if (!arg1.test(t1)) {
@@ -40507,7 +40507,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -40855,7 +40855,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -41227,7 +41227,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -41575,7 +41575,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -41903,7 +41903,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -42229,7 +42229,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -42525,7 +42525,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -42813,7 +42813,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -43077,7 +43077,7 @@ public class ForeachStreamAllMatch {
 			T1 t1 = arg1.apply(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -43321,7 +43321,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -43583,7 +43583,7 @@ public class ForeachStreamAllMatch {
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -43781,7 +43781,7 @@ public class ForeachStreamAllMatch {
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -43979,7 +43979,7 @@ public class ForeachStreamAllMatch {
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -44090,7 +44090,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			T1 t1 = arg1.apply(t0);
 			if (!arg2.test(t1)) {
@@ -44108,7 +44108,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				continue;
@@ -44128,7 +44128,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			int t1 = arg1.applyAsInt(t0);
 			if (!arg2.test(t1)) {
@@ -44146,7 +44146,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			long t1 = arg1.applyAsLong(t0);
 			if (!arg2.test(t1)) {
@@ -44164,7 +44164,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			double t1 = arg1.applyAsDouble(t0);
 			if (!arg2.test(t1)) {
@@ -44183,11 +44183,11 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sorted1.add(t0);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T0 t0: sorted1) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -44205,7 +44205,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			sortedComp0.add(t0);
 		}
@@ -44233,7 +44233,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			limit0++;
 			if (!arg2.test(t0)) {
@@ -44255,7 +44255,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -44277,7 +44277,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!distinct0.add(t0)) {
 				continue;
@@ -44298,7 +44298,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -44320,7 +44320,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if(!arg1.test(t0)) {
 				break;
@@ -44340,7 +44340,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : arg1.apply(t0)) {
 				if (!arg2.test(t1)) {
@@ -44359,7 +44359,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			for (T1 t1 : t0) {
 				if (!arg1.test(t1)) {
@@ -44475,7 +44475,7 @@ public class ForeachStreamAllMatch {
 		for (T0 t0: sortedComp0) {
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -44781,7 +44781,7 @@ public class ForeachStreamAllMatch {
 			limit0++;
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -45111,7 +45111,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -45417,7 +45417,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg1.test(t0)) {
 				return false;
@@ -45703,7 +45703,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -45987,7 +45987,7 @@ public class ForeachStreamAllMatch {
 			}
 			sorted0.add(t0);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T0 t0: sorted0) {
 			if (!arg2.test(t0)) {
 				return false;
@@ -46241,7 +46241,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -46487,7 +46487,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -46721,7 +46721,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -46951,7 +46951,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -47198,7 +47198,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -47384,7 +47384,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -47570,7 +47570,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -47675,7 +47675,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			T2 t2 = arg1.apply(t1);
 			if (!arg2.test(t2)) {
@@ -47692,7 +47692,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				continue;
@@ -47711,7 +47711,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			int t2 = arg1.applyAsInt(t1);
 			if (!arg2.test(t2)) {
@@ -47728,7 +47728,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			long t2 = arg1.applyAsLong(t1);
 			if (!arg2.test(t2)) {
@@ -47745,7 +47745,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			double t2 = arg1.applyAsDouble(t1);
 			if (!arg2.test(t2)) {
@@ -47763,11 +47763,11 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T1 t1: sorted1) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -47784,7 +47784,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			sortedComp0.add(t1);
 		}
@@ -47811,7 +47811,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			limit0++;
 			if (!arg2.test(t1)) {
@@ -47832,7 +47832,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg1) {
@@ -47853,7 +47853,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -47873,7 +47873,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -47894,7 +47894,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(!arg1.test(t1)) {
 				break;
@@ -47913,7 +47913,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			for (T2 t2 : arg1.apply(t1)) {
 				if (!arg2.test(t2)) {
@@ -47931,7 +47931,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			for (T2 t2 : t1) {
 				if (!arg1.test(t2)) {
@@ -48041,7 +48041,7 @@ public class ForeachStreamAllMatch {
 		for (T1 t1: sortedComp0) {
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -48333,7 +48333,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -48649,7 +48649,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -48941,7 +48941,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -49213,7 +49213,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -49483,7 +49483,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg2.test(t1)) {
 				return false;
@@ -49723,7 +49723,7 @@ public class ForeachStreamAllMatch {
 				}
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			if (!arg2.test(t2)) {
 				return false;
@@ -49955,7 +49955,7 @@ public class ForeachStreamAllMatch {
 				}
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			if (!arg1.test(t2)) {
 				return false;
@@ -50181,7 +50181,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			if (!arg1.test(t2)) {
 				return false;
@@ -50411,7 +50411,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -50658,7 +50658,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (int t2: sorted0) {
 			if (!arg1.test(t2)) {
 				return false;
@@ -50844,7 +50844,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (long t2: sorted0) {
 			if (!arg1.test(t2)) {
 				return false;
@@ -51030,7 +51030,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t2);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (double t2: sorted0) {
 			if (!arg1.test(t2)) {
 				return false;
@@ -51135,7 +51135,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			T2 t2 = arg0.apply(t1);
 			if (!arg1.test(t2)) {
@@ -51152,7 +51152,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg0.test(t1)) {
 				continue;
@@ -51171,7 +51171,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			int t2 = arg0.applyAsInt(t1);
 			if (!arg1.test(t2)) {
@@ -51188,7 +51188,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			long t2 = arg0.applyAsLong(t1);
 			if (!arg1.test(t2)) {
@@ -51205,7 +51205,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			double t2 = arg0.applyAsDouble(t1);
 			if (!arg1.test(t2)) {
@@ -51223,11 +51223,11 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			sorted1.add(t1);
 		}
-		Collections.sort((List) sorted1);
+		sorted1.sort(null);
 		for (T1 t1: sorted1) {
 			if (!arg0.test(t1)) {
 				return false;
@@ -51244,7 +51244,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			sortedComp0.add(t1);
 		}
@@ -51271,7 +51271,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			limit0++;
 			if (!arg1.test(t1)) {
@@ -51292,7 +51292,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			skip0++;
 			if(skip0 <= arg0) {
@@ -51313,7 +51313,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(!distinct0.add(t1)) {
 				continue;
@@ -51333,7 +51333,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(dropWhile0 && arg0.test(t1)) {
 				continue;
@@ -51354,7 +51354,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if(!arg0.test(t1)) {
 				break;
@@ -51373,7 +51373,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			for (T2 t2 : arg0.apply(t1)) {
 				if (!arg1.test(t2)) {
@@ -51391,7 +51391,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			for (T2 t2 : t1) {
 				if (!arg0.test(t2)) {
@@ -51501,7 +51501,7 @@ public class ForeachStreamAllMatch {
 		for (T1 t1: sortedComp0) {
 			sorted0.add(t1);
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -51793,7 +51793,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -52109,7 +52109,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -52401,7 +52401,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg0.test(t1)) {
 				return false;
@@ -52673,7 +52673,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -52943,7 +52943,7 @@ public class ForeachStreamAllMatch {
 				sorted0.add(t1);
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T1 t1: sorted0) {
 			if (!arg1.test(t1)) {
 				return false;
@@ -53183,7 +53183,7 @@ public class ForeachStreamAllMatch {
 				}
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			if (!arg1.test(t2)) {
 				return false;
@@ -53415,7 +53415,7 @@ public class ForeachStreamAllMatch {
 				}
 			}
 		}
-		Collections.sort((List) sorted0);
+		sorted0.sort(null);
 		for (T2 t2: sorted0) {
 			if (!arg0.test(t2)) {
 				return false;
