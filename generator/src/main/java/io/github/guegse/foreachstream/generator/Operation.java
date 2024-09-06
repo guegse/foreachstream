@@ -105,6 +105,8 @@ public abstract class Operation {
 
     abstract void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize);
 
+    abstract void emitShortCircuit(Emitter out, String inputType, List<String> arguments);
+
     abstract void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement);
 
     abstract void emitPostamble(Emitter out, String inputType, List<String> arguments);

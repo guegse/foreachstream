@@ -158,6 +158,9 @@ public class Generator {
                     : null;
             Operation operation = operationInstance.operation;
             operation.emitOperation(out, operationInstance.sourceType, operationInstance.argumentNames, operationInstance.streamElement, operationInstance.targetType, targetElement);
+            if (i == 0) {
+                emitShortCircuitOperations(out, operationInstances);
+            }
         }
 
         for (OperationInstance operationInstance : operationInstances) {
@@ -169,6 +172,14 @@ public class Generator {
         out.printIndentation();
         out.println("}");
         out.println();
+    }
+
+    private static void emitShortCircuitOperations(Emitter out, List<OperationInstance> operationInstances) {
+        for (int j = 1; j < operationInstances.size(); j++) {
+            OperationInstance operationInstance = operationInstances.get(j);
+            Operation operation = operationInstance.operation;
+            operation.emitShortCircuit(out, operationInstance.sourceType, operationInstance.argumentNames);
+        }
     }
 
     private static void emitTypeParameterList(Emitter out, List<OperationInstance> operationInstances) {

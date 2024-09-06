@@ -33,17 +33,23 @@ public class Limit extends StatefulIntermediateOperation{
     }
 
     @Override
-    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+    void emitShortCircuit(Emitter out, String inputType, List<String> arguments) {
         String variable = getVariable();
         out.printIndentation();
-        out.println(variable + "++;");
-        out.printIndentation();
-        out.println("if(" + variable + " > " + arguments.get(0) + ") {");
+        out.println("if(" + variable + " >= " + arguments.get(0) + ") {");
         out.increaseIndentation();
         out.printIndentation();
         out.println("break;");
         out.decreaseIndentation();
         out.printIndentation();
         out.println("}");
+        addVariable(variable);
+    }
+
+    @Override
+    void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
+        String variable = getVariable();
+        out.printIndentation();
+        out.println(variable + "++;");
     }
 }

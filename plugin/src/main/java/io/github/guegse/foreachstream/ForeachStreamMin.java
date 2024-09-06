@@ -289,11 +289,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -509,11 +509,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -729,11 +729,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -986,10 +986,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -1012,10 +1012,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -1038,10 +1038,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -1695,12 +1695,12 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			int t2 = arg1.applyAsInt(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t2);
 			} else {
@@ -1925,12 +1925,12 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			long t2 = arg1.applyAsLong(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t2);
 			} else {
@@ -2155,12 +2155,12 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t2);
 			} else {
@@ -2423,11 +2423,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			int t2 = arg2.applyAsInt(t1);
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -2450,11 +2450,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			long t2 = arg2.applyAsLong(t1);
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -2477,11 +2477,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			T1 t1 = arg0.apply(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			T1 t1 = arg0.apply(t0);
+			limit0++;
 			double t2 = arg2.applyAsDouble(t1);
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -3175,14 +3175,14 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -3425,14 +3425,14 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -3675,14 +3675,14 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -3965,13 +3965,13 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			int t1 = arg2.applyAsInt(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -3994,13 +3994,13 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			long t1 = arg2.applyAsLong(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -4023,13 +4023,13 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			double t1 = arg2.applyAsDouble(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -4611,12 +4611,12 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			t1 = arg1.applyAsInt(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -4851,14 +4851,14 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			if (!arg1.test(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -5091,12 +5091,12 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			long t2 = arg1.applyAsLong(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t2);
 			} else {
@@ -5321,12 +5321,12 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t2);
 			} else {
@@ -5692,15 +5692,15 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
 		Collections.sort((List) sorted0);
 		for (int t1: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -5835,11 +5835,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			t1 = arg2.applyAsInt(t1);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -5862,11 +5862,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			if (!arg2.test(t1)) {
 				continue;
 			}
@@ -5891,11 +5891,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			long t2 = arg2.applyAsLong(t1);
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -5918,11 +5918,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			double t2 = arg2.applyAsDouble(t1);
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -5946,11 +5946,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			sorted0.add(t1);
 		}
 		Collections.sort((List) sorted0);
@@ -5980,15 +5980,15 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -6014,11 +6014,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			skip0++;
 			if(skip0 <= arg2) {
 				continue;
@@ -6045,11 +6045,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			if(!distinct0.add(t1)) {
 				continue;
 			}
@@ -6075,11 +6075,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
 			} else {
@@ -6106,11 +6106,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			int t1 = arg0.applyAsInt(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			int t1 = arg0.applyAsInt(t0);
+			limit0++;
 			if(!arg2.test(t1)) {
 				break;
 			}
@@ -6280,15 +6280,15 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -6557,14 +6557,14 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -6827,6 +6827,9 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -6834,9 +6837,6 @@ public class ForeachStreamMin {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -7091,14 +7091,14 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			if(!arg1.test(t1)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -7331,12 +7331,12 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			t1 = arg1.applyAsLong(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -7571,14 +7571,14 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			if (!arg1.test(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -7811,12 +7811,12 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			int t2 = arg1.applyAsInt(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t2);
 			} else {
@@ -8041,12 +8041,12 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			double t2 = arg1.applyAsDouble(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t2);
 			} else {
@@ -8412,15 +8412,15 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
 		Collections.sort((List) sorted0);
 		for (long t1: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -8555,11 +8555,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			t1 = arg2.applyAsLong(t1);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -8582,11 +8582,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			if (!arg2.test(t1)) {
 				continue;
 			}
@@ -8611,11 +8611,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			int t2 = arg2.applyAsInt(t1);
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -8638,11 +8638,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			double t2 = arg2.applyAsDouble(t1);
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -8666,11 +8666,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			sorted0.add(t1);
 		}
 		Collections.sort((List) sorted0);
@@ -8700,15 +8700,15 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -8734,11 +8734,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			skip0++;
 			if(skip0 <= arg2) {
 				continue;
@@ -8765,11 +8765,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			if(!distinct0.add(t1)) {
 				continue;
 			}
@@ -8795,11 +8795,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
 			} else {
@@ -8826,11 +8826,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			long t1 = arg0.applyAsLong(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			long t1 = arg0.applyAsLong(t0);
+			limit0++;
 			if(!arg2.test(t1)) {
 				break;
 			}
@@ -9000,15 +9000,15 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -9277,14 +9277,14 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -9547,6 +9547,9 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -9554,9 +9557,6 @@ public class ForeachStreamMin {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -9811,14 +9811,14 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			if(!arg1.test(t1)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -10051,12 +10051,12 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			t1 = arg1.applyAsDouble(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -10291,14 +10291,14 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			if (!arg1.test(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -10531,12 +10531,12 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			int t2 = arg1.applyAsInt(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t2);
 			} else {
@@ -10761,12 +10761,12 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			long t2 = arg1.applyAsLong(t1);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t2);
 			} else {
@@ -11132,15 +11132,15 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
 		Collections.sort((List) sorted0);
 		for (double t1: sorted0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -11275,11 +11275,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			t1 = arg2.applyAsDouble(t1);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -11302,11 +11302,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			if (!arg2.test(t1)) {
 				continue;
 			}
@@ -11331,11 +11331,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			int t2 = arg2.applyAsInt(t1);
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -11358,11 +11358,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			long t2 = arg2.applyAsLong(t1);
 			if (hasMin) {
 				min = Math.min(min, t2);
@@ -11386,11 +11386,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			sorted0.add(t1);
 		}
 		Collections.sort((List) sorted0);
@@ -11420,15 +11420,15 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
+			if(limit1 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -11454,11 +11454,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			skip0++;
 			if(skip0 <= arg2) {
 				continue;
@@ -11485,11 +11485,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			if(!distinct0.add(t1)) {
 				continue;
 			}
@@ -11515,11 +11515,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
 			} else {
@@ -11546,11 +11546,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			double t1 = arg0.applyAsDouble(t0);
-			limit0++;
-			if(limit0 > arg1) {
+			if(limit0 >= arg1) {
 				break;
 			}
+			double t1 = arg0.applyAsDouble(t0);
+			limit0++;
 			if(!arg2.test(t1)) {
 				break;
 			}
@@ -11720,15 +11720,15 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -11997,14 +11997,14 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -12267,6 +12267,9 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			if(dropWhile0 && arg1.test(t1)) {
 				continue;
@@ -12274,9 +12277,6 @@ public class ForeachStreamMin {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -12531,14 +12531,14 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			if(!arg1.test(t1)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -12942,15 +12942,15 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
 		for (T0 t0: sorted0) {
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -13212,15 +13212,15 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
 		for (T0 t0: sorted0) {
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -13482,15 +13482,15 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
 		for (T0 t0: sorted0) {
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -13794,14 +13794,14 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
 		for (T0 t0: sorted0) {
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			int t1 = arg1.applyAsInt(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -13825,14 +13825,14 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
 		for (T0 t0: sorted0) {
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			long t1 = arg1.applyAsLong(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -13856,14 +13856,14 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
 		for (T0 t0: sorted0) {
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			double t1 = arg1.applyAsDouble(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -14652,15 +14652,15 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -14922,15 +14922,15 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -15192,15 +15192,15 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -15504,14 +15504,14 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			int t1 = arg2.applyAsInt(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -15535,14 +15535,14 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			long t1 = arg2.applyAsLong(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -15566,14 +15566,14 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			double t1 = arg2.applyAsDouble(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -16085,10 +16085,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			int t2 = arg2.applyAsInt(t1);
 			if (hasMin) {
@@ -16112,10 +16112,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			long t2 = arg2.applyAsLong(t1);
 			if (hasMin) {
@@ -16139,10 +16139,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			T1 t1 = arg1.apply(t0);
 			double t2 = arg2.applyAsDouble(t1);
 			if (hasMin) {
@@ -16166,10 +16166,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -16195,10 +16195,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -16224,10 +16224,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -16253,10 +16253,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			t1 = arg2.applyAsInt(t1);
 			if (hasMin) {
@@ -16280,10 +16280,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			if (!arg2.test(t1)) {
 				continue;
@@ -16309,10 +16309,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			long t2 = arg2.applyAsLong(t1);
 			if (hasMin) {
@@ -16336,10 +16336,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			double t2 = arg2.applyAsDouble(t1);
 			if (hasMin) {
@@ -16364,10 +16364,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			sorted0.add(t1);
 		}
@@ -16398,15 +16398,15 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -16432,10 +16432,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			skip0++;
 			if(skip0 <= arg2) {
@@ -16463,10 +16463,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -16493,10 +16493,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
@@ -16524,10 +16524,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			if(!arg2.test(t1)) {
 				break;
@@ -16553,10 +16553,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			t1 = arg2.applyAsLong(t1);
 			if (hasMin) {
@@ -16580,10 +16580,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			if (!arg2.test(t1)) {
 				continue;
@@ -16609,10 +16609,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			int t2 = arg2.applyAsInt(t1);
 			if (hasMin) {
@@ -16636,10 +16636,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			double t2 = arg2.applyAsDouble(t1);
 			if (hasMin) {
@@ -16664,10 +16664,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			sorted0.add(t1);
 		}
@@ -16698,15 +16698,15 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -16732,10 +16732,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			skip0++;
 			if(skip0 <= arg2) {
@@ -16763,10 +16763,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -16793,10 +16793,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
@@ -16824,10 +16824,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			if(!arg2.test(t1)) {
 				break;
@@ -16853,10 +16853,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			t1 = arg2.applyAsDouble(t1);
 			if (hasMin) {
@@ -16880,10 +16880,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			if (!arg2.test(t1)) {
 				continue;
@@ -16909,10 +16909,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			int t2 = arg2.applyAsInt(t1);
 			if (hasMin) {
@@ -16936,10 +16936,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			long t2 = arg2.applyAsLong(t1);
 			if (hasMin) {
@@ -16964,10 +16964,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
@@ -16998,15 +16998,15 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			if(limit1 >= arg2) {
+				break;
+			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			limit1++;
-			if(limit1 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -17032,10 +17032,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			skip0++;
 			if(skip0 <= arg2) {
@@ -17063,10 +17063,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			if(!distinct0.add(t1)) {
 				continue;
@@ -17093,10 +17093,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			if(dropWhile0 && arg2.test(t1)) {
 				continue;
@@ -17124,10 +17124,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			if(!arg2.test(t1)) {
 				break;
@@ -17154,10 +17154,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17185,10 +17185,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17216,10 +17216,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sorted0.add(t0);
 		}
 		Collections.sort((List) sorted0);
@@ -17247,10 +17247,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -17278,10 +17278,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -17309,10 +17309,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
@@ -17343,14 +17343,14 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			int t1 = arg2.applyAsInt(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -17377,14 +17377,14 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			long t1 = arg2.applyAsLong(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -17411,14 +17411,14 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			limit1++;
-			if(limit1 > arg1) {
-				break;
-			}
 			double t1 = arg2.applyAsDouble(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -17445,10 +17445,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -17479,10 +17479,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -17513,10 +17513,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -17544,10 +17544,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -17574,10 +17574,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -17604,10 +17604,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -17634,10 +17634,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -17666,10 +17666,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -17698,10 +17698,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -17729,10 +17729,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -17758,10 +17758,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -17787,10 +17787,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -17816,10 +17816,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				int t2 = arg2.applyAsInt(t1);
 				if (hasMin) {
@@ -17844,10 +17844,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				long t2 = arg2.applyAsLong(t1);
 				if (hasMin) {
@@ -17872,10 +17872,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				double t2 = arg2.applyAsDouble(t1);
 				if (hasMin) {
@@ -17900,10 +17900,10 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				int t2 = arg1.applyAsInt(t1);
 				if (hasMin) {
@@ -17928,10 +17928,10 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				long t2 = arg1.applyAsLong(t1);
 				if (hasMin) {
@@ -17956,10 +17956,10 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
-			limit0++;
-			if(limit0 > arg0) {
+			if(limit0 >= arg0) {
 				break;
 			}
+			limit0++;
 			for (T1 t1 : t0) {
 				double t2 = arg1.applyAsDouble(t1);
 				if (hasMin) {
@@ -18297,15 +18297,15 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -18597,15 +18597,15 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -18897,15 +18897,15 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -19242,14 +19242,14 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			int t1 = arg2.applyAsInt(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -19276,14 +19276,14 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			long t1 = arg2.applyAsLong(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -19310,14 +19310,14 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			double t1 = arg2.applyAsDouble(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -20149,14 +20149,14 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -20409,14 +20409,14 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -20669,14 +20669,14 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -20970,13 +20970,13 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			int t1 = arg1.applyAsInt(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -21000,13 +21000,13 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			long t1 = arg1.applyAsLong(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -21030,13 +21030,13 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
 			limit0++;
-			if(limit0 > arg0) {
-				break;
-			}
 			double t1 = arg1.applyAsDouble(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -21818,6 +21818,9 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -21825,9 +21828,6 @@ public class ForeachStreamMin {
 			}
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -22098,6 +22098,9 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -22105,9 +22108,6 @@ public class ForeachStreamMin {
 			}
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -22378,6 +22378,9 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -22385,9 +22388,6 @@ public class ForeachStreamMin {
 			}
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -22701,15 +22701,15 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			int t1 = arg2.applyAsInt(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -22733,15 +22733,15 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			long t1 = arg2.applyAsLong(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -22765,15 +22765,15 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
 				dropWhile0 = false;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			double t1 = arg2.applyAsDouble(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -23557,14 +23557,14 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -23807,14 +23807,14 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -24057,14 +24057,14 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
-			if(limit0 > arg2) {
-				break;
-			}
 			if (hasMin) {
 				min = Math.min(min, t1);
 			} else {
@@ -24347,13 +24347,13 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			int t1 = arg2.applyAsInt(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -24376,13 +24376,13 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			long t1 = arg2.applyAsLong(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -24405,13 +24405,13 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
 			limit0++;
-			if(limit0 > arg1) {
-				break;
-			}
 			double t1 = arg2.applyAsDouble(t0);
 			if (hasMin) {
 				min = Math.min(min, t1);
@@ -25130,12 +25130,12 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				int t2 = arg1.applyAsInt(t1);
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				if (hasMin) {
 					min = Math.min(min, t2);
 				} else {
@@ -25370,12 +25370,12 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				long t2 = arg1.applyAsLong(t1);
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				if (hasMin) {
 					min = Math.min(min, t2);
 				} else {
@@ -25610,12 +25610,12 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				double t2 = arg1.applyAsDouble(t1);
 				limit0++;
-				if(limit0 > arg2) {
-					break;
-				}
 				if (hasMin) {
 					min = Math.min(min, t2);
 				} else {
@@ -25889,11 +25889,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				int t2 = arg2.applyAsInt(t1);
 				if (hasMin) {
 					min = Math.min(min, t2);
@@ -25917,11 +25917,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				long t2 = arg2.applyAsLong(t1);
 				if (hasMin) {
 					min = Math.min(min, t2);
@@ -25945,11 +25945,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				double t2 = arg2.applyAsDouble(t1);
 				if (hasMin) {
 					min = Math.min(min, t2);
@@ -26651,12 +26651,12 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				int t2 = arg0.applyAsInt(t1);
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				if (hasMin) {
 					min = Math.min(min, t2);
 				} else {
@@ -26891,12 +26891,12 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				long t2 = arg0.applyAsLong(t1);
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				if (hasMin) {
 					min = Math.min(min, t2);
 				} else {
@@ -27131,12 +27131,12 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				double t2 = arg0.applyAsDouble(t1);
 				limit0++;
-				if(limit0 > arg1) {
-					break;
-				}
 				if (hasMin) {
 					min = Math.min(min, t2);
 				} else {
@@ -27410,11 +27410,11 @@ public class ForeachStreamMin {
 		int min = Integer.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				int t2 = arg1.applyAsInt(t1);
 				if (hasMin) {
 					min = Math.min(min, t2);
@@ -27438,11 +27438,11 @@ public class ForeachStreamMin {
 		long min = Long.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				long t2 = arg1.applyAsLong(t1);
 				if (hasMin) {
 					min = Math.min(min, t2);
@@ -27466,11 +27466,11 @@ public class ForeachStreamMin {
 		double min = Double.MAX_VALUE;
 		boolean hasMin = false;
 		for (T0 t0: input) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
 				limit0++;
-				if(limit0 > arg0) {
-					break;
-				}
 				double t2 = arg1.applyAsDouble(t1);
 				if (hasMin) {
 					min = Math.min(min, t2);
