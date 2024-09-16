@@ -25881,15 +25881,15 @@ public class ForeachStreamCount {
 			if(limit0 >= arg0) {
 				break;
 			}
-			limit1++;
+			limit0++;
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
-			if(limit0 >= arg1) {
+			if(limit1 >= arg1) {
 				break;
 			}
-			limit0++;
+			limit1++;
 			count++;
 		}
 		return count;
@@ -26225,15 +26225,15 @@ public class ForeachStreamCount {
 			if(limit0 >= arg0) {
 				break;
 			}
-			limit1++;
+			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
-			if(limit0 >= arg2) {
+			if(limit1 >= arg2) {
 				break;
 			}
-			limit0++;
+			limit1++;
 			count++;
 		}
 		return count;
