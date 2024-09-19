@@ -21,7 +21,7 @@ public class Distinct extends StatefulIntermediateOperation{
     @Override
     void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize) {
         out.printIndentation();
-        out.println("Set<" + referenceType(inputType) + "> " + addVariable() + " = new HashSet<>();");
+        out.println("Set<" + referenceType(inputType) + "> " + addVariable() + " = new HashSet<>(" + estimatedSize + ");");
     }
 
     @Override

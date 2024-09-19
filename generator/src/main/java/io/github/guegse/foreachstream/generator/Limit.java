@@ -1,8 +1,12 @@
 package io.github.guegse.foreachstream.generator;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.List;
 
 public class Limit extends StatefulIntermediateOperation{
+    private final Deque<String> deque = new ArrayDeque<>();
+
     @Override
     String getName() {
         return "limit";
@@ -34,7 +38,12 @@ public class Limit extends StatefulIntermediateOperation{
 
     @Override
     void emitShortCircuit(Emitter out, String inputType, List<String> arguments) {
-        String variable = getVariable();
+        String variable;
+        if(!isEmpty()) {
+            variable = getVariable();
+        } else {
+            variable = deque.removeFirst();
+        }
         out.printIndentation();
         out.println("if(" + variable + " >= " + arguments.get(0) + ") {");
         out.increaseIndentation();
@@ -43,12 +52,12 @@ public class Limit extends StatefulIntermediateOperation{
         out.decreaseIndentation();
         out.printIndentation();
         out.println("}");
-        addVariable(variable);
+        deque.addLast(variable);
     }
 
     @Override
     void emitOperation(Emitter out, String inputType, List<String> arguments, String currentStreamElement, String nextTargetType, String nextTargetElement) {
-        String variable = getVariable();
+        String variable = deque.removeFirst();
         out.printIndentation();
         out.println(variable + "++;");
     }

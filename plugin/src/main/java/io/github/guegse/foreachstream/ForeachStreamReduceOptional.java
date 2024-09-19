@@ -98,7 +98,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -117,7 +117,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -180,7 +180,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -349,7 +349,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -369,7 +369,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sortedComp_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -435,7 +435,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -913,7 +913,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -979,7 +979,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -1135,7 +1135,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -1201,7 +1201,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -1357,7 +1357,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -1423,7 +1423,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -1481,7 +1481,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_map_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -1523,7 +1523,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_mapToInt_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -1543,7 +1543,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_mapToLong_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -1563,7 +1563,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_mapToDouble_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -1583,8 +1583,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -1607,8 +1607,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -1631,7 +1631,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_limit_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -1639,13 +1639,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -1658,7 +1658,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_skip_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -1685,8 +1685,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -1708,7 +1708,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -1733,7 +1733,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -1755,7 +1755,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -1776,7 +1776,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_flatMapMemberReference_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -1797,7 +1797,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -1839,7 +1839,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -1859,7 +1859,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -1879,7 +1879,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -1899,8 +1899,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -1923,8 +1923,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -1947,7 +1947,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -1955,13 +1955,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -1974,7 +1974,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -2001,8 +2001,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -2024,7 +2024,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -2049,7 +2049,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -2071,7 +2071,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -2092,7 +2092,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -2234,7 +2234,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -2261,7 +2261,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -2348,7 +2348,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -2592,7 +2592,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -2619,7 +2619,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -2706,7 +2706,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -2829,7 +2829,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_map_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -2869,7 +2869,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_mapToInt_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -2888,7 +2888,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_mapToLong_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -2907,7 +2907,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_mapToDouble_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -2926,8 +2926,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -2949,8 +2949,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -2972,7 +2972,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_limit_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -2998,7 +2998,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_skip_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -3024,8 +3024,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -3046,7 +3046,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -3070,7 +3070,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -3091,7 +3091,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -3111,7 +3111,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_flatMapMemberReference_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -3239,7 +3239,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -3264,7 +3264,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -3345,7 +3345,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -3553,7 +3553,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -3575,7 +3575,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -3647,7 +3647,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -3836,7 +3836,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -3857,7 +3857,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sortedComp_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -3889,6 +3889,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -3926,7 +3929,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -4110,7 +4113,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -4131,7 +4134,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -4163,6 +4166,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -4200,7 +4206,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -4384,7 +4390,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_map_map_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T2> sorted0 = new ArrayList<>();
+		List<T2> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -4405,7 +4411,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_map_map_sortedComp_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1, Comparator<? super T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T2> sortedComp0 = new ArrayList<>();
+		List<T2> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -4474,7 +4480,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_map_map_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<T2> distinct0 = new HashSet<>();
+		Set<T2> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -4977,7 +4983,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_map_mapToInt_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -5046,7 +5052,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_map_mapToInt_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -5211,7 +5217,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_map_mapToLong_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -5280,7 +5286,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_map_mapToLong_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -5445,7 +5451,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_map_mapToDouble_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -5514,7 +5520,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_map_mapToDouble_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -5575,7 +5581,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_map_sorted_map_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -5619,7 +5625,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_map_sorted_mapToInt_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -5640,7 +5646,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_map_sorted_mapToLong_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -5661,7 +5667,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_map_sorted_mapToDouble_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -5682,8 +5688,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sorted_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
-		List<T1> sorted1 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
+		List<T1> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -5707,8 +5713,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sorted_sortedComp_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -5732,7 +5738,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sorted_limit_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -5740,14 +5746,14 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			T1 t1 = arg0.apply(t0);
 			sorted0.add(t1);
 		}
 		sorted0.sort(null);
 		for (T1 t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -5760,7 +5766,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sorted_skip_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -5788,8 +5794,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sorted_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
-		Set<T1> distinct0 = new HashSet<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -5812,7 +5818,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sorted_dropWhile_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -5838,7 +5844,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sorted_takeWhile_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -5861,7 +5867,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_map_sorted_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -5883,7 +5889,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_map_sorted_flatMapMemberReference_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T2> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -5905,7 +5911,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_map_sortedComp_map_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Function<T1, T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -5949,7 +5955,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_map_sortedComp_mapToInt_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToIntFunction<T1> arg2, IntBinaryOperator arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -5970,7 +5976,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_map_sortedComp_mapToLong_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToLongFunction<T1> arg2, LongBinaryOperator arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -5991,7 +5997,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_map_sortedComp_mapToDouble_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToDoubleFunction<T1> arg2, DoubleBinaryOperator arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -6012,8 +6018,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sortedComp_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -6037,8 +6043,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sortedComp_sortedComp_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Comparator<? super T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
-		List<T1> sortedComp1 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
+		List<T1> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -6062,7 +6068,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sortedComp_limit_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, long arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -6070,14 +6076,14 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			T1 t1 = arg0.apply(t0);
 			sortedComp0.add(t1);
 		}
 		sortedComp0.sort(arg1);
 		for (T1 t1: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -6090,7 +6096,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sortedComp_skip_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, long arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -6118,8 +6124,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sortedComp_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
-		Set<T1> distinct0 = new HashSet<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -6142,7 +6148,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sortedComp_dropWhile_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -6168,7 +6174,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_sortedComp_takeWhile_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -6191,7 +6197,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_map_sortedComp_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, Function<T1, Collection<T2>> arg2,  BinaryOperator<T2> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -6213,7 +6219,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_map_sortedComp_flatMapMemberReference_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1,  BinaryOperator<T2> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -6361,7 +6367,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -6389,7 +6395,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -6479,7 +6485,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -6733,7 +6739,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -6761,7 +6767,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -6851,7 +6857,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -6979,7 +6985,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_map_distinct_map_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -7021,7 +7027,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_map_distinct_mapToInt_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -7041,7 +7047,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_map_distinct_mapToLong_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -7061,7 +7067,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_map_distinct_mapToDouble_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -7081,8 +7087,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_distinct_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
-		List<T1> sorted0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -7105,8 +7111,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_distinct_sortedComp_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
-		List<T1> sortedComp0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -7129,7 +7135,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_distinct_limit_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -7156,7 +7162,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_distinct_skip_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -7183,8 +7189,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_distinct_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
-		Set<T1> distinct1 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
+		Set<T1> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -7206,7 +7212,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_distinct_dropWhile_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -7231,7 +7237,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_distinct_takeWhile_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -7253,7 +7259,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_map_distinct_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -7274,7 +7280,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_map_distinct_flatMapMemberReference_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T2> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -7408,7 +7414,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_map_dropWhile_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -7434,7 +7440,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_map_dropWhile_sortedComp_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2,  BinaryOperator<T1> arg3) {
 		boolean dropWhile0 = true;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -7518,7 +7524,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_map_dropWhile_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -7736,7 +7742,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_takeWhile_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -7759,7 +7765,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_takeWhile_sortedComp_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -7834,7 +7840,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_map_takeWhile_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -8033,7 +8039,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_map_flatMapLambda_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		List<T2> sorted0 = new ArrayList<>();
+		List<T2> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -8055,7 +8061,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_map_flatMapLambda_sortedComp_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1, Comparator<? super T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T2> sortedComp0 = new ArrayList<>();
+		List<T2> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -8089,6 +8095,9 @@ public class ForeachStreamReduceOptional {
 			}
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : arg1.apply(t1)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -8127,7 +8136,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_map_flatMapLambda_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		Set<T2> distinct0 = new HashSet<>();
+		Set<T2> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -8321,7 +8330,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_map_flatMapMemberReference_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T2> arg1) {
-		List<T2> sorted0 = new ArrayList<>();
+		List<T2> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -8343,7 +8352,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_map_flatMapMemberReference_sortedComp_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T2> sortedComp0 = new ArrayList<>();
+		List<T2> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -8377,6 +8386,9 @@ public class ForeachStreamReduceOptional {
 			}
 			T1 t1 = arg0.apply(t0);
 			for (T2 t2 : t1) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -8415,7 +8427,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_map_flatMapMemberReference_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T2> arg1) {
-		Set<T2> distinct0 = new HashSet<>();
+		Set<T2> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -10102,9 +10114,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -10112,6 +10121,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -10460,9 +10472,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -10470,6 +10479,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -12649,6 +12661,9 @@ public class ForeachStreamReduceOptional {
 				continue;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -12965,6 +12980,9 @@ public class ForeachStreamReduceOptional {
 				continue;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -13221,7 +13239,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_map_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -13290,7 +13308,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_map_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -13713,7 +13731,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToInt_mapToLong_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -13782,7 +13800,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToInt_mapToLong_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -13947,7 +13965,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToInt_mapToDouble_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -14016,7 +14034,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToInt_mapToDouble_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -14164,7 +14182,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToInt_mapToObj_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T2> sorted0 = new ArrayList<>();
+		List<T2> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -14185,7 +14203,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToInt_mapToObj_sortedComp_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1, Comparator<? super T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T2> sortedComp0 = new ArrayList<>();
+		List<T2> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -14254,7 +14272,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToInt_mapToObj_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<T2> distinct0 = new HashSet<>();
+		Set<T2> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -14438,7 +14456,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Integer> stream_mapToInt_boxed_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0,  BinaryOperator<Integer> arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Integer result = null;
 		for (T0 t0: input) {
@@ -14459,7 +14477,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Integer> stream_mapToInt_boxed_sortedComp_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, Comparator<? super Integer> arg1,  BinaryOperator<Integer> arg2) {
-		List<Integer> sortedComp0 = new ArrayList<>();
+		List<Integer> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Integer result = null;
 		for (T0 t0: input) {
@@ -14528,7 +14546,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Integer> stream_mapToInt_boxed_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0,  BinaryOperator<Integer> arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		Integer result = null;
 		for (T0 t0: input) {
@@ -14607,7 +14625,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_sorted_map_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -14651,7 +14669,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToInt_sorted_mapToLong_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -14672,7 +14690,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToInt_sorted_mapToDouble_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -14693,7 +14711,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToInt_sorted_mapToObj_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -14714,7 +14732,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Integer> stream_mapToInt_sorted_boxed_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0,  BinaryOperator<Integer> arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Integer result = null;
 		for (T0 t0: input) {
@@ -14735,8 +14753,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_sorted_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
-		List<Integer> sorted1 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
+		List<Integer> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -14760,7 +14778,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_sorted_limit_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -14768,14 +14786,14 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
 		sorted0.sort(null);
 		for (int t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -14788,7 +14806,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_sorted_skip_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -14816,8 +14834,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_sorted_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
-		Set<Integer> distinct0 = new HashSet<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -14840,7 +14858,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_sorted_dropWhile_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		int result = 0;
@@ -14866,7 +14884,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_sorted_takeWhile_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -15039,7 +15057,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -15129,7 +15147,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -15357,7 +15375,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -15447,7 +15465,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -15525,7 +15543,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_distinct_map_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -15567,7 +15585,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToInt_distinct_mapToLong_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -15587,7 +15605,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToInt_distinct_mapToDouble_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -15607,7 +15625,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToInt_distinct_mapToObj_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -15627,7 +15645,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Integer> stream_mapToInt_distinct_boxed_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0,  BinaryOperator<Integer> arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		Integer result = null;
 		for (T0 t0: input) {
@@ -15647,8 +15665,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_distinct_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
-		List<Integer> sorted0 = new ArrayList<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -15671,7 +15689,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_distinct_limit_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -15698,7 +15716,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_distinct_skip_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -15725,8 +15743,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_distinct_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
-		Set<Integer> distinct1 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
+		Set<Integer> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -15748,7 +15766,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_distinct_dropWhile_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		int result = 0;
@@ -15773,7 +15791,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_distinct_takeWhile_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -15930,7 +15948,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalInt stream_mapToInt_dropWhile_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -16014,7 +16032,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalInt stream_mapToInt_dropWhile_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -16205,7 +16223,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_takeWhile_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -16280,7 +16298,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToInt_takeWhile_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -16451,7 +16469,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_map_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -16520,7 +16538,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_map_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -16943,7 +16961,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToLong_mapToInt_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -17012,7 +17030,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToLong_mapToInt_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -17177,7 +17195,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToLong_mapToDouble_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -17246,7 +17264,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToLong_mapToDouble_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -17394,7 +17412,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToLong_mapToObj_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T2> sorted0 = new ArrayList<>();
+		List<T2> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -17415,7 +17433,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToLong_mapToObj_sortedComp_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1, Comparator<? super T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T2> sortedComp0 = new ArrayList<>();
+		List<T2> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -17484,7 +17502,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToLong_mapToObj_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<T2> distinct0 = new HashSet<>();
+		Set<T2> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -17668,7 +17686,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Long> stream_mapToLong_boxed_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0,  BinaryOperator<Long> arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Long result = null;
 		for (T0 t0: input) {
@@ -17689,7 +17707,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Long> stream_mapToLong_boxed_sortedComp_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, Comparator<? super Long> arg1,  BinaryOperator<Long> arg2) {
-		List<Long> sortedComp0 = new ArrayList<>();
+		List<Long> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Long result = null;
 		for (T0 t0: input) {
@@ -17758,7 +17776,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Long> stream_mapToLong_boxed_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0,  BinaryOperator<Long> arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		Long result = null;
 		for (T0 t0: input) {
@@ -17837,7 +17855,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_sorted_map_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -17881,7 +17899,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToLong_sorted_mapToInt_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -17902,7 +17920,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToLong_sorted_mapToDouble_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -17923,7 +17941,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToLong_sorted_mapToObj_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -17944,7 +17962,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Long> stream_mapToLong_sorted_boxed_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0,  BinaryOperator<Long> arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Long result = null;
 		for (T0 t0: input) {
@@ -17965,8 +17983,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_sorted_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		List<Long> sorted0 = new ArrayList<>();
-		List<Long> sorted1 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
+		List<Long> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -17990,7 +18008,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_sorted_limit_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -17998,14 +18016,14 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
 		sorted0.sort(null);
 		for (long t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -18018,7 +18036,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_sorted_skip_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -18046,8 +18064,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_sorted_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		List<Long> sorted0 = new ArrayList<>();
-		Set<Long> distinct0 = new HashSet<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -18070,7 +18088,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_sorted_dropWhile_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		long result = 0;
@@ -18096,7 +18114,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_sorted_takeWhile_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -18269,7 +18287,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -18359,7 +18377,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -18587,7 +18605,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -18677,7 +18695,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -18755,7 +18773,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_distinct_map_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -18797,7 +18815,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToLong_distinct_mapToInt_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -18817,7 +18835,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToLong_distinct_mapToDouble_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -18837,7 +18855,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToLong_distinct_mapToObj_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -18857,7 +18875,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Long> stream_mapToLong_distinct_boxed_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0,  BinaryOperator<Long> arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		Long result = null;
 		for (T0 t0: input) {
@@ -18877,8 +18895,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_distinct_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		Set<Long> distinct0 = new HashSet<>();
-		List<Long> sorted0 = new ArrayList<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -18901,7 +18919,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_distinct_limit_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -18928,7 +18946,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_distinct_skip_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -18955,8 +18973,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_distinct_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		Set<Long> distinct0 = new HashSet<>();
-		Set<Long> distinct1 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
+		Set<Long> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -18978,7 +18996,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_distinct_dropWhile_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		long result = 0;
@@ -19003,7 +19021,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_distinct_takeWhile_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -19160,7 +19178,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalLong stream_mapToLong_dropWhile_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -19244,7 +19262,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalLong stream_mapToLong_dropWhile_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -19435,7 +19453,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_takeWhile_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -19510,7 +19528,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToLong_takeWhile_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -19681,7 +19699,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_map_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -19750,7 +19768,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_map_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -20173,7 +20191,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToDouble_mapToInt_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -20242,7 +20260,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToDouble_mapToInt_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -20407,7 +20425,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToDouble_mapToLong_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -20476,7 +20494,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToDouble_mapToLong_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -20624,7 +20642,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToDouble_mapToObj_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T2> sorted0 = new ArrayList<>();
+		List<T2> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -20645,7 +20663,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToDouble_mapToObj_sortedComp_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1, Comparator<? super T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T2> sortedComp0 = new ArrayList<>();
+		List<T2> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -20714,7 +20732,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToDouble_mapToObj_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<T2> distinct0 = new HashSet<>();
+		Set<T2> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -20898,7 +20916,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Double> stream_mapToDouble_boxed_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0,  BinaryOperator<Double> arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Double result = null;
 		for (T0 t0: input) {
@@ -20919,7 +20937,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Double> stream_mapToDouble_boxed_sortedComp_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, Comparator<? super Double> arg1,  BinaryOperator<Double> arg2) {
-		List<Double> sortedComp0 = new ArrayList<>();
+		List<Double> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Double result = null;
 		for (T0 t0: input) {
@@ -20988,7 +21006,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Double> stream_mapToDouble_boxed_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0,  BinaryOperator<Double> arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		Double result = null;
 		for (T0 t0: input) {
@@ -21067,7 +21085,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_sorted_map_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -21111,7 +21129,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToDouble_sorted_mapToInt_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -21132,7 +21150,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToDouble_sorted_mapToLong_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -21153,7 +21171,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToDouble_sorted_mapToObj_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -21174,7 +21192,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Double> stream_mapToDouble_sorted_boxed_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0,  BinaryOperator<Double> arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Double result = null;
 		for (T0 t0: input) {
@@ -21195,8 +21213,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_sorted_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		List<Double> sorted0 = new ArrayList<>();
-		List<Double> sorted1 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
+		List<Double> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -21220,7 +21238,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_sorted_limit_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -21228,14 +21246,14 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
 		sorted0.sort(null);
 		for (double t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -21248,7 +21266,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_sorted_skip_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -21276,8 +21294,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_sorted_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		List<Double> sorted0 = new ArrayList<>();
-		Set<Double> distinct0 = new HashSet<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -21300,7 +21318,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_sorted_dropWhile_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		double result = 0;
@@ -21326,7 +21344,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_sorted_takeWhile_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -21499,7 +21517,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -21589,7 +21607,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -21817,7 +21835,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -21907,7 +21925,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -21985,7 +22003,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_distinct_map_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -22027,7 +22045,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_mapToDouble_distinct_mapToInt_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -22047,7 +22065,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_mapToDouble_distinct_mapToLong_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -22067,7 +22085,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_mapToDouble_distinct_mapToObj_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -22087,7 +22105,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Double> stream_mapToDouble_distinct_boxed_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0,  BinaryOperator<Double> arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		Double result = null;
 		for (T0 t0: input) {
@@ -22107,8 +22125,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_distinct_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		Set<Double> distinct0 = new HashSet<>();
-		List<Double> sorted0 = new ArrayList<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -22131,7 +22149,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_distinct_limit_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -22158,7 +22176,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_distinct_skip_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -22185,8 +22203,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_distinct_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		Set<Double> distinct0 = new HashSet<>();
-		Set<Double> distinct1 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
+		Set<Double> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -22208,7 +22226,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_distinct_dropWhile_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		double result = 0;
@@ -22233,7 +22251,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_distinct_takeWhile_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -22390,7 +22408,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalDouble stream_mapToDouble_dropWhile_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -22474,7 +22492,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalDouble stream_mapToDouble_dropWhile_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -22665,7 +22683,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_takeWhile_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -22740,7 +22758,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_mapToDouble_takeWhile_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -22807,7 +22825,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_sorted_map_map_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -22851,7 +22869,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_sorted_map_mapToInt_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -22872,7 +22890,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_sorted_map_mapToLong_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -22893,7 +22911,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_sorted_map_mapToDouble_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -22914,8 +22932,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_map_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T1> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T1> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -22939,8 +22957,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_map_sortedComp_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -22964,7 +22982,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_map_limit_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -22972,13 +22990,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			T1 t1 = arg0.apply(t0);
 			limit0++;
 			if (!foundAny) {
@@ -22992,7 +23010,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_map_skip_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -23020,8 +23038,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_map_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T1> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -23044,7 +23062,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_map_dropWhile_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -23070,7 +23088,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_map_takeWhile_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -23093,7 +23111,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_sorted_map_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -23115,7 +23133,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_sorted_map_flatMapMemberReference_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T2> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -23316,13 +23334,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if (!arg0.test(t0)) {
 				continue;
 			}
@@ -23495,7 +23513,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_mapToInt_map_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -23539,7 +23557,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_mapToInt_mapToLong_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -23560,7 +23578,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_mapToInt_mapToDouble_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -23581,7 +23599,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_sorted_mapToInt_mapToObj_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -23602,7 +23620,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Integer> stream_sorted_mapToInt_boxed_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0,  BinaryOperator<Integer> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Integer result = null;
 		for (T0 t0: input) {
@@ -23623,8 +23641,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_mapToInt_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<Integer> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<Integer> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -23648,7 +23666,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_mapToInt_limit_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -23656,13 +23674,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			if (!foundAny) {
@@ -23676,7 +23694,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_mapToInt_skip_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -23704,8 +23722,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_mapToInt_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<Integer> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -23728,7 +23746,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_mapToInt_dropWhile_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		int result = 0;
@@ -23754,7 +23772,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_mapToInt_takeWhile_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -23777,7 +23795,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_mapToLong_map_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -23821,7 +23839,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_mapToLong_mapToInt_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -23842,7 +23860,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_mapToLong_mapToDouble_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -23863,7 +23881,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_sorted_mapToLong_mapToObj_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -23884,7 +23902,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Long> stream_sorted_mapToLong_boxed_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0,  BinaryOperator<Long> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Long result = null;
 		for (T0 t0: input) {
@@ -23905,8 +23923,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_mapToLong_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<Long> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<Long> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -23930,7 +23948,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_mapToLong_limit_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -23938,13 +23956,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			if (!foundAny) {
@@ -23958,7 +23976,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_mapToLong_skip_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -23986,8 +24004,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_mapToLong_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<Long> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -24010,7 +24028,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_mapToLong_dropWhile_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		long result = 0;
@@ -24036,7 +24054,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_mapToLong_takeWhile_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -24059,7 +24077,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_mapToDouble_map_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -24103,7 +24121,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_mapToDouble_mapToInt_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -24124,7 +24142,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_mapToDouble_mapToLong_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -24145,7 +24163,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_sorted_mapToDouble_mapToObj_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -24166,7 +24184,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Double> stream_sorted_mapToDouble_boxed_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0,  BinaryOperator<Double> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Double result = null;
 		for (T0 t0: input) {
@@ -24187,8 +24205,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_mapToDouble_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<Double> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<Double> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -24212,7 +24230,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_mapToDouble_limit_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -24220,13 +24238,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			if (!foundAny) {
@@ -24240,7 +24258,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_mapToDouble_skip_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -24268,8 +24286,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_mapToDouble_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<Double> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -24292,7 +24310,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_mapToDouble_dropWhile_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		double result = 0;
@@ -24318,7 +24336,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_mapToDouble_takeWhile_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -24341,8 +24359,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_sorted_map_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -24393,8 +24411,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_sorted_mapToInt_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -24418,8 +24436,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_sorted_mapToLong_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -24443,8 +24461,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_sorted_mapToDouble_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -24468,9 +24486,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sorted_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
-		List<T0> sorted2 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
+		List<T0> sorted2 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -24497,9 +24515,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sorted_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -24526,8 +24544,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sorted_limit_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -24535,9 +24553,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
@@ -24546,6 +24561,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted1.sort(null);
 		for (T0 t0: sorted1) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -24558,8 +24576,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sorted_skip_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -24590,9 +24608,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sorted_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -24618,8 +24636,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sorted_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -24648,8 +24666,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sorted_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -24675,8 +24693,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_sorted_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -24701,8 +24719,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_sorted_flatMapMemberReference_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -24727,8 +24745,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_sortedComp_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -24779,8 +24797,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_sortedComp_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -24804,8 +24822,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_sortedComp_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -24829,8 +24847,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_sortedComp_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -24854,9 +24872,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sortedComp_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -24883,9 +24901,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sortedComp_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -24912,8 +24930,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sortedComp_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -24921,9 +24939,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
@@ -24932,6 +24947,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -24944,8 +24962,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sortedComp_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -24976,9 +24994,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sortedComp_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -25004,8 +25022,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sortedComp_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -25034,8 +25052,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_sortedComp_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -25061,8 +25079,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_sortedComp_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -25087,8 +25105,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_sortedComp_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -25113,7 +25131,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_limit_map_reduceOptional(Collection<T0> input, long arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25121,13 +25139,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			T1 t1 = arg1.apply(t0);
 			if (!foundAny) {
@@ -25149,13 +25167,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if (!arg1.test(t0)) {
 				continue;
@@ -25171,7 +25189,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_limit_mapToInt_reduceOptional(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25179,13 +25197,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			if (!foundAny) {
@@ -25199,7 +25217,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_limit_mapToLong_reduceOptional(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25207,13 +25225,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			if (!foundAny) {
@@ -25227,7 +25245,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_limit_mapToDouble_reduceOptional(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25235,13 +25253,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			if (!foundAny) {
@@ -25255,22 +25273,22 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_limit_sorted_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			sorted1.add(t0);
 		}
@@ -25287,22 +25305,22 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_limit_sortedComp_reduceOptional(Collection<T0> input, long arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			sortedComp0.add(t0);
 		}
@@ -25319,7 +25337,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_limit_limit_reduceOptional(Collection<T0> input, long arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25331,16 +25349,16 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
+			sorted0.add(t0);
+		}
+		sorted0.sort(null);
+		for (T0 t0: sorted0) {
 			if(limit0 >= arg0) {
 				break;
 			}
 			if(limit1 >= arg1) {
 				break;
 			}
-			sorted0.add(t0);
-		}
-		sorted0.sort(null);
-		for (T0 t0: sorted0) {
 			limit0++;
 			limit1++;
 			if (!foundAny) {
@@ -25354,7 +25372,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_limit_skip_reduceOptional(Collection<T0> input, long arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25366,13 +25384,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			skip0++;
 			if(skip0 <= arg1) {
@@ -25389,22 +25407,22 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_limit_distinct_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
@@ -25420,7 +25438,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_limit_dropWhile_reduceOptional(Collection<T0> input, long arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25429,13 +25447,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
@@ -25453,7 +25471,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_limit_takeWhile_reduceOptional(Collection<T0> input, long arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25461,13 +25479,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if(!arg1.test(t0)) {
 				break;
@@ -25483,7 +25501,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_limit_flatMapLambda_reduceOptional(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25491,13 +25509,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
 				if (!foundAny) {
@@ -25512,7 +25530,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_limit_flatMapMemberReference_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25520,13 +25538,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			for (T1 t1 : t0) {
 				if (!foundAny) {
@@ -25541,7 +25559,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_skip_map_reduceOptional(Collection<T0> input, long arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25599,7 +25617,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_skip_mapToInt_reduceOptional(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25627,7 +25645,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_skip_mapToLong_reduceOptional(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25655,7 +25673,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_skip_mapToDouble_reduceOptional(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25683,12 +25701,12 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_skip_sorted_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -25715,12 +25733,12 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_skip_sortedComp_reduceOptional(Collection<T0> input, long arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -25747,7 +25765,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_skip_limit_reduceOptional(Collection<T0> input, long arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25759,13 +25777,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -25782,7 +25800,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_skip_skip_reduceOptional(Collection<T0> input, long arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25817,12 +25835,12 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_skip_distinct_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -25848,7 +25866,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_skip_dropWhile_reduceOptional(Collection<T0> input, long arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25881,7 +25899,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_skip_takeWhile_reduceOptional(Collection<T0> input, long arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25911,7 +25929,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_skip_flatMapLambda_reduceOptional(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25940,7 +25958,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_skip_flatMapMemberReference_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -25969,8 +25987,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_distinct_map_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -26019,8 +26037,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_distinct_mapToInt_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -26043,8 +26061,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_distinct_mapToLong_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -26067,8 +26085,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_distinct_mapToDouble_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -26091,9 +26109,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_distinct_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -26119,9 +26137,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_distinct_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -26147,8 +26165,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_distinct_limit_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -26156,13 +26174,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -26178,8 +26196,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_distinct_skip_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -26209,9 +26227,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_distinct_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -26236,8 +26254,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_distinct_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -26265,8 +26283,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_distinct_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -26291,8 +26309,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_distinct_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -26316,8 +26334,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_distinct_flatMapMemberReference_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -26341,7 +26359,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_dropWhile_map_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -26395,7 +26413,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_dropWhile_mapToInt_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		int result = 0;
@@ -26421,7 +26439,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_dropWhile_mapToLong_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		long result = 0;
@@ -26447,7 +26465,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_dropWhile_mapToDouble_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		double result = 0;
@@ -26473,9 +26491,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_dropWhile_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -26503,9 +26521,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_dropWhile_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -26533,7 +26551,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_dropWhile_limit_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -26542,13 +26560,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -26566,7 +26584,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_dropWhile_skip_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -26599,9 +26617,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_dropWhile_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -26628,7 +26646,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_dropWhile_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		boolean foundAny = false;
@@ -26659,7 +26677,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_dropWhile_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -26687,7 +26705,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_dropWhile_flatMapLambda_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -26714,7 +26732,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_dropWhile_flatMapMemberReference_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -26741,7 +26759,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_takeWhile_map_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -26789,7 +26807,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sorted_takeWhile_mapToInt_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -26812,7 +26830,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sorted_takeWhile_mapToLong_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -26835,7 +26853,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sorted_takeWhile_mapToDouble_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -26858,8 +26876,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_takeWhile_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -26885,8 +26903,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_takeWhile_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -26912,7 +26930,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_takeWhile_limit_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -26920,13 +26938,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -26942,7 +26960,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_takeWhile_skip_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -26972,8 +26990,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_takeWhile_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -26998,7 +27016,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_takeWhile_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -27026,7 +27044,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sorted_takeWhile_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -27051,7 +27069,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_takeWhile_flatMapLambda_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -27075,7 +27093,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_takeWhile_flatMapMemberReference_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -27099,7 +27117,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_sorted_flatMapLambda_map_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -27145,7 +27163,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_sorted_flatMapLambda_mapToInt_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -27167,7 +27185,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_sorted_flatMapLambda_mapToLong_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -27189,7 +27207,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_sorted_flatMapLambda_mapToDouble_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -27211,8 +27229,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_flatMapLambda_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T1> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T1> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -27237,8 +27255,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_flatMapLambda_sortedComp_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -27263,7 +27281,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_flatMapLambda_limit_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -27271,14 +27289,17 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -27292,7 +27313,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_flatMapLambda_skip_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -27321,8 +27342,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_flatMapLambda_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T1> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -27346,7 +27367,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_flatMapLambda_dropWhile_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -27373,7 +27394,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sorted_flatMapLambda_takeWhile_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -27397,7 +27418,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_sorted_flatMapLambda_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -27420,7 +27441,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_sorted_flatMapLambda_flatMapMemberReference_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T2> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -27443,7 +27464,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_sorted_flatMapMemberReference_map_reduceOptional(Collection<T0> input, Function<T1, T2> arg0,  BinaryOperator<T2> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -27489,7 +27510,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalInt stream_sorted_flatMapMemberReference_mapToInt_reduceOptional(Collection<T0> input, ToIntFunction<T1> arg0, IntBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -27511,7 +27532,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalLong stream_sorted_flatMapMemberReference_mapToLong_reduceOptional(Collection<T0> input, ToLongFunction<T1> arg0, LongBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -27533,7 +27554,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalDouble stream_sorted_flatMapMemberReference_mapToDouble_reduceOptional(Collection<T0> input, ToDoubleFunction<T1> arg0, DoubleBinaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -27555,8 +27576,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_flatMapMemberReference_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T1> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T1> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -27581,8 +27602,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_flatMapMemberReference_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -27607,7 +27628,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_flatMapMemberReference_limit_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -27615,14 +27636,17 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -27636,7 +27660,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_flatMapMemberReference_skip_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -27665,8 +27689,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_flatMapMemberReference_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T1> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -27690,7 +27714,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_flatMapMemberReference_dropWhile_reduceOptional(Collection<T0> input, Predicate<T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -27717,7 +27741,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sorted_flatMapMemberReference_takeWhile_reduceOptional(Collection<T0> input, Predicate<T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -27741,7 +27765,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_sorted_flatMapMemberReference_flatMapLambda_reduceOptional(Collection<T0> input, Function<T1, Collection<T2>> arg0,  BinaryOperator<T2> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -27764,7 +27788,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> Optional<T2> stream_sorted_flatMapMemberReference_flatMapMemberReference_reduceOptional(Collection<T0> input,  BinaryOperator<T2> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -27787,7 +27811,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_sortedComp_map_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Function<T1, T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -27831,7 +27855,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_sortedComp_map_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -27852,7 +27876,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_sortedComp_map_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToLongFunction<T1> arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -27873,7 +27897,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_sortedComp_map_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -27894,8 +27918,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_map_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T1> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -27919,8 +27943,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_map_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Comparator<? super T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T1> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T1> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -27944,7 +27968,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_map_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, long arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -27952,13 +27976,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			T1 t1 = arg1.apply(t0);
 			limit0++;
 			if (!foundAny) {
@@ -27972,7 +27996,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_map_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, long arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -28000,8 +28024,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_map_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T1> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -28024,7 +28048,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_map_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -28050,7 +28074,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_map_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Predicate<T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -28073,7 +28097,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_sortedComp_map_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, Function<T1, Collection<T2>> arg2,  BinaryOperator<T2> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -28095,7 +28119,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_sortedComp_map_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T2> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -28296,13 +28320,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if (!arg1.test(t0)) {
 				continue;
 			}
@@ -28475,7 +28499,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_mapToInt_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -28519,7 +28543,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_mapToInt_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntToLongFunction arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -28540,7 +28564,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_mapToInt_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntToDoubleFunction arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -28561,7 +28585,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_sortedComp_mapToInt_mapToObj_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntFunction<T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -28582,7 +28606,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Integer> stream_sortedComp_mapToInt_boxed_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1,  BinaryOperator<Integer> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Integer result = null;
 		for (T0 t0: input) {
@@ -28603,8 +28627,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_mapToInt_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<Integer> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -28628,7 +28652,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_mapToInt_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, long arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -28636,13 +28660,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
 			if (!foundAny) {
@@ -28656,7 +28680,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_mapToInt_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, long arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -28684,8 +28708,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_mapToInt_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<Integer> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -28708,7 +28732,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_mapToInt_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		int result = 0;
@@ -28734,7 +28758,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_mapToInt_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -28757,7 +28781,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_mapToLong_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -28801,7 +28825,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_mapToLong_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongToIntFunction arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -28822,7 +28846,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_mapToLong_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongToDoubleFunction arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -28843,7 +28867,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_sortedComp_mapToLong_mapToObj_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongFunction<T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -28864,7 +28888,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Long> stream_sortedComp_mapToLong_boxed_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1,  BinaryOperator<Long> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Long result = null;
 		for (T0 t0: input) {
@@ -28885,8 +28909,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_mapToLong_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<Long> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -28910,7 +28934,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_mapToLong_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, long arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -28918,13 +28942,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
 			if (!foundAny) {
@@ -28938,7 +28962,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_mapToLong_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, long arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -28966,8 +28990,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_mapToLong_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<Long> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -28990,7 +29014,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_mapToLong_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		long result = 0;
@@ -29016,7 +29040,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_mapToLong_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -29039,7 +29063,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_mapToDouble_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -29083,7 +29107,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_mapToDouble_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -29104,7 +29128,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_mapToDouble_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -29125,7 +29149,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_sortedComp_mapToDouble_mapToObj_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleFunction<T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -29146,7 +29170,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Double> stream_sortedComp_mapToDouble_boxed_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1,  BinaryOperator<Double> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		Double result = null;
 		for (T0 t0: input) {
@@ -29167,8 +29191,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_mapToDouble_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<Double> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -29192,7 +29216,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_mapToDouble_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, long arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -29200,13 +29224,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
 			if (!foundAny) {
@@ -29220,7 +29244,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_mapToDouble_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, long arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -29248,8 +29272,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_mapToDouble_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<Double> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -29272,7 +29296,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_mapToDouble_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		double result = 0;
@@ -29298,7 +29322,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_mapToDouble_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -29321,8 +29345,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_sorted_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -29373,8 +29397,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_sorted_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -29398,8 +29422,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_sorted_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -29423,8 +29447,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_sorted_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -29448,9 +29472,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sorted_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -29477,9 +29501,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sorted_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -29506,8 +29530,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sorted_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -29515,9 +29539,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -29526,6 +29547,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -29538,8 +29562,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sorted_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -29570,9 +29594,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sorted_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -29598,8 +29622,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sorted_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -29628,8 +29652,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sorted_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -29655,8 +29679,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_sorted_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -29681,8 +29705,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_sorted_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -29707,8 +29731,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_sortedComp_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -29759,8 +29783,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_sortedComp_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -29784,8 +29808,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_sortedComp_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -29809,8 +29833,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_sortedComp_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -29834,9 +29858,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sortedComp_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -29863,9 +29887,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sortedComp_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Comparator<? super T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
-		List<T0> sortedComp2 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
+		List<T0> sortedComp2 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -29892,8 +29916,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sortedComp_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, long arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -29901,9 +29925,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
@@ -29912,6 +29933,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp1.sort(arg1);
 		for (T0 t0: sortedComp1) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -29924,8 +29948,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sortedComp_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, long arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -29956,9 +29980,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sortedComp_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -29984,8 +30008,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sortedComp_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -30014,8 +30038,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_sortedComp_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -30041,8 +30065,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_sortedComp_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -30067,8 +30091,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_sortedComp_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -30093,7 +30117,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_limit_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30101,13 +30125,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			T1 t1 = arg2.apply(t0);
 			if (!foundAny) {
@@ -30129,13 +30153,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!arg2.test(t0)) {
 				continue;
@@ -30151,7 +30175,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_limit_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToIntFunction<T0> arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30159,13 +30183,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			int t1 = arg2.applyAsInt(t0);
 			if (!foundAny) {
@@ -30179,7 +30203,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_limit_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToLongFunction<T0> arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30187,13 +30211,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			long t1 = arg2.applyAsLong(t0);
 			if (!foundAny) {
@@ -30207,7 +30231,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_limit_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToDoubleFunction<T0> arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30215,13 +30239,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			double t1 = arg2.applyAsDouble(t0);
 			if (!foundAny) {
@@ -30235,22 +30259,22 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_limit_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			sorted0.add(t0);
 		}
@@ -30267,22 +30291,22 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_limit_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Comparator<? super T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			sortedComp1.add(t0);
 		}
@@ -30299,7 +30323,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_limit_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, long arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30311,16 +30335,16 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
+			sortedComp0.add(t0);
+		}
+		sortedComp0.sort(arg0);
+		for (T0 t0: sortedComp0) {
 			if(limit0 >= arg1) {
 				break;
 			}
 			if(limit1 >= arg2) {
 				break;
 			}
-			sortedComp0.add(t0);
-		}
-		sortedComp0.sort(arg0);
-		for (T0 t0: sortedComp0) {
 			limit0++;
 			limit1++;
 			if (!foundAny) {
@@ -30334,7 +30358,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_limit_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, long arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30346,13 +30370,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			skip0++;
 			if(skip0 <= arg2) {
@@ -30369,22 +30393,22 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_limit_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if(!distinct0.add(t0)) {
 				continue;
@@ -30400,7 +30424,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_limit_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30409,13 +30433,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if(dropWhile0 && arg2.test(t0)) {
 				continue;
@@ -30433,7 +30457,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_limit_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30441,13 +30465,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if(!arg2.test(t0)) {
 				break;
@@ -30463,7 +30487,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_limit_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, Collection<T1>> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30471,13 +30495,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			for (T1 t1 : arg2.apply(t0)) {
 				if (!foundAny) {
@@ -30492,7 +30516,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_limit_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30500,13 +30524,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			for (T1 t1 : t0) {
 				if (!foundAny) {
@@ -30521,7 +30545,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_skip_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30579,7 +30603,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_skip_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToIntFunction<T0> arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30607,7 +30631,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_skip_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToLongFunction<T0> arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30635,7 +30659,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_skip_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToDoubleFunction<T0> arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30663,12 +30687,12 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_skip_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -30695,12 +30719,12 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_skip_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Comparator<? super T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -30727,7 +30751,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_skip_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, long arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30739,13 +30763,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			skip0++;
 			if(skip0 <= arg1) {
 				continue;
@@ -30762,7 +30786,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_skip_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, long arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30797,12 +30821,12 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_skip_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -30828,7 +30852,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_skip_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30861,7 +30885,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_skip_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30891,7 +30915,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_skip_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1, Function<T0, Collection<T1>> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30920,7 +30944,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_skip_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -30949,8 +30973,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_distinct_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -30999,8 +31023,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_distinct_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -31023,8 +31047,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_distinct_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -31047,8 +31071,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_distinct_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -31071,9 +31095,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_distinct_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -31099,9 +31123,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_distinct_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -31127,8 +31151,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_distinct_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -31136,13 +31160,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -31158,8 +31182,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_distinct_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -31189,9 +31213,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_distinct_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -31216,8 +31240,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_distinct_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -31245,8 +31269,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_distinct_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -31271,8 +31295,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_distinct_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -31296,8 +31320,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_distinct_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -31321,7 +31345,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_dropWhile_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -31375,7 +31399,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_dropWhile_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		int result = 0;
@@ -31401,7 +31425,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_dropWhile_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		long result = 0;
@@ -31427,7 +31451,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_dropWhile_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		double result = 0;
@@ -31453,9 +31477,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_dropWhile_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -31483,9 +31507,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_dropWhile_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -31513,7 +31537,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_dropWhile_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, long arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -31522,13 +31546,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(dropWhile0 && arg1.test(t0)) {
 				continue;
 			} else {
@@ -31546,7 +31570,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_dropWhile_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, long arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
@@ -31579,9 +31603,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_dropWhile_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -31608,7 +31632,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_dropWhile_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		boolean foundAny = false;
@@ -31639,7 +31663,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_dropWhile_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -31667,7 +31691,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_dropWhile_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -31694,7 +31718,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_dropWhile_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -31721,7 +31745,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_takeWhile_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -31769,7 +31793,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_sortedComp_takeWhile_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -31792,7 +31816,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_sortedComp_takeWhile_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -31815,7 +31839,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_sortedComp_takeWhile_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -31838,8 +31862,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_takeWhile_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -31865,8 +31889,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_takeWhile_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -31892,7 +31916,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_takeWhile_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, long arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -31900,13 +31924,13 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			if(!arg1.test(t0)) {
 				break;
 			}
@@ -31922,7 +31946,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_takeWhile_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, long arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -31952,8 +31976,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_takeWhile_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -31978,7 +32002,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_takeWhile_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -32006,7 +32030,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_sortedComp_takeWhile_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -32031,7 +32055,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_takeWhile_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, Function<T0, Collection<T1>> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -32055,7 +32079,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_takeWhile_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -32079,7 +32103,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_sortedComp_flatMapLambda_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -32125,7 +32149,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_sortedComp_flatMapLambda_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -32147,7 +32171,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_sortedComp_flatMapLambda_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -32169,7 +32193,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_sortedComp_flatMapLambda_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -32191,8 +32215,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_flatMapLambda_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T1> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -32217,8 +32241,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_flatMapLambda_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T1> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T1> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -32243,7 +32267,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_flatMapLambda_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, long arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -32251,14 +32275,17 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -32272,7 +32299,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_flatMapLambda_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, long arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -32301,8 +32328,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_flatMapLambda_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T1> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -32326,7 +32353,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_flatMapLambda_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -32353,7 +32380,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_sortedComp_flatMapLambda_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Predicate<T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -32377,7 +32404,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_sortedComp_flatMapLambda_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, Function<T1, Collection<T2>> arg2,  BinaryOperator<T2> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -32400,7 +32427,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_sortedComp_flatMapLambda_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T2> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -32423,7 +32450,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_sortedComp_flatMapMemberReference_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -32469,7 +32496,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalInt stream_sortedComp_flatMapMemberReference_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -32491,7 +32518,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalLong stream_sortedComp_flatMapMemberReference_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -32513,7 +32540,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalDouble stream_sortedComp_flatMapMemberReference_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -32535,8 +32562,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_flatMapMemberReference_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T1> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -32561,8 +32588,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_flatMapMemberReference_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T1> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T1> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -32587,7 +32614,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_flatMapMemberReference_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -32595,14 +32622,17 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -32616,7 +32646,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_flatMapMemberReference_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -32645,8 +32675,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_flatMapMemberReference_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T1> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -32670,7 +32700,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_flatMapMemberReference_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -32697,7 +32727,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_sortedComp_flatMapMemberReference_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -32721,7 +32751,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_sortedComp_flatMapMemberReference_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -32744,7 +32774,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> Optional<T2> stream_sortedComp_flatMapMemberReference_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T2> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -32893,7 +32923,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -32921,7 +32951,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -33011,7 +33041,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -33689,7 +33719,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -33779,7 +33809,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -34007,7 +34037,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -34097,7 +34127,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -34325,7 +34355,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -34415,7 +34445,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -34497,7 +34527,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -34555,7 +34585,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -34583,7 +34613,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -34611,7 +34641,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -34639,8 +34669,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -34671,8 +34701,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -34703,7 +34733,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -34714,14 +34744,14 @@ public class ForeachStreamReduceOptional {
 			if(limit0 >= arg0) {
 				break;
 			}
-			if(limit1 >= arg1) {
-				break;
-			}
 			limit0++;
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit1 >= arg1) {
+				break;
+			}
 			limit1++;
 			if (!foundAny) {
 				foundAny = true;
@@ -34738,7 +34768,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -34773,8 +34803,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -34804,7 +34834,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -34837,7 +34867,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -34867,7 +34897,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -34896,7 +34926,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -34925,7 +34955,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -34983,7 +35013,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -35011,7 +35041,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -35039,7 +35069,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -35067,8 +35097,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -35099,8 +35129,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -35131,7 +35161,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -35142,14 +35172,14 @@ public class ForeachStreamReduceOptional {
 			if(limit0 >= arg0) {
 				break;
 			}
-			if(limit1 >= arg2) {
-				break;
-			}
 			limit0++;
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit1 >= arg2) {
+				break;
+			}
 			limit1++;
 			if (!foundAny) {
 				foundAny = true;
@@ -35166,7 +35196,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -35201,8 +35231,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -35232,7 +35262,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -35265,7 +35295,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -35295,7 +35325,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -35324,7 +35354,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -35514,7 +35544,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit1 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -35549,7 +35579,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit1 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -35660,7 +35690,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit1 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -35984,7 +36014,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -36019,7 +36049,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -36130,7 +36160,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -36293,7 +36323,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -36349,7 +36379,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -36376,7 +36406,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -36403,7 +36433,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -36430,8 +36460,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -36461,8 +36491,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -36492,7 +36522,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -36526,7 +36556,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -36560,8 +36590,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -36590,7 +36620,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -36622,7 +36652,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -36651,7 +36681,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -36679,7 +36709,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -36855,7 +36885,7 @@ public class ForeachStreamReduceOptional {
 		}
 		long limit0 = 0;
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -36888,7 +36918,7 @@ public class ForeachStreamReduceOptional {
 		}
 		long limit0 = 0;
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -36993,7 +37023,7 @@ public class ForeachStreamReduceOptional {
 		}
 		long limit0 = 0;
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -37281,7 +37311,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -37311,7 +37341,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -37407,7 +37437,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -37676,7 +37706,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -37705,7 +37735,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -37749,6 +37779,9 @@ public class ForeachStreamReduceOptional {
 			}
 			limit0++;
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit1 >= arg2) {
+					break;
+				}
 				limit1++;
 				if (!foundAny) {
 					foundAny = true;
@@ -37798,7 +37831,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -38062,7 +38095,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -38091,7 +38124,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -38135,6 +38168,9 @@ public class ForeachStreamReduceOptional {
 			}
 			limit0++;
 			for (T1 t1 : t0) {
+				if(limit1 >= arg1) {
+					break;
+				}
 				limit1++;
 				if (!foundAny) {
 					foundAny = true;
@@ -38184,7 +38220,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -38443,7 +38479,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -38471,7 +38507,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -38561,7 +38597,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -39239,7 +39275,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -39329,7 +39365,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -39557,7 +39593,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -39647,7 +39683,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -39875,7 +39911,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -39965,7 +40001,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -40047,7 +40083,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -40105,7 +40141,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -40133,7 +40169,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -40161,7 +40197,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -40189,8 +40225,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -40221,8 +40257,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -40253,7 +40289,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -40261,9 +40297,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -40272,6 +40305,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -40288,7 +40324,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -40323,8 +40359,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -40354,7 +40390,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -40387,7 +40423,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -40417,7 +40453,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -40446,7 +40482,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -40475,7 +40511,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -40533,7 +40569,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -40561,7 +40597,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -40589,7 +40625,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -40617,8 +40653,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -40649,8 +40685,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -40681,7 +40717,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -40689,9 +40725,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			skip0++;
 			if(skip0 <= arg0) {
 				continue;
@@ -40700,6 +40733,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -40716,7 +40752,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -40751,8 +40787,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -40782,7 +40818,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -40815,7 +40851,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -40845,7 +40881,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -40874,7 +40910,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -41064,7 +41100,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -41099,7 +41135,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -41210,7 +41246,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -41534,7 +41570,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip1 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -41569,7 +41605,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip1 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -41680,7 +41716,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip1 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -41843,7 +41879,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -41899,7 +41935,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -41926,7 +41962,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -41953,7 +41989,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -41980,8 +42016,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -42011,8 +42047,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -42042,7 +42078,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -42076,7 +42112,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -42110,8 +42146,8 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -42140,7 +42176,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -42172,7 +42208,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -42201,7 +42237,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -42229,7 +42265,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -42405,7 +42441,7 @@ public class ForeachStreamReduceOptional {
 		}
 		long skip0 = 0;
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -42438,7 +42474,7 @@ public class ForeachStreamReduceOptional {
 		}
 		long skip0 = 0;
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -42543,7 +42579,7 @@ public class ForeachStreamReduceOptional {
 		}
 		long skip0 = 0;
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -42831,7 +42867,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -42861,7 +42897,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -42957,7 +42993,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -43226,7 +43262,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -43255,7 +43291,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -43299,6 +43335,9 @@ public class ForeachStreamReduceOptional {
 				continue;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -43348,7 +43387,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -43612,7 +43651,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -43641,7 +43680,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -43685,6 +43724,9 @@ public class ForeachStreamReduceOptional {
 				continue;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -43734,7 +43776,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -43867,7 +43909,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_distinct_map_map_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -43909,7 +43951,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_distinct_map_mapToInt_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -43929,7 +43971,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_distinct_map_mapToLong_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -43949,7 +43991,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_distinct_map_mapToDouble_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -43969,8 +44011,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_map_sorted_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T1> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -43993,8 +44035,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_map_sortedComp_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T1> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -44017,7 +44059,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_map_limit_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -44044,7 +44086,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_map_skip_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -44071,8 +44113,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_map_distinct_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T1> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T1> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -44094,7 +44136,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_map_dropWhile_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -44119,7 +44161,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_map_takeWhile_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -44141,7 +44183,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_distinct_map_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, T1> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -44162,7 +44204,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_distinct_map_flatMapMemberReference_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T2> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -44527,7 +44569,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_mapToInt_map_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -44569,7 +44611,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_mapToInt_mapToLong_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -44589,7 +44631,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_mapToInt_mapToDouble_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -44609,7 +44651,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_distinct_mapToInt_mapToObj_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -44629,7 +44671,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Integer> stream_distinct_mapToInt_boxed_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0,  BinaryOperator<Integer> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		Integer result = null;
 		for (T0 t0: input) {
@@ -44649,8 +44691,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_mapToInt_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<Integer> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -44673,7 +44715,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_mapToInt_limit_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -44700,7 +44742,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_mapToInt_skip_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, long arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -44727,8 +44769,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_mapToInt_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<Integer> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<Integer> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -44750,7 +44792,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_mapToInt_dropWhile_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		int result = 0;
@@ -44775,7 +44817,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_mapToInt_takeWhile_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -44797,7 +44839,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_mapToLong_map_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -44839,7 +44881,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_mapToLong_mapToInt_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -44859,7 +44901,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_mapToLong_mapToDouble_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -44879,7 +44921,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_distinct_mapToLong_mapToObj_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -44899,7 +44941,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Long> stream_distinct_mapToLong_boxed_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0,  BinaryOperator<Long> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		Long result = null;
 		for (T0 t0: input) {
@@ -44919,8 +44961,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_mapToLong_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<Long> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -44943,7 +44985,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_mapToLong_limit_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -44970,7 +45012,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_mapToLong_skip_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, long arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -44997,8 +45039,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_mapToLong_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<Long> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<Long> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -45020,7 +45062,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_mapToLong_dropWhile_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		long result = 0;
@@ -45045,7 +45087,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_mapToLong_takeWhile_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -45067,7 +45109,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_mapToDouble_map_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -45109,7 +45151,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_mapToDouble_mapToInt_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -45129,7 +45171,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_mapToDouble_mapToLong_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -45149,7 +45191,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T2> Optional<T2> stream_distinct_mapToDouble_mapToObj_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleFunction<T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -45169,7 +45211,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<Double> stream_distinct_mapToDouble_boxed_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0,  BinaryOperator<Double> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		Double result = null;
 		for (T0 t0: input) {
@@ -45189,8 +45231,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_mapToDouble_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<Double> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -45213,7 +45255,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_mapToDouble_limit_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -45240,7 +45282,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_mapToDouble_skip_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -45267,8 +45309,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_mapToDouble_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<Double> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<Double> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -45290,7 +45332,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_mapToDouble_dropWhile_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		double result = 0;
@@ -45315,7 +45357,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_mapToDouble_takeWhile_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -45337,8 +45379,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_sorted_map_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -45387,8 +45429,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_sorted_mapToInt_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -45411,8 +45453,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_sorted_mapToLong_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -45435,8 +45477,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_sorted_mapToDouble_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -45459,9 +45501,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sorted_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -45487,9 +45529,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sorted_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -45515,8 +45557,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sorted_limit_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -45524,9 +45566,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -45534,6 +45573,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -45546,8 +45588,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sorted_skip_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -45577,9 +45619,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sorted_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -45604,8 +45646,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sorted_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -45633,8 +45675,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sorted_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -45659,8 +45701,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_sorted_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -45684,8 +45726,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_sorted_flatMapMemberReference_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -45709,8 +45751,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_sortedComp_map_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -45759,8 +45801,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_sortedComp_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -45783,8 +45825,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_sortedComp_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -45807,8 +45849,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_sortedComp_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -45831,9 +45873,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sortedComp_sorted_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -45859,9 +45901,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sortedComp_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -45887,8 +45929,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sortedComp_limit_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -45896,9 +45938,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			if(!distinct0.add(t0)) {
 				continue;
 			}
@@ -45906,6 +45945,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -45918,8 +45960,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sortedComp_skip_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -45949,9 +45991,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sortedComp_distinct_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -45976,8 +46018,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sortedComp_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -46005,8 +46047,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_sortedComp_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -46031,8 +46073,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_sortedComp_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -46056,8 +46098,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_sortedComp_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -46081,7 +46123,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_limit_map_reduceOptional(Collection<T0> input, long arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46137,7 +46179,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_limit_mapToInt_reduceOptional(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46164,7 +46206,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_limit_mapToLong_reduceOptional(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46191,7 +46233,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_limit_mapToDouble_reduceOptional(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46218,12 +46260,12 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_limit_sorted_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -46249,12 +46291,12 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_limit_sortedComp_reduceOptional(Collection<T0> input, long arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -46280,7 +46322,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_limit_limit_reduceOptional(Collection<T0> input, long arg0, long arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46314,7 +46356,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_limit_skip_reduceOptional(Collection<T0> input, long arg0, long arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46348,12 +46390,12 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_limit_distinct_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -46378,7 +46420,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_limit_dropWhile_reduceOptional(Collection<T0> input, long arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46410,7 +46452,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_limit_takeWhile_reduceOptional(Collection<T0> input, long arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46439,7 +46481,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_limit_flatMapLambda_reduceOptional(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46467,7 +46509,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_limit_flatMapMemberReference_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46495,7 +46537,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_skip_map_reduceOptional(Collection<T0> input, long arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46551,7 +46593,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_skip_mapToInt_reduceOptional(Collection<T0> input, long arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46578,7 +46620,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_skip_mapToLong_reduceOptional(Collection<T0> input, long arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46605,7 +46647,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_skip_mapToDouble_reduceOptional(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46632,12 +46674,12 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_skip_sorted_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -46663,12 +46705,12 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_skip_sortedComp_reduceOptional(Collection<T0> input, long arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -46694,7 +46736,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_skip_limit_reduceOptional(Collection<T0> input, long arg0, long arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46728,7 +46770,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_skip_skip_reduceOptional(Collection<T0> input, long arg0, long arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46762,12 +46804,12 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_skip_distinct_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -46792,7 +46834,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_skip_dropWhile_reduceOptional(Collection<T0> input, long arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46824,7 +46866,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_skip_takeWhile_reduceOptional(Collection<T0> input, long arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46853,7 +46895,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_skip_flatMapLambda_reduceOptional(Collection<T0> input, long arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46881,7 +46923,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_skip_flatMapMemberReference_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -46909,8 +46951,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_distinct_map_reduceOptional(Collection<T0> input, Function<T0, T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -46957,8 +46999,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_distinct_mapToInt_reduceOptional(Collection<T0> input, ToIntFunction<T0> arg0, IntBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -46980,8 +47022,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_distinct_mapToLong_reduceOptional(Collection<T0> input, ToLongFunction<T0> arg0, LongBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -47003,8 +47045,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_distinct_mapToDouble_reduceOptional(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -47026,9 +47068,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_distinct_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -47053,9 +47095,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_distinct_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -47080,8 +47122,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_distinct_limit_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -47110,8 +47152,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_distinct_skip_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -47140,9 +47182,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_distinct_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
-		Set<T0> distinct2 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
+		Set<T0> distinct2 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -47166,8 +47208,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_distinct_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -47194,8 +47236,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_distinct_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -47219,8 +47261,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_distinct_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -47243,8 +47285,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_distinct_flatMapMemberReference_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -47267,7 +47309,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_dropWhile_map_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -47319,7 +47361,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_dropWhile_mapToInt_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		int result = 0;
@@ -47344,7 +47386,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_dropWhile_mapToLong_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		long result = 0;
@@ -47369,7 +47411,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_dropWhile_mapToDouble_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		double result = 0;
@@ -47394,9 +47436,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_dropWhile_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -47423,9 +47465,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_dropWhile_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -47452,7 +47494,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_dropWhile_limit_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -47484,7 +47526,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_dropWhile_skip_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
@@ -47516,9 +47558,9 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_dropWhile_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -47544,7 +47586,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_dropWhile_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
 		boolean foundAny = false;
@@ -47574,7 +47616,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_dropWhile_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -47601,7 +47643,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_dropWhile_flatMapLambda_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -47627,7 +47669,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_dropWhile_flatMapMemberReference_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -47653,7 +47695,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_takeWhile_map_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -47699,7 +47741,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_distinct_takeWhile_mapToInt_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -47721,7 +47763,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_distinct_takeWhile_mapToLong_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -47743,7 +47785,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_distinct_takeWhile_mapToDouble_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -47765,8 +47807,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_takeWhile_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -47791,8 +47833,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_takeWhile_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -47817,7 +47859,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_takeWhile_limit_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -47846,7 +47888,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_takeWhile_skip_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -47875,8 +47917,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_takeWhile_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -47900,7 +47942,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_takeWhile_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -47927,7 +47969,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_distinct_takeWhile_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -47951,7 +47993,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_takeWhile_flatMapLambda_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -47974,7 +48016,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_takeWhile_flatMapMemberReference_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -47997,7 +48039,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_distinct_flatMapLambda_map_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -48041,7 +48083,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_distinct_flatMapLambda_mapToInt_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -48062,7 +48104,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_distinct_flatMapLambda_mapToLong_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -48083,7 +48125,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_distinct_flatMapLambda_mapToDouble_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -48104,8 +48146,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_flatMapLambda_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T1> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -48129,8 +48171,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_flatMapLambda_sortedComp_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T1> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -48154,7 +48196,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_flatMapLambda_limit_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -48169,6 +48211,9 @@ public class ForeachStreamReduceOptional {
 				continue;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -48182,7 +48227,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_flatMapLambda_skip_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -48210,8 +48255,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_flatMapLambda_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T1> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T1> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -48234,7 +48279,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_flatMapLambda_dropWhile_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -48260,7 +48305,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_distinct_flatMapLambda_takeWhile_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -48283,7 +48328,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_distinct_flatMapLambda_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -48305,7 +48350,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_distinct_flatMapLambda_flatMapMemberReference_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T2> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -48327,7 +48372,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_distinct_flatMapMemberReference_map_reduceOptional(Collection<T0> input, Function<T1, T2> arg0,  BinaryOperator<T2> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -48371,7 +48416,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalInt stream_distinct_flatMapMemberReference_mapToInt_reduceOptional(Collection<T0> input, ToIntFunction<T1> arg0, IntBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -48392,7 +48437,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalLong stream_distinct_flatMapMemberReference_mapToLong_reduceOptional(Collection<T0> input, ToLongFunction<T1> arg0, LongBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -48413,7 +48458,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalDouble stream_distinct_flatMapMemberReference_mapToDouble_reduceOptional(Collection<T0> input, ToDoubleFunction<T1> arg0, DoubleBinaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -48434,8 +48479,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_flatMapMemberReference_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T1> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -48459,8 +48504,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_flatMapMemberReference_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T1> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -48484,7 +48529,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_flatMapMemberReference_limit_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -48499,6 +48544,9 @@ public class ForeachStreamReduceOptional {
 				continue;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -48512,7 +48560,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_flatMapMemberReference_skip_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -48540,8 +48588,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_flatMapMemberReference_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T1> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T1> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -48564,7 +48612,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_flatMapMemberReference_dropWhile_reduceOptional(Collection<T0> input, Predicate<T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -48590,7 +48638,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_distinct_flatMapMemberReference_takeWhile_reduceOptional(Collection<T0> input, Predicate<T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -48613,7 +48661,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_distinct_flatMapMemberReference_flatMapLambda_reduceOptional(Collection<T0> input, Function<T1, Collection<T2>> arg0,  BinaryOperator<T2> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -48635,7 +48683,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> Optional<T2> stream_distinct_flatMapMemberReference_flatMapMemberReference_reduceOptional(Collection<T0> input,  BinaryOperator<T2> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -48770,7 +48818,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_dropWhile_map_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -48796,7 +48844,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_dropWhile_map_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Comparator<? super T1> arg2,  BinaryOperator<T1> arg3) {
 		boolean dropWhile0 = true;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -48880,7 +48928,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_dropWhile_map_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -49508,7 +49556,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalInt stream_dropWhile_mapToInt_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -49592,7 +49640,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalInt stream_dropWhile_mapToInt_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -49802,7 +49850,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalLong stream_dropWhile_mapToLong_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -49886,7 +49934,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalLong stream_dropWhile_mapToLong_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -50096,7 +50144,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalDouble stream_dropWhile_mapToDouble_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -50180,7 +50228,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalDouble stream_dropWhile_mapToDouble_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -50256,7 +50304,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_dropWhile_sorted_map_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -50310,7 +50358,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalInt stream_dropWhile_sorted_mapToInt_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -50336,7 +50384,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalLong stream_dropWhile_sorted_mapToLong_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -50362,7 +50410,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalDouble stream_dropWhile_sorted_mapToDouble_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -50388,8 +50436,8 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sorted_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -50418,8 +50466,8 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sorted_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -50448,7 +50496,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sorted_limit_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -50456,9 +50504,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -50468,6 +50513,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -50481,7 +50529,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sorted_skip_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -50514,8 +50562,8 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sorted_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -50543,7 +50591,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sorted_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile1 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -50574,7 +50622,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sorted_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -50602,7 +50650,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_dropWhile_sorted_flatMapLambda_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -50629,7 +50677,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_dropWhile_sorted_flatMapMemberReference_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T1> arg1) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -50656,7 +50704,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_dropWhile_sortedComp_map_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2,  BinaryOperator<T1> arg3) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -50710,7 +50758,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalInt stream_dropWhile_sortedComp_mapToInt_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2, IntBinaryOperator arg3) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -50736,7 +50784,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalLong stream_dropWhile_sortedComp_mapToLong_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2, LongBinaryOperator arg3) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -50762,7 +50810,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalDouble stream_dropWhile_sortedComp_mapToDouble_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2, DoubleBinaryOperator arg3) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -50788,8 +50836,8 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sortedComp_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -50818,8 +50866,8 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sortedComp_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Comparator<? super T0> arg2,  BinaryOperator<T0> arg3) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -50848,7 +50896,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sortedComp_limit_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, long arg2,  BinaryOperator<T0> arg3) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -50856,9 +50904,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			if(dropWhile0 && arg0.test(t0)) {
 				continue;
 			} else {
@@ -50868,6 +50913,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -50881,7 +50929,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sortedComp_skip_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, long arg2,  BinaryOperator<T0> arg3) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -50914,8 +50962,8 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sortedComp_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -50943,7 +50991,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sortedComp_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile1 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -50974,7 +51022,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_sortedComp_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -51002,7 +51050,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_dropWhile_sortedComp_flatMapLambda_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2,  BinaryOperator<T1> arg3) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -51029,7 +51077,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_dropWhile_sortedComp_flatMapMemberReference_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -51207,7 +51255,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -51240,7 +51288,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -51345,7 +51393,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -51649,7 +51697,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -51682,7 +51730,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -51787,7 +51835,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -51940,7 +51988,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_dropWhile_distinct_map_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -51992,7 +52040,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalInt stream_dropWhile_distinct_mapToInt_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -52017,7 +52065,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalLong stream_dropWhile_distinct_mapToLong_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -52042,7 +52090,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> OptionalDouble stream_dropWhile_distinct_mapToDouble_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -52067,8 +52115,8 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_distinct_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -52096,8 +52144,8 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_distinct_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -52125,7 +52173,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_distinct_limit_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -52157,7 +52205,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_distinct_skip_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -52189,8 +52237,8 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_distinct_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -52217,7 +52265,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_distinct_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile1 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -52247,7 +52295,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_distinct_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -52274,7 +52322,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_dropWhile_distinct_flatMapLambda_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -52300,7 +52348,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_dropWhile_distinct_flatMapMemberReference_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T1> arg1) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -52464,7 +52512,7 @@ public class ForeachStreamReduceOptional {
 	public static <T0> Optional<T0> stream_dropWhile_dropWhile_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -52495,7 +52543,7 @@ public class ForeachStreamReduceOptional {
 	public static <T0> Optional<T0> stream_dropWhile_dropWhile_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2,  BinaryOperator<T0> arg3) {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -52594,7 +52642,7 @@ public class ForeachStreamReduceOptional {
 	public static <T0> Optional<T0> stream_dropWhile_dropWhile_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
 		boolean dropWhile1 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -52862,7 +52910,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_takeWhile_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -52890,7 +52938,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_takeWhile_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2,  BinaryOperator<T0> arg3) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -52980,7 +53028,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_dropWhile_takeWhile_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -53229,7 +53277,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_dropWhile_flatMapLambda_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -53256,7 +53304,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_dropWhile_flatMapLambda_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2,  BinaryOperator<T1> arg3) {
 		boolean dropWhile0 = true;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -53299,6 +53347,9 @@ public class ForeachStreamReduceOptional {
 				dropWhile0 = false;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -53343,7 +53394,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_dropWhile_flatMapLambda_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -53587,7 +53638,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_dropWhile_flatMapMemberReference_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T1> arg1) {
 		boolean dropWhile0 = true;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -53614,7 +53665,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_dropWhile_flatMapMemberReference_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -53657,6 +53708,9 @@ public class ForeachStreamReduceOptional {
 				dropWhile0 = false;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -53701,7 +53755,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_dropWhile_flatMapMemberReference_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T1> arg1) {
 		boolean dropWhile0 = true;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -53924,7 +53978,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_takeWhile_map_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -53947,7 +54001,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_takeWhile_map_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1, Comparator<? super T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -54022,7 +54076,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_takeWhile_map_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -54575,7 +54629,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_takeWhile_mapToInt_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -54650,7 +54704,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_takeWhile_mapToInt_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -54833,7 +54887,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_takeWhile_mapToLong_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -54908,7 +54962,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_takeWhile_mapToLong_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -55091,7 +55145,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_takeWhile_mapToDouble_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -55166,7 +55220,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_takeWhile_mapToDouble_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -55233,7 +55287,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_takeWhile_sorted_map_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -55281,7 +55335,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_takeWhile_sorted_mapToInt_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -55304,7 +55358,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_takeWhile_sorted_mapToLong_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -55327,7 +55381,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_takeWhile_sorted_mapToDouble_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -55350,8 +55404,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sorted_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -55377,8 +55431,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sorted_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -55404,7 +55458,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sorted_limit_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -55412,9 +55466,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -55422,6 +55473,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -55434,7 +55488,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sorted_skip_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -55464,8 +55518,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sorted_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -55490,7 +55544,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sorted_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -55518,7 +55572,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sorted_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -55543,7 +55597,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_takeWhile_sorted_flatMapLambda_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -55567,7 +55621,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_takeWhile_sorted_flatMapMemberReference_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -55591,7 +55645,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_takeWhile_sortedComp_map_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -55639,7 +55693,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_takeWhile_sortedComp_mapToInt_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2, IntBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -55662,7 +55716,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_takeWhile_sortedComp_mapToLong_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2, LongBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -55685,7 +55739,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_takeWhile_sortedComp_mapToDouble_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2, DoubleBinaryOperator arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -55708,8 +55762,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sortedComp_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -55735,8 +55789,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sortedComp_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Comparator<? super T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -55762,7 +55816,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sortedComp_limit_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, long arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -55770,9 +55824,6 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			if(!arg0.test(t0)) {
 				break;
 			}
@@ -55780,6 +55831,9 @@ public class ForeachStreamReduceOptional {
 		}
 		sortedComp0.sort(arg1);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -55792,7 +55846,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sortedComp_skip_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, long arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -55822,8 +55876,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sortedComp_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -55848,7 +55902,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sortedComp_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -55876,7 +55930,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_sortedComp_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Predicate<T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -55901,7 +55955,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_takeWhile_sortedComp_flatMapLambda_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, Function<T0, Collection<T1>> arg2,  BinaryOperator<T1> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -55925,7 +55979,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_takeWhile_sortedComp_flatMapMemberReference_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -56085,7 +56139,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -56115,7 +56169,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -56211,7 +56265,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -56485,7 +56539,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -56515,7 +56569,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -56611,7 +56665,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -56749,7 +56803,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_takeWhile_distinct_map_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -56795,7 +56849,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalInt stream_takeWhile_distinct_mapToInt_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1, IntBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -56817,7 +56871,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalLong stream_takeWhile_distinct_mapToLong_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1, LongBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -56839,7 +56893,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> OptionalDouble stream_takeWhile_distinct_mapToDouble_reduceOptional(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1, DoubleBinaryOperator arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -56861,8 +56915,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_distinct_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -56887,8 +56941,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_distinct_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -56913,7 +56967,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_distinct_limit_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -56942,7 +56996,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_distinct_skip_reduceOptional(Collection<T0> input, Predicate<T0> arg0, long arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -56971,8 +57025,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_distinct_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -56996,7 +57050,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_distinct_dropWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T0 result = null;
@@ -57023,7 +57077,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_distinct_takeWhile_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -57047,7 +57101,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_takeWhile_distinct_flatMapLambda_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -57070,7 +57124,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_takeWhile_distinct_flatMapMemberReference_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -57216,7 +57270,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_takeWhile_dropWhile_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -57244,7 +57298,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_takeWhile_dropWhile_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2,  BinaryOperator<T0> arg3) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -57334,7 +57388,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0> Optional<T0> stream_takeWhile_dropWhile_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -57572,7 +57626,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_takeWhile_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -57597,7 +57651,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_takeWhile_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1, Comparator<? super T0> arg2,  BinaryOperator<T0> arg3) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -57678,7 +57732,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0> Optional<T0> stream_takeWhile_takeWhile_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Predicate<T0> arg1,  BinaryOperator<T0> arg2) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T0 result = null;
 		for (T0 t0: input) {
@@ -57897,7 +57951,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_takeWhile_flatMapLambda_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -57921,7 +57975,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_takeWhile_flatMapLambda_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1, Comparator<? super T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -57959,6 +58013,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg1.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -57999,7 +58056,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_takeWhile_flatMapLambda_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Function<T0, Collection<T1>> arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -58213,7 +58270,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_takeWhile_flatMapMemberReference_sorted_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -58237,7 +58294,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_takeWhile_flatMapMemberReference_sortedComp_reduceOptional(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -58275,6 +58332,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!foundAny) {
 					foundAny = true;
@@ -58315,7 +58375,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_takeWhile_flatMapMemberReference_distinct_reduceOptional(Collection<T0> input, Predicate<T0> arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -58519,7 +58579,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_map_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T2> sorted0 = new ArrayList<>();
+		List<T2> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -58541,7 +58601,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_map_sortedComp_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Comparator<? super T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T2> sortedComp0 = new ArrayList<>();
+		List<T2> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -58574,6 +58634,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				T2 t2 = arg1.apply(t1);
 				limit0++;
 				if (!foundAny) {
@@ -58613,7 +58676,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_map_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<T2> distinct0 = new HashSet<>();
+		Set<T2> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -58876,6 +58939,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				if (!arg1.test(t1)) {
 					continue;
 				}
@@ -59141,7 +59207,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_flatMapLambda_mapToInt_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -59174,6 +59240,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				int t2 = arg1.applyAsInt(t1);
 				limit0++;
 				if (!foundAny) {
@@ -59213,7 +59282,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_flatMapLambda_mapToInt_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -59387,7 +59456,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_flatMapLambda_mapToLong_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -59420,6 +59489,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				long t2 = arg1.applyAsLong(t1);
 				limit0++;
 				if (!foundAny) {
@@ -59459,7 +59531,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_flatMapLambda_mapToLong_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -59633,7 +59705,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_flatMapLambda_mapToDouble_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -59666,6 +59738,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				double t2 = arg1.applyAsDouble(t1);
 				limit0++;
 				if (!foundAny) {
@@ -59705,7 +59780,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_flatMapLambda_mapToDouble_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -59769,7 +59844,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_sorted_map_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -59815,7 +59890,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_flatMapLambda_sorted_mapToInt_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -59837,7 +59912,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_flatMapLambda_sorted_mapToLong_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -59859,7 +59934,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_flatMapLambda_sorted_mapToDouble_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -59881,8 +59956,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sorted_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
-		List<T1> sorted1 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
+		List<T1> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -59907,8 +59982,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sorted_sortedComp_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -59933,7 +60008,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sorted_limit_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -59941,15 +60016,15 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			for (T1 t1 : arg0.apply(t0)) {
 				sorted0.add(t1);
 			}
 		}
 		sorted0.sort(null);
 		for (T1 t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -59962,7 +60037,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sorted_skip_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -59991,8 +60066,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sorted_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
-		Set<T1> distinct0 = new HashSet<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -60016,7 +60091,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sorted_dropWhile_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -60043,7 +60118,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sorted_takeWhile_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -60067,7 +60142,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_sorted_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -60090,7 +60165,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_flatMapLambda_sorted_flatMapMemberReference_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T2> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -60113,7 +60188,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_sortedComp_map_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Function<T1, T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -60159,7 +60234,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_flatMapLambda_sortedComp_mapToInt_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToIntFunction<T1> arg2, IntBinaryOperator arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -60181,7 +60256,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_flatMapLambda_sortedComp_mapToLong_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToLongFunction<T1> arg2, LongBinaryOperator arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -60203,7 +60278,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_flatMapLambda_sortedComp_mapToDouble_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToDoubleFunction<T1> arg2, DoubleBinaryOperator arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -60225,8 +60300,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sortedComp_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -60251,8 +60326,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sortedComp_sortedComp_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Comparator<? super T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
-		List<T1> sortedComp1 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
+		List<T1> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -60277,7 +60352,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sortedComp_limit_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, long arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -60285,15 +60360,15 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			for (T1 t1 : arg0.apply(t0)) {
 				sortedComp0.add(t1);
 			}
 		}
 		sortedComp0.sort(arg1);
 		for (T1 t1: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -60306,7 +60381,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sortedComp_skip_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, long arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -60335,8 +60410,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sortedComp_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
-		Set<T1> distinct0 = new HashSet<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -60360,7 +60435,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sortedComp_dropWhile_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -60387,7 +60462,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_sortedComp_takeWhile_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Predicate<T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -60411,7 +60486,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_sortedComp_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, Function<T1, Collection<T2>> arg2,  BinaryOperator<T2> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -60434,7 +60509,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_flatMapLambda_sortedComp_flatMapMemberReference_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1,  BinaryOperator<T2> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -60468,6 +60543,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				T2 t2 = arg2.apply(t1);
 				if (!foundAny) {
@@ -60493,6 +60571,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if (!arg2.test(t1)) {
 					continue;
@@ -60520,6 +60601,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				int t2 = arg2.applyAsInt(t1);
 				if (!foundAny) {
@@ -60545,6 +60629,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				long t2 = arg2.applyAsLong(t1);
 				if (!foundAny) {
@@ -60570,6 +60657,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				double t2 = arg2.applyAsDouble(t1);
 				if (!foundAny) {
@@ -60588,7 +60678,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -60596,6 +60686,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				sorted0.add(t1);
 			}
@@ -60617,7 +60710,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -60625,6 +60718,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				sortedComp0.add(t1);
 			}
@@ -60660,6 +60756,12 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
+				if(limit1 >= arg2) {
+					break;
+				}
 				limit0++;
 				limit1++;
 				if (!foundAny) {
@@ -60689,6 +60791,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				skip0++;
 				if(skip0 <= arg2) {
@@ -60710,7 +60815,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -60718,6 +60823,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if(!distinct0.add(t1)) {
 					continue;
@@ -60746,6 +60854,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if(dropWhile0 && arg2.test(t1)) {
 					continue;
@@ -60775,6 +60886,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				if(!arg2.test(t1)) {
 					break;
@@ -60802,6 +60916,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				for (T2 t2 : arg2.apply(t1)) {
 					if (!foundAny) {
@@ -60828,6 +60945,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				for (T2 t2 : t1) {
 					if (!foundAny) {
@@ -60974,7 +61094,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -61003,7 +61123,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -61043,6 +61163,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				skip0++;
 				if(skip0 <= arg1) {
 					continue;
@@ -61096,7 +61219,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -61229,7 +61352,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_distinct_map_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -61273,7 +61396,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalInt stream_flatMapLambda_distinct_mapToInt_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -61294,7 +61417,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalLong stream_flatMapLambda_distinct_mapToLong_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -61315,7 +61438,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> OptionalDouble stream_flatMapLambda_distinct_mapToDouble_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -61336,8 +61459,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_distinct_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
-		List<T1> sorted0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -61361,8 +61484,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_distinct_sortedComp_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
-		List<T1> sortedComp0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -61386,7 +61509,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_distinct_limit_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -61398,6 +61521,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				if(!distinct0.add(t1)) {
 					continue;
 				}
@@ -61414,7 +61540,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_distinct_skip_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -61442,8 +61568,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_distinct_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
-		Set<T1> distinct1 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
+		Set<T1> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -61466,7 +61592,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_distinct_dropWhile_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -61492,7 +61618,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_distinct_takeWhile_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -61515,7 +61641,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_distinct_flatMapLambda_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -61537,7 +61663,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_flatMapLambda_distinct_flatMapMemberReference_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T2> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -61677,7 +61803,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_dropWhile_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -61704,7 +61830,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_dropWhile_sortedComp_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2,  BinaryOperator<T1> arg3) {
 		boolean dropWhile0 = true;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -61742,6 +61868,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
 				} else {
@@ -61791,7 +61920,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_dropWhile_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -62019,7 +62148,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_takeWhile_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -62043,7 +62172,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_takeWhile_sortedComp_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1, Comparator<? super T1> arg2,  BinaryOperator<T1> arg3) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -62078,6 +62207,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				if(!arg1.test(t1)) {
 					break;
 				}
@@ -62121,7 +62253,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1> Optional<T1> stream_flatMapLambda_takeWhile_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -62330,7 +62462,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_flatMapLambda_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		List<T2> sorted0 = new ArrayList<>();
+		List<T2> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -62353,7 +62485,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_flatMapLambda_sortedComp_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1, Comparator<? super T2> arg2,  BinaryOperator<T2> arg3) {
-		List<T2> sortedComp0 = new ArrayList<>();
+		List<T2> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -62387,7 +62519,13 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				for (T2 t2 : arg1.apply(t1)) {
+					if(limit0 >= arg2) {
+						break;
+					}
 					limit0++;
 					if (!foundAny) {
 						foundAny = true;
@@ -62428,7 +62566,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_flatMapLambda_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		Set<T2> distinct0 = new HashSet<>();
+		Set<T2> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -62632,7 +62770,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_flatMapLambda_flatMapMemberReference_sorted_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T2> arg1) {
-		List<T2> sorted0 = new ArrayList<>();
+		List<T2> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -62655,7 +62793,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_flatMapLambda_flatMapMemberReference_sortedComp_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T2> sortedComp0 = new ArrayList<>();
+		List<T2> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -62689,7 +62827,13 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				for (T2 t2 : t1) {
+					if(limit0 >= arg1) {
+						break;
+					}
 					limit0++;
 					if (!foundAny) {
 						foundAny = true;
@@ -62730,7 +62874,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0, T1 extends Collection<T2>, T2> Optional<T2> stream_flatMapLambda_flatMapMemberReference_distinct_reduceOptional(Collection<T0> input, Function<T0, Collection<T1>> arg0,  BinaryOperator<T2> arg1) {
-		Set<T2> distinct0 = new HashSet<>();
+		Set<T2> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -62929,7 +63073,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_flatMapMemberReference_map_sorted_reduceOptional(Collection<T0> input, Function<T1, T2> arg0,  BinaryOperator<T2> arg1) {
-		List<T2> sorted0 = new ArrayList<>();
+		List<T2> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -62951,7 +63095,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_flatMapMemberReference_map_sortedComp_reduceOptional(Collection<T0> input, Function<T1, T2> arg0, Comparator<? super T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T2> sortedComp0 = new ArrayList<>();
+		List<T2> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -62984,6 +63128,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				T2 t2 = arg0.apply(t1);
 				limit0++;
 				if (!foundAny) {
@@ -63023,7 +63170,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_flatMapMemberReference_map_distinct_reduceOptional(Collection<T0> input, Function<T1, T2> arg0,  BinaryOperator<T2> arg1) {
-		Set<T2> distinct0 = new HashSet<>();
+		Set<T2> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -63286,6 +63433,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				if (!arg0.test(t1)) {
 					continue;
 				}
@@ -63551,7 +63701,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalInt stream_flatMapMemberReference_mapToInt_sorted_reduceOptional(Collection<T0> input, ToIntFunction<T1> arg0, IntBinaryOperator arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -63584,6 +63734,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				int t2 = arg0.applyAsInt(t1);
 				limit0++;
 				if (!foundAny) {
@@ -63623,7 +63776,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalInt stream_flatMapMemberReference_mapToInt_distinct_reduceOptional(Collection<T0> input, ToIntFunction<T1> arg0, IntBinaryOperator arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -63797,7 +63950,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalLong stream_flatMapMemberReference_mapToLong_sorted_reduceOptional(Collection<T0> input, ToLongFunction<T1> arg0, LongBinaryOperator arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -63830,6 +63983,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				long t2 = arg0.applyAsLong(t1);
 				limit0++;
 				if (!foundAny) {
@@ -63869,7 +64025,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalLong stream_flatMapMemberReference_mapToLong_distinct_reduceOptional(Collection<T0> input, ToLongFunction<T1> arg0, LongBinaryOperator arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -64043,7 +64199,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalDouble stream_flatMapMemberReference_mapToDouble_sorted_reduceOptional(Collection<T0> input, ToDoubleFunction<T1> arg0, DoubleBinaryOperator arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -64076,6 +64232,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				double t2 = arg0.applyAsDouble(t1);
 				limit0++;
 				if (!foundAny) {
@@ -64115,7 +64274,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalDouble stream_flatMapMemberReference_mapToDouble_distinct_reduceOptional(Collection<T0> input, ToDoubleFunction<T1> arg0, DoubleBinaryOperator arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -64179,7 +64338,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_flatMapMemberReference_sorted_map_reduceOptional(Collection<T0> input, Function<T1, T2> arg0,  BinaryOperator<T2> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -64225,7 +64384,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalInt stream_flatMapMemberReference_sorted_mapToInt_reduceOptional(Collection<T0> input, ToIntFunction<T1> arg0, IntBinaryOperator arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -64247,7 +64406,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalLong stream_flatMapMemberReference_sorted_mapToLong_reduceOptional(Collection<T0> input, ToLongFunction<T1> arg0, LongBinaryOperator arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -64269,7 +64428,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalDouble stream_flatMapMemberReference_sorted_mapToDouble_reduceOptional(Collection<T0> input, ToDoubleFunction<T1> arg0, DoubleBinaryOperator arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -64291,8 +64450,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sorted_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		List<T1> sorted0 = new ArrayList<>();
-		List<T1> sorted1 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
+		List<T1> sorted1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -64317,8 +64476,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sorted_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -64343,7 +64502,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sorted_limit_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -64351,15 +64510,15 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				sorted0.add(t1);
 			}
 		}
 		sorted0.sort(null);
 		for (T1 t1: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -64372,7 +64531,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sorted_skip_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -64401,8 +64560,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sorted_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		List<T1> sorted0 = new ArrayList<>();
-		Set<T1> distinct0 = new HashSet<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -64426,7 +64585,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sorted_dropWhile_reduceOptional(Collection<T0> input, Predicate<T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -64453,7 +64612,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sorted_takeWhile_reduceOptional(Collection<T0> input, Predicate<T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -64477,7 +64636,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_flatMapMemberReference_sorted_flatMapLambda_reduceOptional(Collection<T0> input, Function<T1, Collection<T2>> arg0,  BinaryOperator<T2> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -64500,7 +64659,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> Optional<T2> stream_flatMapMemberReference_sorted_flatMapMemberReference_reduceOptional(Collection<T0> input,  BinaryOperator<T2> arg0) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -64523,7 +64682,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_flatMapMemberReference_sortedComp_map_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0, Function<T1, T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -64569,7 +64728,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalInt stream_flatMapMemberReference_sortedComp_mapToInt_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0, ToIntFunction<T1> arg1, IntBinaryOperator arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -64591,7 +64750,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalLong stream_flatMapMemberReference_sortedComp_mapToLong_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0, ToLongFunction<T1> arg1, LongBinaryOperator arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -64613,7 +64772,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalDouble stream_flatMapMemberReference_sortedComp_mapToDouble_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0, ToDoubleFunction<T1> arg1, DoubleBinaryOperator arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -64635,8 +64794,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sortedComp_sorted_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sortedComp0 = new ArrayList<>();
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -64661,8 +64820,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sortedComp_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
-		List<T1> sortedComp1 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
+		List<T1> sortedComp1 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -64687,7 +64846,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sortedComp_limit_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -64695,15 +64854,15 @@ public class ForeachStreamReduceOptional {
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			for (T1 t1 : t0) {
 				sortedComp0.add(t1);
 			}
 		}
 		sortedComp0.sort(arg0);
 		for (T1 t1: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			if (!foundAny) {
 				foundAny = true;
@@ -64716,7 +64875,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sortedComp_skip_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0, long arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -64745,8 +64904,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sortedComp_distinct_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sortedComp0 = new ArrayList<>();
-		Set<T1> distinct0 = new HashSet<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -64770,7 +64929,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sortedComp_dropWhile_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -64797,7 +64956,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_sortedComp_takeWhile_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0, Predicate<T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -64821,7 +64980,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_flatMapMemberReference_sortedComp_flatMapLambda_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0, Function<T1, Collection<T2>> arg1,  BinaryOperator<T2> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -64844,7 +65003,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> Optional<T2> stream_flatMapMemberReference_sortedComp_flatMapMemberReference_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0,  BinaryOperator<T2> arg1) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -64878,6 +65037,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				T2 t2 = arg1.apply(t1);
 				if (!foundAny) {
@@ -64903,6 +65065,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if (!arg1.test(t1)) {
 					continue;
@@ -64930,6 +65095,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				int t2 = arg1.applyAsInt(t1);
 				if (!foundAny) {
@@ -64955,6 +65123,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				long t2 = arg1.applyAsLong(t1);
 				if (!foundAny) {
@@ -64980,6 +65151,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				double t2 = arg1.applyAsDouble(t1);
 				if (!foundAny) {
@@ -64998,7 +65172,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -65006,6 +65180,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				sorted0.add(t1);
 			}
@@ -65027,7 +65204,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -65035,6 +65212,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				sortedComp0.add(t1);
 			}
@@ -65070,6 +65250,12 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
+				if(limit1 >= arg1) {
+					break;
+				}
 				limit0++;
 				limit1++;
 				if (!foundAny) {
@@ -65099,6 +65285,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				skip0++;
 				if(skip0 <= arg1) {
@@ -65120,7 +65309,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -65128,6 +65317,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if(!distinct0.add(t1)) {
 					continue;
@@ -65156,6 +65348,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if(dropWhile0 && arg1.test(t1)) {
 					continue;
@@ -65185,6 +65380,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				if(!arg1.test(t1)) {
 					break;
@@ -65212,6 +65410,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				for (T2 t2 : arg1.apply(t1)) {
 					if (!foundAny) {
@@ -65238,6 +65439,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				for (T2 t2 : t1) {
 					if (!foundAny) {
@@ -65384,7 +65588,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -65413,7 +65617,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -65453,6 +65657,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				skip0++;
 				if(skip0 <= arg0) {
 					continue;
@@ -65506,7 +65713,7 @@ public class ForeachStreamReduceOptional {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -65639,7 +65846,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_flatMapMemberReference_distinct_map_reduceOptional(Collection<T0> input, Function<T1, T2> arg0,  BinaryOperator<T2> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -65683,7 +65890,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalInt stream_flatMapMemberReference_distinct_mapToInt_reduceOptional(Collection<T0> input, ToIntFunction<T1> arg0, IntBinaryOperator arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		int result = 0;
 		for (T0 t0: input) {
@@ -65704,7 +65911,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalLong stream_flatMapMemberReference_distinct_mapToLong_reduceOptional(Collection<T0> input, ToLongFunction<T1> arg0, LongBinaryOperator arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		long result = 0;
 		for (T0 t0: input) {
@@ -65725,7 +65932,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> OptionalDouble stream_flatMapMemberReference_distinct_mapToDouble_reduceOptional(Collection<T0> input, ToDoubleFunction<T1> arg0, DoubleBinaryOperator arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		double result = 0;
 		for (T0 t0: input) {
@@ -65746,8 +65953,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_distinct_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		Set<T1> distinct0 = new HashSet<>();
-		List<T1> sorted0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -65771,8 +65978,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_distinct_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
-		List<T1> sortedComp0 = new ArrayList<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -65796,7 +66003,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_distinct_limit_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -65808,6 +66015,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				if(!distinct0.add(t1)) {
 					continue;
 				}
@@ -65824,7 +66034,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_distinct_skip_reduceOptional(Collection<T0> input, long arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -65852,8 +66062,8 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_distinct_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T1> arg0) {
-		Set<T1> distinct0 = new HashSet<>();
-		Set<T1> distinct1 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
+		Set<T1> distinct1 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -65876,7 +66086,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_distinct_dropWhile_reduceOptional(Collection<T0> input, Predicate<T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		boolean foundAny = false;
 		T1 result = null;
@@ -65902,7 +66112,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_distinct_takeWhile_reduceOptional(Collection<T0> input, Predicate<T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -65925,7 +66135,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_flatMapMemberReference_distinct_flatMapLambda_reduceOptional(Collection<T0> input, Function<T1, Collection<T2>> arg0,  BinaryOperator<T2> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -65947,7 +66157,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> Optional<T2> stream_flatMapMemberReference_distinct_flatMapMemberReference_reduceOptional(Collection<T0> input,  BinaryOperator<T2> arg0) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -66087,7 +66297,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_dropWhile_sorted_reduceOptional(Collection<T0> input, Predicate<T1> arg0,  BinaryOperator<T1> arg1) {
 		boolean dropWhile0 = true;
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -66114,7 +66324,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_dropWhile_sortedComp_reduceOptional(Collection<T0> input, Predicate<T1> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
 		boolean dropWhile0 = true;
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -66152,6 +66362,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				if(dropWhile0 && arg0.test(t1)) {
 					continue;
 				} else {
@@ -66201,7 +66414,7 @@ public class ForeachStreamReduceOptional {
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_dropWhile_distinct_reduceOptional(Collection<T0> input, Predicate<T1> arg0,  BinaryOperator<T1> arg1) {
 		boolean dropWhile0 = true;
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -66429,7 +66642,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_takeWhile_sorted_reduceOptional(Collection<T0> input, Predicate<T1> arg0,  BinaryOperator<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -66453,7 +66666,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_takeWhile_sortedComp_reduceOptional(Collection<T0> input, Predicate<T1> arg0, Comparator<? super T1> arg1,  BinaryOperator<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -66488,6 +66701,9 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				if(!arg0.test(t1)) {
 					break;
 				}
@@ -66531,7 +66747,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1> Optional<T1> stream_flatMapMemberReference_takeWhile_distinct_reduceOptional(Collection<T0> input, Predicate<T1> arg0,  BinaryOperator<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T1 result = null;
 		for (T0 t0: input) {
@@ -66740,7 +66956,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_flatMapMemberReference_flatMapLambda_sorted_reduceOptional(Collection<T0> input, Function<T1, Collection<T2>> arg0,  BinaryOperator<T2> arg1) {
-		List<T2> sorted0 = new ArrayList<>();
+		List<T2> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -66763,7 +66979,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_flatMapMemberReference_flatMapLambda_sortedComp_reduceOptional(Collection<T0> input, Function<T1, Collection<T2>> arg0, Comparator<? super T2> arg1,  BinaryOperator<T2> arg2) {
-		List<T2> sortedComp0 = new ArrayList<>();
+		List<T2> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -66797,7 +67013,13 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				for (T2 t2 : arg0.apply(t1)) {
+					if(limit0 >= arg1) {
+						break;
+					}
 					limit0++;
 					if (!foundAny) {
 						foundAny = true;
@@ -66838,7 +67060,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1, T2> Optional<T2> stream_flatMapMemberReference_flatMapLambda_distinct_reduceOptional(Collection<T0> input, Function<T1, Collection<T2>> arg0,  BinaryOperator<T2> arg1) {
-		Set<T2> distinct0 = new HashSet<>();
+		Set<T2> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -67042,7 +67264,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> Optional<T2> stream_flatMapMemberReference_flatMapMemberReference_sorted_reduceOptional(Collection<T0> input,  BinaryOperator<T2> arg0) {
-		List<T2> sorted0 = new ArrayList<>();
+		List<T2> sorted0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -67065,7 +67287,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> Optional<T2> stream_flatMapMemberReference_flatMapMemberReference_sortedComp_reduceOptional(Collection<T0> input, Comparator<? super T2> arg0,  BinaryOperator<T2> arg1) {
-		List<T2> sortedComp0 = new ArrayList<>();
+		List<T2> sortedComp0 = new ArrayList<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {
@@ -67099,7 +67321,13 @@ public class ForeachStreamReduceOptional {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				for (T2 t2 : t1) {
+					if(limit0 >= arg0) {
+						break;
+					}
 					limit0++;
 					if (!foundAny) {
 						foundAny = true;
@@ -67140,7 +67368,7 @@ public class ForeachStreamReduceOptional {
 	}
 
 	public static <T0 extends Collection<T1>, T1 extends Collection<T2>, T2> Optional<T2> stream_flatMapMemberReference_flatMapMemberReference_distinct_reduceOptional(Collection<T0> input,  BinaryOperator<T2> arg0) {
-		Set<T2> distinct0 = new HashSet<>();
+		Set<T2> distinct0 = new HashSet<>(input.size());
 		boolean foundAny = false;
 		T2 result = null;
 		for (T0 t0: input) {

@@ -13,9 +13,8 @@ public abstract class StatefulIntermediateOperation extends IntermediateOperatio
         return ident;
     }
 
-    public String addVariable(String ident) {
-        deque.addLast(ident);
-        return ident;
+    public boolean isEmpty() {
+        return deque.isEmpty();
     }
 
     public String getVariable() {

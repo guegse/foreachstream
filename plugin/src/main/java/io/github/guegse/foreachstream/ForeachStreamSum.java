@@ -142,7 +142,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_sorted_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -190,7 +190,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_distinct_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -272,7 +272,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_sorted_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -320,7 +320,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_distinct_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -402,7 +402,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_sorted_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -450,7 +450,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_distinct_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -490,7 +490,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_mapToInt_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -504,7 +504,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_mapToLong_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -518,7 +518,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_mapToDouble_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -532,7 +532,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -546,7 +546,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -560,7 +560,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -676,7 +676,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_mapToInt_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -689,7 +689,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_mapToLong_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -702,7 +702,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_mapToDouble_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -980,7 +980,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_map_mapToInt_sorted_sum(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1031,7 +1031,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_map_mapToInt_distinct_sum(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1120,7 +1120,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_map_mapToLong_sorted_sum(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1171,7 +1171,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_map_mapToLong_distinct_sum(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1260,7 +1260,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_map_mapToDouble_sorted_sum(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1311,7 +1311,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_map_mapToDouble_distinct_sum(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1354,7 +1354,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_map_sorted_mapToInt_sum(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1369,7 +1369,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_map_sorted_mapToLong_sum(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1384,7 +1384,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_map_sorted_mapToDouble_sum(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1399,7 +1399,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_map_sortedComp_mapToInt_sum(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToIntFunction<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1414,7 +1414,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_map_sortedComp_mapToLong_sum(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToLongFunction<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1429,7 +1429,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_map_sortedComp_mapToDouble_sum(Collection<T0> input, Function<T0, T1> arg0, Comparator<? super T1> arg1, ToDoubleFunction<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1552,7 +1552,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_map_distinct_mapToInt_sum(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1566,7 +1566,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_map_distinct_mapToLong_sum(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -1580,7 +1580,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_map_distinct_mapToDouble_sum(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			T1 t1 = arg0.apply(t0);
@@ -2816,7 +2816,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_map_sorted_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -2867,7 +2867,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_map_distinct_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -3116,7 +3116,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToInt_mapToLong_sorted_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -3167,7 +3167,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToInt_mapToLong_distinct_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -3256,7 +3256,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToInt_mapToDouble_sorted_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -3307,7 +3307,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToInt_mapToDouble_distinct_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -3416,7 +3416,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_sorted_map_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -3448,7 +3448,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToInt_sorted_mapToLong_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -3463,7 +3463,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToInt_sorted_mapToDouble_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -3478,8 +3478,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_sorted_sorted_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		List<Integer> sorted0 = new ArrayList<>();
-		List<Integer> sorted1 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
+		List<Integer> sorted1 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -3497,21 +3497,21 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_sorted_limit_sum(Collection<T0> input, ToIntFunction<T0> arg0, long arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		int sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			int t1 = arg0.applyAsInt(t0);
 			sorted0.add(t1);
 		}
 		sorted0.sort(null);
 		for (int t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			sum += t1;
 		}
@@ -3519,7 +3519,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_sorted_skip_sum(Collection<T0> input, ToIntFunction<T0> arg0, long arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -3541,8 +3541,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_sorted_distinct_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		List<Integer> sorted0 = new ArrayList<>();
-		Set<Integer> distinct0 = new HashSet<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -3559,7 +3559,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_sorted_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		int sum = 0;
 		for (T0 t0: input) {
@@ -3579,7 +3579,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_sorted_takeWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -3674,7 +3674,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg1) {
@@ -3746,7 +3746,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg1) {
@@ -3884,7 +3884,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -3956,7 +3956,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -4016,7 +4016,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_distinct_map_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -4046,7 +4046,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToInt_distinct_mapToLong_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -4060,7 +4060,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToInt_distinct_mapToDouble_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -4074,8 +4074,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_distinct_sorted_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		Set<Integer> distinct0 = new HashSet<>();
-		List<Integer> sorted0 = new ArrayList<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -4092,7 +4092,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_distinct_limit_sum(Collection<T0> input, ToIntFunction<T0> arg0, long arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -4113,7 +4113,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_distinct_skip_sum(Collection<T0> input, ToIntFunction<T0> arg0, long arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -4134,8 +4134,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_distinct_distinct_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		Set<Integer> distinct0 = new HashSet<>();
-		Set<Integer> distinct1 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
+		Set<Integer> distinct1 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -4151,7 +4151,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_distinct_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		int sum = 0;
 		for (T0 t0: input) {
@@ -4170,7 +4170,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_distinct_takeWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -4253,7 +4253,7 @@ public class ForeachStreamSum {
 
 	public static <T0> int stream_mapToInt_dropWhile_sorted_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
 		boolean dropWhile0 = true;
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -4319,7 +4319,7 @@ public class ForeachStreamSum {
 
 	public static <T0> int stream_mapToInt_dropWhile_distinct_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
 		boolean dropWhile0 = true;
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -4430,7 +4430,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_takeWhile_sorted_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -4487,7 +4487,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToInt_takeWhile_distinct_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			int t1 = arg0.applyAsInt(t0);
@@ -4582,7 +4582,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_map_sorted_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -4633,7 +4633,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_map_distinct_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -4882,7 +4882,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToLong_mapToInt_sorted_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -4933,7 +4933,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToLong_mapToInt_distinct_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5022,7 +5022,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToLong_mapToDouble_sorted_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5073,7 +5073,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToLong_mapToDouble_distinct_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5182,7 +5182,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_sorted_map_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5214,7 +5214,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToLong_sorted_mapToInt_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5229,7 +5229,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToLong_sorted_mapToDouble_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5244,8 +5244,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_sorted_sorted_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		List<Long> sorted0 = new ArrayList<>();
-		List<Long> sorted1 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
+		List<Long> sorted1 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5263,21 +5263,21 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_sorted_limit_sum(Collection<T0> input, ToLongFunction<T0> arg0, long arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			long t1 = arg0.applyAsLong(t0);
 			sorted0.add(t1);
 		}
 		sorted0.sort(null);
 		for (long t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			sum += t1;
 		}
@@ -5285,7 +5285,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_sorted_skip_sum(Collection<T0> input, ToLongFunction<T0> arg0, long arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -5307,8 +5307,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_sorted_distinct_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		List<Long> sorted0 = new ArrayList<>();
-		Set<Long> distinct0 = new HashSet<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5325,7 +5325,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_sorted_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		long sum = 0;
 		for (T0 t0: input) {
@@ -5345,7 +5345,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_sorted_takeWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5440,7 +5440,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg1) {
@@ -5512,7 +5512,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg1) {
@@ -5650,7 +5650,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5722,7 +5722,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5782,7 +5782,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_distinct_map_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5812,7 +5812,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToLong_distinct_mapToInt_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5826,7 +5826,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToLong_distinct_mapToDouble_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5840,8 +5840,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_distinct_sorted_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		Set<Long> distinct0 = new HashSet<>();
-		List<Long> sorted0 = new ArrayList<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5858,7 +5858,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_distinct_limit_sum(Collection<T0> input, ToLongFunction<T0> arg0, long arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -5879,7 +5879,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_distinct_skip_sum(Collection<T0> input, ToLongFunction<T0> arg0, long arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -5900,8 +5900,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_distinct_distinct_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		Set<Long> distinct0 = new HashSet<>();
-		Set<Long> distinct1 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
+		Set<Long> distinct1 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -5917,7 +5917,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_distinct_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		long sum = 0;
 		for (T0 t0: input) {
@@ -5936,7 +5936,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_distinct_takeWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -6019,7 +6019,7 @@ public class ForeachStreamSum {
 
 	public static <T0> long stream_mapToLong_dropWhile_sorted_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
 		boolean dropWhile0 = true;
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -6085,7 +6085,7 @@ public class ForeachStreamSum {
 
 	public static <T0> long stream_mapToLong_dropWhile_distinct_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
 		boolean dropWhile0 = true;
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -6196,7 +6196,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_takeWhile_sorted_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -6253,7 +6253,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToLong_takeWhile_distinct_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			long t1 = arg0.applyAsLong(t0);
@@ -6348,7 +6348,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_map_sorted_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -6399,7 +6399,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_map_distinct_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -6648,7 +6648,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToDouble_mapToInt_sorted_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -6699,7 +6699,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToDouble_mapToInt_distinct_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -6788,7 +6788,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToDouble_mapToLong_sorted_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -6839,7 +6839,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToDouble_mapToLong_distinct_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -6948,7 +6948,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_sorted_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -6980,7 +6980,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToDouble_sorted_mapToInt_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -6995,7 +6995,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToDouble_sorted_mapToLong_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7010,8 +7010,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_sorted_sorted_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		List<Double> sorted0 = new ArrayList<>();
-		List<Double> sorted1 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
+		List<Double> sorted1 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7029,21 +7029,21 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_sorted_limit_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		double sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			double t1 = arg0.applyAsDouble(t0);
 			sorted0.add(t1);
 		}
 		sorted0.sort(null);
 		for (double t1: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			sum += t1;
 		}
@@ -7051,7 +7051,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_sorted_skip_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -7073,8 +7073,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_sorted_distinct_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		List<Double> sorted0 = new ArrayList<>();
-		Set<Double> distinct0 = new HashSet<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7091,7 +7091,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_sorted_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		double sum = 0;
 		for (T0 t0: input) {
@@ -7111,7 +7111,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_sorted_takeWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7206,7 +7206,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg1) {
@@ -7278,7 +7278,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg1) {
@@ -7416,7 +7416,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7488,7 +7488,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7548,7 +7548,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_distinct_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7578,7 +7578,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_mapToDouble_distinct_mapToInt_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7592,7 +7592,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_mapToDouble_distinct_mapToLong_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7606,8 +7606,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_distinct_sorted_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		Set<Double> distinct0 = new HashSet<>();
-		List<Double> sorted0 = new ArrayList<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7624,7 +7624,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_distinct_limit_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -7645,7 +7645,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_distinct_skip_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -7666,8 +7666,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_distinct_distinct_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		Set<Double> distinct0 = new HashSet<>();
-		Set<Double> distinct1 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
+		Set<Double> distinct1 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7683,7 +7683,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_distinct_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		double sum = 0;
 		for (T0 t0: input) {
@@ -7702,7 +7702,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_distinct_takeWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7785,7 +7785,7 @@ public class ForeachStreamSum {
 
 	public static <T0> double stream_mapToDouble_dropWhile_sorted_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
 		boolean dropWhile0 = true;
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7851,7 +7851,7 @@ public class ForeachStreamSum {
 
 	public static <T0> double stream_mapToDouble_dropWhile_distinct_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
 		boolean dropWhile0 = true;
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -7962,7 +7962,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_takeWhile_sorted_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -8019,7 +8019,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_mapToDouble_takeWhile_distinct_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			double t1 = arg0.applyAsDouble(t0);
@@ -8068,7 +8068,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_sorted_map_mapToInt_sum(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8083,7 +8083,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_sorted_map_mapToLong_sum(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8098,7 +8098,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_sorted_map_mapToDouble_sum(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8164,7 +8164,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_mapToInt_map_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8196,7 +8196,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_mapToInt_mapToLong_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8211,7 +8211,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_mapToInt_mapToDouble_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8226,8 +8226,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_mapToInt_sorted_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<Integer> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<Integer> sorted1 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8245,20 +8245,20 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_mapToInt_limit_sum(Collection<T0> input, ToIntFunction<T0> arg0, long arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		int sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			int t1 = arg0.applyAsInt(t0);
 			limit0++;
 			sum += t1;
@@ -8267,7 +8267,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_mapToInt_skip_sum(Collection<T0> input, ToIntFunction<T0> arg0, long arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -8289,8 +8289,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_mapToInt_distinct_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<Integer> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8307,7 +8307,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_mapToInt_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		int sum = 0;
 		for (T0 t0: input) {
@@ -8327,7 +8327,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_mapToInt_takeWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8344,7 +8344,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_mapToLong_map_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8376,7 +8376,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_mapToLong_mapToInt_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8391,7 +8391,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_mapToLong_mapToDouble_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8406,8 +8406,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_mapToLong_sorted_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<Long> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<Long> sorted1 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8425,20 +8425,20 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_mapToLong_limit_sum(Collection<T0> input, ToLongFunction<T0> arg0, long arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			long t1 = arg0.applyAsLong(t0);
 			limit0++;
 			sum += t1;
@@ -8447,7 +8447,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_mapToLong_skip_sum(Collection<T0> input, ToLongFunction<T0> arg0, long arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -8469,8 +8469,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_mapToLong_distinct_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<Long> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8487,7 +8487,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_mapToLong_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		long sum = 0;
 		for (T0 t0: input) {
@@ -8507,7 +8507,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_mapToLong_takeWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8524,7 +8524,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_mapToDouble_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8556,7 +8556,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_mapToDouble_mapToInt_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8571,7 +8571,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_mapToDouble_mapToLong_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8586,8 +8586,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_mapToDouble_sorted_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<Double> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<Double> sorted1 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8605,20 +8605,20 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_mapToDouble_limit_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		double sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			double t1 = arg0.applyAsDouble(t0);
 			limit0++;
 			sum += t1;
@@ -8627,7 +8627,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_mapToDouble_skip_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -8649,8 +8649,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_mapToDouble_distinct_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<Double> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8667,7 +8667,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_mapToDouble_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		double sum = 0;
 		for (T0 t0: input) {
@@ -8687,7 +8687,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_mapToDouble_takeWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8704,8 +8704,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_sorted_mapToInt_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8723,8 +8723,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_sorted_mapToLong_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8742,8 +8742,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_sorted_mapToDouble_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sorted1 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sorted1 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8761,8 +8761,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_sortedComp_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8780,8 +8780,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_sortedComp_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8799,8 +8799,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_sortedComp_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8818,20 +8818,20 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_limit_mapToInt_sum(Collection<T0> input, long arg0, ToIntFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		int sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			int t1 = arg1.applyAsInt(t0);
 			sum += t1;
@@ -8840,20 +8840,20 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_limit_mapToLong_sum(Collection<T0> input, long arg0, ToLongFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			long t1 = arg1.applyAsLong(t0);
 			sum += t1;
@@ -8862,20 +8862,20 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_limit_mapToDouble_sum(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		double sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg0) {
-				break;
-			}
 			sorted0.add(t0);
 		}
 		sorted0.sort(null);
 		for (T0 t0: sorted0) {
+			if(limit0 >= arg0) {
+				break;
+			}
 			limit0++;
 			double t1 = arg1.applyAsDouble(t0);
 			sum += t1;
@@ -8884,7 +8884,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_skip_mapToInt_sum(Collection<T0> input, long arg0, ToIntFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -8906,7 +8906,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_skip_mapToLong_sum(Collection<T0> input, long arg0, ToLongFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -8928,7 +8928,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_skip_mapToDouble_sum(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -8950,8 +8950,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_distinct_mapToInt_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8968,8 +8968,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_distinct_mapToLong_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -8986,8 +8986,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_distinct_mapToDouble_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -9004,7 +9004,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_dropWhile_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		int sum = 0;
 		for (T0 t0: input) {
@@ -9024,7 +9024,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_dropWhile_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		long sum = 0;
 		for (T0 t0: input) {
@@ -9044,7 +9044,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_dropWhile_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		double sum = 0;
 		for (T0 t0: input) {
@@ -9064,7 +9064,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sorted_takeWhile_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -9081,7 +9081,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sorted_takeWhile_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -9098,7 +9098,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sorted_takeWhile_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -9115,7 +9115,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_sorted_flatMapLambda_mapToInt_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -9131,7 +9131,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_sorted_flatMapLambda_mapToLong_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -9147,7 +9147,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_sorted_flatMapLambda_mapToDouble_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -9163,7 +9163,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> int stream_sorted_flatMapMemberReference_mapToInt_sum(Collection<T0> input, ToIntFunction<T1> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -9179,7 +9179,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> long stream_sorted_flatMapMemberReference_mapToLong_sum(Collection<T0> input, ToLongFunction<T1> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -9195,7 +9195,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> double stream_sorted_flatMapMemberReference_mapToDouble_sum(Collection<T0> input, ToDoubleFunction<T1> arg0) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sorted0.add(t0);
@@ -9211,7 +9211,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_sortedComp_map_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToIntFunction<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9226,7 +9226,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_sortedComp_map_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToLongFunction<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9241,7 +9241,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_sortedComp_map_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, T1> arg1, ToDoubleFunction<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9307,7 +9307,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_mapToInt_map_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntUnaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9339,7 +9339,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_mapToInt_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntToLongFunction arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9354,7 +9354,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_mapToInt_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntToDoubleFunction arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9369,8 +9369,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_mapToInt_sorted_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<Integer> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9388,20 +9388,20 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_mapToInt_limit_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, long arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		int sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			int t1 = arg1.applyAsInt(t0);
 			limit0++;
 			sum += t1;
@@ -9410,7 +9410,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_mapToInt_skip_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, long arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -9432,8 +9432,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_mapToInt_distinct_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<Integer> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9450,7 +9450,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_mapToInt_dropWhile_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		int sum = 0;
 		for (T0 t0: input) {
@@ -9470,7 +9470,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_mapToInt_takeWhile_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1, IntPredicate arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9487,7 +9487,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_mapToLong_map_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongUnaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9519,7 +9519,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_mapToLong_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongToIntFunction arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9534,7 +9534,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_mapToLong_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongToDoubleFunction arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9549,8 +9549,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_mapToLong_sorted_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<Long> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9568,20 +9568,20 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_mapToLong_limit_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, long arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			long t1 = arg1.applyAsLong(t0);
 			limit0++;
 			sum += t1;
@@ -9590,7 +9590,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_mapToLong_skip_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, long arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -9612,8 +9612,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_mapToLong_distinct_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<Long> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9630,7 +9630,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_mapToLong_dropWhile_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		long sum = 0;
 		for (T0 t0: input) {
@@ -9650,7 +9650,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_mapToLong_takeWhile_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1, LongPredicate arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9667,7 +9667,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_mapToDouble_map_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleUnaryOperator arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9699,7 +9699,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_mapToDouble_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleToIntFunction arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9714,7 +9714,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_mapToDouble_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoubleToLongFunction arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9729,8 +9729,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_mapToDouble_sorted_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<Double> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9748,20 +9748,20 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_mapToDouble_limit_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, long arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		double sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg2) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg2) {
+				break;
+			}
 			double t1 = arg1.applyAsDouble(t0);
 			limit0++;
 			sum += t1;
@@ -9770,7 +9770,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_mapToDouble_skip_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, long arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg2 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -9792,8 +9792,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_mapToDouble_distinct_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<Double> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9810,7 +9810,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_mapToDouble_dropWhile_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		double sum = 0;
 		for (T0 t0: input) {
@@ -9830,7 +9830,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_mapToDouble_takeWhile_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1, DoublePredicate arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9847,8 +9847,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_sorted_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9866,8 +9866,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_sorted_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9885,8 +9885,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_sorted_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9904,8 +9904,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_sortedComp_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9923,8 +9923,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_sortedComp_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9942,8 +9942,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_sortedComp_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		List<T0> sortedComp1 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		List<T0> sortedComp1 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -9961,20 +9961,20 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_limit_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToIntFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		int sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			int t1 = arg2.applyAsInt(t0);
 			sum += t1;
@@ -9983,20 +9983,20 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_limit_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToLongFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		long sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			long t1 = arg2.applyAsLong(t0);
 			sum += t1;
@@ -10005,20 +10005,20 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_limit_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToDoubleFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
 		double sum = 0;
 		for (T0 t0: input) {
-			if(limit0 >= arg1) {
-				break;
-			}
 			sortedComp0.add(t0);
 		}
 		sortedComp0.sort(arg0);
 		for (T0 t0: sortedComp0) {
+			if(limit0 >= arg1) {
+				break;
+			}
 			limit0++;
 			double t1 = arg2.applyAsDouble(t0);
 			sum += t1;
@@ -10027,7 +10027,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_skip_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToIntFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -10049,7 +10049,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_skip_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToLongFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -10071,7 +10071,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_skip_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, long arg1, ToDoubleFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -10093,8 +10093,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_distinct_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -10111,8 +10111,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_distinct_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -10129,8 +10129,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_distinct_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
-		Set<T0> distinct0 = new HashSet<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -10147,7 +10147,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_dropWhile_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		int sum = 0;
 		for (T0 t0: input) {
@@ -10167,7 +10167,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_dropWhile_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		long sum = 0;
 		for (T0 t0: input) {
@@ -10187,7 +10187,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_dropWhile_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		boolean dropWhile0 = true;
 		double sum = 0;
 		for (T0 t0: input) {
@@ -10207,7 +10207,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_sortedComp_takeWhile_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToIntFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -10224,7 +10224,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_sortedComp_takeWhile_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToLongFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -10241,7 +10241,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_sortedComp_takeWhile_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, Predicate<T0> arg1, ToDoubleFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -10258,7 +10258,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_sortedComp_flatMapLambda_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToIntFunction<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -10274,7 +10274,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_sortedComp_flatMapLambda_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToLongFunction<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -10290,7 +10290,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_sortedComp_flatMapLambda_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, Function<T0, Collection<T1>> arg1, ToDoubleFunction<T1> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -10306,7 +10306,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> int stream_sortedComp_flatMapMemberReference_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T1> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -10322,7 +10322,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> long stream_sortedComp_flatMapMemberReference_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T1> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -10338,7 +10338,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> double stream_sortedComp_flatMapMemberReference_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T1> arg1) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			sortedComp0.add(t0);
@@ -10546,7 +10546,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -10618,7 +10618,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -10756,7 +10756,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -10828,7 +10828,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -10966,7 +10966,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -11038,7 +11038,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -11102,7 +11102,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -11124,7 +11124,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -11146,7 +11146,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -11168,7 +11168,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -11190,7 +11190,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -11212,7 +11212,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -11384,7 +11384,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -11405,7 +11405,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -11426,7 +11426,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long limit0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(limit0 >= arg0) {
@@ -11878,7 +11878,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -11950,7 +11950,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12088,7 +12088,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12160,7 +12160,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12298,7 +12298,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12370,7 +12370,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12434,7 +12434,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12456,7 +12456,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12478,7 +12478,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12500,7 +12500,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12522,7 +12522,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12544,7 +12544,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12716,7 +12716,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12737,7 +12737,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -12758,7 +12758,7 @@ public class ForeachStreamSum {
 			throw new IllegalArgumentException();
 		}
 		long skip0 = 0;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			skip0++;
@@ -13018,7 +13018,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_distinct_map_mapToInt_sum(Collection<T0> input, Function<T0, T1> arg0, ToIntFunction<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13032,7 +13032,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_distinct_map_mapToLong_sum(Collection<T0> input, Function<T0, T1> arg0, ToLongFunction<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13046,7 +13046,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_distinct_map_mapToDouble_sum(Collection<T0> input, Function<T0, T1> arg0, ToDoubleFunction<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13108,7 +13108,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_mapToInt_map_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntUnaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13138,7 +13138,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_mapToInt_mapToLong_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToLongFunction arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13152,7 +13152,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_mapToInt_mapToDouble_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntToDoubleFunction arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13166,8 +13166,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_mapToInt_sorted_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<Integer> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13184,7 +13184,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_mapToInt_limit_sum(Collection<T0> input, ToIntFunction<T0> arg0, long arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -13205,7 +13205,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_mapToInt_skip_sum(Collection<T0> input, ToIntFunction<T0> arg0, long arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -13226,8 +13226,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_mapToInt_distinct_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<Integer> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<Integer> distinct1 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13243,7 +13243,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_mapToInt_dropWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		int sum = 0;
 		for (T0 t0: input) {
@@ -13262,7 +13262,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_mapToInt_takeWhile_sum(Collection<T0> input, ToIntFunction<T0> arg0, IntPredicate arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13278,7 +13278,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_mapToLong_map_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongUnaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13308,7 +13308,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_mapToLong_mapToInt_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToIntFunction arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13322,7 +13322,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_mapToLong_mapToDouble_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongToDoubleFunction arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13336,8 +13336,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_mapToLong_sorted_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<Long> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13354,7 +13354,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_mapToLong_limit_sum(Collection<T0> input, ToLongFunction<T0> arg0, long arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -13375,7 +13375,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_mapToLong_skip_sum(Collection<T0> input, ToLongFunction<T0> arg0, long arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -13396,8 +13396,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_mapToLong_distinct_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<Long> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<Long> distinct1 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13413,7 +13413,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_mapToLong_dropWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		long sum = 0;
 		for (T0 t0: input) {
@@ -13432,7 +13432,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_mapToLong_takeWhile_sum(Collection<T0> input, ToLongFunction<T0> arg0, LongPredicate arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13448,7 +13448,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_mapToDouble_map_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleUnaryOperator arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13478,7 +13478,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_mapToDouble_mapToInt_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToIntFunction arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13492,7 +13492,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_mapToDouble_mapToLong_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoubleToLongFunction arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13506,8 +13506,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_mapToDouble_sorted_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<Double> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13524,7 +13524,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_mapToDouble_limit_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -13545,7 +13545,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_mapToDouble_skip_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, long arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg1 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -13566,8 +13566,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_mapToDouble_distinct_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<Double> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<Double> distinct1 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13583,7 +13583,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_mapToDouble_dropWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		double sum = 0;
 		for (T0 t0: input) {
@@ -13602,7 +13602,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_mapToDouble_takeWhile_sum(Collection<T0> input, ToDoubleFunction<T0> arg0, DoublePredicate arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13618,8 +13618,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_sorted_mapToInt_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13636,8 +13636,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_sorted_mapToLong_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13654,8 +13654,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_sorted_mapToDouble_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sorted0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13672,8 +13672,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_sortedComp_mapToInt_sum(Collection<T0> input, Comparator<? super T0> arg0, ToIntFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13690,8 +13690,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_sortedComp_mapToLong_sum(Collection<T0> input, Comparator<? super T0> arg0, ToLongFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13708,8 +13708,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_sortedComp_mapToDouble_sum(Collection<T0> input, Comparator<? super T0> arg0, ToDoubleFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
-		List<T0> sortedComp0 = new ArrayList<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13726,7 +13726,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_limit_mapToInt_sum(Collection<T0> input, long arg0, ToIntFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -13747,7 +13747,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_limit_mapToLong_sum(Collection<T0> input, long arg0, ToLongFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -13768,7 +13768,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_limit_mapToDouble_sum(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -13789,7 +13789,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_skip_mapToInt_sum(Collection<T0> input, long arg0, ToIntFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -13810,7 +13810,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_skip_mapToLong_sum(Collection<T0> input, long arg0, ToLongFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -13831,7 +13831,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_skip_mapToDouble_sum(Collection<T0> input, long arg0, ToDoubleFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		if(arg0 < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -13852,8 +13852,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_distinct_mapToInt_sum(Collection<T0> input, ToIntFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13869,8 +13869,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_distinct_mapToLong_sum(Collection<T0> input, ToLongFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13886,8 +13886,8 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_distinct_mapToDouble_sum(Collection<T0> input, ToDoubleFunction<T0> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
-		Set<T0> distinct1 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
+		Set<T0> distinct1 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13903,7 +13903,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_dropWhile_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		int sum = 0;
 		for (T0 t0: input) {
@@ -13922,7 +13922,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_dropWhile_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		long sum = 0;
 		for (T0 t0: input) {
@@ -13941,7 +13941,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_dropWhile_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		boolean dropWhile0 = true;
 		double sum = 0;
 		for (T0 t0: input) {
@@ -13960,7 +13960,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_distinct_takeWhile_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13976,7 +13976,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_distinct_takeWhile_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -13992,7 +13992,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_distinct_takeWhile_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -14008,7 +14008,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_distinct_flatMapLambda_mapToInt_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -14023,7 +14023,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_distinct_flatMapLambda_mapToLong_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -14038,7 +14038,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_distinct_flatMapLambda_mapToDouble_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -14053,7 +14053,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> int stream_distinct_flatMapMemberReference_mapToInt_sum(Collection<T0> input, ToIntFunction<T1> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -14068,7 +14068,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> long stream_distinct_flatMapMemberReference_mapToLong_sum(Collection<T0> input, ToLongFunction<T1> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -14083,7 +14083,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> double stream_distinct_flatMapMemberReference_mapToDouble_sum(Collection<T0> input, ToDoubleFunction<T1> arg0) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!distinct0.add(t0)) {
@@ -14267,7 +14267,7 @@ public class ForeachStreamSum {
 
 	public static <T0> int stream_dropWhile_mapToInt_sorted_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		boolean dropWhile0 = true;
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -14333,7 +14333,7 @@ public class ForeachStreamSum {
 
 	public static <T0> int stream_dropWhile_mapToInt_distinct_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		boolean dropWhile0 = true;
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -14457,7 +14457,7 @@ public class ForeachStreamSum {
 
 	public static <T0> long stream_dropWhile_mapToLong_sorted_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		boolean dropWhile0 = true;
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -14523,7 +14523,7 @@ public class ForeachStreamSum {
 
 	public static <T0> long stream_dropWhile_mapToLong_distinct_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		boolean dropWhile0 = true;
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -14647,7 +14647,7 @@ public class ForeachStreamSum {
 
 	public static <T0> double stream_dropWhile_mapToDouble_sorted_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		boolean dropWhile0 = true;
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -14713,7 +14713,7 @@ public class ForeachStreamSum {
 
 	public static <T0> double stream_dropWhile_mapToDouble_distinct_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		boolean dropWhile0 = true;
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -14771,7 +14771,7 @@ public class ForeachStreamSum {
 
 	public static <T0> int stream_dropWhile_sorted_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -14791,7 +14791,7 @@ public class ForeachStreamSum {
 
 	public static <T0> long stream_dropWhile_sorted_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -14811,7 +14811,7 @@ public class ForeachStreamSum {
 
 	public static <T0> double stream_dropWhile_sorted_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		boolean dropWhile0 = true;
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -14831,7 +14831,7 @@ public class ForeachStreamSum {
 
 	public static <T0> int stream_dropWhile_sortedComp_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -14851,7 +14851,7 @@ public class ForeachStreamSum {
 
 	public static <T0> long stream_dropWhile_sortedComp_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -14871,7 +14871,7 @@ public class ForeachStreamSum {
 
 	public static <T0> double stream_dropWhile_sortedComp_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
 		boolean dropWhile0 = true;
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -15029,7 +15029,7 @@ public class ForeachStreamSum {
 
 	public static <T0> int stream_dropWhile_distinct_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -15048,7 +15048,7 @@ public class ForeachStreamSum {
 
 	public static <T0> long stream_dropWhile_distinct_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -15067,7 +15067,7 @@ public class ForeachStreamSum {
 
 	public static <T0> double stream_dropWhile_distinct_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
 		boolean dropWhile0 = true;
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(dropWhile0 && arg0.test(t0)) {
@@ -15442,7 +15442,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_takeWhile_mapToInt_sorted_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -15499,7 +15499,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_takeWhile_mapToInt_distinct_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -15602,7 +15602,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_takeWhile_mapToLong_sorted_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -15659,7 +15659,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_takeWhile_mapToLong_distinct_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -15762,7 +15762,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_takeWhile_mapToDouble_sorted_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -15819,7 +15819,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_takeWhile_mapToDouble_distinct_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -15868,7 +15868,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_takeWhile_sorted_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -15885,7 +15885,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_takeWhile_sorted_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -15902,7 +15902,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_takeWhile_sorted_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
-		List<T0> sorted0 = new ArrayList<>();
+		List<T0> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -15919,7 +15919,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_takeWhile_sortedComp_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToIntFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -15936,7 +15936,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_takeWhile_sortedComp_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToLongFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -15953,7 +15953,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_takeWhile_sortedComp_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, Comparator<? super T0> arg1, ToDoubleFunction<T0> arg2) {
-		List<T0> sortedComp0 = new ArrayList<>();
+		List<T0> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -16090,7 +16090,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> int stream_takeWhile_distinct_mapToInt_sum(Collection<T0> input, Predicate<T0> arg0, ToIntFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -16106,7 +16106,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> long stream_takeWhile_distinct_mapToLong_sum(Collection<T0> input, Predicate<T0> arg0, ToLongFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -16122,7 +16122,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0> double stream_takeWhile_distinct_mapToDouble_sum(Collection<T0> input, Predicate<T0> arg0, ToDoubleFunction<T0> arg1) {
-		Set<T0> distinct0 = new HashSet<>();
+		Set<T0> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			if(!arg0.test(t0)) {
@@ -16449,7 +16449,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_flatMapLambda_mapToInt_sorted_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -16475,6 +16475,9 @@ public class ForeachStreamSum {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				int t2 = arg1.applyAsInt(t1);
 				limit0++;
 				sum += t2;
@@ -16503,7 +16506,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_flatMapLambda_mapToInt_distinct_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -16599,7 +16602,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_flatMapLambda_mapToLong_sorted_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -16625,6 +16628,9 @@ public class ForeachStreamSum {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				long t2 = arg1.applyAsLong(t1);
 				limit0++;
 				sum += t2;
@@ -16653,7 +16659,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_flatMapLambda_mapToLong_distinct_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -16749,7 +16755,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_flatMapLambda_mapToDouble_sorted_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -16775,6 +16781,9 @@ public class ForeachStreamSum {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg2) {
+					break;
+				}
 				double t2 = arg1.applyAsDouble(t1);
 				limit0++;
 				sum += t2;
@@ -16803,7 +16812,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_flatMapLambda_mapToDouble_distinct_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -16849,7 +16858,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_flatMapLambda_sorted_mapToInt_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -16865,7 +16874,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_flatMapLambda_sorted_mapToLong_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -16881,7 +16890,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_flatMapLambda_sorted_mapToDouble_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -16897,7 +16906,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_flatMapLambda_sortedComp_mapToInt_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToIntFunction<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -16913,7 +16922,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_flatMapLambda_sortedComp_mapToLong_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToLongFunction<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -16929,7 +16938,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_flatMapLambda_sortedComp_mapToDouble_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, Comparator<? super T1> arg1, ToDoubleFunction<T1> arg2) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -16955,6 +16964,9 @@ public class ForeachStreamSum {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				int t2 = arg2.applyAsInt(t1);
 				sum += t2;
@@ -16974,6 +16986,9 @@ public class ForeachStreamSum {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				long t2 = arg2.applyAsLong(t1);
 				sum += t2;
@@ -16993,6 +17008,9 @@ public class ForeachStreamSum {
 				break;
 			}
 			for (T1 t1 : arg0.apply(t0)) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				limit0++;
 				double t2 = arg2.applyAsDouble(t1);
 				sum += t2;
@@ -17059,7 +17077,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> int stream_flatMapLambda_distinct_mapToInt_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToIntFunction<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -17074,7 +17092,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> long stream_flatMapLambda_distinct_mapToLong_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToLongFunction<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -17089,7 +17107,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0, T1> double stream_flatMapLambda_distinct_mapToDouble_sum(Collection<T0> input, Function<T0, Collection<T1>> arg0, ToDoubleFunction<T1> arg1) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : arg0.apply(t0)) {
@@ -17403,7 +17421,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> int stream_flatMapMemberReference_mapToInt_sorted_sum(Collection<T0> input, ToIntFunction<T1> arg0) {
-		List<Integer> sorted0 = new ArrayList<>();
+		List<Integer> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -17429,6 +17447,9 @@ public class ForeachStreamSum {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				int t2 = arg0.applyAsInt(t1);
 				limit0++;
 				sum += t2;
@@ -17457,7 +17478,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> int stream_flatMapMemberReference_mapToInt_distinct_sum(Collection<T0> input, ToIntFunction<T1> arg0) {
-		Set<Integer> distinct0 = new HashSet<>();
+		Set<Integer> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -17553,7 +17574,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_sorted_sum(Collection<T0> input, ToLongFunction<T1> arg0) {
-		List<Long> sorted0 = new ArrayList<>();
+		List<Long> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -17579,6 +17600,9 @@ public class ForeachStreamSum {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				long t2 = arg0.applyAsLong(t1);
 				limit0++;
 				sum += t2;
@@ -17607,7 +17631,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_distinct_sum(Collection<T0> input, ToLongFunction<T1> arg0) {
-		Set<Long> distinct0 = new HashSet<>();
+		Set<Long> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -17703,7 +17727,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> double stream_flatMapMemberReference_mapToDouble_sorted_sum(Collection<T0> input, ToDoubleFunction<T1> arg0) {
-		List<Double> sorted0 = new ArrayList<>();
+		List<Double> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -17729,6 +17753,9 @@ public class ForeachStreamSum {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg1) {
+					break;
+				}
 				double t2 = arg0.applyAsDouble(t1);
 				limit0++;
 				sum += t2;
@@ -17757,7 +17784,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> double stream_flatMapMemberReference_mapToDouble_distinct_sum(Collection<T0> input, ToDoubleFunction<T1> arg0) {
-		Set<Double> distinct0 = new HashSet<>();
+		Set<Double> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -17803,7 +17830,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> int stream_flatMapMemberReference_sorted_mapToInt_sum(Collection<T0> input, ToIntFunction<T1> arg0) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -17819,7 +17846,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sorted_mapToLong_sum(Collection<T0> input, ToLongFunction<T1> arg0) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -17835,7 +17862,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> double stream_flatMapMemberReference_sorted_mapToDouble_sum(Collection<T0> input, ToDoubleFunction<T1> arg0) {
-		List<T1> sorted0 = new ArrayList<>();
+		List<T1> sorted0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -17851,7 +17878,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> int stream_flatMapMemberReference_sortedComp_mapToInt_sum(Collection<T0> input, Comparator<? super T1> arg0, ToIntFunction<T1> arg1) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -17867,7 +17894,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_sortedComp_mapToLong_sum(Collection<T0> input, Comparator<? super T1> arg0, ToLongFunction<T1> arg1) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -17883,7 +17910,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> double stream_flatMapMemberReference_sortedComp_mapToDouble_sum(Collection<T0> input, Comparator<? super T1> arg0, ToDoubleFunction<T1> arg1) {
-		List<T1> sortedComp0 = new ArrayList<>();
+		List<T1> sortedComp0 = new ArrayList<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -17909,6 +17936,9 @@ public class ForeachStreamSum {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				int t2 = arg1.applyAsInt(t1);
 				sum += t2;
@@ -17928,6 +17958,9 @@ public class ForeachStreamSum {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				long t2 = arg1.applyAsLong(t1);
 				sum += t2;
@@ -17947,6 +17980,9 @@ public class ForeachStreamSum {
 				break;
 			}
 			for (T1 t1 : t0) {
+				if(limit0 >= arg0) {
+					break;
+				}
 				limit0++;
 				double t2 = arg1.applyAsDouble(t1);
 				sum += t2;
@@ -18013,7 +18049,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> int stream_flatMapMemberReference_distinct_mapToInt_sum(Collection<T0> input, ToIntFunction<T1> arg0) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		int sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -18028,7 +18064,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_distinct_mapToLong_sum(Collection<T0> input, ToLongFunction<T1> arg0) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		long sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
@@ -18043,7 +18079,7 @@ public class ForeachStreamSum {
 	}
 
 	public static <T0 extends Collection<T1>, T1> double stream_flatMapMemberReference_distinct_mapToDouble_sum(Collection<T0> input, ToDoubleFunction<T1> arg0) {
-		Set<T1> distinct0 = new HashSet<>();
+		Set<T1> distinct0 = new HashSet<>(input.size());
 		double sum = 0;
 		for (T0 t0: input) {
 			for (T1 t1 : t0) {
