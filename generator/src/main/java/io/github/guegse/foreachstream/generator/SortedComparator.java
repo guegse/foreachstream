@@ -22,7 +22,7 @@ public class SortedComparator extends StatefulIntermediateOperation{
     @Override
     void emitPreamble(Emitter out, String inputType, List<String> arguments, String estimatedSize) {
         out.printIndentation();
-        out.println("List<" + inputType + "> " + addVariable() + " = new ArrayList<>();");
+        out.println("List<" + inputType + "> " + addVariable() + " = new ArrayList<>(" + estimatedSize + ");");
     }
 
     @Override

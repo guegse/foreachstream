@@ -1,9 +1,6 @@
 package io.github.guegse.sample;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collector;
 
@@ -64,7 +61,7 @@ public class ForeachStream {
     }
 
     public static <T0> List<T0> stream_filter_toList(Collection<T0> input, Predicate<T0> arg0) {
-        List<T0> result = new ArrayList<>();
+        List<T0> result = new ArrayList<>(input.size());
         for (T0 t0: input) {
             if (!arg0.test(t0)) {
                 continue;
@@ -74,34 +71,35 @@ public class ForeachStream {
         return Collections.unmodifiableList(result);
     }
 
-    public static <T0> boolean stream_sorted_limit_allMatch(Collection<T0> input, long arg0, Predicate<T0> arg1) {
-        List<T0> sorted0 = new ArrayList<>();
-        if(arg0 < 0) {
+    public static <T0, T1> boolean stream_map_sorted_limit_allMatch(Collection<T0> input, Function<T0, T1> arg0, long arg1, Predicate<T1> arg2) {
+        List<T1> sorted0 = new ArrayList<>(input.size());
+        if(arg1 < 0) {
             throw new IllegalArgumentException();
         }
         long limit0 = 0;
         for (T0 t0: input) {
-            sorted0.add(t0);
+            T1 t1 = arg0.apply(t0);
+            sorted0.add(t1);
         }
-        Collections.sort((List) sorted0);
-        for (T0 t0: sorted0) {
-            limit0++;
-            if(limit0 > arg0) {
+        sorted0.sort(null);
+        for (T1 t1: sorted0) {
+            if(limit0 >= arg1) {
                 break;
             }
-            if (!arg1.test(t0)) {
+            limit0++;
+            if (!arg2.test(t1)) {
                 return false;
             }
         }
         return true;
     }
 
-    public static <T0, T1> T1 stream_takeWhile_skip_map_reduce(Collection<T0> input, Predicate<T0> arg0, long arg1, Function<T0, T1> arg2, T1 arg3,  BinaryOperator<T1> arg4) {
+    public static <T0> int stream_takeWhile_skip_mapToInt_reduce(Collection<T0> input, Predicate<T0> arg0, long arg1, ToIntFunction<T0> arg2, int arg3, IntBinaryOperator arg4) {
         if(arg1 < 0) {
             throw new IllegalArgumentException();
         }
         long skip0 = 0;
-        T1 result = arg3;
+        int result = arg3;
         for (T0 t0: input) {
             if(!arg0.test(t0)) {
                 break;
@@ -110,8 +108,59 @@ public class ForeachStream {
             if(skip0 <= arg1) {
                 continue;
             }
-            T1 t1 = arg2.apply(t0);
-            result = arg4.apply(result, t1);
+            int t1 = arg2.applyAsInt(t0);
+            result = arg4.applyAsInt(result, t1);
+        }
+        return result;
+    }
+
+    public static <T0> OptionalDouble stream_distinct_mapToDouble_max(Collection<T0> input, ToDoubleFunction<T0> arg0) {
+        Set<T0> distinct0 = new HashSet<>(input.size());
+        double max = 0;
+        boolean hasMax = false;
+        for (T0 t0: input) {
+            if(!distinct0.add(t0)) {
+                continue;
+            }
+            double t1 = arg0.applyAsDouble(t0);
+            if (hasMax) {
+                max = Math.max(max, t1);
+            } else {
+                hasMax = true;
+                max = t1;
+            }
+        }
+        if (hasMax) {
+            return OptionalDouble.of(max);
+        }
+        return OptionalDouble.empty();
+    }
+
+    public static <T0, U> U stream_skip_sortedComp_limit_reduceCombiner(Collection<T0> input, long arg0, Comparator<? super T0> arg1, long arg2, U arg3, BiFunction<U,? super T0, U> arg4, BinaryOperator<U> arg5) {
+        if(arg0 < 0) {
+            throw new IllegalArgumentException();
+        }
+        long skip0 = 0;
+        List<T0> sortedComp0 = new ArrayList<>(input.size());
+        if(arg2 < 0) {
+            throw new IllegalArgumentException();
+        }
+        long limit0 = 0;
+        U result = arg3;
+        for (T0 t0: input) {
+            skip0++;
+            if(skip0 <= arg0) {
+                continue;
+            }
+            sortedComp0.add(t0);
+        }
+        sortedComp0.sort(arg1);
+        for (T0 t0: sortedComp0) {
+            if(limit0 >= arg2) {
+                break;
+            }
+            limit0++;
+            result = arg4.apply(result, t0);
         }
         return result;
     }
