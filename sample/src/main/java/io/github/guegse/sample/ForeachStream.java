@@ -31,15 +31,17 @@ public class ForeachStream {
         return arg1.finisher().apply(result);
     }
 
-    public static <T0, T1, T2, R, A> R stream_flatMapLambda_map_collectCollector(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Collector<? super T2, A, R> arg2) {
-        A result = arg2.supplier().get();
+    public static <T0, T1, T2> Optional<T2> stream_flatMapLambda_map_filter_findFirst(Collection<T0> input, Function<T0, Collection<T1>> arg0, Function<T1, T2> arg1, Predicate<T2> arg2) {
         for (T0 t0: input) {
             for (T1 t1 : arg0.apply(t0)) {
                 T2 t2 = arg1.apply(t1);
-                arg2.accumulator().accept(result, t2);
+                if (!arg2.test(t2)) {
+                    continue;
+                }
+                return Optional.of(t2);
             }
         }
-        return arg2.finisher().apply(result);
+        return Optional.empty();
     }
 
     public static <T0, T1> void stream_map_forEach(Collection<T0> input, Function<T0, T1> arg0, Consumer<T1> arg1) {
@@ -49,24 +51,22 @@ public class ForeachStream {
         }
     }
 
-    public static <T0 extends Collection<T1>, T1> int stream_flatMapMemberReference_mapToInt_sum(Collection<T0> input, ToIntFunction<T1> arg0) {
-        int sum = 0;
+    public static <T0 extends Collection<T1>, T1> long stream_flatMapMemberReference_mapToLong_sum(Collection<T0> input, ToLongFunction<T1> arg0) {
+        long sum = 0;
         for (T0 t0: input) {
             for (T1 t1 : t0) {
-                int t2 = arg0.applyAsInt(t1);
+                long t2 = arg0.applyAsLong(t1);
                 sum += t2;
             }
         }
         return sum;
     }
 
-    public static <T0> List<T0> stream_filter_toList(Collection<T0> input, Predicate<T0> arg0) {
-        List<T0> result = new ArrayList<>(input.size());
+    public static <T0, T1> List<T1> stream_map_toList(Collection<T0> input, Function<T0, T1> arg0) {
+        List<T1> result = new ArrayList<>(input.size());
         for (T0 t0: input) {
-            if (!arg0.test(t0)) {
-                continue;
-            }
-            result.add(t0);
+            T1 t1 = arg0.apply(t0);
+            result.add(t1);
         }
         return Collections.unmodifiableList(result);
     }
