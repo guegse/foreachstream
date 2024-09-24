@@ -58,43 +58,43 @@ public class Sample {
 
     /* ====================================== Filter-ToList ====================================== */
 
-    public static List<String> test_stream_filter_toList(List<String> input) {
-        return input.stream().filter(s -> s.charAt(0) <= '6').toList();
+    public static List<Integer> test_stream_map_toList(List<String> input) {
+        return input.stream().map(s -> s.charAt(0) - '0').toList();
     }
 
-    public static List<String> test_stream_filter_toList_foreachstream(List<String> input) {
-        return stream_filter_toList(input, s -> s.charAt(0) <= '6');
+    public static List<Integer> test_stream_map_toList_foreachstream(List<String> input) {
+        return stream_map_toList(input, s -> s.charAt(0) - '0');
     }
 
-    public static List<String> test_stream_filter_toList_foreach(List<String> input) {
-        List<String> result = new ArrayList<>(input.size());
+    public static List<Integer> test_stream_map_toList_foreach(List<String> input) {
+        List<Integer> result = new ArrayList<>(input.size());
         for (String s : input) {
-            if (!(s.charAt(0) <= '6')) {
-                continue;
-            }
-            result.add(s);
+            result.add(s.charAt(0) - '0');
         }
         return Collections.unmodifiableList(result);
     }
 
-    /* ====================================== FlatMap-Map-CollectToSet ====================================== */
+    /* ====================================== FlatMap-Map-Filter-FindFirst ====================================== */
 
-    public static Set<Integer> test_stream_flatMap_map_collect_toSet(List<List<String>> input) {
-        return input.stream().flatMap(list -> list.stream()).map(Integer::valueOf).collect(Collectors.toSet());
+    public static Optional<Integer> test_stream_flatMap_map_filter_findFirst(List<List<String>> input) {
+        return input.stream().flatMap(list -> list.stream()).map(Integer::valueOf).filter(i -> i > 10).findFirst();
     }
 
-    public static Set<Integer> test_stream_flatMap_map_collect_toSet_foreachstream(List<List<String>> input) {
-        return stream_flatMapLambda_map_collectCollector(input, list -> list, Integer::valueOf, Collectors.toSet());
+    public static Optional<Integer> test_stream_flatMap_map_filter_findFirst_foreachstream(List<List<String>> input) {
+        return stream_flatMapLambda_map_filter_findFirst(input, list -> list, Integer::valueOf, i -> i > 10);
     }
 
-    public static Set<Integer> test_stream_flatMap_map_collect_toSet_foreach(List<List<String>> input) {
-        Set<Integer> result = new HashSet<>(input.size());
-        for (List<String> l : input) {
-            for (String s : l) {
-                result.add(Integer.valueOf(s));
+    public static Optional<Integer> test_stream_flatMap_map_filter_findFirst_foreach(List<List<String>> input) {
+        for (List<String> list : input) {
+            for (String s : list) {
+                int i = Integer.parseInt(s);
+                if (!(i > 10)) {
+                    continue;
+                }
+                return Optional.of(i);
             }
         }
-        return result;
+        return Optional.empty();
     }
 
     /* ====================================== Map-ForEach ====================================== */
@@ -119,21 +119,21 @@ public class Sample {
         return list;
     }
 
-    /* ====================================== FlatMap-MapToInt-Sum ====================================== */
+    /* ====================================== FlatMap-MapToLong-Sum ====================================== */
 
-    public static Integer test_stream_flatMap_mapToInt_sum(List<List<String>> input) {
-        return input.stream().flatMap(List::stream).mapToInt(Integer::parseInt).sum();
+    public static Long test_stream_flatMap_mapToLong_sum(List<List<String>> input) {
+        return input.stream().flatMap(List::stream).mapToLong(Long::parseLong).sum();
     }
 
-    public static Integer test_stream_flatMap_mapToInt_sum_foreachstream(List<List<String>> input) {
-        return stream_flatMapMemberReference_mapToInt_sum(input, Integer::parseInt);
+    public static Long test_stream_flatMap_mapToLong_sum_foreachstream(List<List<String>> input) {
+        return stream_flatMapMemberReference_mapToLong_sum(input, Long::parseLong);
     }
 
-    public static Integer test_stream_flatMap_mapToInt_sum_foreach(List<List<String>> input) {
-        int sum = 0;
+    public static Long test_stream_flatMap_mapToLong_sum_foreach(List<List<String>> input) {
+        long sum = 0;
         for (List<String> sublist : input) {
             for (String string : sublist) {
-                sum += Integer.parseInt(string);
+                sum += Long.parseLong(string);
             }
         }
         return sum;
@@ -264,10 +264,10 @@ public class Sample {
     private static final TestTuple[] TESTS = new TestTuple[] {
             new TestTuple<>("stream_map_filter_collectToList", Sample::test_stream_map_filter_collect_toList, Sample::test_stream_map_filter_collect_toList_foreachstream, Sample::test_stream_map_filter_collect_toList_foreach, new Plain()),
             new TestTuple<>("stream_filter_collectToList", Sample::test_stream_filter_collect_toList, Sample::test_stream_filter_collect_toList_foreachstream, Sample::test_stream_filter_collect_toList_foreach, new Plain()),
-            new TestTuple<>("stream_filter_toList", Sample::test_stream_filter_toList, Sample::test_stream_filter_toList_foreachstream, Sample::test_stream_filter_toList_foreach, new Plain()),
-            new TestTuple<>("stream_flatMap_map_collectToSet", Sample::test_stream_flatMap_map_collect_toSet, Sample::test_stream_flatMap_map_collect_toSet_foreachstream, Sample::test_stream_flatMap_map_collect_toSet_foreach, new FlatMap()),
+            new TestTuple<>("stream_map_toList", Sample::test_stream_map_toList, Sample::test_stream_map_toList_foreachstream, Sample::test_stream_map_toList_foreach, new Plain()),
+            new TestTuple<>("stream_flatMap_map_filter_findFirst", Sample::test_stream_flatMap_map_filter_findFirst, Sample::test_stream_flatMap_map_filter_findFirst_foreachstream, Sample::test_stream_flatMap_map_filter_findFirst_foreach, new FlatMap()),
             new TestTuple<>("stream_map_forEach", Sample::test_stream_map_forEach, Sample::test_stream_map_forEach_foreachstream, Sample::test_stream_map_forEach_foreach, new Plain()),
-            new TestTuple<>("stream_flatMap_mapToInt_sum", Sample::test_stream_flatMap_mapToInt_sum, Sample::test_stream_flatMap_mapToInt_sum_foreachstream, Sample::test_stream_flatMap_mapToInt_sum_foreach, new FlatMap()),
+            new TestTuple<>("stream_flatMap_mapToLong_sum", Sample::test_stream_flatMap_mapToLong_sum, Sample::test_stream_flatMap_mapToLong_sum_foreachstream, Sample::test_stream_flatMap_mapToLong_sum_foreach, new FlatMap()),
             new TestTuple<>("stream_map_sorted_limit_allMatch", Sample::test_stream_map_sorted_limit_allMatch, Sample::test_stream_map_sorted_limit_allMatch_foreachstream, Sample::test_stream_map_sorted_limit_allMatch_foreach, new Plain()),
             new TestTuple<>("stream_takeWhile_skip_map_reduce", Sample::test_stream_takeWhile_skip_mapToInt_reduce, Sample::test_stream_takeWhile_skip_mapToInt_reduce_foreachstream, Sample::test_stream_takeWhile_skip_mapToInt_reduce_foreach, new Plain()),
             new TestTuple<>("stream_skip_sortedComp_limit_reduceCombiner", Sample::test_stream_skip_sortedComp_limit_reduceCombiner, Sample::test_stream_skip_sortedComp_limit_reduceCombiner_foreachstream, Sample::test_stream_skip_sortedComp_limit_reduceCombiner_foreach, new Plain()),
@@ -287,7 +287,7 @@ public class Sample {
         for (int i = 0; i < getMaxSize(LIST_SIZES_ROOT); i++) {
             List<String> inner = new ArrayList<>();
             for (int j = 0; j < getMaxSize(LIST_SIZES_ROOT); j++) {
-                inner.add(String.valueOf(j));
+                inner.add(String.valueOf(i + j));
             }
             flatMapInput.add(inner);
         }
