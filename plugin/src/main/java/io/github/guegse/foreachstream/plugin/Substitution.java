@@ -17,18 +17,7 @@ public class Substitution {
     private final DebugOutput debugOutput;
     private final Statistics statistics;
 
-    private static class Entry {
-        public JCTree.JCMethodInvocation original;
-        public JCTree.JCMethodInvocation sub;
-        public JCTree.JCMethodInvocation streamCall;
-        public List<Pair<JCTree.JCExpression, String>> arguments;
-
-        public Entry(JCTree.JCMethodInvocation original, JCTree.JCMethodInvocation sub, JCTree.JCMethodInvocation streamCall, List<Pair<JCTree.JCExpression, String>> arguments) {
-            this.original = original;
-            this.sub = sub;
-            this.arguments = arguments;
-            this.streamCall = streamCall;
-        }
+    private record Entry (JCTree.JCMethodInvocation original, JCTree.JCMethodInvocation sub, JCTree.JCMethodInvocation streamCall, List<Pair<JCTree.JCExpression, String>> arguments) {
     }
 
     public Substitution(TreeMaker treeMaker, DebugOutput debugOutput, Statistics statistics) {
