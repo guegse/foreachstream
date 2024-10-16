@@ -10,9 +10,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>sample</artifactId>
+    <artifactId>benchmarks</artifactId>
     <packaging>jar</packaging>
-    <name>sample</name>
+    <name>benchmarks</name>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
