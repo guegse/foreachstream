@@ -4,7 +4,6 @@ import io.github.guegse.foreachstream.ForeachStreamCount;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.mockito.ArgumentCaptor;
 import org.mockito.MockedStatic;
 
 import java.util.*;
@@ -12,13 +11,12 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 class StreamTransformationTests {
 
     @FunctionalInterface
-    interface StreamReplacement{
+    private interface StreamReplacement{
         long streamFilterCount(Integer[] numbers, Predicate<Integer> predicate);
     }
 
@@ -65,12 +63,7 @@ class StreamTransformationTests {
             replacement.streamFilterCount(numbers, predicate);
 
             if(expected){
-                ArgumentCaptor<Collection<Integer>> collectionCaptor = ArgumentCaptor.forClass(Collection.class);
-                ArgumentCaptor<Predicate<Integer>> predicateCaptor = ArgumentCaptor.forClass(Predicate.class);
-
-                mockedStatic.verify(() -> ForeachStreamCount.stream_filter_count(collectionCaptor.capture(), predicateCaptor.capture()));
-                assertEquals(Arrays.asList(numbers), collectionCaptor.getValue());
-                assertEquals(predicate, predicateCaptor.getValue());
+                mockedStatic.verify(() -> ForeachStreamCount.stream_filter_count(anyCollection(), eq(predicate)));
             } else {
                 mockedStatic.verify(() -> ForeachStreamCount.stream_filter_count(anyCollection(), eq(predicate)), never());
             }
@@ -79,15 +72,39 @@ class StreamTransformationTests {
 
     static Stream<Arguments> streamProvider() {
         return Stream.of(
-                Arguments.of("testSuccessfulTransformationWhenUsingStreams", (StreamReplacement) (numbers, predicate) -> {
-                    List<Integer> list = Arrays.asList(numbers);
+                Arguments.of("testSuccessfulTransformationWhenUsingArrayList", (StreamReplacement) (numbers, predicate) -> {
+                    ArrayList<Integer> list = new ArrayList<>(Arrays.asList(numbers));
                     return list.stream().filter(predicate).count();
                 }, true),
-                Arguments.of("testFailedTransformationWhenUsingSpliteratorsAsStreams", (StreamReplacement) (numbers, predicate) -> {
+                Arguments.of("testSuccessfulTransformationWhenUsingLinkedList", (StreamReplacement) (numbers, predicate) -> {
+                    LinkedList<Integer> list = new LinkedList<>(Arrays.asList(numbers));
+                    return list.stream().filter(predicate).count();
+                }, true),
+                Arguments.of("testSuccessfulTransformationWhenUsingVector", (StreamReplacement) (numbers, predicate) -> {
+                    Vector<Integer> list = new Vector<>(Arrays.asList(numbers));
+                    return list.stream().filter(predicate).count();
+                }, true),
+                Arguments.of("testSuccessfulTransformationWhenUsingHashSet", (StreamReplacement) (numbers, predicate) -> {
+                    HashSet<Integer> list = new HashSet<>(Arrays.asList(numbers));
+                    return list.stream().filter(predicate).count();
+                }, true),
+                Arguments.of("testSuccessfulTransformationWhenUsingTreeSet", (StreamReplacement) (numbers, predicate) -> {
+                    TreeSet<Integer> list = new TreeSet<>(Arrays.asList(numbers));
+                    return list.stream().filter(predicate).count();
+                }, true),
+                Arguments.of("testSuccessfulTransformationWhenUsingLinkedHashSet", (StreamReplacement) (numbers, predicate) -> {
+                    LinkedHashSet<Integer> list = new LinkedHashSet<>(Arrays.asList(numbers));
+                    return list.stream().filter(predicate).count();
+                }, true),
+                Arguments.of("testSuccessfulTransformationWhenUsingPriorityQueue", (StreamReplacement) (numbers, predicate) -> {
+                    PriorityQueue<Integer> list = new PriorityQueue<>(Arrays.asList(numbers));
+                    return list.stream().filter(predicate).count();
+                }, true),
+                Arguments.of("testFailedTransformationWhenUsingSpliteratorAsStream", (StreamReplacement) (numbers, predicate) -> {
                     SpliteratorToStream spliterator = new SpliteratorToStream(numbers);
                     return spliterator.stream().filter(predicate).count();
                 }, false),
-                Arguments.of("testFailedTransformationWhenUsingSelfmadeStreams", (StreamReplacement) (numbers, predicate) -> {
+                Arguments.of("testFailedTransformationWhenUsingSelfmadeStream", (StreamReplacement) (numbers, predicate) -> {
                     SelfmadeStream<Integer> selfmadeStream = new SelfmadeStream<>(numbers);
                     return selfmadeStream.stream().filter(predicate).count();
                 }, false)
