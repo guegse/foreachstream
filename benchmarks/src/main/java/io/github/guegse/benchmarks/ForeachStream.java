@@ -1,4 +1,4 @@
-package io.github.guegse.sample;
+package io.github.guegse.benchmarks;
 
 import java.util.*;
 import java.util.function.*;

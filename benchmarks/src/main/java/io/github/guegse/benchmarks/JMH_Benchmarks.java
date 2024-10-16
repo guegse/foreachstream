@@ -1,4 +1,4 @@
-package io.github.guegse.sample;
+package io.github.guegse.benchmarks;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
@@ -12,22 +12,19 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-import static io.github.guegse.sample.ForeachStream.*;
+import static io.github.guegse.benchmarks.ForeachStream.*;
 
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @Warmup(iterations = 2, time = 10, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 4, time = 12, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 4, time = 15, timeUnit = TimeUnit.SECONDS)
 @Fork(2)
-//@Warmup(iterations = 2, time = 20, timeUnit = TimeUnit.SECONDS)
-//@Measurement(iterations = 4, time = 30, timeUnit = TimeUnit.SECONDS)
-//@Fork(2)
 public class JMH_Benchmarks {
 
     /* ====================================== Input Initialization ====================================== */
 
-    @Param({"1", "10", "100", "1000", "10000", "100000"/* , "1000000"*/})
+    @Param({"1", "10", "100", "1000", "10000", "100000" , "1000000"})
     private int size;
 
     private List<String> input;
